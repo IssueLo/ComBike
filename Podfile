@@ -11,5 +11,7 @@ target 'RideTogether' do
   pod 'Firebase/Auth'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
+  
+  pod 'SwiftLint'
 
 end

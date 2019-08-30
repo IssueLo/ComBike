@@ -143,6 +143,7 @@
 				95D613C323155BF5008D885E /* Frameworks */,
 				95D613C423155BF5008D885E /* Resources */,
 				400601211A5ADF2327733431 /* [CP] Embed Pods Frameworks */,
+				951554BA2318DB0F0080BBB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -217,6 +218,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RideTogether/Pods-RideTogether-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		951554BA2318DB0F0080BBB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" \n";
 		};
 		CAACCD5A4C10B50A32B64CF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
