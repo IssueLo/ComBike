@@ -10,11 +10,23 @@ import UIKit
 
 class UserSignInView: UIView {
     
-    @IBOutlet weak var userEmailLabel: UITextField!
+    @IBOutlet weak var userEmailTxtFld: UITextField! {
+        didSet {
+            
+            userEmailTxtFld.placeholder = "請輸入 email"
+        }
+    }
     
-    @IBOutlet weak var userPasswordLabel: UITextField!
+    @IBOutlet weak var userPasswordTxtFld: UITextField!{
+        didSet {
+            
+            userPasswordTxtFld.placeholder = "請輸入密碼"
+        }
+    }
     
     @IBOutlet weak var confirmButton: UIButton!
+    
+    @IBOutlet weak var logoutButton: UIButton!
     
     @IBAction func confirmSignUp() {
         
@@ -23,6 +35,5 @@ class UserSignInView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-        
         
 }
