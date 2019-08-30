@@ -17,7 +17,7 @@ class UserSignInView: UIView {
         }
     }
     
-    @IBOutlet weak var userPasswordTxtFld: UITextField!{
+    @IBOutlet weak var userPasswordTxtFld: UITextField! {
         didSet {
             
             userPasswordTxtFld.placeholder = "請輸入密碼"

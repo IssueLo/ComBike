@@ -22,7 +22,7 @@ class UserLoginInController: UIViewController {
     
     func setUpUserSignInView() {
         
-        userSignInView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
+        userSignInView.confirmButton.addTarget(self, action: #selector(onClickLogin), for: .touchUpInside)
         
         userSignInView.logoutButton.addTarget(self, action: #selector(onClickLogout), for: .touchUpInside)
     }
@@ -33,7 +33,6 @@ class UserLoginInController: UIViewController {
         if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
 
             showAlert("請輸入信箱跟密碼")
-
         }
         
         Auth.auth().createUser(withEmail: userSignInView.userEmailTxtFld.text ?? "",
@@ -47,6 +46,7 @@ class UserLoginInController: UIViewController {
                                 }
                                 
                                 self.showAlert("註冊成功，已登入")
+                                
         }
     }
     
@@ -56,7 +56,6 @@ class UserLoginInController: UIViewController {
         if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
             
             showAlert("請輸入信箱跟密碼")
-            
         }
         
         Auth.auth().signIn(withEmail: userSignInView.userEmailTxtFld.text ?? "",
@@ -70,6 +69,8 @@ class UserLoginInController: UIViewController {
                             }
                             
                             self.showAlert("登入成功")
+                            
+                            print(Auth.auth().currentUser?.uid as Any)
         }
     }
     
@@ -91,7 +92,6 @@ class UserLoginInController: UIViewController {
             
             showAlert(error.localizedDescription)
         }
-        
     }
     
     // MARK: Firebase 密碼重設
@@ -124,7 +124,6 @@ class UserLoginInController: UIViewController {
         alertController.addAction(okAction)
         
         self.present(alertController, animated: true, completion: nil)
-        
     }
-
+    
 }
