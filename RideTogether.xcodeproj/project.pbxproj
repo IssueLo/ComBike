@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
+		951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignInView.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
-		95D613CC23155BF5008D885E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* ViewController.swift */; };
+		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
@@ -19,9 +20,10 @@
 /* Begin PBXFileReference section */
 		38001BBEC0A2B8B4F6323FD5 /* Pods-RideTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.release.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.release.xcconfig"; sourceTree = "<group>"; };
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		951554BB2318F1040080BBB7 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95D613CB23155BF5008D885E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
 		95D613CE23155BF5008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95D613D023155BF6008D885E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,7 +112,7 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95D613CB23155BF5008D885E /* ViewController.swift */,
+				95D613CB23155BF5008D885E /* UserLoginInController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -118,6 +120,7 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				951554BB2318F1040080BBB7 /* UserSignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,8 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D613CC23155BF5008D885E /* ViewController.swift in Sources */,
+				95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
+				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
