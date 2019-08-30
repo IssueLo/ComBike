@@ -50,6 +50,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		951554B52318D5DC0080BBB7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				95D613CD23155BF5008D885E /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		95D613BD23155BF5008D885E = {
 			isa = PBXGroup;
 			children = (
@@ -71,17 +79,16 @@
 		95D613C823155BF5008D885E /* RideTogether */ = {
 			isa = PBXGroup;
 			children = (
-				95D613DC23155C20008D885E /* Extension */,
-				95D613DB23155C0C008D885E /* Model */,
-				95D613DD23155C2D008D885E /* Controller */,
-				95D613DE23155C36008D885E /* View */,
 				95D613C923155BF5008D885E /* AppDelegate.swift */,
-				95D613CB23155BF5008D885E /* ViewController.swift */,
-				95D613CD23155BF5008D885E /* Main.storyboard */,
+				95D613DC23155C20008D885E /* Extension */,
+				951554B52318D5DC0080BBB7 /* Storyboard */,
+				95D613DB23155C0C008D885E /* Model */,
+				95D613DE23155C36008D885E /* View */,
+				95D613DD23155C2D008D885E /* Controller */,
 				95D613D023155BF6008D885E /* Assets.xcassets */,
 				95D613D223155BF6008D885E /* LaunchScreen.storyboard */,
-				95D613D523155BF6008D885E /* Info.plist */,
 				951554B32318D0570080BBB7 /* GoogleService-Info.plist */,
+				95D613D523155BF6008D885E /* Info.plist */,
 			);
 			path = RideTogether;
 			sourceTree = "<group>";
@@ -103,6 +110,7 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95D613CB23155BF5008D885E /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
