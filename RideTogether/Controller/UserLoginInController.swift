@@ -18,6 +18,8 @@ class UserLoginInController: UIViewController {
         super.viewDidLoad()
         
         setUpUserSignInView()
+        
+        FirebaseController().searchUserGroup("Luke")
     }
     
     func setUpUserSignInView() {

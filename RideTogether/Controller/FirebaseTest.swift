@@ -26,9 +26,50 @@ class FirebaseController: UIViewController {
                         
             if let querySnapshot = querySnapshot {
                 
-                print(querySnapshot)
+                print(querySnapshot.data() as Any)
             }
         }
     }
     
+    var myGroup = [MyGroup]()
+    
+    func searchUserGroup(_ id: String) {
+        
+        let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: id)
+        
+        uesrInfo.getDocuments { (querySnapshot, _) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for document in querySnapshot.documents {
+                    
+                    guard
+                        let name = document.data()["name"] as? String,
+                        let member = document.data()["member"] as? [String]
+                        
+                    else { return }
+                    
+                    let group = MyGroup(name: name, member: member)
+                    
+                    self.myGroup.append(group)
+                }
+                
+                print(self.myGroup)
+            }
+        }
+    }
+}
+
+struct MyGroup {
+
+    var name: String
+    
+    var member: [String]
+    
+    init (name: String, member: [String]) {
+        
+        self.name = name
+        
+        self.member = member
+    }
 }
