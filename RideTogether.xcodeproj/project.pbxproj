@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignInView.swift */; };
-		951554BE23193E910080BBB7 /* FirebaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseTest.swift */; };
+		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseLoginManager.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
@@ -22,7 +23,8 @@
 		38001BBEC0A2B8B4F6323FD5 /* Pods-RideTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.release.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.release.xcconfig"; sourceTree = "<group>"; };
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
-		951554BD23193E910080BBB7 /* FirebaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTest.swift; sourceTree = "<group>"; };
+		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		95280692231CE3A400EFD895 /* FirebaseLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginManager.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		95D613DB23155C0C008D885E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
+				95280692231CE3A400EFD895 /* FirebaseLoginManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				95D613CB23155BF5008D885E /* UserLoginInController.swift */,
-				951554BD23193E910080BBB7 /* FirebaseTest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,7 +276,8 @@
 			files = (
 				95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
-				951554BE23193E910080BBB7 /* FirebaseTest.swift in Sources */,
+				95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */,
+				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

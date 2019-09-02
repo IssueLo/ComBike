@@ -10,32 +10,30 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class FirebaseController: UIViewController {
+class FirebaseDataManeger {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        searchUserInfo("igUfN5KSRrROF16SdoNJ")
-    }
+    static let shared = FirebaseDataManeger()
     
-    func searchUserInfo(_ id: String) {
+    private init() {}
+    
+    func searchUserInfo(_ userID: String) {
         
-        let uesrInfo = Firestore.firestore().collection("userInfo").document(id)
+        let uesrInfo = Firestore.firestore().collection("userInfo").document(userID)
         
         uesrInfo.getDocument { (querySnapshot, _) in
                         
             if let querySnapshot = querySnapshot {
                 
-                print(querySnapshot.data() as Any)
+                print("UserInfo: \(querySnapshot.data() as Any)")
             }
         }
     }
     
     var myGroup = [MyGroup]()
     
-    func searchUserGroup(_ id: String) {
+    func searchUserGroup(_ userID: String) {
         
-        let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: id)
+        let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
         
         uesrInfo.getDocuments { (querySnapshot, _) in
             
@@ -52,9 +50,27 @@ class FirebaseController: UIViewController {
                     let group = MyGroup(name: name, member: member)
                     
                     self.myGroup.append(group)
+                    
+                    self.getDataFromGroup(document.documentID)
                 }
                 
-                print(self.myGroup)
+                print("MyGroup: \(self.myGroup)")
+            }
+        }
+    }
+    
+    private func getDataFromGroup(_ groupID: String) {
+        
+        let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
+        
+        dataInfo.getDocuments { (querySnapshot, _) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for document in querySnapshot.documents {
+                    
+                    print("GroupData: \(document.data() as Any)")
+                }
             }
         }
     }
