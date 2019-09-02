@@ -10,6 +10,13 @@ import UIKit
 
 class UserSignInView: UIView {
     
+    @IBOutlet weak var userNameTxtFld: UITextField! {
+        didSet {
+            
+            userNameTxtFld.placeholder = "請輸入暱稱"
+        }
+    }
+    
     @IBOutlet weak var userEmailTxtFld: UITextField! {
         didSet {
             

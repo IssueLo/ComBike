@@ -22,9 +22,16 @@ class UserLoginInController: UIViewController {
         // Add for FirebaseAccountManager
         FirebaseAccountManager.shared.belongToVC = self
         
-        FirebaseDataManeger.shared.searchUserInfo("userID")
+        // 功能測試
+//        FirebaseDataManeger.shared.createGroup("台北")
         
-        FirebaseDataManeger.shared.searchUserGroup("userID")
+//        FirebaseDataManeger.shared.addMemberInGroup("Ac02rEDtWurlZepI671b", "wind19891001")
+        
+//        FirebaseDataManeger.shared.modifyGroupName("Ac02rEDtWurlZepI671b", "基隆")
+        
+//        FirebaseDataManeger.shared.searchUserInfo("userID")
+
+//        FirebaseDataManeger.shared.searchUserGroup("userID")
 
     }
     

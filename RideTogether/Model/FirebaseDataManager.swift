@@ -16,11 +16,78 @@ class FirebaseDataManeger {
     
     private init() {}
     
+    // 新會員資料
+    func addUserInfo(_ userUID: String,
+                     _ userName: String,
+                     _ userEmail: String) {
+        
+        let userInfoCollection = Firestore.firestore().collection("userInfo")
+        
+        let userInfo: [String: Any] = ["userName": userName, "userEmail": userEmail]
+        
+        userInfoCollection.document(userUID).setData(userInfo)
+    }
+    
+    // 建立群組
+    func createGroup(_ groupName: String) {
+        
+        let groupCollection = Firestore.firestore().collection("group")
+        
+        groupCollection.document().setData(["name": groupName, "member": []])
+        
+        print(groupCollection.document().documentID)
+    }
+    
+    // 編輯群組 - 增加成員
+    func addMemberInGroup(_ groupID: String, _ userID: String) {
+        
+        let groupDocument = Firestore.firestore().collection("group").document(groupID)
+                
+        groupDocument.getDocument { (querySnapshot, _) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                guard
+                    let name = querySnapshot.data()?["name"] as? String,
+                    var member = querySnapshot.data()?["member"] as? [String]
+                else { return }
+                
+                member.append(userID)
+                
+                groupDocument.setData(["name": name, "member": member])
+            }
+        }
+    }
+    
+    // 編輯群組 - 更改群組名稱
+    func modifyGroupName(_ groupID: String, _ groupName: String) {
+        
+        let groupDocument = Firestore.firestore().collection("group").document(groupID)
+        
+        groupDocument.getDocument { (querySnapshot, _) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                guard
+                    let member = querySnapshot.data()?["member"] as? [String]
+                else { return }
+                
+                groupDocument.setData(["name": groupName, "member": member])
+            }
+        }
+    }
+    
+//    func addMemberInGroup(_ groupID: String, _ userID: String) {
+//        
+//        
+//    }
+    
+    // 測試用：搜尋會員
     func searchUserInfo(_ userID: String) {
         
-        let uesrInfo = Firestore.firestore().collection("userInfo").document(userID)
+        let uesrInfoDocument = Firestore.firestore().collection("userInfo").document(userID)
         
-        uesrInfo.getDocument { (querySnapshot, _) in
+        uesrInfoDocument.getDocument { (querySnapshot, _) in
                         
             if let querySnapshot = querySnapshot {
                 
@@ -31,6 +98,7 @@ class FirebaseDataManeger {
     
     var myGroup = [MyGroup]()
     
+    // 搜尋會員所屬群組
     func searchUserGroup(_ userID: String) {
         
         let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
@@ -59,6 +127,7 @@ class FirebaseDataManeger {
         }
     }
     
+    // 抓取群組資料
     private func getDataFromGroup(_ groupID: String) {
         
         let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
@@ -89,3 +158,17 @@ struct MyGroup {
         self.member = member
     }
 }
+
+//struct UserInfo {
+//
+//    var name: String
+//
+//    var email: String
+//
+//    init (userName: String, userEmail: String) {
+//
+//        self.name = userName
+//
+//        self.email = userEmail
+//    }
+//}

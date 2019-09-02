@@ -36,6 +36,15 @@ class FirebaseAccountManager {
                                 }
                                 
                                 self.showAlert(self.belongToVC, "註冊成功，已登入")
+                                
+                                // 增加 userInfo 到 DataBase
+                                guard
+                                    let userUID = Auth.auth().currentUser?.uid,
+                                    let userName = userSignInView.userNameTxtFld.text,
+                                    let userEmail = Auth.auth().currentUser?.email
+                                else { return }
+                                
+                                FirebaseDataManeger.shared.addUserInfo(userUID, userName, userEmail)
         }
     }
     
