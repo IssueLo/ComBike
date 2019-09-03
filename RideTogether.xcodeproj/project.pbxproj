@@ -19,6 +19,10 @@
 		952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806A4231E3AF200EFD895 /* RidingViewController.swift */; };
 		952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */; };
 		952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */; };
+		952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */; };
+		952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806AE231E512700EFD895 /* CreateGroupController.swift */; };
+		952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */; };
+		952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B2231E643900EFD895 /* RidingResultViewController.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		952806A4231E3AF200EFD895 /* RidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
 		952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RidingStoryboard.storyboard; sourceTree = "<group>"; };
 		952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateGroupStoryboard.storyboard; sourceTree = "<group>"; };
+		952806AE231E512700EFD895 /* CreateGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
+		952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RidingResultStoryboard.storyboard; sourceTree = "<group>"; };
+		952806B2231E643900EFD895 /* RidingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultViewController.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
@@ -76,8 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
+				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
 				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
+				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
 				95D613CD23155BF5008D885E /* Main.storyboard */,
 			);
 			path = Storyboard;
@@ -147,8 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				9528069B231E086200EFD895 /* GroupViewController.swift */,
+				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
+				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
 				95D613CB23155BF5008D885E /* UserLoginInController.swift */,
 			);
 			path = Controller;
@@ -235,12 +247,14 @@
 			files = (
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
+				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
 				952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */,
 				95D613CF23155BF5008D885E /* Main.storyboard in Resources */,
+				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupViewController.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */,
@@ -317,6 +332,7 @@
 				95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
+				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);

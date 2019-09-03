@@ -12,6 +12,17 @@ class GroupViewController: UIViewController {
     
     var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
     
+    @IBAction func createGroup() {
+        
+        let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
+        
+        let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
+        
+        createGroupVC.modalPresentationStyle = .overCurrentContext
+        
+        present(createGroupVC, animated: false, completion: nil)
+    }
+    
     @IBOutlet weak var groupListTableView: UITableView! {
         didSet {
 //            
