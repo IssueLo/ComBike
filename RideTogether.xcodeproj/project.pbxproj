@@ -23,6 +23,9 @@
 		952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806AE231E512700EFD895 /* CreateGroupController.swift */; };
 		952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */; };
 		952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B2231E643900EFD895 /* RidingResultViewController.swift */; };
+		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
+		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
+		952806BA231E98E900EFD895 /* extansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* extansion.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 		952806AE231E512700EFD895 /* CreateGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
 		952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RidingResultStoryboard.storyboard; sourceTree = "<group>"; };
 		952806B2231E643900EFD895 /* RidingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultViewController.swift; sourceTree = "<group>"; };
+		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
+		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
+		952806B9231E98E900EFD895 /* extansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extansion.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,15 @@
 			path = GroupListCell;
 			sourceTree = "<group>";
 		};
+		952806B8231E6A6100EFD895 /* RidingResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				952806B6231E64EA00EFD895 /* RidingResultCell.swift */,
+				952806B4231E64D500EFD895 /* RidingResultCell.xib */,
+			);
+			path = RidingResultCell;
+			sourceTree = "<group>";
+		};
 		95D613BD23155BF5008D885E = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +164,7 @@
 		95D613DC23155C20008D885E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				952806B9231E98E900EFD895 /* extansion.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -170,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				952806A1231E104A00EFD895 /* GroupListCell */,
+				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				951554BB2318F1040080BBB7 /* UserSignInView.swift */,
 			);
 			path = View;
@@ -251,6 +268,7 @@
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
+				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
 				952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */,
 				95D613CF23155BF5008D885E /* Main.storyboard in Resources */,
@@ -329,11 +347,13 @@
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
+				952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
+				952806BA231E98E900EFD895 /* extansion.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

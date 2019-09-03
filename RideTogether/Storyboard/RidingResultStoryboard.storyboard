@@ -10,27 +10,46 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Riding Result View Controller-->
         <scene sceneID="yOq-lb-kdK">
             <objects>
-                <viewController storyboardIdentifier="RidingViewController" id="qZn-5m-RNP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RidingResultViewControllor" id="qZn-5m-RNP" customClass="RidingResultViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxN-bj-pfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nu5-A1-LDq">
-                                <rect key="frame" x="24" y="24" width="327" height="300"/>
+                                <rect key="frame" x="24" y="64" width="327" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="6Br-zO-p0r"/>
                                 </constraints>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-St-NEy">
-                                <rect key="frame" x="24" y="332" width="327" height="315"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-St-NEy">
+                                <rect key="frame" x="24" y="372" width="327" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qZn-5m-RNP" id="ikn-GB-Dno"/>
+                                    <outlet property="delegate" destination="qZn-5m-RNP" id="M5f-ex-SJ3"/>
+                                </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykI-mg-OtW">
+                                <rect key="frame" x="141.5" y="27" width="92.5" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Tbn-xN-BVf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-Pj-rfr">
+                                <rect key="frame" x="24" y="26.5" width="62" height="30"/>
+                                <state key="normal" title="返回首頁"/>
+                                <connections>
+                                    <action selector="backToGroupList" destination="qZn-5m-RNP" eventType="touchUpInside" id="R2M-Ob-2Z3"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzC-Jn-aKe">
-                                <rect key="frame" x="67.5" y="243" width="240" height="71"/>
+                                <rect key="frame" x="67.5" y="283" width="240" height="71"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mGi-nN-fyb">
                                         <rect key="frame" x="33" y="10" width="87" height="51"/>
@@ -80,16 +99,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3tP-St-NEy" firstAttribute="top" secondItem="nu5-A1-LDq" secondAttribute="bottom" constant="8" id="1Z9-Jr-UUW"/>
+                            <constraint firstItem="qRG-eK-FjC" firstAttribute="bottom" secondItem="3tP-St-NEy" secondAttribute="bottom" constant="20" id="8Zy-7V-jrE"/>
+                            <constraint firstItem="pkt-Pj-rfr" firstAttribute="centerY" secondItem="ykI-mg-OtW" secondAttribute="centerY" id="CIr-MG-7aw"/>
+                            <constraint firstItem="ykI-mg-OtW" firstAttribute="top" secondItem="XxN-bj-pfE" secondAttribute="top" constant="27" id="E1Y-MI-rVJ"/>
+                            <constraint firstItem="3tP-St-NEy" firstAttribute="trailing" secondItem="nu5-A1-LDq" secondAttribute="trailing" id="ERk-DF-qV1"/>
                             <constraint firstItem="pzC-Jn-aKe" firstAttribute="centerX" secondItem="XxN-bj-pfE" secondAttribute="centerX" id="GIP-so-Oag"/>
-                            <constraint firstItem="nu5-A1-LDq" firstAttribute="top" secondItem="XxN-bj-pfE" secondAttribute="top" constant="24" id="bXD-J0-1pv"/>
+                            <constraint firstItem="pkt-Pj-rfr" firstAttribute="leading" secondItem="nu5-A1-LDq" secondAttribute="leading" id="K1T-rp-MP0"/>
+                            <constraint firstItem="3tP-St-NEy" firstAttribute="leading" secondItem="nu5-A1-LDq" secondAttribute="leading" id="TIU-bI-b5U"/>
+                            <constraint firstItem="nu5-A1-LDq" firstAttribute="top" secondItem="XxN-bj-pfE" secondAttribute="top" constant="64" id="bXD-J0-1pv"/>
                             <constraint firstItem="qRG-eK-FjC" firstAttribute="trailing" secondItem="nu5-A1-LDq" secondAttribute="trailing" constant="24" id="dDg-IT-Lhm"/>
+                            <constraint firstItem="ykI-mg-OtW" firstAttribute="centerX" secondItem="XxN-bj-pfE" secondAttribute="centerX" id="wng-hL-1VX"/>
                             <constraint firstItem="nu5-A1-LDq" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" constant="24" id="y4P-83-GpG"/>
                             <constraint firstItem="pzC-Jn-aKe" firstAttribute="bottom" secondItem="nu5-A1-LDq" secondAttribute="bottom" constant="-10" id="z5W-uP-Np4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qRG-eK-FjC"/>
                     </view>
                     <connections>
-                        <outlet property="infoView" destination="pzC-Jn-aKe" id="dGQ-xn-Gvi"/>
+                        <outlet property="groupNameLabel" destination="ykI-mg-OtW" id="FfE-7D-bCl"/>
+                        <outlet property="ridingResultTableView" destination="3tP-St-NEy" id="0Cj-TA-hLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nws-MT-Gzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
