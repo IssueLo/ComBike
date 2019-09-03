@@ -16,7 +16,7 @@ class FirebaseDataManeger {
     
     private init() {}
     
-    // 新會員資料
+    // 新加入會員資料
     func addUserInfo(_ userUID: String,
                      _ userName: String,
                      _ userEmail: String) {
@@ -77,11 +77,6 @@ class FirebaseDataManeger {
         }
     }
     
-//    func addMemberInGroup(_ groupID: String, _ userID: String) {
-//        
-//        
-//    }
-    
     // 測試用：搜尋會員
     func searchUserInfo(_ userID: String) {
         
@@ -115,10 +110,11 @@ class FirebaseDataManeger {
                         
                     else { return }
                     
-                    let group = MyGroup(name: name, member: member)
+                    let group = MyGroup(groupName: name, groupMember: member)
                     
                     self.myGroup.append(group)
                     
+                    // 抓取群組資料
                     self.getDataFromGroup(document.documentID)
                 }
                 
@@ -126,6 +122,8 @@ class FirebaseDataManeger {
             }
         }
     }
+    
+    var memberData = [MemberData]()
     
     // 抓取群組資料
     private func getDataFromGroup(_ groupID: String) {
@@ -138,7 +136,16 @@ class FirebaseDataManeger {
                 
                 for document in querySnapshot.documents {
                     
-                    print("GroupData: \(document.data() as Any)")
+                    guard
+                        let location = document.data()["location"] as? GeoPoint,
+                        let averageSpeed = document.data()["averageSpeed"] as? Double,
+                        let distance = document.data()["distance"] as? Int
+                    else { return }
+                    
+                    let memberData = MemberData(location, averageSpeed, distance)
+                    
+                    print(memberData)
+//                    print("GroupData: \(document.data() as Any)")
                 }
             }
         }
@@ -151,11 +158,38 @@ struct MyGroup {
     
     var member: [String]
     
-    init (name: String, member: [String]) {
+    init (groupName: String, groupMember: [String]) {
         
-        self.name = name
+        self.name = groupName
         
-        self.member = member
+        self.member = groupMember
+    }
+}
+
+struct MemberData {
+    
+//    var name: String
+    
+    var location: GeoPoint
+    
+//    var route: [GeoPoint]
+    
+//    var spendTime: Int
+    
+    var averageSpeed: Double
+    
+//    var maximumSpeed: Double
+    
+    var distance: Int
+    
+    init(_ location: GeoPoint, _ averageSpeed: Double, _ distance: Int) {
+        
+        self.location = location
+        
+        self.averageSpeed = averageSpeed
+        
+        self.distance = distance
+        
     }
 }
 

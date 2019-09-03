@@ -11,6 +11,11 @@
 		951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignInView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
 		95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseLoginManager.swift */; };
+		95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */; };
+		95280698231E065700EFD895 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95280697231E065700EFD895 /* GroupListCell.xib */; };
+		9528069C231E086200EFD895 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupViewController.swift */; };
+		9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069D231E098A00EFD895 /* GroupListCell.swift */; };
+		952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069F231E101200EFD895 /* GroupDetailViewController.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 		951554BB2318F1040080BBB7 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		95280692231CE3A400EFD895 /* FirebaseLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginManager.swift; sourceTree = "<group>"; };
+		95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupStoryboard.storyboard; sourceTree = "<group>"; };
+		95280697231E065700EFD895 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
+		9528069B231E086200EFD895 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		9528069D231E098A00EFD895 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
+		9528069F231E101200EFD895 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
@@ -60,8 +70,20 @@
 			isa = PBXGroup;
 			children = (
 				95D613CD23155BF5008D885E /* Main.storyboard */,
+				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
+				9528069B231E086200EFD895 /* GroupViewController.swift */,
+				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		952806A1231E104A00EFD895 /* GroupListCell */ = {
+			isa = PBXGroup;
+			children = (
+				9528069D231E098A00EFD895 /* GroupListCell.swift */,
+				95280697231E065700EFD895 /* GroupListCell.xib */,
+			);
+			path = GroupListCell;
 			sourceTree = "<group>";
 		};
 		95D613BD23155BF5008D885E = {
@@ -126,6 +148,7 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				952806A1231E104A00EFD895 /* GroupListCell */,
 				951554BB2318F1040080BBB7 /* UserSignInView.swift */,
 			);
 			path = View;
@@ -201,6 +224,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
+				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
@@ -274,11 +299,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9528069C231E086200EFD895 /* GroupViewController.swift in Sources */,
+				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseLoginManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
+				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

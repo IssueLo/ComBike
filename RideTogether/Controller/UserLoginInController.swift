@@ -31,7 +31,7 @@ class UserLoginInController: UIViewController {
         
 //        FirebaseDataManeger.shared.searchUserInfo("userID")
 
-//        FirebaseDataManeger.shared.searchUserGroup("userID")
+//        FirebaseDataManeger.shared.searchUserGroup("user2ID")
 
     }
     
