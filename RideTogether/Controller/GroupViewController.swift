@@ -35,7 +35,7 @@ extension GroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return groupNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +60,7 @@ extension GroupViewController: UITableViewDataSource {
     
     private func showGroupDetailViewController(_ groupName: String) {
         
-        let storyboard = UIStoryboard.init(name: "GroupStoryboard", bundle: nil)
+        let storyboard = UIStoryboard.init(name: "GroupDetailStoryboard", bundle: nil)
         
         guard
             let detailVC = storyboard.instantiateViewController(withIdentifier: "GroupDetailViewController")
@@ -75,9 +75,8 @@ extension GroupViewController: UITableViewDataSource {
         
         detailVC.navigationTitle = groupName
         
-        show(detailVC, sender: nil)
+        self.show(detailVC, sender: nil)
     }
-    
 }
 
 extension GroupViewController: UITableViewDelegate {

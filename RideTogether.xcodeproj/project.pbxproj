@@ -16,6 +16,9 @@
 		9528069C231E086200EFD895 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupViewController.swift */; };
 		9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069D231E098A00EFD895 /* GroupListCell.swift */; };
 		952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069F231E101200EFD895 /* GroupDetailViewController.swift */; };
+		952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806A4231E3AF200EFD895 /* RidingViewController.swift */; };
+		952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */; };
+		952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginInController.swift */; };
 		95D613CF23155BF5008D885E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		9528069B231E086200EFD895 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		9528069D231E098A00EFD895 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		9528069F231E101200EFD895 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		952806A4231E3AF200EFD895 /* RidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
+		952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RidingStoryboard.storyboard; sourceTree = "<group>"; };
+		952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInController.swift; sourceTree = "<group>"; };
@@ -69,10 +75,10 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				95D613CD23155BF5008D885E /* Main.storyboard */,
-				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
-				9528069B231E086200EFD895 /* GroupViewController.swift */,
 				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
+				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
+				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
+				95D613CD23155BF5008D885E /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -140,6 +146,9 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9528069B231E086200EFD895 /* GroupViewController.swift */,
+				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
+				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				95D613CB23155BF5008D885E /* UserLoginInController.swift */,
 			);
 			path = Controller;
@@ -224,11 +233,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
+				952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */,
 				95D613CF23155BF5008D885E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +318,7 @@
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
+				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +466,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +486,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

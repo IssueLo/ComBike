@@ -12,6 +12,16 @@ class GroupDetailViewController: UIViewController {
     
     @IBOutlet weak var memberListTableView: UITableView!
     
+    @IBAction func startRiding() {
+        
+        let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
+        
+        let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
+        
+        show(ridingVC, sender: nil)
+//        present(ridingVC, animated: true, completion: nil)
+    }
+    
     var navigationTitle: String!
     
     var nameArray = ["Kevin", "Ruyu", "Peter"]
