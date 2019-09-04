@@ -31,6 +31,7 @@
 		95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17A231F734600329927 /* KeyChainManager.swift */; };
 		95CFD17D231F894400329927 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17C231F894400329927 /* UserInfo.swift */; };
 		95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17E231F8E8B00329927 /* GroupInfo.swift */; };
+		95CFD181231FE03B00329927 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD180231FE03B00329927 /* TimerManager.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginController.swift */; };
 		95D613CF23155BF5008D885E /* UserLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* UserLogin.storyboard */; };
@@ -65,6 +66,7 @@
 		95CFD17A231F734600329927 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		95CFD17C231F894400329927 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		95CFD17E231F8E8B00329927 /* GroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfo.swift; sourceTree = "<group>"; };
+		95CFD180231FE03B00329927 /* TimerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		95D613DB23155C0C008D885E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95CFD180231FE03B00329927 /* TimerManager.swift */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
 				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
 				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
@@ -367,6 +370,7 @@
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */,
+				95CFD181231FE03B00329927 /* TimerManager.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
