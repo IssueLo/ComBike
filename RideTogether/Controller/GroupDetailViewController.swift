@@ -16,7 +16,10 @@ class GroupDetailViewController: UIViewController {
         
         let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
         
-        guard let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController") as? RidingViewController else { return }
+        guard
+            let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
+            as? RidingViewController
+        else { return }
         
         ridingVC.groupName = navigationTitle
 //        show(ridingVC, sender: nil)

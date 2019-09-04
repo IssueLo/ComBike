@@ -75,7 +75,10 @@ class RidingViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "RidingResultStoryboard", bundle: nil)
         
-        guard let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor") as? RidingResultViewController else { return }
+        guard
+            let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor")
+            as? RidingResultViewController
+        else { return }
                 
         ridingResultVC.groupName = self.groupName
         
