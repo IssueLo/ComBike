@@ -93,13 +93,13 @@ class FirebaseDataManeger {
                         
             if let querySnapshot = querySnapshot {
                 
-                UserInfo.name = querySnapshot.data()?["name"] as? String
+                UserInfo.name = querySnapshot.data()?["userName"] as? String
             }
         }
     }
     
     // 搜尋會員所屬群組
-    func searchUserGroup(_ groupVC: GroupViewController, _ userID: String) {
+    func searchUserGroup(_ groupVC: GroupListViewController, _ userID: String) {
         
         let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
         
@@ -127,7 +127,7 @@ class FirebaseDataManeger {
     private func getDataFromGroup(_ groupID: String,
                                   _ name: String,
                                   _ member: [String],
-                                  _ groupVC: GroupViewController) {
+                                  _ groupVC: GroupListViewController) {
         
         let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
         

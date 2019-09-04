@@ -13,7 +13,7 @@
 		95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */; };
 		95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */; };
 		95280698231E065700EFD895 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95280697231E065700EFD895 /* GroupListCell.xib */; };
-		9528069C231E086200EFD895 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupViewController.swift */; };
+		9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupListViewController.swift */; };
 		9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069D231E098A00EFD895 /* GroupListCell.swift */; };
 		952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069F231E101200EFD895 /* GroupDetailViewController.swift */; };
 		952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806A4231E3AF200EFD895 /* RidingViewController.swift */; };
@@ -47,7 +47,7 @@
 		95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManager.swift; sourceTree = "<group>"; };
 		95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupStoryboard.storyboard; sourceTree = "<group>"; };
 		95280697231E065700EFD895 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
-		9528069B231E086200EFD895 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		9528069B231E086200EFD895 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		9528069D231E098A00EFD895 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		9528069F231E101200EFD895 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		952806A4231E3AF200EFD895 /* RidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
-				9528069B231E086200EFD895 /* GroupViewController.swift */,
+				9528069B231E086200EFD895 /* GroupListViewController.swift */,
 				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
@@ -359,7 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
-				9528069C231E086200EFD895 /* GroupViewController.swift in Sources */,
+				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */,

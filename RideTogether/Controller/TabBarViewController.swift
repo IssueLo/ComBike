@@ -87,10 +87,10 @@ extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           shouldSelect viewController: UIViewController) -> Bool {
         
-        guard
-            let navigationVC = viewController as? UINavigationController,
-            let _ = navigationVC.viewControllers.first as? UserLoginController
-        else { return true }
+//        guard
+//            let navigationVC = viewController as? UINavigationController,
+//            let _ = navigationVC.viewControllers.first as? UserLoginController
+//        else { return true }
         
         // 確認 KeyChain 是否有登入 Token，若沒有需登入會員
 //        guard KeyChainManager.shared.token != nil else {

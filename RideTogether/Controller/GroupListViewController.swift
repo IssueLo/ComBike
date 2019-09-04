@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+class GroupListViewController: UIViewController {
     
     var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
     
@@ -60,7 +60,7 @@ class GroupViewController: UIViewController {
     }
 }
 
-extension GroupViewController: UITableViewDataSource {
+extension GroupListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -104,7 +104,7 @@ extension GroupViewController: UITableViewDataSource {
     }
 }
 
-extension GroupViewController: UITableViewDelegate {
+extension GroupListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

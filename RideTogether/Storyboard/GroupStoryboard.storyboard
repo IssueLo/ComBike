@@ -13,7 +13,7 @@
         <!--群組清單-->
         <scene sceneID="RPr-h4-iVB">
             <objects>
-                <viewController id="rbM-8h-mgS" customClass="GroupViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rbM-8h-mgS" customClass="GroupListViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xH5-w9-FVn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

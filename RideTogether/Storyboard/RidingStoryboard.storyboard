@@ -19,7 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bcp-7u-CRl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Rh3-As-l3v"/>
+                                </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFi-gL-xdb">
                                 <rect key="frame" x="335" y="24" width="24" height="24"/>
@@ -144,7 +147,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GaM-5F-4yW" firstAttribute="bottom" secondItem="bcp-7u-CRl" secondAttribute="bottom" id="1Fh-nQ-KEG"/>
                             <constraint firstItem="bcp-7u-CRl" firstAttribute="top" secondItem="goj-q5-tDH" secondAttribute="top" id="46r-rX-hOQ"/>
                             <constraint firstItem="lFi-gL-xdb" firstAttribute="trailing" secondItem="GaM-5F-4yW" secondAttribute="trailing" constant="-16" id="9Zl-Sh-srp"/>
                             <constraint firstItem="bcp-7u-CRl" firstAttribute="leading" secondItem="GaM-5F-4yW" secondAttribute="leading" id="HJW-L0-Zdn"/>
