@@ -18,6 +18,12 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var coverView: UIView!
+    
+    let timeManager = TimeManager()
+    
     var groupName: String!
     
     let screenWidth = UIScreen.main.bounds.width
@@ -25,8 +31,11 @@ class RidingViewController: UIViewController {
     @IBAction func stopRiding() {
         
 //        guard var labelText = stopButton.titleLabel?.text else { return }
+        timeManager.controlButton(timeLabel)
         
         if stopButton.titleLabel?.text == "停止" {
+            
+            coverView.alpha = 0.4
             
             self.stopButton.setTitle("繼續", for: .normal)
             
@@ -44,9 +53,11 @@ class RidingViewController: UIViewController {
             }
             
         } else {
-
+            
             UIView.animate(withDuration: 0.3) {
                 
+                self.coverView.alpha = 0
+
                 self.stopButton.setTitle("停止", for: .normal)
                 
                 self.saveButton.setTitleColor(.lightGray, for: .normal)
@@ -99,6 +110,8 @@ class RidingViewController: UIViewController {
 //        navigationController?.navigationBar.isHidden = true
         
         setupView()
+        
+        timeManager.controlButton(timeLabel)
     }
     
     func setupView() {
