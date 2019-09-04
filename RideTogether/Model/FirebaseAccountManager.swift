@@ -137,5 +137,4 @@ class FirebaseAccountManager {
         
         belongToVC.present(alertController, animated: true, completion: nil)
     }
-    
 }

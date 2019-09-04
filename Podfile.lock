@@ -116,6 +116,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Polyline (4.2.1)
   - Protobuf (3.9.0)
   - SwiftLint (0.34.0)
 
@@ -124,6 +125,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - KeychainAccess
+  - Polyline
   - SwiftLint
 
 SPEC REPOS:
@@ -148,6 +150,7 @@ SPEC REPOS:
     - KeychainAccess
     - leveldb-library
     - nanopb
+    - Polyline
     - Protobuf
     - SwiftLint
 
@@ -172,9 +175,10 @@ SPEC CHECKSUMS:
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Polyline: 0e9890790292741c8186201a536b6bb6a78d02dd
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: b681615cd6085e1098dce3c83335dc690f48e5d7
+PODFILE CHECKSUM: ab2299b816e6283ab5d25e485343169b2f991dc2
 
 COCOAPODS: 1.7.4

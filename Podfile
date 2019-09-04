@@ -15,5 +15,6 @@ target 'RideTogether' do
   
   pod 'SwiftLint'
   pod 'KeychainAccess'
+  pod 'Polyline'
 
 end

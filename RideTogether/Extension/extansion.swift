@@ -40,4 +40,15 @@ extension UIViewController {
         
         completion?()
     }
+    
+    func showAlert(_ message: String) {
+        
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

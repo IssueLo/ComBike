@@ -32,6 +32,7 @@
 		95CFD17D231F894400329927 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17C231F894400329927 /* UserInfo.swift */; };
 		95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17E231F8E8B00329927 /* GroupInfo.swift */; };
 		95CFD181231FE03B00329927 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD180231FE03B00329927 /* TimeManager.swift */; };
+		95CFD184231FEEBA00329927 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD183231FEEBA00329927 /* Polyline.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginController.swift */; };
 		95D613CF23155BF5008D885E /* UserLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* UserLogin.storyboard */; };
@@ -67,6 +68,7 @@
 		95CFD17C231F894400329927 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		95CFD17E231F8E8B00329927 /* GroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfo.swift; sourceTree = "<group>"; };
 		95CFD180231FE03B00329927 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		95CFD183231FEEBA00329927 /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
+		95CFD182231FEE9300329927 /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				95CFD183231FEEBA00329927 /* Polyline.swift */,
+			);
+			path = "Third-Party";
+			sourceTree = "<group>";
+		};
 		95D613BD23155BF5008D885E = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				95D613C923155BF5008D885E /* AppDelegate.swift */,
+				95CFD182231FEE9300329927 /* Third-Party */,
 				95D613DC23155C20008D885E /* Extension */,
 				951554B52318D5DC0080BBB7 /* Storyboard */,
 				95D613DB23155C0C008D885E /* Model */,
@@ -367,6 +378,7 @@
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */,
 				95CFD17D231F894400329927 /* UserInfo.swift in Sources */,
+				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */,
