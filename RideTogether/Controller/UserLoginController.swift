@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class UserLoginInController: UIViewController {
+class UserLoginController: UIViewController {
     
     @IBOutlet weak var userSignInView: UserSignInView!
 
@@ -37,7 +37,7 @@ class UserLoginInController: UIViewController {
     
     func setUpUserSignInView() {
         
-        userSignInView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
+        userSignInView.confirmButton.addTarget(self, action: #selector(onClickLogin), for: .touchUpInside)
                 
         userSignInView.logoutButton.addTarget(self, action: #selector(onClickLogout), for: .touchUpInside)
     }

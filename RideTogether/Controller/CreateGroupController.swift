@@ -19,6 +19,19 @@ class CreateGroupController: UIViewController {
     
     @IBAction func createGroup() {
         
+        guard let groupName =  groupNameTxtFld.text else {
+            
+            print("群組名稱不可以空白")
+            
+            return
+        }
+        
+        FirebaseDataManeger.shared.createGroup(groupName)
+        
+        print("成功建立群組！")
+        
+        // 有 Bug: 要讓 tableView reload
+        
         dismiss(animated: false, completion: nil)
     }
     
@@ -33,5 +46,4 @@ class CreateGroupController: UIViewController {
         super.viewDidLoad()
 
     }
-
 }

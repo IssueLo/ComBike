@@ -44,7 +44,12 @@ class FirebaseAccountManager {
                                     let userEmail = Auth.auth().currentUser?.email
                                 else { return }
                                 
+                                // 會員資料儲存到 Firebase
                                 FirebaseDataManeger.shared.addUserInfo(userUID, userName, userEmail)
+                                
+                                UserInfo.uid = Auth.auth().currentUser?.uid
+                                
+                                UserInfo.name = userName
         }
     }
     
@@ -68,7 +73,11 @@ class FirebaseAccountManager {
                             
                             self.showAlert(self.belongToVC, "登入成功")
                             
-                            print(Auth.auth().currentUser?.uid as Any)
+                            UserInfo.uid = Auth.auth().currentUser?.uid
+                            
+                            guard let userUID = UserInfo.uid else { return }
+                            
+                            FirebaseDataManeger.shared.searchUserInfo(userUID)
         }
     }
     
@@ -85,6 +94,10 @@ class FirebaseAccountManager {
             try Auth.auth().signOut()
             
             showAlert(belongToVC, "登出成功")
+            
+            UserInfo.uid = Auth.auth().currentUser?.uid
+            
+            print(Auth.auth().currentUser?.uid as Any)
             
         } catch let error as NSError {
             

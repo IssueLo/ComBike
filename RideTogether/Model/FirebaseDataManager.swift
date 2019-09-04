@@ -33,9 +33,16 @@ class FirebaseDataManeger {
         
         let groupCollection = Firestore.firestore().collection("group")
         
-        groupCollection.document().setData(["name": groupName, "member": []])
+        let groupID = groupCollection.document().documentID
         
-        print(groupCollection.document().documentID)
+        guard
+            let userUID = UserInfo.uid,
+            let userName = UserInfo.name
+        else { return }
+        
+        groupCollection.document(groupID).setData(["name": groupName, "member": [userUID]])
+        
+        groupCollection.document(groupID).collection("member").document(userUID).setData(["name": userName])
     }
     
     // 編輯群組 - 增加成員
@@ -86,15 +93,13 @@ class FirebaseDataManeger {
                         
             if let querySnapshot = querySnapshot {
                 
-                print("UserInfo: \(querySnapshot.data() as Any)")
+                UserInfo.name = querySnapshot.data()?["name"] as? String
             }
         }
     }
     
-    var myGroup = [MyGroup]()
-    
     // 搜尋會員所屬群組
-    func searchUserGroup(_ userID: String) {
+    func searchUserGroup(_ groupVC: GroupViewController, _ userID: String) {
         
         let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
         
@@ -107,18 +112,11 @@ class FirebaseDataManeger {
                     guard
                         let name = document.data()["name"] as? String,
                         let member = document.data()["member"] as? [String]
-                        
                     else { return }
                     
-                    let group = MyGroup(groupName: name, groupMember: member)
-                    
-                    self.myGroup.append(group)
-                    
                     // 抓取群組資料
-                    self.getDataFromGroup(document.documentID)
+                    self.getDataFromGroup(document.documentID, name, member, groupVC)
                 }
-                
-                print("MyGroup: \(self.myGroup)")
             }
         }
     }
@@ -126,7 +124,10 @@ class FirebaseDataManeger {
     var memberData = [MemberData]()
     
     // 抓取群組資料
-    private func getDataFromGroup(_ groupID: String) {
+    private func getDataFromGroup(_ groupID: String,
+                                  _ name: String,
+                                  _ member: [String],
+                                  _ groupVC: GroupViewController) {
         
         let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
         
@@ -134,19 +135,25 @@ class FirebaseDataManeger {
             
             if let querySnapshot = querySnapshot {
                 
+                var memberInfoArray = [MemberInfo]()
+                
                 for document in querySnapshot.documents {
                     
                     guard
-                        let location = document.data()["location"] as? GeoPoint,
-                        let averageSpeed = document.data()["averageSpeed"] as? Double,
-                        let distance = document.data()["distance"] as? Int
+                        let name = document.data()["name"] as? String
+//                        let location = document.data()["location"] as? GeoPoint,
+//                        let averageSpeed = document.data()["averageSpeed"] as? Double,
+//                        let distance = document.data()["distance"] as? Int
                     else { return }
                     
-                    let memberData = MemberData(location, averageSpeed, distance)
+                    let memberInfo = MemberInfo(memberName: name)
                     
-                    print(memberData)
-//                    print("GroupData: \(document.data() as Any)")
+                    memberInfoArray.append(memberInfo)
                 }
+                
+                let group = GroupInfo(groupName: name, groupMember: member, memberInfo: memberInfoArray)
+                
+                groupVC.groupInfoArray.append(group)
             }
         }
     }
@@ -165,44 +172,3 @@ struct MyGroup {
         self.member = groupMember
     }
 }
-
-struct MemberData {
-    
-//    var name: String
-    
-    var location: GeoPoint
-    
-//    var route: [GeoPoint]
-    
-//    var spendTime: Int
-    
-    var averageSpeed: Double
-    
-//    var maximumSpeed: Double
-    
-    var distance: Int
-    
-    init(_ location: GeoPoint, _ averageSpeed: Double, _ distance: Int) {
-        
-        self.location = location
-        
-        self.averageSpeed = averageSpeed
-        
-        self.distance = distance
-        
-    }
-}
-
-//struct UserInfo {
-//
-//    var name: String
-//
-//    var email: String
-//
-//    init (userName: String, userEmail: String) {
-//
-//        self.name = userName
-//
-//        self.email = userEmail
-//    }
-//}

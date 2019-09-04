@@ -10,6 +10,8 @@ import UIKit
 
 class GroupDetailViewController: UIViewController {
     
+    var groupInfo: GroupInfo!
+    
     @IBOutlet weak var memberListTableView: UITableView!
     
     @IBAction func startRiding() {
@@ -21,19 +23,15 @@ class GroupDetailViewController: UIViewController {
             as? RidingViewController
         else { return }
         
-        ridingVC.groupName = navigationTitle
+        ridingVC.groupName = groupInfo.name
 //        show(ridingVC, sender: nil)
         present(ridingVC, animated: true, completion: nil)
     }
     
-    var navigationTitle: String!
-    
-    var nameArray = ["Kevin", "Ruyu", "Peter"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = navigationTitle
+        navigationItem.title = groupInfo.name
         
         let nib = UINib(nibName: "GroupListCell", bundle: nil)
         
@@ -47,7 +45,7 @@ extension GroupDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return nameArray.count
+        return groupInfo.member.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +54,7 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
-        groupListCell.groupNameLabel.text = self.nameArray[indexPath.row]
+        groupListCell.groupNameLabel.text = self.groupInfo.memberInfo[indexPath.row].name
         
         return groupListCell
     }

@@ -12,6 +12,14 @@ class GroupViewController: UIViewController {
     
     var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
     
+    var groupInfoArray: [GroupInfo] = [] {
+        
+        didSet {
+            
+            groupListTableView.reloadData()
+        }
+    }
+    
     @IBAction func createGroup() {
         
         let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
@@ -38,15 +46,25 @@ class GroupViewController: UIViewController {
         let nib = UINib(nibName: "GroupListCell", bundle: nil)
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
+        
+        if UserInfo.uid != nil {
+            
+            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
+            
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
 }
 
 extension GroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return groupNameArray.count
+        return groupInfoArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +73,7 @@ extension GroupViewController: UITableViewDataSource {
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
-        groupListCell.groupNameLabel.text = self.groupNameArray[indexPath.row]
+        groupListCell.groupNameLabel.text = self.groupInfoArray[indexPath.row].name
         
         return groupListCell
     }
@@ -64,28 +82,24 @@ extension GroupViewController: UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let groupName = groupNameArray[indexPath.row]
-        
-        showGroupDetailViewController(groupName)
+        showGroupDetailViewController(indexPath)
     }
     
-    private func showGroupDetailViewController(_ groupName: String) {
+    private func showGroupDetailViewController(_ indexPath: IndexPath) {
         
         let storyboard = UIStoryboard.init(name: "GroupDetailStoryboard", bundle: nil)
         
         guard
             let detailVC = storyboard.instantiateViewController(withIdentifier: "GroupDetailViewController")
                 as? GroupDetailViewController
-        else {
-            return
-        }
+        else { return }
+        
+        detailVC.groupInfo = self.groupInfoArray[indexPath.row]
         
 //        guard let detailVC = vc as? ProductDetailViewController else { return }
 //
 //        detailVC.product = product
-        
-        detailVC.navigationTitle = groupName
-        
+
         self.show(detailVC, sender: nil)
     }
 }
