@@ -120,20 +120,6 @@
                                     <action selector="saveRidingData" destination="T99-ud-Lsf" eventType="touchUpInside" id="0bh-TO-Iba"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb7-yr-QTa">
-                                <rect key="frame" x="157.5" y="597" width="60" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="1Mj-o9-XwJ"/>
-                                    <constraint firstAttribute="height" constant="40" id="giJ-24-eag"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="24"/>
-                                <state key="normal" title="繼續">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="continueRiding" destination="T99-ud-Lsf" eventType="touchUpInside" id="TN8-Dt-GRn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTn-YA-6MW">
                                 <rect key="frame" x="157.5" y="597" width="60" height="40"/>
                                 <constraints>
@@ -156,14 +142,12 @@
                             <constraint firstItem="lFi-gL-xdb" firstAttribute="trailing" secondItem="GaM-5F-4yW" secondAttribute="trailing" constant="-16" id="9Zl-Sh-srp"/>
                             <constraint firstItem="XW9-qQ-oUq" firstAttribute="leading" secondItem="GaM-5F-4yW" secondAttribute="leading" id="C7P-yF-slj"/>
                             <constraint firstItem="bcp-7u-CRl" firstAttribute="leading" secondItem="GaM-5F-4yW" secondAttribute="leading" id="HJW-L0-Zdn"/>
-                            <constraint firstItem="gb7-yr-QTa" firstAttribute="centerY" secondItem="dTn-YA-6MW" secondAttribute="centerY" id="I7h-Mv-6Jn"/>
                             <constraint firstItem="GaM-5F-4yW" firstAttribute="trailing" secondItem="bcp-7u-CRl" secondAttribute="trailing" id="JtN-6s-pSg"/>
                             <constraint firstItem="yqZ-mp-46T" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="MpF-GP-gNQ"/>
                             <constraint firstItem="yqZ-mp-46T" firstAttribute="centerY" secondItem="dTn-YA-6MW" secondAttribute="centerY" id="NZe-t7-a86"/>
                             <constraint firstItem="dTn-YA-6MW" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="W31-Ze-pEd"/>
                             <constraint firstItem="GaM-5F-4yW" firstAttribute="bottom" secondItem="dTn-YA-6MW" secondAttribute="centerY" constant="50" id="WGY-Tq-Ty7"/>
                             <constraint firstItem="lFi-gL-xdb" firstAttribute="top" secondItem="GaM-5F-4yW" secondAttribute="top" constant="4" id="XMQ-iL-Son"/>
-                            <constraint firstItem="gb7-yr-QTa" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="aav-oj-gEX"/>
                             <constraint firstItem="gaP-PA-DU7" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="flQ-Xo-1Kw"/>
                             <constraint firstItem="XW9-qQ-oUq" firstAttribute="top" secondItem="goj-q5-tDH" secondAttribute="top" id="g1r-Ut-Db5"/>
                             <constraint firstAttribute="bottom" secondItem="XW9-qQ-oUq" secondAttribute="bottom" id="iPe-3k-NPr"/>
@@ -173,9 +157,12 @@
                         <viewLayoutGuide key="safeArea" id="GaM-5F-4yW"/>
                     </view>
                     <connections>
-                        <outlet property="continueButton" destination="gb7-yr-QTa" id="sUO-5K-abO"/>
+                        <outlet property="averageSpeedLabel" destination="RZ5-ng-D0Z" id="ftt-r4-12U"/>
                         <outlet property="coverView" destination="XW9-qQ-oUq" id="w5v-2J-GBv"/>
+                        <outlet property="distanceLabel" destination="XuT-Hr-yKB" id="o9K-xv-HtU"/>
                         <outlet property="infoView" destination="gaP-PA-DU7" id="XZU-k9-Jjo"/>
+                        <outlet property="mapView" destination="bcp-7u-CRl" id="Jv9-82-kdr"/>
+                        <outlet property="maximumSpeedLabel" destination="pnf-BE-Kpj" id="s8e-oh-G2k"/>
                         <outlet property="saveButton" destination="yqZ-mp-46T" id="QYE-Kg-Tnn"/>
                         <outlet property="stopButton" destination="dTn-YA-6MW" id="xmp-Gx-Fgw"/>
                         <outlet property="timeLabel" destination="2eX-be-e2W" id="HV5-JP-eJy"/>

@@ -26,20 +26,6 @@ class TimeManager {
         timerMove = Timer.scheduledTimer(withTimeInterval: runtime, repeats: repeats, block: { (_) in
             
             self.currentSecond += 1
-//
-//            let secInt = self.currentSecond % 60
-//
-//            let minsInt = (self.currentSecond / 60) % 60
-//
-//            let hourInt = (self.currentSecond / 3600) % 24
-//
-//            let sec = String(format: "%02d", secInt)
-//
-//            let mins = String(format: "%02d", minsInt)
-//
-//            let hour = String(format: "%02d", hourInt)
-
-//            label.text = "\(hour)：\(mins)：\(sec)"
             
             label.text = self.secToRealTime(self.currentSecond)
         })
@@ -49,7 +35,7 @@ class TimeManager {
         
         if timeIsStop {
             
-            timeMove(repeats: true, runtime: 0.1, label: label)
+            timeMove(repeats: true, runtime: 1, label: label)
             
             timeIsStop = !timeIsStop
         } else {

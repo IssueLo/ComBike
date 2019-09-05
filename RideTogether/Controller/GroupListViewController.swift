@@ -10,7 +10,7 @@ import UIKit
 
 class GroupListViewController: UIViewController {
     
-    var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
+//    var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
     
     var groupInfoArray: [GroupInfo] = [] {
         
@@ -47,6 +47,7 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
+        // 記得改回去喔！
         UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
         
         UserInfo.name = "Kevin"
