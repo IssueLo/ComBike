@@ -31,18 +31,14 @@ class GroupListViewController: UIViewController {
         present(createGroupVC, animated: false, completion: nil)
     }
     
-    @IBOutlet weak var groupListTableView: UITableView! {
-        didSet {
-//            
-//            let nib = UINib(nibName: "groupListCell", bundle: nil)
-//
-//            groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
-        }
+    @IBAction func scanQRCode() {
+        
+        let qrCodeScannerVC = QRCodeScannerController()
+        
+        present(qrCodeScannerVC, animated: false, completion: nil)
     }
     
-    deinit {
-        print("deinit")
-    }
+    @IBOutlet weak var groupListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

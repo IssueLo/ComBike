@@ -48,6 +48,9 @@
                                 <state key="normal" title="加入群組">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="scanQRCode" destination="rbM-8h-mgS" eventType="touchUpInside" id="ow1-Rf-9G5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
