@@ -22,7 +22,7 @@ private enum Tab {
         
         switch self {
             
-        case .lobby: controller = UIStoryboard(name: "UserLogin",
+        case .lobby: controller = UIStoryboard(name: "HomePageStoryboard",
                                                bundle: nil).instantiateInitialViewController()!
             
         case .ridingInfo: controller = UIStoryboard(name: "GroupStoryboard",

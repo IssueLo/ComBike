@@ -193,7 +193,7 @@ class RidingViewController: UIViewController {
         
         guard let location = locationManager.location else { return }
         
-        print(location.timestamp)
+//        print(location.timestamp)
         
 //        let distance = location.distance(from: location)
         

@@ -10,6 +10,13 @@
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignInView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
+		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
+		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
+		9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992D23211BF1009C7750 /* QRCodeScannerController.swift */; };
+		9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */; };
+		9525993223213FE0009C7750 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993123213FE0009C7750 /* QRCodeView.swift */; };
+		9525993423214199009C7750 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993323214199009C7750 /* QRCodeViewController.swift */; };
 		95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */; };
 		95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */; };
 		95280698231E065700EFD895 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95280697231E065700EFD895 /* GroupListCell.xib */; };
@@ -46,6 +53,13 @@
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
+		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
+		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		9525992D23211BF1009C7750 /* QRCodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerController.swift; sourceTree = "<group>"; };
+		9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCodeStoryboard.storyboard; sourceTree = "<group>"; };
+		9525993123213FE0009C7750 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		9525993323214199009C7750 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManager.swift; sourceTree = "<group>"; };
 		95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupStoryboard.storyboard; sourceTree = "<group>"; };
 		95280697231E065700EFD895 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
@@ -104,9 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
+				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
 				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
 				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
 				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
+				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
 				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
 				95D613CD23155BF5008D885E /* UserLogin.storyboard */,
@@ -185,6 +201,7 @@
 				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
 				95CFD17C231F894400329927 /* UserInfo.swift */,
 				95CFD17E231F8E8B00329927 /* GroupInfo.swift */,
+				952599272321187D009C7750 /* QRCodeMaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,9 +218,12 @@
 			isa = PBXGroup;
 			children = (
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
+				9525992B23211914009C7750 /* HomePageViewController.swift */,
+				9525992D23211BF1009C7750 /* QRCodeScannerController.swift */,
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
 				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
+				9525993323214199009C7750 /* QRCodeViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
 				95D613CB23155BF5008D885E /* UserLoginController.swift */,
@@ -217,6 +237,7 @@
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				951554BB2318F1040080BBB7 /* UserSignInView.swift */,
+				9525993123213FE0009C7750 /* QRCodeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +317,7 @@
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
+				9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
@@ -303,6 +325,7 @@
 				95D613CF23155BF5008D885E /* UserLogin.storyboard in Resources */,
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
+				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,16 +403,21 @@
 				95CFD17D231F894400329927 /* UserInfo.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
+				9525992C23211914009C7750 /* HomePageViewController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
+				9525993223213FE0009C7750 /* QRCodeView.swift in Sources */,
 				952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */,
 				95CFD181231FE03B00329927 /* TimeManager.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */,
+				9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */,
+				9525993423214199009C7750 /* QRCodeViewController.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
 				952806BA231E98E900EFD895 /* extansion.swift in Sources */,
+				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

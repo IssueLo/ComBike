@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Code View Controller-->
+        <scene sceneID="3vY-ZN-cin">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeViewController" id="eAN-Tp-lQH" customClass="QRCodeViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CeS-Kw-AeU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-1J-EZA" customClass="QRCodeView" customModule="RideTogether" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="qrCodeImage" destination="VZV-u6-aV8" id="Kfg-pK-PFp"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cI0-cH-qsr">
+                                <rect key="frame" x="97.5" y="243.5" width="180" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZH-ZC-CtV">
+                                        <rect key="frame" x="154" y="2" width="24" height="24"/>
+                                        <state key="normal" image="Icons_24px_CleanAll"/>
+                                        <connections>
+                                            <action selector="backGroupDeteilVC" destination="ijh-1J-EZA" eventType="touchUpInside" id="Y9W-iX-xIZ"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VZV-u6-aV8">
+                                        <rect key="frame" x="30" y="30" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="TDV-pa-vEE"/>
+                                            <constraint firstAttribute="height" constant="120" id="WL0-7g-G9S"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZZH-ZC-CtV" firstAttribute="top" secondItem="cI0-cH-qsr" secondAttribute="top" constant="2" id="J1J-qc-DO1"/>
+                                    <constraint firstItem="VZV-u6-aV8" firstAttribute="centerX" secondItem="cI0-cH-qsr" secondAttribute="centerX" id="SdJ-4h-0TG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZH-ZC-CtV" secondAttribute="trailing" constant="2" id="nzp-va-Ea3"/>
+                                    <constraint firstAttribute="height" constant="180" id="rQ3-Of-o3f"/>
+                                    <constraint firstItem="VZV-u6-aV8" firstAttribute="centerY" secondItem="cI0-cH-qsr" secondAttribute="centerY" id="sOR-du-hwA"/>
+                                    <constraint firstAttribute="width" constant="180" id="xiu-3j-Gnc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ijh-1J-EZA" firstAttribute="leading" secondItem="QeA-Iv-pRY" secondAttribute="leading" id="FoL-Fe-228"/>
+                            <constraint firstItem="cI0-cH-qsr" firstAttribute="centerY" secondItem="CeS-Kw-AeU" secondAttribute="centerY" id="SbN-WA-tcd"/>
+                            <constraint firstItem="cI0-cH-qsr" firstAttribute="centerX" secondItem="CeS-Kw-AeU" secondAttribute="centerX" id="VuI-a2-zHk"/>
+                            <constraint firstItem="ijh-1J-EZA" firstAttribute="top" secondItem="CeS-Kw-AeU" secondAttribute="top" id="eIG-x6-RR3"/>
+                            <constraint firstItem="ijh-1J-EZA" firstAttribute="bottom" secondItem="QeA-Iv-pRY" secondAttribute="bottom" id="wdF-mv-HJS"/>
+                            <constraint firstItem="ijh-1J-EZA" firstAttribute="trailing" secondItem="QeA-Iv-pRY" secondAttribute="trailing" id="xK4-Tt-ZlQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QeA-Iv-pRY"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrCodeView" destination="ijh-1J-EZA" id="oev-f9-reE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4IY-CD-WZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061.5999999999999" y="100.29985007496252"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons_24px_CleanAll" width="24" height="24"/>
+    </resources>
+</document>

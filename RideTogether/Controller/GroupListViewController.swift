@@ -26,7 +26,7 @@ class GroupListViewController: UIViewController {
         
         let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
         
-        createGroupVC.modalPresentationStyle = .overCurrentContext
+        createGroupVC.modalPresentationStyle = .overFullScreen
         
         present(createGroupVC, animated: false, completion: nil)
     }
@@ -38,6 +38,10 @@ class GroupListViewController: UIViewController {
 //
 //            groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         }
+    }
+    
+    deinit {
+        print("deinit")
     }
     
     override func viewDidLoad() {
