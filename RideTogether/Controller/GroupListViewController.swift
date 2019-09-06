@@ -10,8 +10,6 @@ import UIKit
 
 class GroupListViewController: UIViewController {
     
-//    var groupNameArray = ["新竹一日遊", "淡水八里", "基隆北海岸"]
-    
     var groupInfoArray: [GroupInfo] = [] {
         
         didSet {
@@ -58,11 +56,6 @@ class GroupListViewController: UIViewController {
             FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
 }
 
 extension GroupListViewController: UITableViewDataSource {
@@ -87,7 +80,14 @@ extension GroupListViewController: UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        showGroupDetailViewController(indexPath)
+        if groupInfoArray[indexPath.row].memberInfo[0].route == nil {
+            
+            showGroupDetailViewController(indexPath)
+            
+        } else {
+            
+            showRidingResultViewController(indexPath)
+        }
     }
     
     private func showGroupDetailViewController(_ indexPath: IndexPath) {
@@ -106,6 +106,21 @@ extension GroupListViewController: UITableViewDataSource {
 //        detailVC.product = product
 
         self.show(detailVC, sender: nil)
+    }
+    
+    private func showRidingResultViewController(_ indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard.init(name: "RidingResultStoryboard", bundle: nil)
+        
+        guard
+            let resultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor")
+            as? RidingResultViewController
+        
+        else { return }
+        
+        resultVC.groupResultInfo = self.groupInfoArray[indexPath.row]
+        
+        present(resultVC, animated: true, completion: nil)
     }
 }
 

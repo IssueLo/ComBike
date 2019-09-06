@@ -46,7 +46,7 @@ class FirebaseDataManeger {
     }
     
     // 編輯群組 - 增加成員
-    func addMemberInGroup(_ groupID: String, _ userID: String) {
+    func addMemberInGroup(_ groupID: String, _ userUID: String, _ userName: String) {
         
         let groupDocument = Firestore.firestore().collection("group").document(groupID)
                 
@@ -59,9 +59,21 @@ class FirebaseDataManeger {
                     var member = querySnapshot.data()?["member"] as? [String]
                 else { return }
                 
-                member.append(userID)
+                for currentMember in member {
+                    
+                    while userUID == currentMember {
+                        
+                        print("已經加入了喔")
+                        
+                        return
+                    }
+                }
+                
+                member.append(userUID)
                 
                 groupDocument.setData(["name": name, "member": member])
+                
+                groupDocument.collection("member").document(userUID).setData(["name": userName])
             }
         }
     }
@@ -145,30 +157,30 @@ class FirebaseDataManeger {
 //                        let averageSpeed = document.data()["averageSpeed"] as? Double,
 //                        let distance = document.data()["distance"] as? Int
                     else { return }
+                                        
+                    var memberInfo = MemberInfo(memberName: name)
                     
-                    let memberInfo = MemberInfo(memberName: name)
+                    memberInfo.route = document.data()["route"] as? [GeoPoint]
+                    
+                    memberInfo.spendTime = document.data()["spendTime"] as? Int
+                    
+                    memberInfo.averageSpeed = document.data()["averageSpeed"] as? Double
+                    
+                    memberInfo.distance = document.data()["distance"] as? Double
+                    
+                    memberInfo.maximumSpeed = document.data()["maximumSpeed"] as? Double
                     
                     memberInfoArray.append(memberInfo)
                 }
                 
-                let group = GroupInfo(groupName: name, groupMember: member, memberInfo: memberInfoArray)
+                let group = GroupInfo(gorupID: groupID,
+                                      groupName: name,
+                                      groupMember: member,
+                                      memberInfo: memberInfoArray)
                 
+                // 儲存群組資料
                 groupVC.groupInfoArray.append(group)
             }
         }
-    }
-}
-
-struct MyGroup {
-
-    var name: String
-    
-    var member: [String]
-    
-    init (groupName: String, groupMember: [String]) {
-        
-        self.name = groupName
-        
-        self.member = groupMember
     }
 }

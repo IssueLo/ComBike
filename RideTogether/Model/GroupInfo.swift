@@ -11,13 +11,17 @@ import Firebase
 
 struct GroupInfo {
     
+    var groupID: String
+    
     var name: String
     
     var member: [String]
     
     var memberInfo: [MemberInfo]
     
-    init (groupName: String, groupMember: [String], memberInfo: [MemberInfo]) {
+    init (gorupID: String, groupName: String, groupMember: [String], memberInfo: [MemberInfo]) {
+        
+        self.groupID = gorupID
         
         self.name = groupName
         
@@ -33,7 +37,7 @@ struct MemberInfo {
     
     var spendTime: Int?
     
-    var distance: Int?
+    var distance: Double?
     
     var averageSpeed: Double?
     

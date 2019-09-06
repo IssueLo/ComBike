@@ -157,7 +157,8 @@ class RidingViewController: UIViewController {
         }
             // 2. 用戶不同意
         else if CLLocationManager.authorizationStatus() == .denied {
-//            showAlert("Location services were previously denied. Please enable location services for this app in Settings.")
+//            showAlert("Location services were previously denied.
+//            Please enable location services for this app in Settings.")
         }
             // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -230,7 +231,8 @@ class RidingViewController: UIViewController {
         // 背後靈
 //        mapView.removeAnnotation(annotation)
 //
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude + 0.001), longitude: location.coordinate.longitude)
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude + 0.001),
+//                                                       longitude: location.coordinate.longitude)
 //
 //        annotation.title = "Ruyu"
 //
@@ -276,7 +278,8 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     // 設定標示 icon
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //
-//        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+//        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView")
+//            ?? MKAnnotationView()
 //
 //        if annotation is MKUserLocation {
 //

@@ -12,6 +12,8 @@ class RidingResultViewController: UIViewController {
     
     var member = ["Kevin", "Ruyu", "Peter"]
     
+    var groupResultInfo: GroupInfo!
+    
     @IBOutlet weak var groupNameLabel: UILabel! {
         didSet {
             

@@ -37,17 +37,20 @@ class GroupDetailViewController: UIViewController {
         
         memberListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showQRCodeVC))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(showQRCodeVC))
     }
     
     @objc func showQRCodeVC() {
         
         let storyboard = UIStoryboard.init(name: "QRCodeStoryboard", bundle: nil)
         
-        guard let qrCodeVC = storyboard.instantiateViewController(withIdentifier: "QRCodeViewController") as? QRCodeViewController
+        guard let qrCodeVC = storyboard.instantiateViewController(withIdentifier: "QRCodeViewController")
+            as? QRCodeViewController
         else { return }
         
-        qrCodeVC.groupID = "9MZb3CebDPRbXY9mkTOC"
+        qrCodeVC.groupID = groupInfo.groupID
         
         qrCodeVC.modalPresentationStyle = .overFullScreen
         

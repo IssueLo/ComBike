@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIn-qz-UEz">
-                                <rect key="frame" x="114.5" y="305" width="146" height="57.5"/>
-                                <string key="text">此頁尚未開放
+                                <rect key="frame" x="102.5" y="305" width="170.5" height="57.5"/>
+                                <string key="text">此功能尚未開放
 請耐心等候！</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>

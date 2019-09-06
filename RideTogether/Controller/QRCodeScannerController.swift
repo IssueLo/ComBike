@@ -75,12 +75,14 @@ class QRCodeScannerController: UIViewController {
             
             backButton.setImage(UIImage(named: "Icons_24px_CleanAll"), for: .normal)
             
+            backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+            
             backButton.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([backButton.topAnchor.constraint(equalTo: view.topAnchor,
-                                                                         constant: 12),
+                                                                         constant: 24),
                                          backButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                                              constant: -12)
+                                                                              constant: -16)
                 ])
             
             // 設置 QR Code 掃描框
@@ -114,6 +116,11 @@ class QRCodeScannerController: UIViewController {
             view.bringSubviewToFront(qrCodeFrameView)
         }
     }
+    
+    @objc func backAction() {
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
@@ -142,8 +149,24 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                 
                 if let value = metadataObj.stringValue {
                     
-                    print(value)
+                    // 掃到條碼後的動作
+                    guard
+                        let userUID = UserInfo.uid,
+                        
+                        let userName = UserInfo.name
+                    else {
+                        
+                        print("使用者尚未登入")
+                        
+                        return
+                    }
                     
+                    FirebaseDataManeger.shared.addMemberInGroup(value, userUID, userName)
+                    print("把自己加到該群組 (群組 ID: \(value))")
+                    print("狀況 1: 成功加入群組")
+                    print("狀況 2: 找不到該群組")
+                    print("狀況 3: 已經在該群組")
+
                     dismiss(animated: true, completion: nil)
                 }
             }
