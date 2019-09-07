@@ -41,7 +41,7 @@ class FirebaseDataManeger {
         else { return }
         
         groupCollection.document(groupID).setData(["name": groupName, "member": [userUID]])
-        
+
         groupCollection.document(groupID).collection("member").document(userUID).setData(["name": userName])
     }
     
@@ -55,7 +55,7 @@ class FirebaseDataManeger {
             if let querySnapshot = querySnapshot {
                 
                 guard
-                    let name = querySnapshot.data()?["name"] as? String,
+                    let groupName = querySnapshot.data()?["name"] as? String,
                     var member = querySnapshot.data()?["member"] as? [String]
                 else { return }
                 
@@ -71,7 +71,7 @@ class FirebaseDataManeger {
                 
                 member.append(userUID)
                 
-                groupDocument.setData(["name": name, "member": member])
+                groupDocument.setData(["name": groupName, "member": member])
                 
                 groupDocument.collection("member").document(userUID).setData(["name": userName])
             }
@@ -96,7 +96,7 @@ class FirebaseDataManeger {
         }
     }
     
-    // 測試用：搜尋會員
+    // 用 uid 搜尋會員 Name
     func searchUserInfo(_ userID: String) {
         
         let uesrInfoDocument = Firestore.firestore().collection("userInfo").document(userID)
@@ -153,9 +153,7 @@ class FirebaseDataManeger {
                     
                     guard
                         let name = document.data()["name"] as? String
-//                        let location = document.data()["location"] as? GeoPoint,
-//                        let averageSpeed = document.data()["averageSpeed"] as? Double,
-//                        let distance = document.data()["distance"] as? Int
+                        
                     else { return }
                                         
                     var memberInfo = MemberInfo(memberName: name)
@@ -183,4 +181,36 @@ class FirebaseDataManeger {
             }
         }
     }
+    
+    // 上傳使用者所在位置
+    func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: [Double]) {
+        
+        let userInfo = Firestore.firestore().collection("group").document(groupID)
+            .collection("member").document(userUID)
+        
+        let geoPoint = GeoPoint(latitude: userLoction[0], longitude: userLoction[1])
+        
+        let locationData = ["name": UserInfo.name!, "location": geoPoint] as [String: Any]
+        
+        userInfo.setData(locationData)
+    }
+    
+    // 下載同伴所在位置
+    func updateMemberLocation() {
+        
+    }
+    
+    // 上傳騎乘紀錄
+    func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: [String: Any]) {
+        
+        let userInfo = Firestore.firestore().collection("group").document(groupID)
+            .collection("member").document(userUID)
+        
+        userInfo.setData(ridingData)
+    }
 }
+//let userInfoCollection = Firestore.firestore().collection("userInfo")
+//
+//let userInfo: [String: Any] = ["userName": userName, "userEmail": userEmail]
+//
+//userInfoCollection.document(userUID).setData(userInfo)

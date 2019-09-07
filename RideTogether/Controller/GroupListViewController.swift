@@ -46,9 +46,9 @@ class GroupListViewController: UIViewController {
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
         // 記得改回去喔！
-        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
+        UserInfo.uid = "1111111111111"
         
-        UserInfo.name = "Kevin"
+        UserInfo.name = "Ruyu"
         
         // 有登入的情況可以搜尋群組資料
         if UserInfo.uid != nil {
@@ -82,11 +82,13 @@ extension GroupListViewController: UITableViewDataSource {
         
         if groupInfoArray[indexPath.row].memberInfo[0].route == nil {
             
+            // 如果沒有騎乘紀錄，顯示開始騎乘頁面
             showGroupDetailViewController(indexPath)
             
         } else {
             
-            showRidingResultViewController(indexPath)
+            // 如果有騎乘紀錄，顯示結果頁面
+            presentRidingResultViewController(indexPath)
         }
     }
     
@@ -108,7 +110,7 @@ extension GroupListViewController: UITableViewDataSource {
         self.show(detailVC, sender: nil)
     }
     
-    private func showRidingResultViewController(_ indexPath: IndexPath) {
+    private func presentRidingResultViewController(_ indexPath: IndexPath) {
         
         let storyboard = UIStoryboard.init(name: "RidingResultStoryboard", bundle: nil)
         

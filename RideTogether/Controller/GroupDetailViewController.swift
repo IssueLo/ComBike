@@ -23,7 +23,9 @@ class GroupDetailViewController: UIViewController {
             as? RidingViewController
         else { return }
         
-        ridingVC.groupName = groupInfo.name
+//        ridingVC.groupName = groupInfo.name
+        
+        ridingVC.groupInfo = groupInfo
 //        show(ridingVC, sender: nil)
         present(ridingVC, animated: true, completion: nil)
     }

@@ -157,8 +157,8 @@
                         <viewLayoutGuide key="safeArea" id="GaM-5F-4yW"/>
                     </view>
                     <connections>
-                        <outlet property="averageSpeedLabel" destination="RZ5-ng-D0Z" id="ftt-r4-12U"/>
                         <outlet property="coverView" destination="XW9-qQ-oUq" id="w5v-2J-GBv"/>
+                        <outlet property="currentSpeedLabel" destination="RZ5-ng-D0Z" id="s1l-Ge-W7I"/>
                         <outlet property="distanceLabel" destination="XuT-Hr-yKB" id="o9K-xv-HtU"/>
                         <outlet property="infoView" destination="gaP-PA-DU7" id="XZU-k9-Jjo"/>
                         <outlet property="mapView" destination="bcp-7u-CRl" id="Jv9-82-kdr"/>

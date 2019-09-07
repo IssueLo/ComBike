@@ -148,6 +148,16 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
+		9589DD722323AFFA003A9A87 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				952806AE231E512700EFD895 /* CreateGroupController.swift */,
+				9525992D23211BF1009C7750 /* QRCodeScannerController.swift */,
+				9525993323214199009C7750 /* QRCodeViewController.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,14 +229,12 @@
 			children = (
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
 				9525992B23211914009C7750 /* HomePageViewController.swift */,
+				95D613CB23155BF5008D885E /* UserLoginController.swift */,
+				9589DD722323AFFA003A9A87 /* New Group */,
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
-				952806AE231E512700EFD895 /* CreateGroupController.swift */,
-				9525992D23211BF1009C7750 /* QRCodeScannerController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
-				9525993323214199009C7750 /* QRCodeViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
-				95D613CB23155BF5008D885E /* UserLoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

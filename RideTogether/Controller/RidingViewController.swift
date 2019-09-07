@@ -20,7 +20,7 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var averageSpeedLabel: UILabel!
+    @IBOutlet weak var currentSpeedLabel: UILabel!
     
     @IBOutlet weak var maximumSpeedLabel: UILabel!
     
@@ -30,10 +30,14 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    var groupInfo: GroupInfo!
+    
+    var memberInfo = MemberInfo(memberName: UserInfo.name!)
+    
+    var ridingData: [String: Any]!
+    
     let timeManager = TimeManager()
     
-    var groupName: String!
-
     let locationManager = CLLocationManager()
     
     // 紀錄路線
@@ -115,9 +119,22 @@ class RidingViewController: UIViewController {
             as? RidingResultViewController
         else { return }
                 
-        ridingResultVC.groupName = self.groupName
+        ridingResultVC.groupName = self.groupInfo.name
         
         // 功能：儲存時間/ 距離/ 最高速度/ 路線
+        memberInfo.distance = totalDistance
+        
+        ridingData = ["name": UserInfo.name!,
+                      "spendTime": 123,
+                      "distance": totalDistance,
+                      "averageSpeed": 123,
+                      "maximumSpeed": maximumSpeed,
+                      "route": currentCoordinates
+        ]
+        
+        FirebaseDataManeger.shared.uploadRidingData(groupInfo.groupID,
+                                                    UserInfo.uid!,
+                                                    ridingData)
         
         show(ridingResultVC, sender: nil)
     }
@@ -194,6 +211,10 @@ class RidingViewController: UIViewController {
         
         guard let location = locationManager.location else { return }
         
+        let currentLoctation = [location.coordinate.latitude, location.coordinate.longitude]
+        
+        // 即時上傳當前位置
+        FirebaseDataManeger.shared.uploadUserLocation(groupInfo.groupID, UserInfo.uid!, currentLoctation)
 //        print(location.timestamp)
         
 //        let distance = location.distance(from: location)
@@ -202,7 +223,7 @@ class RidingViewController: UIViewController {
             
             let speed = String(format: "%.2f", (location.speed) * 3.6)
             
-            averageSpeedLabel.text = "\(speed) km/hr"
+            currentSpeedLabel.text = "\(speed) km/hr"
             
             totalDistance += location.speed
             
@@ -212,7 +233,7 @@ class RidingViewController: UIViewController {
             
         } else {
             
-            averageSpeedLabel.text = "0.00 km/hr"
+            currentSpeedLabel.text = "0.00 km/hr"
         }
         
         if maximumSpeed < location.speed {
