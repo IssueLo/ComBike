@@ -133,6 +133,33 @@ class FirebaseDataManeger {
         }
     }
     
+    // 監聽新增群組
+    func observerOfGroup(_ groupVC: GroupListViewController, _ userID: String, handler: @escaping () -> Void) {
+        
+        let groupOfUser = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
+        
+        groupOfUser.addSnapshotListener { (querySnapshot, _) in
+            
+            guard let querySnapshot = querySnapshot else { return }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .added {
+                    
+                    guard
+                        let name = documentChange.document.data()["name"] as? String,
+                        let member = documentChange.document.data()["member"] as? [String]
+                    else { return }
+                    
+                    let groupID = documentChange.document.documentID
+                    
+                    // 抓取群組資料
+                    self.getDataFromGroup(groupID, name, member, groupVC)
+                }
+            })
+        }
+    }
+    
     var memberData = [MemberData]()
     
     // 抓取群組資料
@@ -177,7 +204,7 @@ class FirebaseDataManeger {
                                       memberInfo: memberInfoArray)
                 
                 // 儲存群組資料
-                groupVC.groupInfoArray.append(group)
+                groupVC.groupInfoArray.insert(group, at: 0)
             }
         }
     }

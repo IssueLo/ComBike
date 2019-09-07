@@ -14,14 +14,14 @@ class RidingResultViewController: UIViewController {
     
     var groupResultInfo: GroupInfo!
     
+    var groupName: String!
+    
     @IBOutlet weak var groupNameLabel: UILabel! {
         didSet {
             
             groupNameLabel.text = groupName
         }
     }
-    
-    var groupName: String!
     
     @IBOutlet weak var ridingResultTableView: UITableView!
     

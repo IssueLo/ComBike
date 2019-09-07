@@ -14,7 +14,10 @@ class GroupListViewController: UIViewController {
         
         didSet {
             
-            groupListTableView.reloadData()
+            DispatchQueue.main.async {
+                
+                self.groupListTableView.reloadData()
+            }
         }
     }
     
@@ -46,15 +49,25 @@ class GroupListViewController: UIViewController {
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
         // 記得改回去喔！
-        UserInfo.uid = "1111111111111"
+        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
         
         UserInfo.name = "Ruyu"
         
         // 有登入的情況可以搜尋群組資料
         if UserInfo.uid != nil {
 
-            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
+//            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
+            
+            creatObserverOfGroup(UserInfo.uid!)
         }
+        
+    }
+    
+    func creatObserverOfGroup(_ userID: String) {
+        
+        FirebaseDataManeger.shared.observerOfGroup(self, userID, handler: {
+            
+        })
     }
 }
 
