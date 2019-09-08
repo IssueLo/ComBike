@@ -145,7 +145,9 @@ class RidingViewController: UIViewController {
             as? RidingResultViewController
         else { return }
                 
-        ridingResultVC.groupName = self.groupInfo.name
+//        ridingResultVC.groupName = self.groupInfo.name
+        
+        ridingResultVC.groupResultInfo = self.groupInfo
         
         // 功能：儲存時間/ 距離/ 最高速度/ 路線
         memberInfo.distance = totalDistance

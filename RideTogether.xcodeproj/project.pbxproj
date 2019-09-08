@@ -33,6 +33,8 @@
 		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* extansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* extansion.swift */; };
+		9589DD75232535B2003A9A87 /* RidingResultHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9589DD74232535B2003A9A87 /* RidingResultHeader.xib */; };
+		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
 		95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17A231F734600329927 /* KeyChainManager.swift */; };
@@ -76,6 +78,8 @@
 		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* extansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extansion.swift; sourceTree = "<group>"; };
+		9589DD74232535B2003A9A87 /* RidingResultHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultHeader.xib; sourceTree = "<group>"; };
+		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		95CFD17A231F734600329927 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -156,6 +160,14 @@
 				9525993323214199009C7750 /* QRCodeViewController.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		9589DD7323253405003A9A87 /* RidingResultHeader */ = {
+			isa = PBXGroup;
+			children = (
+				9589DD74232535B2003A9A87 /* RidingResultHeader.xib */,
+			);
+			path = RidingResultHeader;
 			sourceTree = "<group>";
 		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
@@ -244,6 +256,8 @@
 			children = (
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
+				9589DD7323253405003A9A87 /* RidingResultHeader */,
+				9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */,
 				951554BB2318F1040080BBB7 /* UserSignInView.swift */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 			);
@@ -322,6 +336,7 @@
 			files = (
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
+				9589DD75232535B2003A9A87 /* RidingResultHeader.xib in Resources */,
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
@@ -408,6 +423,7 @@
 				95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */,
+				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
 				95CFD17D231F894400329927 /* UserInfo.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,

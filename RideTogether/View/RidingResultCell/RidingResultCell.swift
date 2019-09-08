@@ -14,6 +14,8 @@ class RidingResultCell: UITableViewCell {
     
     @IBOutlet weak var memberNameLabel: UILabel!
     
+    @IBOutlet weak var rankingLabel: UILabel!
+    
     @IBOutlet weak var spendTimeLebal: UILabel!
     
 }
