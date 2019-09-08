@@ -126,8 +126,10 @@ class FirebaseDataManeger {
                         let member = document.data()["member"] as? [String]
                     else { return }
                     
+                    let groupID = document.documentID
+                    
                     // 抓取群組資料
-                    self.getDataFromGroup(document.documentID, name, member, groupVC)
+                    self.getDataFromGroup(groupVC, groupID, name, member)
                 }
             }
         }
@@ -154,7 +156,29 @@ class FirebaseDataManeger {
                     let groupID = documentChange.document.documentID
                     
                     // 抓取群組資料
-                    self.getDataFromGroup(groupID, name, member, groupVC)
+                    self.getDataFromGroup(groupVC, groupID, name, member)
+                }
+            })
+        }
+    }
+    
+    // 監聽新增成員
+    func observerOfMember(_ groupDetailVC: GroupDetailViewController, _ groupID: String) {
+        
+        let memberOfGroup = Firestore.firestore().collection("group").document(groupID).collection("member")
+        
+        memberOfGroup.addSnapshotListener { (querySnapshot, _) in
+            
+            guard let querySnapshot = querySnapshot else { return }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .added {
+                    
+                    guard let memberName = documentChange.document.data()["name"] as? String
+                    else { return }
+                    
+                    groupDetailVC.memberInGroup.append(memberName)
                 }
             })
         }
@@ -163,10 +187,10 @@ class FirebaseDataManeger {
     var memberData = [MemberData]()
     
     // 抓取群組資料
-    private func getDataFromGroup(_ groupID: String,
+    private func getDataFromGroup(_ groupVC: GroupListViewController,
+                                  _ groupID: String,
                                   _ name: String,
-                                  _ member: [String],
-                                  _ groupVC: GroupListViewController) {
+                                  _ member: [String]) {
         
         let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
         
@@ -236,8 +260,3 @@ class FirebaseDataManeger {
         userInfo.setData(ridingData)
     }
 }
-//let userInfoCollection = Firestore.firestore().collection("userInfo")
-//
-//let userInfo: [String: Any] = ["userName": userName, "userEmail": userEmail]
-//
-//userInfoCollection.document(userUID).setData(userInfo)

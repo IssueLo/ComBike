@@ -12,6 +12,17 @@ class GroupDetailViewController: UIViewController {
     
     var groupInfo: GroupInfo!
     
+    var memberInGroup = [String]() {
+        
+        didSet {
+            
+//            DispatchQueue.main.sync {
+            
+                memberListTableView.reloadData()
+//            }
+        }
+    }
+    
     @IBOutlet weak var memberListTableView: UITableView!
     
     @IBAction func startRiding() {
@@ -26,6 +37,7 @@ class GroupDetailViewController: UIViewController {
 //        ridingVC.groupName = groupInfo.name
         
         ridingVC.groupInfo = groupInfo
+        
 //        show(ridingVC, sender: nil)
         present(ridingVC, animated: true, completion: nil)
     }
@@ -42,6 +54,8 @@ class GroupDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(showQRCodeVC))
+        
+        FirebaseDataManeger.shared.observerOfMember(self, groupInfo.groupID)
     }
     
     @objc func showQRCodeVC() {
@@ -59,13 +73,25 @@ class GroupDetailViewController: UIViewController {
         present(qrCodeVC, animated: false, completion: nil)
     }
     
+    func creatObserverOfMember() {
+        
+        FirebaseDataManeger.shared.observerOfMember(self, groupInfo.groupID)
+    }
+    
 }
 
 extension GroupDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return groupInfo.memberInfo.count
+//        return groupInfo.memberInfo.count
+//        if memberInGroup.count == nil {
+//
+//            return 0
+//        } else {
+        
+            return memberInGroup.count
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,8 +100,10 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
-        groupListCell.groupNameLabel.text = self.groupInfo.memberInfo[indexPath.row].name
+//        groupListCell.groupNameLabel.text = self.groupInfo.memberInfo[indexPath.row].name
         
+        groupListCell.groupNameLabel.text = self.memberInGroup[indexPath.row]
+                
         return groupListCell
     }
     

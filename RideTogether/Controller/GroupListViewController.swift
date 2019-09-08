@@ -53,6 +53,10 @@ class GroupListViewController: UIViewController {
         
         UserInfo.name = "Ruyu"
         
+//        UserInfo.uid = "userID"
+//        
+//        UserInfo.name = "Kevin"
+        
         // 有登入的情況可以搜尋群組資料
         if UserInfo.uid != nil {
 
@@ -115,7 +119,7 @@ extension GroupListViewController: UITableViewDataSource {
         else { return }
         
         detailVC.groupInfo = self.groupInfoArray[indexPath.row]
-        
+                
 //        guard let detailVC = vc as? ProductDetailViewController else { return }
 //
 //        detailVC.product = product
