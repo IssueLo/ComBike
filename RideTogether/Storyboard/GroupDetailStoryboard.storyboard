@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NWX-fZ-KuN">
-                                <rect key="frame" x="75" y="32" width="225" height="555"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="549"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="iuE-XP-EsE" id="LAz-Z3-0li"/>
@@ -27,11 +27,12 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-m2-htZ">
-                                <rect key="frame" x="163.5" y="597" width="48" height="40"/>
+                                <rect key="frame" x="132.5" y="593" width="110" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8Wg-Gy-T70"/>
+                                    <constraint firstAttribute="height" constant="50" id="8Wg-Gy-T70"/>
+                                    <constraint firstAttribute="width" constant="110" id="uVg-Yo-pLe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
                                 <state key="normal" title="開始">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -42,18 +43,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2lP-d5-5cN" firstAttribute="trailing" secondItem="NWX-fZ-KuN" secondAttribute="trailing" constant="75" id="FfY-xt-kk3"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="trailing" secondItem="NWX-fZ-KuN" secondAttribute="trailing" id="FfY-xt-kk3"/>
                             <constraint firstItem="GOA-m2-htZ" firstAttribute="centerX" secondItem="iNs-wx-fJM" secondAttribute="centerX" id="FuQ-gY-suD"/>
-                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="NWX-fZ-KuN" secondAttribute="bottom" constant="80" id="YcE-Yf-ycK"/>
-                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="top" secondItem="2lP-d5-5cN" secondAttribute="top" constant="12" id="Zg1-k3-sov"/>
-                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="GOA-m2-htZ" secondAttribute="centerY" constant="50" id="hIc-Ow-mox"/>
-                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="leading" secondItem="2lP-d5-5cN" secondAttribute="leading" constant="75" id="vdf-GE-m3n"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="GOA-m2-htZ" secondAttribute="bottom" constant="24" id="OQl-XA-eYY"/>
+                            <constraint firstItem="GOA-m2-htZ" firstAttribute="top" secondItem="NWX-fZ-KuN" secondAttribute="bottom" constant="24" id="Py3-dp-6Wc"/>
+                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="top" secondItem="2lP-d5-5cN" secondAttribute="top" id="Zg1-k3-sov"/>
+                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="leading" secondItem="2lP-d5-5cN" secondAttribute="leading" id="vdf-GE-m3n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2lP-d5-5cN"/>
                     </view>
                     <navigationItem key="navigationItem" title="GroupName" id="IPO-IX-Rrz"/>
                     <connections>
                         <outlet property="memberListTableView" destination="NWX-fZ-KuN" id="Lq5-Ni-Yrw"/>
+                        <outlet property="startBtn" destination="GOA-m2-htZ" id="t0d-eF-cFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXH-ak-n8j" userLabel="First Responder" sceneMemberID="firstResponder"/>

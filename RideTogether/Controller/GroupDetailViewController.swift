@@ -16,14 +16,23 @@ class GroupDetailViewController: UIViewController {
         
         didSet {
             
-//            DispatchQueue.main.sync {
-            
-                memberListTableView.reloadData()
-//            }
+            memberListTableView.reloadData()
         }
     }
     
     @IBOutlet weak var memberListTableView: UITableView!
+    
+    @IBOutlet weak var startBtn: UIButton! {
+        
+        didSet {
+            
+            startBtn.layer.cornerRadius = 25
+            
+            startBtn.layer.borderColor = UIColor.lightGray.cgColor
+            
+            startBtn.layer.borderWidth = 1
+        }
+    }
     
     @IBAction func startRiding() {
         
@@ -51,9 +60,14 @@ class GroupDetailViewController: UIViewController {
         
         memberListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Icons_QRCode"),
+                                                            style: .plain,
                                                             target: self,
                                                             action: #selector(showQRCodeVC))
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+//                                                            target: self,
+//                                                            action: #selector(showQRCodeVC))
         
         FirebaseDataManeger.shared.observerOfMember(self, groupInfo.groupID)
     }
@@ -113,6 +127,6 @@ extension GroupDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 80
+        return 70
     }
 }

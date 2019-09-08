@@ -10,6 +10,13 @@ import UIKit
 
 class CreateGroupController: UIViewController {
     
+    @IBOutlet weak var backView: UIView! {
+        didSet {
+            
+            backView.layer.cornerRadius = 14
+        }
+    }
+    
     @IBOutlet weak var groupNameTxtFld: UITextField! {
         didSet {
             

@@ -14,9 +14,33 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView! 
     
-    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton! {
+        
+        didSet {
+            
+            stopButton.layer.cornerRadius = 25
+            
+            stopButton.layer.borderColor = UIColor.lightGray.cgColor
+            
+            stopButton.layer.borderWidth = 1
+            
+            stopButton.backgroundColor = .white
+        }
+    }
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton! {
+        
+        didSet {
+            
+            saveButton.layer.cornerRadius = 25
+            
+            saveButton.layer.borderColor = UIColor.lightGray.cgColor
+            
+            saveButton.layer.borderWidth = 1
+            
+            saveButton.backgroundColor = .white
+        }
+    }
     
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -191,13 +215,13 @@ class RidingViewController: UIViewController {
         
         infoView.alpha = 0.8
         
-        stopButton.layer.cornerRadius = 10
-        
-        stopButton.backgroundColor = .lightGray
-        
-        saveButton.layer.cornerRadius = 10
-        
-        saveButton.backgroundColor = .lightGray
+//        stopButton.layer.cornerRadius = 10
+//
+//        stopButton.backgroundColor = .lightGray
+//
+//        saveButton.layer.cornerRadius = 10
+//
+//        saveButton.backgroundColor = .lightGray
     }
     
     func currentRoute() {
@@ -245,7 +269,7 @@ class RidingViewController: UIViewController {
         
         maximumSpeedLabel.text = "\(String(format: "%.2f", (maximumSpeed) * 3.6)) km/hr"
         
-        distanceLabel.text = "\(String(format: "%.2f", totalDistance)) m"
+        distanceLabel.text = "\(String(format: "%.2f", totalDistance/1000)) km"
                 
         // 功能：抓取同伴當前位置
         FirebaseDataManeger.shared.updateMemberLocation(self, groupInfo.groupID)

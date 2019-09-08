@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uvq-lf-W8I">
-                                <rect key="frame" x="70" y="76" width="235" height="471"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="rbM-8h-mgS" id="7pm-5B-6hW"/>
@@ -27,11 +27,12 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-LK-ghe">
-                                <rect key="frame" x="139.5" y="552" width="96" height="40"/>
+                                <rect key="frame" x="127.5" y="593" width="120" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2Rq-Qf-nkg"/>
+                                    <constraint firstAttribute="height" constant="50" id="2Rq-Qf-nkg"/>
+                                    <constraint firstAttribute="width" constant="120" id="EFN-Ps-uBF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
                                 <state key="normal" title="創建群組">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -39,30 +40,15 @@
                                     <action selector="createGroup" destination="rbM-8h-mgS" eventType="touchUpInside" id="uU5-dn-5X9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGL-5Q-aeE">
-                                <rect key="frame" x="139.5" y="597" width="96" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fpx-sN-n2u"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="24"/>
-                                <state key="normal" title="加入群組">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="scanQRCode" destination="rbM-8h-mgS" eventType="touchUpInside" id="ow1-Rf-9G5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rcb-LK-ghe" firstAttribute="centerX" secondItem="xH5-w9-FVn" secondAttribute="centerX" id="075-5r-BLm"/>
-                            <constraint firstItem="kkI-x2-6kh" firstAttribute="bottom" secondItem="qGL-5Q-aeE" secondAttribute="centerY" constant="50" id="3un-C2-tbq"/>
-                            <constraint firstItem="qGL-5Q-aeE" firstAttribute="centerX" secondItem="xH5-w9-FVn" secondAttribute="centerX" id="ESE-Hs-wZs"/>
-                            <constraint firstItem="uvq-lf-W8I" firstAttribute="leading" secondItem="kkI-x2-6kh" secondAttribute="leading" constant="70" id="Lw6-0n-IfR"/>
-                            <constraint firstItem="kkI-x2-6kh" firstAttribute="trailing" secondItem="uvq-lf-W8I" secondAttribute="trailing" constant="70" id="OuE-s5-Rvi"/>
-                            <constraint firstItem="uvq-lf-W8I" firstAttribute="top" secondItem="kkI-x2-6kh" secondAttribute="top" constant="12" id="adM-CF-d4k"/>
-                            <constraint firstItem="kkI-x2-6kh" firstAttribute="bottom" secondItem="uvq-lf-W8I" secondAttribute="bottom" constant="120" id="gJM-sf-VK6"/>
-                            <constraint firstItem="qGL-5Q-aeE" firstAttribute="top" secondItem="Rcb-LK-ghe" secondAttribute="bottom" constant="5" id="t68-BY-b42"/>
+                            <constraint firstItem="Rcb-LK-ghe" firstAttribute="top" secondItem="uvq-lf-W8I" secondAttribute="bottom" constant="24" id="E5c-mg-z2D"/>
+                            <constraint firstItem="uvq-lf-W8I" firstAttribute="leading" secondItem="kkI-x2-6kh" secondAttribute="leading" id="Lw6-0n-IfR"/>
+                            <constraint firstItem="kkI-x2-6kh" firstAttribute="trailing" secondItem="uvq-lf-W8I" secondAttribute="trailing" id="OuE-s5-Rvi"/>
+                            <constraint firstItem="uvq-lf-W8I" firstAttribute="top" secondItem="kkI-x2-6kh" secondAttribute="top" id="adM-CF-d4k"/>
+                            <constraint firstItem="kkI-x2-6kh" firstAttribute="bottom" secondItem="Rcb-LK-ghe" secondAttribute="bottom" constant="24" id="wYp-oO-hNQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kkI-x2-6kh"/>
                     </view>
@@ -70,6 +56,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="3TL-Qe-VR8"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="createGroupBtn" destination="Rcb-LK-ghe" id="a2A-xS-G73"/>
                         <outlet property="groupListTableView" destination="uvq-lf-W8I" id="eas-Fa-fg2"/>
                     </connections>
                 </viewController>

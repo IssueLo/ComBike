@@ -60,6 +60,6 @@ class TimeManager {
         
         let hour = String(format: "%02d", hourInt)
         
-        return "\(hour)：\(mins)：\(sec)"
+        return "\(hour):\(mins):\(sec)"
     }
 }

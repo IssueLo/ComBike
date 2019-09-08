@@ -21,6 +21,18 @@ class GroupListViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var createGroupBtn: UIButton! {
+        
+        didSet {
+            
+            createGroupBtn.layer.cornerRadius = 25
+            
+            createGroupBtn.layer.borderColor = UIColor.lightGray.cgColor
+            
+            createGroupBtn.layer.borderWidth = 1
+        }
+    }
+    
     @IBAction func createGroup() {
         
         let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
@@ -32,11 +44,11 @@ class GroupListViewController: UIViewController {
         present(createGroupVC, animated: false, completion: nil)
     }
     
-    @IBAction func scanQRCode() {
+    @objc func scanQRCode() {
         
         let qrCodeScannerVC = QRCodeScannerController()
         
-        present(qrCodeScannerVC, animated: false, completion: nil)
+        present(qrCodeScannerVC, animated: true, completion: nil)
     }
     
     @IBOutlet weak var groupListTableView: UITableView!
@@ -49,13 +61,13 @@ class GroupListViewController: UIViewController {
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
         // 記得改回去喔！
-        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-
-        UserInfo.name = "Ruyu"
-        
-//        UserInfo.uid = "userID"
+//        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
 //
-//        UserInfo.name = "Kevin"
+//        UserInfo.name = "Ruyu"
+        
+        UserInfo.uid = "userID"
+
+        UserInfo.name = "Kevin"
         
         // 有登入的情況可以搜尋群組資料
         if UserInfo.uid != nil {
@@ -65,6 +77,9 @@ class GroupListViewController: UIViewController {
             creatObserverOfGroup(UserInfo.uid!)
         }
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                            target: self,
+                                                            action: #selector(scanQRCode))
     }
     
     func creatObserverOfGroup(_ userID: String) {
@@ -147,6 +162,6 @@ extension GroupListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 100
+        return 70
     }
 }
