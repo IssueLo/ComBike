@@ -53,6 +53,13 @@ struct MemberInfo {
     }
 }
 
+struct LocationOfMember {
+    
+    var name: String
+    
+    var location: GeoPoint
+}
+
 struct MemberData {
     
     //    var name: String

@@ -50,11 +50,11 @@ class GroupListViewController: UIViewController {
         
         // 記得改回去喔！
         UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-        
+
         UserInfo.name = "Ruyu"
         
 //        UserInfo.uid = "userID"
-//        
+//
 //        UserInfo.name = "Kevin"
         
         // 有登入的情況可以搜尋群組資料

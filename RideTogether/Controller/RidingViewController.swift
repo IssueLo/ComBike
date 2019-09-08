@@ -36,6 +36,8 @@ class RidingViewController: UIViewController {
     
     var ridingData: [String: Any]!
     
+    var locationOfMember = [LocationOfMember]()
+    
     let timeManager = TimeManager()
     
     let locationManager = CLLocationManager()
@@ -128,8 +130,8 @@ class RidingViewController: UIViewController {
                       "spendTime": 123,
                       "distance": totalDistance,
                       "averageSpeed": 123,
-                      "maximumSpeed": maximumSpeed,
-                      "route": currentCoordinates
+                      "maximumSpeed": maximumSpeed//,
+//                      "route": currentCoordinates
         ]
         
         FirebaseDataManeger.shared.uploadRidingData(groupInfo.groupID,
@@ -244,10 +246,9 @@ class RidingViewController: UIViewController {
         maximumSpeedLabel.text = "\(String(format: "%.2f", (maximumSpeed) * 3.6)) km/hr"
         
         distanceLabel.text = "\(String(format: "%.2f", totalDistance)) m"
-        
-        // 功能：上傳當前位置
-        
+                
         // 功能：抓取同伴當前位置
+        FirebaseDataManeger.shared.updateMemberLocation(self, groupInfo.groupID)
         
         // 背後靈
 //        mapView.removeAnnotation(annotation)

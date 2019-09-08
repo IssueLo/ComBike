@@ -246,9 +246,30 @@ class FirebaseDataManeger {
         userInfo.setData(locationData)
     }
     
-    // 下載同伴所在位置
-    func updateMemberLocation() {
+    // 監聽同伴所在位置
+    func updateMemberLocation(_ ridingViewController: RidingViewController, _ groupID: String) {
         
+        let memberLocationData = Firestore.firestore().collection("group").document(groupID).collection("member")
+        
+        memberLocationData.addSnapshotListener { (querySnapshot, _) in
+            
+            guard let querySnapshot = querySnapshot else { return }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .modified {
+                    
+                    guard
+                        let memberName = documentChange.document.data()["name"] as? String,
+                        let memberLocation = documentChange.document.data()["location"] as? GeoPoint
+                    else { return }
+                    
+//                    groupDetailVC.memberInGroup.append(memberName)
+                    print(memberName)
+                    print(memberLocation)
+                }
+            })
+        }
     }
     
     // 上傳騎乘紀錄
