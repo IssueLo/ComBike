@@ -12,21 +12,19 @@ class RidingResultViewController: UIViewController {
     
     @IBOutlet weak var ridingResultHeaderView: RidingResultHeaderView!
     
-    var member = ["Kevin", "Ruyu", "Peter"]
-    
     var groupResultInfo: GroupInfo!
+    
+    var memberResultInfo: [MemberInfo] = [] {
+        
+        didSet {
+            
+            ridingResultTableView.reloadData()
+        }
+    }
     
     var groupName: String!
     
     @IBOutlet weak var ridingResultTableView: UITableView!
-    
-//    @IBAction func backToGroupList() {
-//        
-//        dismiss(animated: true, completion: nil)
-//        
-//        backToRoot()
-////        navigationController?.popToRootViewController(animated: true)
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +33,7 @@ class RidingResultViewController: UIViewController {
         
         ridingResultTableView.register(nib, forCellReuseIdentifier: "RidingResultCell")
         
-//        let headerNib = UINib(nibName: "RidingResultHeader", bundle: nil)
-//
-//        ridingResultTableView.register(headerNib,
-//                                       forHeaderFooterViewReuseIdentifier: "RidingResultHeader")
-        
-        ridingResultHeaderView.setupHeaderView(groupResultInfo.name, UserInfo.name!, 2, "nd", "01:03:14")
+        ridingResultHeaderView.setupHeaderView(groupResultInfo.name, UserInfo.name!, 1, "st", "00:00:00")
         
         ridingResultHeaderView.handler = {
             
@@ -48,6 +41,8 @@ class RidingResultViewController: UIViewController {
             
             self.backToRoot()
         }
+        
+        FirebaseDataManeger.shared.observerOfResult(self, groupResultInfo.groupID)
     }
 
 }
@@ -56,7 +51,7 @@ extension RidingResultViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return member.count
+        return memberResultInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,9 +60,11 @@ extension RidingResultViewController: UITableViewDataSource {
         
         guard let ridingResultCell = cell as? RidingResultCell else { return cell }
         
-        ridingResultCell.memberNameLabel.text = member[indexPath.row]
+        ridingResultCell.memberNameLabel.text = memberResultInfo[indexPath.row].name
         
         ridingResultCell.rankingLabel.text = String(indexPath.row + 1)
+        
+        ridingResultCell.spendTimeLebal.text = TimeManager().secToRealTime(memberResultInfo[indexPath.row].spendTime!)
         
         return ridingResultCell
     }
@@ -81,21 +78,4 @@ extension RidingResultViewController: UITableViewDataSource {
 
 extension RidingResultViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        guard
-//            let headerView = ridingResultTableView.dequeueReusableHeaderFooterView(withIdentifier: "RidingResultHeader")
-//                as? RidingResultHeader
-//            
-//        else { return UIView() }
-//        
-//        headerView.userNameLabel.text = UserInfo.name
-//        
-//        return headerView
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        
-//        return 100
-//    }
 }

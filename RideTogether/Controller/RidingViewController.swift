@@ -12,7 +12,7 @@ import CoreLocation
 
 class RidingViewController: UIViewController {
     
-    @IBOutlet weak var infoView: UIView! 
+    @IBOutlet weak var infoView: UIView!
     
     @IBOutlet weak var stopButton: UIButton! {
         
@@ -153,9 +153,9 @@ class RidingViewController: UIViewController {
         memberInfo.distance = totalDistance
         
         ridingData = ["name": UserInfo.name!,
-                      "spendTime": 123,
+                      "spendTime": timeManager.currentSecond,
                       "distance": totalDistance,
-                      "averageSpeed": 123,
+                      "averageSpeed": ((totalDistance / Double(timeManager.currentSecond)) * 3.6),
                       "maximumSpeed": maximumSpeed//,
 //                      "route": currentCoordinates
         ]
@@ -176,8 +176,6 @@ class RidingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupInfoView()
-        
         setupMapView()
         
         // 開始計時
@@ -190,6 +188,10 @@ class RidingViewController: UIViewController {
                                             repeats: true)
         
         currentLocaton()
+        
+        let mapButton = MKUserTrackingButton(mapView: mapView)
+        
+        setupMapViewButton(mapButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -211,19 +213,22 @@ class RidingViewController: UIViewController {
         }
     }
     
-    func setupInfoView() {
+    func setupMapViewButton(_ sender: MKUserTrackingButton) {
         
-        infoView.layer.cornerRadius = 10
+        sender.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
         
-        infoView.alpha = 0.8
+        sender.layer.borderColor = UIColor.white.cgColor
         
-//        stopButton.layer.cornerRadius = 10
-//
-//        stopButton.backgroundColor = .lightGray
-//
-//        saveButton.layer.cornerRadius = 10
-//
-//        saveButton.backgroundColor = .lightGray
+        sender.layer.borderWidth = 1
+        
+        sender.layer.cornerRadius = 5
+        
+        mapView.addSubview(sender)
+        
+        sender.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([sender.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -12),
+                                     sender.rightAnchor.constraint(equalTo: mapView.rightAnchor, constant: -12)])
     }
     
     func currentRoute() {

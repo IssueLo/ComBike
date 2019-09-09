@@ -61,13 +61,13 @@ class GroupListViewController: UIViewController {
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
         // 記得改回去喔！
-//        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-//
-//        UserInfo.name = "Ruyu"
-        
-        UserInfo.uid = "userID"
+        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
 
-        UserInfo.name = "Kevin"
+        UserInfo.name = "Ruyu"
+        
+//        UserInfo.uid = "userID"
+//
+//        UserInfo.name = "Kevin"
         
         // 有登入的情況可以搜尋群組資料
         if UserInfo.uid != nil {

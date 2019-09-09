@@ -184,7 +184,7 @@ class FirebaseDataManeger {
         }
     }
     
-    var memberData = [MemberData]()
+//    var memberData = [MemberData]()
     
     // 抓取群組資料
     private func getDataFromGroup(_ groupVC: GroupListViewController,
@@ -269,6 +269,61 @@ class FirebaseDataManeger {
                     print(memberLocation)
                 }
             })
+        }
+    }
+    
+    // 監聽結果
+    func observerOfResult(_ ridingResultVC: RidingResultViewController,_ groupID: String) {
+        
+        let ridingResultData = Firestore.firestore().collection("group").document(groupID).collection("member")
+        
+        ridingResultData.addSnapshotListener { (querySnapshot, _) in
+            
+            guard let querySnapshot = querySnapshot else { return }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .added {
+                    
+                    self.updateRidingResult(ridingResultVC, groupID)
+                }
+                
+                if documentChange.type == .modified {
+                    
+                    self.updateRidingResult(ridingResultVC, groupID)
+                }
+            })
+        }
+    }
+    
+    // 更新結果
+    
+    func updateRidingResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
+        
+        let ridingResultData = Firestore.firestore().collection("group").document(groupID).collection("member").order(by: "spendTime", descending: false)
+        
+        ridingResultData.getDocuments { (querySnapshot, _) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                var ridingResultArray = [MemberInfo]()
+                
+                for document in querySnapshot.documents {
+                    
+                    guard
+                        let memberName = document.data() ["name"] as? String,
+                        let spendTime = document.data() ["spendTime"] as? Int
+                    else { return }
+                    
+                    var memberInfo = MemberInfo(memberName: memberName)
+                    
+                    memberInfo.spendTime = spendTime
+                    
+                    ridingResultArray.append(memberInfo)
+                }
+                
+                ridingResultVC.memberResultInfo = ridingResultArray
+            }
         }
     }
     
