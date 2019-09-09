@@ -44,7 +44,6 @@ class RidingResultViewController: UIViewController {
         
         FirebaseDataManeger.shared.observerOfResult(self, groupResultInfo.groupID)
     }
-
 }
 
 extension RidingResultViewController: UITableViewDataSource {

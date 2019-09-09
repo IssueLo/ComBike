@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MapKit
 
 class FirebaseDataManeger {
     
@@ -232,12 +233,12 @@ class FirebaseDataManeger {
     }
     
     // 上傳使用者所在位置
-    func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: [Double]) {
+    func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: CLLocationCoordinate2D) {
         
         let userInfo = Firestore.firestore().collection("group").document(groupID)
             .collection("member").document(userUID)
         
-        let geoPoint = GeoPoint(latitude: userLoction[0], longitude: userLoction[1])
+        let geoPoint = userLoction.transferToGeopoint()
         
         let locationData = ["name": UserInfo.name!, "location": geoPoint] as [String: Any]
         
@@ -245,7 +246,7 @@ class FirebaseDataManeger {
     }
     
     // 監聽同伴所在位置
-    func updateMemberLocation(_ ridingViewController: RidingViewController, _ groupID: String) {
+    func observerOfMemberLocation(_ ridingViewController: RidingViewController, _ groupID: String) {
         
         let memberLocationData = Firestore.firestore().collection("group").document(groupID).collection("member")
         
@@ -255,6 +256,20 @@ class FirebaseDataManeger {
             
             querySnapshot.documentChanges.forEach({ (documentChange) in
                 
+                if documentChange.type == .added {
+                    
+                    guard
+                        let memberName = documentChange.document.data()["name"] as? String,
+                        let memberLocation = documentChange.document.data()["location"] as? GeoPoint
+                    else { return }
+                    
+                    let locationOfMember = LocationOfMember(name: memberName,
+                                                            location: memberLocation.transferToCoordinate2D())
+                    
+                    ridingViewController.locationOfMember.append(locationOfMember)
+                    
+                }
+                
                 if documentChange.type == .modified {
                     
                     guard
@@ -262,16 +277,29 @@ class FirebaseDataManeger {
                         let memberLocation = documentChange.document.data()["location"] as? GeoPoint
                     else { return }
                     
-//                    groupDetailVC.memberInGroup.append(memberName)
-                    print(memberName)
-                    print(memberLocation)
+                    for number in 0..<ridingViewController.locationOfMember.count {
+                    
+                        if memberName == ridingViewController.locationOfMember[number].name {
+                            
+                            ridingViewController.locationOfMember.remove(at: number)
+                            
+                            let locationOfMember = LocationOfMember(name: memberName,
+                                                                    location: memberLocation.transferToCoordinate2D())
+                            
+                            ridingViewController.locationOfMember.append(locationOfMember)
+                            
+                        } else {
+                            
+                            continue
+                        }
+                    }
                 }
             })
         }
     }
     
     // 監聽結果
-    func observerOfResult(_ ridingResultVC: RidingResultViewController,_ groupID: String) {
+    func observerOfResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
         
         let ridingResultData = Firestore.firestore().collection("group").document(groupID).collection("member")
         
@@ -298,7 +326,9 @@ class FirebaseDataManeger {
     
     func updateRidingResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
         
-        let ridingResultData = Firestore.firestore().collection("group").document(groupID).collection("member").order(by: "spendTime", descending: false)
+        let ridingResultData =
+            Firestore.firestore().collection("group").document(groupID)
+            .collection("member").order(by: "spendTime", descending: false)
         
         ridingResultData.getDocuments { (querySnapshot, _) in
             

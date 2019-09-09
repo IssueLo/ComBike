@@ -6,8 +6,8 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-//import Foundation
 import Firebase
+import MapKit
 
 struct GroupInfo {
     
@@ -57,7 +57,7 @@ struct LocationOfMember {
     
     var name: String
     
-    var location: GeoPoint
+    var location: CLLocationCoordinate2D
 }
 
 struct MemberData {

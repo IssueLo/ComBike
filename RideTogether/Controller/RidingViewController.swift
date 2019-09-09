@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class RidingViewController: UIViewController {
     
@@ -60,7 +61,17 @@ class RidingViewController: UIViewController {
     
     var ridingData: [String: Any]!
     
-    var locationOfMember = [LocationOfMember]()
+    var locationOfMember = [LocationOfMember]() {
+        
+        didSet {
+            
+            print(locationOfMember)
+            
+            memberLocationAnnotation()
+        }
+    }
+    
+    var mkPointAnnotation = [MKPointAnnotation]()
     
     let timeManager = TimeManager()
     
@@ -69,10 +80,12 @@ class RidingViewController: UIViewController {
     // 紀錄路線
     var currentCoordinates = [CLLocationCoordinate2D]() {
         didSet {
-            //            print(currentCoordinates.count)
+
             currentRoute()
         }
     }
+    
+    var currentGeoPoint = [GeoPoint]()
     
     // 紀錄距離
     var totalDistance: Double = 0
@@ -144,8 +157,6 @@ class RidingViewController: UIViewController {
             let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor")
             as? RidingResultViewController
         else { return }
-                
-//        ridingResultVC.groupName = self.groupInfo.name
         
         ridingResultVC.groupResultInfo = self.groupInfo
         
@@ -156,8 +167,8 @@ class RidingViewController: UIViewController {
                       "spendTime": timeManager.currentSecond,
                       "distance": totalDistance,
                       "averageSpeed": ((totalDistance / Double(timeManager.currentSecond)) * 3.6),
-                      "maximumSpeed": maximumSpeed//,
-//                      "route": currentCoordinates
+                      "maximumSpeed": maximumSpeed,
+                      "route": currentGeoPoint
         ]
         
         FirebaseDataManeger.shared.uploadRidingData(groupInfo.groupID,
@@ -192,6 +203,8 @@ class RidingViewController: UIViewController {
         let mapButton = MKUserTrackingButton(mapView: mapView)
         
         setupMapViewButton(mapButton)
+        
+        FirebaseDataManeger.shared.observerOfMemberLocation(self, groupInfo.groupID)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -238,16 +251,14 @@ class RidingViewController: UIViewController {
         PolylineManager.shared.showPolyline(coordinates: currentCoordinates)
     }
     
-    let annotation = MKPointAnnotation()
-    
     @objc func currentLocaton() {
         
         guard let location = locationManager.location else { return }
         
-        let currentLoctation = [location.coordinate.latitude, location.coordinate.longitude]
-        
         // 即時上傳當前位置
-        FirebaseDataManeger.shared.uploadUserLocation(groupInfo.groupID, UserInfo.uid!, currentLoctation)
+        FirebaseDataManeger.shared.uploadUserLocation(groupInfo.groupID,
+                                                      UserInfo.uid!,
+                                                      location.coordinate)
 //        print(location.timestamp)
         
 //        let distance = location.distance(from: location)
@@ -264,6 +275,8 @@ class RidingViewController: UIViewController {
             
             currentCoordinates.append(location.coordinate)
             
+            currentGeoPoint.append(location.coordinate.transferToGeopoint())
+            
         } else {
             
             currentSpeedLabel.text = "0.00 km/hr"
@@ -279,17 +292,40 @@ class RidingViewController: UIViewController {
         distanceLabel.text = "\(String(format: "%.2f", totalDistance/1000)) km"
                 
         // 功能：抓取同伴當前位置
-        FirebaseDataManeger.shared.updateMemberLocation(self, groupInfo.groupID)
+//        FirebaseDataManeger.shared.observerOfMemberLocation(self, groupInfo.groupID)
         
-        // 背後靈
-//        mapView.removeAnnotation(annotation)
-//
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude + 0.001),
-//                                                       longitude: location.coordinate.longitude)
-//
-//        annotation.title = "Ruyu"
-//
-//        mapView.addAnnotation(annotation)
+    }
+    
+    func memberLocationAnnotation() {
+        
+        if mkPointAnnotation.count > 0 {
+            
+            for _ in 0..<mkPointAnnotation.count {
+                
+                self.mapView.removeAnnotation(mkPointAnnotation[0])
+                
+                mkPointAnnotation.remove(at: 0)
+            }
+        }
+        
+        for memberLocation in locationOfMember {
+            
+            if UserInfo.name == memberLocation.name {
+                
+                continue
+            } else {
+            
+                let annotation = MKPointAnnotation()
+                
+                annotation.coordinate = memberLocation.location
+                
+                annotation.title = memberLocation.name
+                
+                mkPointAnnotation.append(annotation)
+                
+                self.mapView.addAnnotation(annotation)
+            }
+        }
     }
 }
 
@@ -323,7 +359,7 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
-        renderer.lineWidth = 10.0
+        renderer.lineWidth = 5.0
         
         return renderer
     }
