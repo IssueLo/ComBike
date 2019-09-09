@@ -20,7 +20,11 @@ class FirebaseAccountManager {
     // MARK: Firebase 註冊
     func onClickRegister(_ userSignInView: UserSignInView) {
         
-        if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
+        if userSignInView.userNameTxtFld.text == "" {
+            
+            showAlert(belongToVC, "請輸入暱稱")
+            
+        } else if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
             
             showAlert(belongToVC, "請輸入信箱跟密碼")
         }

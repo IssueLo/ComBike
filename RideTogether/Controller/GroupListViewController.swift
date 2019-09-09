@@ -43,14 +43,7 @@ class GroupListViewController: UIViewController {
         
         present(createGroupVC, animated: false, completion: nil)
     }
-    
-    @objc func scanQRCode() {
-        
-        let qrCodeScannerVC = QRCodeScannerController()
-        
-        present(qrCodeScannerVC, animated: true, completion: nil)
-    }
-    
+
     @IBOutlet weak var groupListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -70,16 +63,32 @@ class GroupListViewController: UIViewController {
 //        UserInfo.name = "Kevin"
         
         // 有登入的情況可以搜尋群組資料
-        if UserInfo.uid != nil {
-
-//            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
-            
-            creatObserverOfGroup(UserInfo.uid!)
-        }
+//        if UserInfo.uid != nil {
+//
+////            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
+//
+//            creatObserverOfGroup(UserInfo.uid!)
+//        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                             target: self,
                                                             action: #selector(scanQRCode))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if UserInfo.uid != nil && groupInfoArray.count == 0 {
+            
+            creatObserverOfGroup(UserInfo.uid!)
+        }
+    }
+    
+    @objc func scanQRCode() {
+        
+        let qrCodeScannerVC = QRCodeScannerController()
+        
+        present(qrCodeScannerVC, animated: true, completion: nil)
     }
     
     func creatObserverOfGroup(_ userID: String) {

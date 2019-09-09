@@ -21,23 +21,11 @@ class UserLoginController: UIViewController {
         
         // Add for FirebaseAccountManager
         FirebaseAccountManager.shared.belongToVC = self
-        
-        // 功能測試
-//        FirebaseDataManeger.shared.createGroup("台北")
-        
-//        FirebaseDataManeger.shared.addMemberInGroup("Ac02rEDtWurlZepI671b", "wind19891001")
-        
-//        FirebaseDataManeger.shared.modifyGroupName("Ac02rEDtWurlZepI671b", "基隆")
-        
-//        FirebaseDataManeger.shared.searchUserInfo("userID")
-
-//        FirebaseDataManeger.shared.searchUserGroup("user2ID")
-
     }
     
     func setUpUserSignInView() {
         
-        userSignInView.confirmButton.addTarget(self, action: #selector(onClickLogin), for: .touchUpInside)
+        userSignInView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
                 
         userSignInView.logoutButton.addTarget(self, action: #selector(onClickLogout), for: .touchUpInside)
     }

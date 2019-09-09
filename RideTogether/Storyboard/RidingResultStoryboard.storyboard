@@ -97,7 +97,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-St-NEy">
-                                <rect key="frame" x="0.0" y="164" width="375" height="483"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qZn-5m-RNP" id="ikn-GB-Dno"/>
@@ -108,7 +108,7 @@
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3tP-St-NEy" firstAttribute="top" secondItem="Z3K-OB-pBp" secondAttribute="bottom" id="28g-Ua-A0p"/>
-                            <constraint firstItem="qRG-eK-FjC" firstAttribute="bottom" secondItem="3tP-St-NEy" secondAttribute="bottom" constant="20" id="8Zy-7V-jrE"/>
+                            <constraint firstItem="qRG-eK-FjC" firstAttribute="bottom" secondItem="3tP-St-NEy" secondAttribute="bottom" id="8Zy-7V-jrE"/>
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="trailing" secondItem="qRG-eK-FjC" secondAttribute="trailing" id="ByX-a8-mpT"/>
                             <constraint firstItem="qRG-eK-FjC" firstAttribute="trailing" secondItem="3tP-St-NEy" secondAttribute="trailing" id="CEl-LE-Azg"/>
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" id="JtR-cL-1Xn"/>

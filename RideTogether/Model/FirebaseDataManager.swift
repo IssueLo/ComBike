@@ -183,9 +183,7 @@ class FirebaseDataManeger {
             })
         }
     }
-    
-//    var memberData = [MemberData]()
-    
+        
     // 抓取群組資料
     private func getDataFromGroup(_ groupVC: GroupListViewController,
                                   _ groupID: String,

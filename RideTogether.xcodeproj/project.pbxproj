@@ -10,6 +10,7 @@
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignInView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		9518CD9A232673CD00DB1C8B /* Extansion+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extansion+Coordinate.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
 		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
 		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
@@ -32,7 +33,7 @@
 		952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B2231E643900EFD895 /* RidingResultViewController.swift */; };
 		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
-		952806BA231E98E900EFD895 /* extansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* extansion.swift */; };
+		952806BA231E98E900EFD895 /* Extansion+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */; };
 		9589DD75232535B2003A9A87 /* RidingResultHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9589DD74232535B2003A9A87 /* RidingResultHeader.xib */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
@@ -55,6 +56,7 @@
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		9518CD99232673CD00DB1C8B /* Extansion+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion+Coordinate.swift"; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
 		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
 		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +79,7 @@
 		952806B2231E643900EFD895 /* RidingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultViewController.swift; sourceTree = "<group>"; };
 		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
-		952806B9231E98E900EFD895 /* extansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extansion.swift; sourceTree = "<group>"; };
+		952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion+UIViewController.swift"; sourceTree = "<group>"; };
 		9589DD74232535B2003A9A87 /* RidingResultHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultHeader.xib; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -231,7 +233,8 @@
 		95D613DC23155C20008D885E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				952806B9231E98E900EFD895 /* extansion.swift */,
+				952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */,
+				9518CD99232673CD00DB1C8B /* Extansion+Coordinate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -440,7 +443,8 @@
 				9525993423214199009C7750 /* QRCodeViewController.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
-				952806BA231E98E900EFD895 /* extansion.swift in Sources */,
+				952806BA231E98E900EFD895 /* Extansion+UIViewController.swift in Sources */,
+				9518CD9A232673CD00DB1C8B /* Extansion+Coordinate.swift in Sources */,
 				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
