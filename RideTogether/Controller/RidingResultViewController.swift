@@ -60,13 +60,45 @@ extension RidingResultViewController: UITableViewDataSource {
         
         guard let ridingResultCell = cell as? RidingResultCell else { return cell }
         
+        let spendTime = TimeManager().secToRealTime(memberResultInfo[indexPath.row].spendTime!)
+        
         ridingResultCell.memberNameLabel.text = memberResultInfo[indexPath.row].name
         
         ridingResultCell.rankingLabel.text = String(indexPath.row + 1)
         
-        ridingResultCell.spendTimeLebal.text = TimeManager().secToRealTime(memberResultInfo[indexPath.row].spendTime!)
+        ridingResultCell.spendTimeLebal.text = spendTime
+        
+        self.updateUserInfo(memberResultInfo[indexPath.row].name,
+                            (indexPath.row + 1),
+                            spendTime)
         
         return ridingResultCell
+    }
+    
+    func updateUserInfo(_ userName: String, _ userRank: Int, _ spendTime: String) {
+        
+        if userName == UserInfo.name! {
+            
+            var userSubRank: String
+            
+            switch userRank {
+            case 1: userSubRank = "st"
+            case 2: userSubRank = "nd"
+            case 3: userSubRank = "rd"
+            default : userSubRank = "th"
+            }
+            
+            self.ridingResultHeaderView.setupHeaderView(groupResultInfo.name,
+                                                        userName,
+                                                        userRank,
+                                                        userSubRank,
+                                                        spendTime)
+            
+        } else {
+            
+            return
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
