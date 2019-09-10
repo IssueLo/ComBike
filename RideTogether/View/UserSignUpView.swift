@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserSignInView: UIView {
+class UserSignUpView: UIView {
     
     @IBOutlet weak var userNameTxtFld: UITextField! {
         didSet {
@@ -31,9 +31,14 @@ class UserSignInView: UIView {
         }
     }
     
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var confirmPasswordTxtFld: UITextField! {
+        didSet {
+            
+            confirmPasswordTxtFld.placeholder = "請再次確認密碼"
+        }
+    }
     
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     
     @IBAction func confirmSignUp() {
         

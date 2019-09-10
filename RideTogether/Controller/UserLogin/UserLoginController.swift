@@ -12,34 +12,32 @@ import FirebaseAuth
 
 class UserLoginController: UIViewController {
     
-    @IBOutlet weak var userSignInView: UserSignInView!
+    @IBOutlet weak var userSignUpView: UserSignUpView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUserSignInView()
+        setUpUserSignUpView()
         
         // Add for FirebaseAccountManager
         FirebaseAccountManager.shared.belongToVC = self
     }
     
-    func setUpUserSignInView() {
+    func setUpUserSignUpView() {
         
-        userSignInView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
-                
-        userSignInView.logoutButton.addTarget(self, action: #selector(onClickLogout), for: .touchUpInside)
+        userSignUpView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
     }
     
     // MARK: Firebase 註冊
     @objc func onClickRegister() {
         
-        FirebaseAccountManager.shared.onClickRegister(userSignInView)
+        FirebaseAccountManager.shared.onClickRegister(userSignUpView)
     }
     
     // MARK: Firebase 登入
     @objc func onClickLogin() {
         
-        FirebaseAccountManager.shared.onClickLogin(userSignInView)
+        FirebaseAccountManager.shared.onClickLogin(userSignUpView)
     }
     
     // MARK: Firebase 登出

@@ -18,7 +18,7 @@ class FirebaseAccountManager {
     var belongToVC: UIViewController!
     
     // MARK: Firebase 註冊
-    func onClickRegister(_ userSignInView: UserSignInView) {
+    func onClickRegister(_ userSignInView: UserSignUpView) {
         
         if userSignInView.userNameTxtFld.text == "" {
             
@@ -58,7 +58,7 @@ class FirebaseAccountManager {
     }
     
     // MARK: Firebase 登入
-    func onClickLogin(_ userSignInView: UserSignInView) {
+    func onClickLogin(_ userSignInView: UserSignUpView) {
         
         if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
             
@@ -110,7 +110,7 @@ class FirebaseAccountManager {
     }
     
     // MARK: Firebase 密碼重設
-    func onResetPasswor(_ userSignInView: UserSignInView) {
+    func onResetPasswor(_ userSignInView: UserSignUpView) {
         
         if userSignInView.userEmailTxtFld.text == "" {
             
