@@ -57,10 +57,14 @@ class GroupListViewController: UIViewController {
         UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
 
         UserInfo.name = "Ruyu"
-        
-//        UserInfo.uid = "userID"
 //
-//        UserInfo.name = "Kevin"
+        UserInfo.uid = "userID"
+
+        UserInfo.name = "Kevin"
+        
+//        UserInfo.uid = "12345678"
+//
+//        UserInfo.name = "Nick"
         
         // 有登入的情況可以搜尋群組資料
 //        if UserInfo.uid != nil {

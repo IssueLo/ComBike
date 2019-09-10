@@ -166,8 +166,8 @@ class FirebaseDataManeger {
     // 監聽新增成員
     func observerOfMember(_ groupDetailVC: GroupDetailViewController, _ groupID: String) {
         
-        let memberOfGroup = Firestore.firestore().collection("group").document(groupID).collection("member")
-        
+        let memberOfGroup = Firestore.firestore().collection("group/\(groupID)/member")
+
         memberOfGroup.addSnapshotListener { (querySnapshot, _) in
             
             guard let querySnapshot = querySnapshot else { return }
@@ -191,7 +191,7 @@ class FirebaseDataManeger {
                                   _ name: String,
                                   _ member: [String]) {
         
-        let dataInfo = Firestore.firestore().collection("group").document(groupID).collection("member")
+        let dataInfo = Firestore.firestore().collection("group/\(groupID)/member")
         
         dataInfo.getDocuments { (querySnapshot, _) in
             
@@ -235,8 +235,7 @@ class FirebaseDataManeger {
     // 上傳使用者所在位置
     func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: CLLocationCoordinate2D) {
         
-        let userInfo = Firestore.firestore().collection("group").document(groupID)
-            .collection("member").document(userUID)
+        let userInfo = Firestore.firestore().collection("group/\(groupID)/member").document(userUID)
         
         let geoPoint = userLoction.transferToGeopoint()
         
@@ -248,7 +247,7 @@ class FirebaseDataManeger {
     // 監聽同伴所在位置
     func observerOfMemberLocation(_ ridingViewController: RidingViewController, _ groupID: String) {
         
-        let memberLocationData = Firestore.firestore().collection("group").document(groupID).collection("member")
+        let memberLocationData = Firestore.firestore().collection("group/\(groupID)/member")
         
         memberLocationData.addSnapshotListener { (querySnapshot, _) in
             
@@ -301,7 +300,7 @@ class FirebaseDataManeger {
     // 監聽結果
     func observerOfResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
         
-        let ridingResultData = Firestore.firestore().collection("group").document(groupID).collection("member")
+        let ridingResultData = Firestore.firestore().collection("group/\(groupID)/member")
         
         ridingResultData.addSnapshotListener { (querySnapshot, _) in
             
@@ -358,8 +357,7 @@ class FirebaseDataManeger {
     // 上傳騎乘紀錄
     func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: [String: Any]) {
         
-        let userInfo = Firestore.firestore().collection("group").document(groupID)
-            .collection("member").document(userUID)
+        let userInfo = Firestore.firestore().collection("group/\(groupID)/member").document(userUID)
         
         userInfo.setData(ridingData)
     }

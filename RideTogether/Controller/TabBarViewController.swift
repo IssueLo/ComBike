@@ -52,8 +52,8 @@ private enum Tab {
             
         case .ridingInfo:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_36px_Home_Normal"),
-                                selectedImage: UIImage(named: "Icons_36px_Home_Selected")
+                                image: UIImage(named: "Icons_Bicycle"),
+                                selectedImage: UIImage(named: "Icons_BicycleRider")?.withRenderingMode(.alwaysOriginal)
             )
         
         case .profile:

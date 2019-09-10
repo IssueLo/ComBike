@@ -154,14 +154,41 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
-		9589DD722323AFFA003A9A87 /* New Group */ = {
+		95456780232746F6009DA63B /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				9525992B23211914009C7750 /* HomePageViewController.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		9545678123274705009DA63B /* RidingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				9528069B231E086200EFD895 /* GroupListViewController.swift */,
+				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
+				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
+				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
+			);
+			path = RidingGroup;
+			sourceTree = "<group>";
+		};
+		954567822327472E009DA63B /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				95D613CB23155BF5008D885E /* UserLoginController.swift */,
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
+		9589DD722323AFFA003A9A87 /* OtherTool */ = {
 			isa = PBXGroup;
 			children = (
 				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9525992D23211BF1009C7750 /* QRCodeScannerController.swift */,
 				9525993323214199009C7750 /* QRCodeViewController.swift */,
 			);
-			path = "New Group";
+			path = OtherTool;
 			sourceTree = "<group>";
 		};
 		9589DD7323253405003A9A87 /* RidingResultHeader */ = {
@@ -219,13 +246,13 @@
 		95D613DB23155C0C008D885E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95CFD180231FE03B00329927 /* TimeManager.swift */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
+				95CFD180231FE03B00329927 /* TimeManager.swift */,
+				952599272321187D009C7750 /* QRCodeMaker.swift */,
 				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
 				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
 				95CFD17C231F894400329927 /* UserInfo.swift */,
 				95CFD17E231F8E8B00329927 /* GroupInfo.swift */,
-				952599272321187D009C7750 /* QRCodeMaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,13 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
-				9525992B23211914009C7750 /* HomePageViewController.swift */,
-				95D613CB23155BF5008D885E /* UserLoginController.swift */,
-				9589DD722323AFFA003A9A87 /* New Group */,
-				9528069B231E086200EFD895 /* GroupListViewController.swift */,
-				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
-				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
-				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
+				95456780232746F6009DA63B /* HomePage */,
+				9545678123274705009DA63B /* RidingGroup */,
+				954567822327472E009DA63B /* UserLogin */,
+				9589DD722323AFFA003A9A87 /* OtherTool */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

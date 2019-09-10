@@ -59,30 +59,3 @@ struct LocationOfMember {
     
     var location: CLLocationCoordinate2D
 }
-
-struct MemberData {
-    
-    //    var name: String
-    
-    var location: GeoPoint
-    
-    //    var route: [GeoPoint]
-    
-    //    var spendTime: Int
-    
-    var averageSpeed: Double
-    
-    //    var maximumSpeed: Double
-    
-    var distance: Int
-    
-    init(_ location: GeoPoint, _ averageSpeed: Double, _ distance: Int) {
-        
-        self.location = location
-        
-        self.averageSpeed = averageSpeed
-        
-        self.distance = distance
-        
-    }
-}

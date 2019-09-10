@@ -19,13 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bcp-7u-CRl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="QjH-wh-HoE"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaP-PA-DU7">
-                                <rect key="frame" x="62.5" y="410" width="250" height="120"/>
+                                <rect key="frame" x="62.5" y="413" width="250" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="irU-zD-oHG">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="54"/>
@@ -181,7 +178,6 @@
                             <constraint firstItem="GaM-5F-4yW" firstAttribute="trailing" secondItem="XW9-qQ-oUq" secondAttribute="trailing" id="4rW-68-Kwi"/>
                             <constraint firstItem="lFi-gL-xdb" firstAttribute="trailing" secondItem="GaM-5F-4yW" secondAttribute="trailing" constant="-16" id="9Zl-Sh-srp"/>
                             <constraint firstItem="XW9-qQ-oUq" firstAttribute="leading" secondItem="GaM-5F-4yW" secondAttribute="leading" id="C7P-yF-slj"/>
-                            <constraint firstItem="gaP-PA-DU7" firstAttribute="top" secondItem="bcp-7u-CRl" secondAttribute="bottom" constant="60" id="GJU-cv-NMa"/>
                             <constraint firstItem="bcp-7u-CRl" firstAttribute="leading" secondItem="GaM-5F-4yW" secondAttribute="leading" id="HJW-L0-Zdn"/>
                             <constraint firstItem="GaM-5F-4yW" firstAttribute="trailing" secondItem="bcp-7u-CRl" secondAttribute="trailing" id="JtN-6s-pSg"/>
                             <constraint firstItem="yqZ-mp-46T" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="MpF-GP-gNQ"/>
@@ -191,7 +187,9 @@
                             <constraint firstItem="lFi-gL-xdb" firstAttribute="top" secondItem="GaM-5F-4yW" secondAttribute="top" constant="4" id="XMQ-iL-Son"/>
                             <constraint firstItem="gaP-PA-DU7" firstAttribute="centerX" secondItem="goj-q5-tDH" secondAttribute="centerX" id="flQ-Xo-1Kw"/>
                             <constraint firstItem="XW9-qQ-oUq" firstAttribute="top" secondItem="goj-q5-tDH" secondAttribute="top" id="g1r-Ut-Db5"/>
+                            <constraint firstAttribute="bottom" secondItem="bcp-7u-CRl" secondAttribute="bottom" constant="300" id="h8M-Ez-IC5"/>
                             <constraint firstAttribute="bottom" secondItem="XW9-qQ-oUq" secondAttribute="bottom" id="iPe-3k-NPr"/>
+                            <constraint firstItem="yqZ-mp-46T" firstAttribute="top" secondItem="gaP-PA-DU7" secondAttribute="bottom" constant="40" id="iov-LC-TtL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GaM-5F-4yW"/>
                     </view>

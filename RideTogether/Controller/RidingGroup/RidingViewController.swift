@@ -372,12 +372,12 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 //
 //        if annotation is MKUserLocation {
 //
-//            annotationView.image = UIImage(named: "boy")
+////            annotationView.image = UIImage(named: "Icons_BicycleRider")
 //
 //            return annotationView
 //        } else {
 //
-//            annotationView.image = UIImage(named: "girl")
+//            annotationView.image = UIImage(named: "Icons_BicycleRider")
 //
 //            return annotationView
 //        }

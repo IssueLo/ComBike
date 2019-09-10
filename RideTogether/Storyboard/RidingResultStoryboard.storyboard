@@ -45,19 +45,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23p-Md-TXX">
-                                        <rect key="frame" x="37.5" y="107" width="18" height="38.5"/>
+                                        <rect key="frame" x="45" y="107" width="18" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb8-Sx-bXl">
-                                        <rect key="frame" x="63.5" y="118.5" width="22.5" height="24"/>
+                                        <rect key="frame" x="71" y="118.5" width="22.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-pc-4rv">
-                                        <rect key="frame" x="267.5" y="112.5" width="90" height="27"/>
+                                        <rect key="frame" x="261" y="112.5" width="90" height="27"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,12 +71,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="F1I-pc-4rv" secondAttribute="trailing" constant="24" id="0Qb-J1-Vya"/>
                                     <constraint firstAttribute="height" constant="164" id="6c9-oQ-Ve5"/>
-                                    <constraint firstAttribute="centerX" secondItem="F1I-pc-4rv" secondAttribute="trailing" constant="-170" id="ANY-FD-E8O"/>
                                     <constraint firstItem="pkt-Pj-rfr" firstAttribute="centerY" secondItem="ykI-mg-OtW" secondAttribute="centerY" id="CYT-ag-tLh"/>
                                     <constraint firstItem="gIo-Fp-MfU" firstAttribute="centerX" secondItem="Z3K-OB-pBp" secondAttribute="centerX" id="DSW-cP-eLF"/>
-                                    <constraint firstItem="23p-Md-TXX" firstAttribute="leading" secondItem="Z3K-OB-pBp" secondAttribute="centerX" constant="-150" id="FVI-fT-cQ0"/>
                                     <constraint firstItem="ykI-mg-OtW" firstAttribute="centerX" secondItem="Z3K-OB-pBp" secondAttribute="centerX" id="JGH-Zb-Jdb"/>
+                                    <constraint firstItem="23p-Md-TXX" firstAttribute="leading" secondItem="Z3K-OB-pBp" secondAttribute="leading" constant="45" id="MZw-xg-yvK"/>
                                     <constraint firstItem="gIo-Fp-MfU" firstAttribute="top" secondItem="eZA-eT-OO9" secondAttribute="bottom" constant="8" id="PG8-1t-q07"/>
                                     <constraint firstItem="pkt-Pj-rfr" firstAttribute="leading" secondItem="Z3K-OB-pBp" secondAttribute="leading" constant="24" id="PHR-Ua-Xuc"/>
                                     <constraint firstAttribute="bottom" secondItem="gIo-Fp-MfU" secondAttribute="bottom" constant="10" id="Ypi-RU-DSi"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="trailing" secondItem="qRG-eK-FjC" secondAttribute="trailing" id="ByX-a8-mpT"/>
                             <constraint firstItem="qRG-eK-FjC" firstAttribute="trailing" secondItem="3tP-St-NEy" secondAttribute="trailing" id="CEl-LE-Azg"/>
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" id="JtR-cL-1Xn"/>
-                            <constraint firstItem="Z3K-OB-pBp" firstAttribute="top" secondItem="XxN-bj-pfE" secondAttribute="top" id="OHG-Vh-muf"/>
+                            <constraint firstItem="Z3K-OB-pBp" firstAttribute="top" secondItem="qRG-eK-FjC" secondAttribute="top" constant="-20" id="OHG-Vh-muf"/>
                             <constraint firstItem="3tP-St-NEy" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" id="jBF-21-reX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qRG-eK-FjC"/>
