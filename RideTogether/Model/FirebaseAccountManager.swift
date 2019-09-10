@@ -58,15 +58,10 @@ class FirebaseAccountManager {
     }
     
     // MARK: Firebase 登入
-    func onClickLogin(_ userSignInView: UserSignUpView) {
+    func onClickLogin(_ userEmail: String, _ userPassword: String) {
         
-        if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
-            
-            showAlert(belongToVC, "請輸入信箱跟密碼")
-        }
-        
-        Auth.auth().signIn(withEmail: userSignInView.userEmailTxtFld.text ?? "",
-                           password: userSignInView.userPasswordTxtFld.text ?? "") { (_, error) in
+        Auth.auth().signIn(withEmail: userEmail,
+                           password: userPassword) { (_, error) in
                             
                             if error != nil {
                                 
@@ -81,6 +76,7 @@ class FirebaseAccountManager {
                             
                             guard let userUID = UserInfo.uid else { return }
                             
+                            // Firebase 抓取資料
                             FirebaseDataManeger.shared.searchUserInfo(userUID)
         }
     }

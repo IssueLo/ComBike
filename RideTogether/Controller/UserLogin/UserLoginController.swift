@@ -10,34 +10,57 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class UserLoginController: UIViewController {
+class UserLogInController: UIViewController {
+    
+    @IBOutlet weak var logInLabel: UILabel!
     
     @IBOutlet weak var userSignUpView: UserSignUpView!
-
+    
+    @IBOutlet weak var userLogInView: UserLogInView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUserSignUpView()
-        
         // Add for FirebaseAccountManager
         FirebaseAccountManager.shared.belongToVC = self
+        
+        setUpUserLogInView()
+        
+        setUpUserSignUpView()
+    }
+    
+    func setUpUserLogInView() {
+        
+        userLogInView.delegate = self
+        
+        userLogInView.toSignUpViewHandler = {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                
+                self.userLogInView.alpha = 0
+                
+                self.logInLabel.text = "Sign up"
+            })
+        }
     }
     
     func setUpUserSignUpView() {
         
-        userSignUpView.confirmButton.addTarget(self, action: #selector(onClickRegister), for: .touchUpInside)
+        userSignUpView.toLogInViewHandler = {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+            
+                self.userLogInView.alpha = 1
+                
+                self.logInLabel.text = "Sign in"
+            })
+        }
     }
     
     // MARK: Firebase 註冊
     @objc func onClickRegister() {
         
         FirebaseAccountManager.shared.onClickRegister(userSignUpView)
-    }
-    
-    // MARK: Firebase 登入
-    @objc func onClickLogin() {
-        
-        FirebaseAccountManager.shared.onClickLogin(userSignUpView)
     }
     
     // MARK: Firebase 登出
@@ -50,5 +73,28 @@ class UserLoginController: UIViewController {
     @objc func onResetPassword() {
         
     }
+}
+
+extension UserLogInController: UserLogInViewDelegate {
     
+    func userLogIn(userEmail: String?, userPassword: String?) {
+        
+        guard
+            let userEmail = userEmail,
+            let userPassword = userPassword
+        else { return }
+        
+        if userEmail == "" {
+            
+            self.showAlert("email 不可為空白")
+            
+        } else if userPassword == "" {
+            
+            self.showAlert("密碼不可為空白")
+            
+        } else {
+            
+            FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword)
+        }
+    }
 }

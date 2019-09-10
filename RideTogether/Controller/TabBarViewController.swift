@@ -28,7 +28,7 @@ private enum Tab {
         case .ridingInfo: controller = UIStoryboard(name: "GroupStoryboard",
                                                     bundle: nil).instantiateInitialViewController()!
             
-        case .profile: controller = UIStoryboard(name: "UserLogin",
+        case .profile: controller = UIStoryboard(name: "UserLogIn",
                                                  bundle: nil).instantiateInitialViewController()!
             
         }

@@ -10,6 +10,10 @@ import UIKit
 
 class UserSignUpView: UIView {
     
+    var signUpHandler: (() -> Void)!
+    
+    var toLogInViewHandler: (() -> Void)!
+    
     @IBOutlet weak var userNameTxtFld: UITextField! {
         didSet {
             
@@ -38,14 +42,21 @@ class UserSignUpView: UIView {
         }
     }
     
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton! {
+        
+        didSet {
+            
+            signUpButton.layer.cornerRadius = 25
+        }
+    }
     
     @IBAction func confirmSignUp() {
         
+        signUpHandler()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    @IBAction func toLogInView() {
         
+        toLogInViewHandler()
+    }
 }

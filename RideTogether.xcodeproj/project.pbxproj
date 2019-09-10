@@ -34,7 +34,7 @@
 		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* Extansion+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */; };
-		9589DD75232535B2003A9A87 /* RidingResultHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9589DD74232535B2003A9A87 /* RidingResultHeader.xib */; };
+		95456784232795B6009DA63B /* UserLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95456783232795B6009DA63B /* UserLogInView.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
@@ -45,7 +45,7 @@
 		95CFD184231FEEBA00329927 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD183231FEEBA00329927 /* Polyline.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
 		95D613CC23155BF5008D885E /* UserLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613CB23155BF5008D885E /* UserLoginController.swift */; };
-		95D613CF23155BF5008D885E /* UserLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* UserLogin.storyboard */; };
+		95D613CF23155BF5008D885E /* UserLogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* UserLogIn.storyboard */; };
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
 		9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */; };
@@ -80,7 +80,7 @@
 		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion+UIViewController.swift"; sourceTree = "<group>"; };
-		9589DD74232535B2003A9A87 /* RidingResultHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultHeader.xib; sourceTree = "<group>"; };
+		95456783232795B6009DA63B /* UserLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInView.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D613C923155BF5008D885E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D613CB23155BF5008D885E /* UserLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginController.swift; sourceTree = "<group>"; };
-		95D613CE23155BF5008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserLogin.storyboard; sourceTree = "<group>"; };
+		95D613CE23155BF5008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserLogIn.storyboard; sourceTree = "<group>"; };
 		95D613D023155BF6008D885E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D613D523155BF6008D885E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
 				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
-				95D613CD23155BF5008D885E /* UserLogin.storyboard */,
+				95D613CD23155BF5008D885E /* UserLogIn.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 		9589DD7323253405003A9A87 /* RidingResultHeader */ = {
 			isa = PBXGroup;
 			children = (
-				9589DD74232535B2003A9A87 /* RidingResultHeader.xib */,
+				9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */,
 			);
 			path = RidingResultHeader;
 			sourceTree = "<group>";
@@ -284,8 +284,8 @@
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				9589DD7323253405003A9A87 /* RidingResultHeader */,
-				9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */,
 				951554BB2318F1040080BBB7 /* UserSignUpView.swift */,
+				95456783232795B6009DA63B /* UserLogInView.swift */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 			);
 			path = View;
@@ -363,7 +363,6 @@
 			files = (
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
-				9589DD75232535B2003A9A87 /* RidingResultHeader.xib in Resources */,
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
@@ -372,7 +371,7 @@
 				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
 				952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */,
-				95D613CF23155BF5008D885E /* UserLogin.storyboard in Resources */,
+				95D613CF23155BF5008D885E /* UserLogIn.storyboard in Resources */,
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
@@ -454,6 +453,7 @@
 				95CFD17D231F894400329927 /* UserInfo.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
+				95456784232795B6009DA63B /* UserLogInView.swift in Sources */,
 				9525992C23211914009C7750 /* HomePageViewController.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				9525993223213FE0009C7750 /* QRCodeView.swift in Sources */,
@@ -477,12 +477,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95D613CD23155BF5008D885E /* UserLogin.storyboard */ = {
+		95D613CD23155BF5008D885E /* UserLogIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				95D613CE23155BF5008D885E /* Base */,
 			);
-			name = UserLogin.storyboard;
+			name = UserLogIn.storyboard;
 			sourceTree = "<group>";
 		};
 		95D613D223155BF6008D885E /* LaunchScreen.storyboard */ = {
