@@ -181,6 +181,33 @@
 			path = UserLogin;
 			sourceTree = "<group>";
 		};
+		954567852327E977009DA63B /* UserLogIn */ = {
+			isa = PBXGroup;
+			children = (
+				951554BB2318F1040080BBB7 /* UserSignUpView.swift */,
+				95456783232795B6009DA63B /* UserLogInView.swift */,
+			);
+			path = UserLogIn;
+			sourceTree = "<group>";
+		};
+		954567862327E9B4009DA63B /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				95CFD17C231F894400329927 /* UserInfo.swift */,
+				95CFD17E231F8E8B00329927 /* GroupInfo.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		954567872327E9BE009DA63B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
+				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		9589DD722323AFFA003A9A87 /* OtherTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,13 +273,11 @@
 		95D613DB23155C0C008D885E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				954567862327E9B4009DA63B /* Struct */,
+				954567872327E9BE009DA63B /* Firebase */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
 				95CFD180231FE03B00329927 /* TimeManager.swift */,
 				952599272321187D009C7750 /* QRCodeMaker.swift */,
-				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
-				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
-				95CFD17C231F894400329927 /* UserInfo.swift */,
-				95CFD17E231F8E8B00329927 /* GroupInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,8 +309,7 @@
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				9589DD7323253405003A9A87 /* RidingResultHeader */,
-				951554BB2318F1040080BBB7 /* UserSignUpView.swift */,
-				95456783232795B6009DA63B /* UserLogInView.swift */,
+				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 			);
 			path = View;

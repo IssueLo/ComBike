@@ -46,6 +46,8 @@ class UserLogInController: UIViewController {
     
     func setUpUserSignUpView() {
         
+        userSignUpView.delegate = self
+        
         userSignUpView.toLogInViewHandler = {
             
             UIView.animate(withDuration: 0.3, animations: {
@@ -55,12 +57,6 @@ class UserLogInController: UIViewController {
                 self.logInLabel.text = "Sign in"
             })
         }
-    }
-    
-    // MARK: Firebase 註冊
-    @objc func onClickRegister() {
-        
-        FirebaseAccountManager.shared.onClickRegister(userSignUpView)
     }
     
     // MARK: Firebase 登出
@@ -86,15 +82,49 @@ extension UserLogInController: UserLogInViewDelegate {
         
         if userEmail == "" {
             
-            self.showAlert("email 不可為空白")
+            self.showAlert("email 不可為空白喔")
             
         } else if userPassword == "" {
             
-            self.showAlert("密碼不可為空白")
+            self.showAlert("密碼不可為空白喔")
             
         } else {
             
             FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword)
+        }
+    }
+}
+
+extension UserLogInController: UserSignUpViewDelegate {
+    
+    func userSignUp(userName: String?, userEmail: String?, userPassword: String?, confirmPassword: String?) {
+        
+        guard
+            let name = userName,
+            let email = userEmail,
+            let password = userPassword,
+            let confirmPassword = confirmPassword
+        else { return }
+        
+        if name == "" {
+            
+            self.showAlert("暱稱不可為空白喔")
+            
+        } else if email == "" {
+            
+            self.showAlert("email 不可為空白喔")
+            
+        } else if password == "" {
+            
+            self.showAlert("密碼不可為空白喔")
+            
+        } else if password != confirmPassword {
+            
+            self.showAlert("需輸入兩次相同密碼喔")
+            
+        } else {
+            
+            FirebaseAccountManager.shared.onClickRegister(name, email, password)
         }
     }
 }

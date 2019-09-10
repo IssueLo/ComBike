@@ -18,19 +18,10 @@ class FirebaseAccountManager {
     var belongToVC: UIViewController!
     
     // MARK: Firebase 註冊
-    func onClickRegister(_ userSignInView: UserSignUpView) {
+    func onClickRegister(_ userName: String, _ userEmail: String, _ userPassword: String) {
         
-        if userSignInView.userNameTxtFld.text == "" {
-            
-            showAlert(belongToVC, "請輸入暱稱")
-            
-        } else if userSignInView.userEmailTxtFld.text == "" || userSignInView.userPasswordTxtFld.text == "" {
-            
-            showAlert(belongToVC, "請輸入信箱跟密碼")
-        }
-        
-        Auth.auth().createUser(withEmail: userSignInView.userEmailTxtFld.text ?? "",
-                               password: userSignInView.userPasswordTxtFld.text ?? "") { (_, error) in
+        Auth.auth().createUser(withEmail: userEmail,
+                               password: userPassword) { (_, error) in
                                 
                                 if error != nil {
                                     
@@ -41,16 +32,15 @@ class FirebaseAccountManager {
                                 
                                 self.showAlert(self.belongToVC, "註冊成功，已登入")
                                 
-                                // 增加 userInfo 到 DataBase
+                                // 會員資料儲存到 Firebase
                                 guard
-                                    let userUID = Auth.auth().currentUser?.uid,
-                                    let userName = userSignInView.userNameTxtFld.text,
-                                    let userEmail = Auth.auth().currentUser?.email
+                                    let userUID = Auth.auth().currentUser?.uid
+                                    
                                 else { return }
                                 
-                                // 會員資料儲存到 Firebase
                                 FirebaseDataManeger.shared.addUserInfo(userUID, userName, userEmail)
                                 
+                                // 暫存資料庫，要換成 keychain
                                 UserInfo.uid = Auth.auth().currentUser?.uid
                                 
                                 UserInfo.name = userName

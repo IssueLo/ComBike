@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol UserSignUpViewDelegate: AnyObject {
+    
+    func userSignUp(userName: String?,
+                    userEmail: String?,
+                    userPassword: String?,
+                    confirmPassword: String?)
+}
+
 class UserSignUpView: UIView {
     
-    var signUpHandler: (() -> Void)!
+    weak var delegate: UserSignUpViewDelegate?
     
     var toLogInViewHandler: (() -> Void)!
     
@@ -52,7 +60,10 @@ class UserSignUpView: UIView {
     
     @IBAction func confirmSignUp() {
         
-        signUpHandler()
+        delegate?.userSignUp(userName: userNameTxtFld.text,
+                             userEmail: userEmailTxtFld.text,
+                             userPassword: userPasswordTxtFld.text,
+                             confirmPassword: confirmPasswordTxtFld.text)
     }
     
     @IBAction func toLogInView() {
