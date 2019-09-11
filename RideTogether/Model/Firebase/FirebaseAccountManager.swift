@@ -48,26 +48,30 @@ class FirebaseAccountManager {
     }
     
     // MARK: Firebase 登入
-    func onClickLogin(_ userEmail: String, _ userPassword: String) {
+    func onClickLogin(_ userEmail: String,
+                      _ userPassword: String,
+                      _ handler: @escaping (Error?) -> Void) {
         
         Auth.auth().signIn(withEmail: userEmail,
                            password: userPassword) { (_, error) in
                             
-                            if error != nil {
-                                
-                                self.showAlert(self.belongToVC, error!.localizedDescription)
-                                
-                                return
-                            }
+                            handler(error)
                             
-                            self.showAlert(self.belongToVC, "登入成功")
-                            
-                            UserInfo.uid = Auth.auth().currentUser?.uid
-                            
-                            guard let userUID = UserInfo.uid else { return }
-                            
-                            // Firebase 抓取資料
-                            FirebaseDataManeger.shared.searchUserInfo(userUID)
+//                            if error != nil {
+//
+//                                self.showAlert(self.belongToVC, error!.localizedDescription)
+//
+//                                return
+//                            }
+////
+//                            self.showAlert(self.belongToVC, "登入成功")
+//
+//                            UserInfo.uid = Auth.auth().currentUser?.uid
+//
+//                            guard let userUID = UserInfo.uid else { return }
+//
+//                            // Firebase 抓取資料
+//                            FirebaseDataManeger.shared.searchUserInfo(userUID)
         }
     }
     

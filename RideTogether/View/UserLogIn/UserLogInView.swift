@@ -11,6 +11,8 @@ import UIKit
 protocol UserLogInViewDelegate: AnyObject {
     
     func userLogIn(userEmail: String?, userPassword: String?)
+    
+    func toOtherPage()
 }
 
 class UserLogInView: UIView, UITextFieldDelegate {
@@ -53,7 +55,9 @@ class UserLogInView: UIView, UITextFieldDelegate {
     
     @IBAction func toSignUpView() {
         
-        toSignUpViewHandler()
+//        toSignUpViewHandler()
+        
+        delegate?.toOtherPage()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

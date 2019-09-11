@@ -73,6 +73,16 @@ class UserLogInController: UIViewController {
 
 extension UserLogInController: UserLogInViewDelegate {
     
+    func toOtherPage() {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.userLogInView.alpha = 1
+            
+            self.logInLabel.text = "Sign in"
+        })
+    }
+    
     func userLogIn(userEmail: String?, userPassword: String?) {
         
         guard
@@ -90,7 +100,25 @@ extension UserLogInController: UserLogInViewDelegate {
             
         } else {
             
-            FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword)
+            FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword) { (error) in
+                
+                if error != nil {
+                    
+                    self.showAlert(error!.localizedDescription)
+                    
+                    return
+                }
+                //
+                
+                self.showAlert("登入成功")
+                
+                UserInfo.uid = Auth.auth().currentUser?.uid
+                
+                guard let userUID = UserInfo.uid else { return }
+                
+                // Firebase 抓取資料
+                FirebaseDataManeger.shared.searchUserInfo(userUID)
+            }
         }
     }
 }

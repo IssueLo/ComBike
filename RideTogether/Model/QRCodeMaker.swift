@@ -28,5 +28,4 @@ class QRCodeMaker {
         
         return nil
     }
-
 }

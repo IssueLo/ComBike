@@ -35,6 +35,8 @@
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* Extansion+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */; };
 		95456784232795B6009DA63B /* UserLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95456783232795B6009DA63B /* UserLogInView.swift */; };
+		9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */; };
+		9545678B2328A326009DA63B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545678A2328A326009DA63B /* UserProfileController.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
@@ -81,6 +83,8 @@
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* Extansion+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion+UIViewController.swift"; sourceTree = "<group>"; };
 		95456783232795B6009DA63B /* UserLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInView.swift; sourceTree = "<group>"; };
+		9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		9545678A2328A326009DA63B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
 				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
 				95D613CD23155BF5008D885E /* UserLogIn.storyboard */,
+				9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				95D613CB23155BF5008D885E /* UserLoginController.swift */,
+				9545678A2328A326009DA63B /* UserProfileController.swift */,
 			);
 			path = UserLogin;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				95D613D123155BF6008D885E /* Assets.xcassets in Resources */,
 				952806A7231E3B1000EFD895 /* RidingStoryboard.storyboard in Resources */,
 				95D613CF23155BF5008D885E /* UserLogIn.storyboard in Resources */,
+				9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */,
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
@@ -486,6 +493,7 @@
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
+				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,
 				9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */,
 				9525993423214199009C7750 /* QRCodeViewController.swift in Sources */,
