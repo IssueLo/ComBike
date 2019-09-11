@@ -37,6 +37,8 @@
 		95456784232795B6009DA63B /* UserLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95456783232795B6009DA63B /* UserLogInView.swift */; };
 		9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */; };
 		9545678B2328A326009DA63B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545678A2328A326009DA63B /* UserProfileController.swift */; };
+		9545678E2328F5FE009DA63B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545678C2328F5FE009DA63B /* ProfileCell.swift */; };
+		9545678F2328F5FE009DA63B /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9545678D2328F5FE009DA63B /* ProfileCell.xib */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
@@ -85,6 +87,8 @@
 		95456783232795B6009DA63B /* UserLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInView.swift; sourceTree = "<group>"; };
 		9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		9545678A2328A326009DA63B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		9545678C2328F5FE009DA63B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		9545678D2328F5FE009DA63B /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				951554BB2318F1040080BBB7 /* UserSignUpView.swift */,
 				95456783232795B6009DA63B /* UserLogInView.swift */,
+				9545678C2328F5FE009DA63B /* ProfileCell.swift */,
+				9545678D2328F5FE009DA63B /* ProfileCell.xib */,
 			);
 			path = UserLogIn;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				95D613CF23155BF5008D885E /* UserLogIn.storyboard in Resources */,
 				9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */,
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
+				9545678F2328F5FE009DA63B /* ProfileCell.xib in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
 			);
@@ -497,6 +504,7 @@
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,
 				9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */,
 				9525993423214199009C7750 /* QRCodeViewController.swift in Sources */,
+				9545678E2328F5FE009DA63B /* ProfileCell.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
 				952806BA231E98E900EFD895 /* Extansion+UIViewController.swift in Sources */,

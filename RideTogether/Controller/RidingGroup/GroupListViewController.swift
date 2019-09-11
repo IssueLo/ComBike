@@ -25,11 +25,24 @@ class GroupListViewController: UIViewController {
         
         didSet {
             
+            createGroupBtn.backgroundColor = .white
+            
             createGroupBtn.layer.cornerRadius = 25
             
             createGroupBtn.layer.borderColor = UIColor.lightGray.cgColor
             
             createGroupBtn.layer.borderWidth = 1
+            
+            createGroupBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+            
+            createGroupBtn.layer.shadowOpacity = 0.7
+            
+            createGroupBtn.layer.shadowRadius = 3
+            
+            createGroupBtn.layer.shadowColor = UIColor(red: 44.0/255.0,
+                                                       green: 62.0/255.0,
+                                                       blue: 80.0/255.0,
+                                                       alpha: 1.0).cgColor
         }
     }
     
@@ -44,7 +57,12 @@ class GroupListViewController: UIViewController {
         present(createGroupVC, animated: false, completion: nil)
     }
 
-    @IBOutlet weak var groupListTableView: UITableView!
+    @IBOutlet weak var groupListTableView: UITableView! {
+        didSet {
+            
+            groupListTableView.contentInset.bottom = 100
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,11 +26,24 @@ class GroupDetailViewController: UIViewController {
         
         didSet {
             
+            startBtn.backgroundColor = .white
+
             startBtn.layer.cornerRadius = 25
             
             startBtn.layer.borderColor = UIColor.lightGray.cgColor
             
             startBtn.layer.borderWidth = 1
+            
+            startBtn.layer.shadowOffset = CGSize(width: 5, height: 5)
+            
+            startBtn.layer.shadowOpacity = 0.7
+            
+            startBtn.layer.shadowRadius = 5
+            
+            startBtn.layer.shadowColor = UIColor(red: 44.0/255.0,
+                                                 green: 62.0/255.0,
+                                                 blue: 80.0/255.0,
+                                                 alpha: 1.0).cgColor
         }
     }
     
