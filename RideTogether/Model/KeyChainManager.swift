@@ -12,7 +12,25 @@ class KeyChainManager {
     
     static let shard = KeyChainManager()
     
-    private init () {}
+    private let service: Keychain
     
-    var token: String?
+    private let userUID: String = "userUID"
+    
+    private init () {
+        
+        service = Keychain(service: Bundle.main.bundleIdentifier!)
+    }
+    
+    var token: String? {
+        
+        set {
+    
+            service[userUID] = newValue
+        }
+    
+        get {
+    
+            return service[userUID]
+        }
+    }
 }

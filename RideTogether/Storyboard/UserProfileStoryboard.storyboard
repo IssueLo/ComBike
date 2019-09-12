@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-5y-eiP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="150"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample_Boy" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-DP-p04">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample_Boy" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-DP-p04">
                                         <rect key="frame" x="123.5" y="11" width="128" height="128"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -68,7 +68,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="個人頁面 " id="wQy-wo-cJG"/>
                     <connections>
+                        <outlet property="button" destination="kO4-gG-cdu" id="Rii-LB-Yjh"/>
                         <outlet property="profileTableView" destination="wSa-VP-vDD" id="3Wa-Rs-8mp"/>
+                        <outlet property="uiView" destination="FoL-5y-eiP" id="Zah-Mt-jse"/>
                         <outlet property="userImage" destination="Qp5-DP-p04" id="ZZK-As-MwV"/>
                     </connections>
                 </viewController>
