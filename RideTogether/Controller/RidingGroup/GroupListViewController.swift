@@ -53,13 +53,17 @@ class GroupListViewController: UIViewController {
             
             let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
             
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+            guard
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+                    as? UserLogInController
+            else { return }
             
-            //            loginVC.modalPresentationStyle = .overCurrentContext
-            //
+            loginVC.toNextVCHandler = { (UIAlertAction) in
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+
             present(loginVC, animated: true, completion: nil)
-            
-            //            show(loginVC, sender: nil)
             
             return
         }

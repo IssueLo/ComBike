@@ -98,7 +98,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
         
         guard
             let navigationVC = viewController as? UINavigationController,
-            let _ = navigationVC.viewControllers.first as? UserProfileController
+            navigationVC.viewControllers.first is UserProfileController
         else { return true }
         
         // 確認 KeyChain 是否有登入 Token，若沒有需登入會員
@@ -106,14 +106,21 @@ extension TabBarViewController: UITabBarControllerDelegate {
 
             let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
             
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+                as? UserLogInController
+            else {
+                return false
+            }
+            
+            loginVC.toNextVCHandler = { (UIAlertAction) in
+                
+                tabBarController.selectedIndex = 2
+                
+                self.dismiss(animated: true, completion: nil)
+            }
 
-//            loginVC.modalPresentationStyle = .overCurrentContext
-//
             present(loginVC, animated: true, completion: nil)
             
-//            show(loginVC, sender: nil)
-
             return false
         }
         

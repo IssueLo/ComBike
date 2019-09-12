@@ -18,6 +18,8 @@ class UserLogInController: UIViewController {
     
     @IBOutlet weak var userLogInView: UserLogInView!
     
+    var toNextVCHandler: ((UIAlertAction) -> Void)!
+    
     @IBAction func backToLastVC() {
         
         //        navigationController?.popViewController(animated: true)
@@ -79,22 +81,12 @@ class UserLogInController: UIViewController {
 
 extension UserLogInController: UserLogInViewDelegate {
     
-    func toOtherPage() {
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            
-            self.userLogInView.alpha = 0
-            
-            self.logInLabel.text = "Sign in"
-        })
-    }
-    
     func userLogIn(userEmail: String?, userPassword: String?) {
         
         guard
             let userEmail = userEmail,
             let userPassword = userPassword
-        else { return }
+            else { return }
         
         if userEmail == "" {
             
@@ -116,9 +108,11 @@ extension UserLogInController: UserLogInViewDelegate {
                 }
                 //
                 
-                self?.showAlert("登入成功")
+                self?.showAlert("登入成功", self?.toNextVCHandler)
                 
                 UserInfo.uid = Auth.auth().currentUser?.uid
+                
+//                self?.toNextVCHandler()
                 
                 guard let userUID = UserInfo.uid else { return }
                 
@@ -126,6 +120,16 @@ extension UserLogInController: UserLogInViewDelegate {
                 FirebaseDataManeger.shared.searchUserInfo(userUID)
             }
         }
+    }
+    
+    func toOtherPage() {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.userLogInView.alpha = 0
+            
+            self.logInLabel.text = "Sign in"
+        })
     }
 }
 
@@ -160,16 +164,16 @@ extension UserLogInController: UserSignUpViewDelegate {
             
             FirebaseAccountManager.shared.onClickRegister(userName: name,
                                                           userEmail: email,
-                                                          userPassword: password) { (error) in
+                                                          userPassword: password) { [weak self](error) in
                 
                 if error != nil {
                     
-                    self.showAlert((error?.localizedDescription)!)
+                    self?.showAlert((error?.localizedDescription)!)
                     
                     return
                 }
                 
-                self.showAlert("註冊成功，已登入")
+                self?.showAlert("註冊成功，已登入", self?.toNextVCHandler)
                 
                 // 會員資料儲存到 Firebase
                 guard

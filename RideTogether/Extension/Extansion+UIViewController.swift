@@ -41,11 +41,11 @@ extension UIViewController {
         completion?()
     }
     
-    func showAlert(_ message: String) {
+    func showAlert(_ message: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
         
         let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "確定", style: .default, handler: handler)
         
         alertController.addAction(okAction)
         
