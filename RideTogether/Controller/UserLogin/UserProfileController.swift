@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import Firebase
+import Kingfisher
 
 class UserProfileController: UIViewController {
     
@@ -89,7 +90,6 @@ class UserProfileController: UIViewController {
         let nib = UINib(nibName: "ProfileCell", bundle: nil)
         
         profileTableView.register(nib, forCellReuseIdentifier: "ProfileCell")
-        
     }
     
     @IBOutlet weak var uiView: UIView! {
@@ -156,7 +156,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         // 取得從 UIImagePickerController 選擇的檔案
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            userImage.image = pickedImage
+//            userImage.image = pickedImage
             
             selectedImageFromPicker = pickedImage
         }
@@ -174,7 +174,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
             
             if let uploadData = selectedImage.pngData() {
                 // 這行就是 FirebaseStorage 關鍵的存取方法。
-                storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
+                storageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
                     
                     if error != nil {
                         
@@ -183,6 +183,31 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                         return
                     }
                     
+                    storageRef.downloadURL { (url, error) in
+                        
+                        if let error = error {
+                            
+                            print(error)
+                        } else {
+                            
+                            print(url as Any)
+                            
+                            self.userImage.kf.setImage(with: url)
+                        }
+                    }
+                    
+//                    storageRef.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+//
+//                        if let error = error {
+//
+//                            print("error: \(error)")
+//                            print("data: \(data)")
+//                        } else {
+//
+//                            print("data: \(data)")
+//                            self.userImage.image = UIImage(data: data!)
+//                        }
+//                    })
                     // 連結取得方式就是：data?.downloadURL()?.absoluteString。
 //                    if let uploadImageUrl = data.downloadURL()?.absoluteString {
 //
@@ -195,5 +220,4 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         
         dismiss(animated: true, completion: nil)
     }
-    
 }

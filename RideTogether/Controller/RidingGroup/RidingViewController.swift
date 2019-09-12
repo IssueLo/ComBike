@@ -59,7 +59,7 @@ class RidingViewController: UIViewController {
     
     var memberInfo = MemberInfo(memberName: UserInfo.name!)
     
-    var ridingData: [String: Any]!
+    var ridingData = [String: Any]()
     
     var locationOfMember = [LocationOfMember]() {
         

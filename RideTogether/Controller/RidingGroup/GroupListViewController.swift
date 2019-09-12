@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GroupListViewController: UIViewController {
     
@@ -48,6 +49,21 @@ class GroupListViewController: UIViewController {
     
     @IBAction func createGroup() {
         
+        guard Auth.auth().currentUser?.uid != nil else {
+            
+            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+            
+            //            loginVC.modalPresentationStyle = .overCurrentContext
+            //
+            present(loginVC, animated: true, completion: nil)
+            
+            //            show(loginVC, sender: nil)
+            
+            return
+        }
+        
         let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
         
         let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
@@ -75,7 +91,7 @@ class GroupListViewController: UIViewController {
         UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
 
         UserInfo.name = "Ruyu"
-//
+
         UserInfo.uid = "userID"
 
         UserInfo.name = "Kevin"

@@ -15,35 +15,45 @@ class FirebaseAccountManager {
     
     private init() {}
     
+    var userUID: String? {
+        
+        return Auth.auth().currentUser?.uid
+    }
+    
+    // 這個要拿掉
     var belongToVC: UIViewController!
     
     // MARK: Firebase 註冊
-    func onClickRegister(_ userName: String, _ userEmail: String, _ userPassword: String) {
+    func onClickRegister(userName: String,
+                         userEmail: String,
+                         userPassword: String,
+                         _ handler: @escaping (Error?) -> Void) {
         
         Auth.auth().createUser(withEmail: userEmail,
                                password: userPassword) { (_, error) in
                                 
-                                if error != nil {
-                                    
-                                    self.showAlert(self.belongToVC, (error?.localizedDescription)!)
-                                    
-                                    return
-                                }
-                                
-                                self.showAlert(self.belongToVC, "註冊成功，已登入")
-                                
-                                // 會員資料儲存到 Firebase
-                                guard
-                                    let userUID = Auth.auth().currentUser?.uid
-                                    
-                                else { return }
-                                
-                                FirebaseDataManeger.shared.addUserInfo(userUID, userName, userEmail)
-                                
-                                // 暫存資料庫，要換成 keychain
-                                UserInfo.uid = Auth.auth().currentUser?.uid
-                                
-                                UserInfo.name = userName
+                                handler(error)
+//                                if error != nil {
+//                                    
+//                                    self.showAlert(self.belongToVC, (error?.localizedDescription)!)
+//                                    
+//                                    return
+//                                }
+//                                
+//                                self.showAlert(self.belongToVC, "註冊成功，已登入")
+//                                
+//                                // 會員資料儲存到 Firebase
+//                                guard
+//                                    let userUID = Auth.auth().currentUser?.uid
+//                                    
+//                                else { return }
+//                                
+//                                FirebaseDataManeger.shared.addUserInfo(userUID, userName, userEmail)
+//                                
+//                                // 暫存資料庫，要換成 keychain
+//                                UserInfo.uid = Auth.auth().currentUser?.uid
+//                                
+//                                UserInfo.name = userName
         }
     }
     
@@ -54,6 +64,8 @@ class FirebaseAccountManager {
         
         Auth.auth().signIn(withEmail: userEmail,
                            password: userPassword) { (_, error) in
+                            
+//                            KeyChainManager.shard.token = Auth.auth()
                             
                             handler(error)
                             
@@ -100,7 +112,7 @@ class FirebaseAccountManager {
     }
     
     // MARK: Firebase 密碼重設
-    func onResetPasswor(_ userSignInView: UserSignUpView) {
+    func onResetPassword(_ userSignInView: UserSignUpView) {
         
         if userSignInView.userEmailTxtFld.text == "" {
             

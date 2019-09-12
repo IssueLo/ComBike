@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private enum Tab {
     
@@ -28,7 +29,7 @@ private enum Tab {
         case .ridingInfo: controller = UIStoryboard(name: "GroupStoryboard",
                                                     bundle: nil).instantiateInitialViewController()!
             
-        case .profile: controller = UIStoryboard(name: "UserLogIn",
+        case .profile: controller = UIStoryboard(name: "UserProfileStoryboard",
                                                  bundle: nil).instantiateInitialViewController()!
             
         }
@@ -79,6 +80,14 @@ class TabBarViewController: UITabBarController {
 //            <#code#>
 //        })
         
+        do {
+            try Auth.auth().signOut()
+            
+        } catch {
+            
+        }
+        
+        print(Auth.auth().currentUser?.uid as Any)
     }
 }
 
@@ -87,23 +96,26 @@ extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           shouldSelect viewController: UIViewController) -> Bool {
         
-//        guard
-//            let navigationVC = viewController as? UINavigationController,
-//            let _ = navigationVC.viewControllers.first as? UserLoginController
-//        else { return true }
+        guard
+            let navigationVC = viewController as? UINavigationController,
+            let _ = navigationVC.viewControllers.first as? UserProfileController
+        else { return true }
         
         // 確認 KeyChain 是否有登入 Token，若沒有需登入會員
-//        guard KeyChainManager.shared.token != nil else {
+        guard Auth.auth().currentUser?.uid != nil else {
+
+            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+
+//            loginVC.modalPresentationStyle = .overCurrentContext
 //
-//            if let vc = UIStoryboard.auth.instantiateInitialViewController() {
-//
-//                vc.modalPresentationStyle = .overCurrentContext
-//
-//                present(vc, animated: false, completion: nil)
-//            }
-//
-//            return false
-//        }
+            present(loginVC, animated: true, completion: nil)
+            
+//            show(loginVC, sender: nil)
+
+            return false
+        }
         
         return true
     }

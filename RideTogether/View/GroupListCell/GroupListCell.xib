@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupListCell" rowHeight="88" id="O8y-Pu-KHX" customClass="GroupListCell" customModule="RideTogether" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="groupListCell" rowHeight="88" id="O8y-Pu-KHX" customClass="GroupListCell" customModule="RideTogether" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="234" height="88"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O8y-Pu-KHX" id="aTn-Je-iIY">
-                <rect key="frame" x="0.0" y="0.0" width="234" height="87.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="87.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_36px_Profile_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="K24-9n-Ajx">
@@ -31,13 +31,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_Next" translatesAutoresizingMaskIntoConstraints="NO" id="M0H-0j-Un7">
-                        <rect key="frame" x="206" y="36" width="16" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="16" id="92P-rG-Ifz"/>
-                            <constraint firstAttribute="height" constant="16" id="fgM-Co-jJv"/>
-                        </constraints>
-                    </imageView>
                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxa-M7-lVk">
                         <rect key="frame" x="0.0" y="86.5" width="234" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,17 +40,17 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="M0H-0j-Un7" secondAttribute="trailing" constant="12" id="3Qc-Jz-gNl"/>
-                    <constraint firstItem="M0H-0j-Un7" firstAttribute="centerY" secondItem="aTn-Je-iIY" secondAttribute="centerY" id="GeY-o7-MgB"/>
                     <constraint firstItem="K24-9n-Ajx" firstAttribute="leading" secondItem="aTn-Je-iIY" secondAttribute="leading" constant="12" id="IN8-t8-Uwr"/>
                     <constraint firstItem="1xf-Bc-qJM" firstAttribute="leading" secondItem="K24-9n-Ajx" secondAttribute="trailing" constant="10" id="dKj-Y6-9ua"/>
                     <constraint firstAttribute="bottom" secondItem="wxa-M7-lVk" secondAttribute="bottom" id="f2H-2b-qFp"/>
                     <constraint firstItem="1xf-Bc-qJM" firstAttribute="centerY" secondItem="K24-9n-Ajx" secondAttribute="centerY" id="g9p-In-Apj"/>
-                    <constraint firstAttribute="trailing" secondItem="wxa-M7-lVk" secondAttribute="trailing" id="ol5-cH-8mO"/>
                     <constraint firstItem="wxa-M7-lVk" firstAttribute="leading" secondItem="aTn-Je-iIY" secondAttribute="leading" id="tsY-9M-RvM"/>
                     <constraint firstItem="K24-9n-Ajx" firstAttribute="centerY" secondItem="aTn-Je-iIY" secondAttribute="centerY" id="ytH-91-wZG"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wxa-M7-lVk" secondAttribute="trailing" id="OCT-8h-xrz"/>
+            </constraints>
             <connections>
                 <outlet property="groupImage" destination="K24-9n-Ajx" id="Wl2-iN-ohU"/>
                 <outlet property="groupNameLabel" destination="1xf-Bc-qJM" id="ac5-26-Wxp"/>
@@ -66,7 +59,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Icons_24px_Next" width="32" height="32"/>
         <image name="Icons_36px_Profile_Normal" width="36" height="36"/>
     </resources>
 </document>

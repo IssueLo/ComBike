@@ -13,7 +13,7 @@
         <!--User Log In Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="UserLogInController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserLogInController" id="BYZ-38-t0r" customClass="UserLogInController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,15 +214,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-1X-f1L">
+                                <rect key="frame" x="335" y="24" width="24" height="24"/>
+                                <state key="normal" image="Icons_24px_CleanAll"/>
+                                <connections>
+                                    <action selector="backToLastVC" destination="BYZ-38-t0r" eventType="touchUpInside" id="9aw-Xy-dOx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gZb-iI-cb7" firstAttribute="top" secondItem="viN-fa-weS" secondAttribute="top" id="AOU-M7-YOv"/>
                             <constraint firstItem="viN-fa-weS" firstAttribute="top" secondItem="e2X-on-7Zr" secondAttribute="bottom" constant="80" id="C8t-Gd-45F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Ka-1X-f1L" secondAttribute="trailing" constant="16" id="EBI-kN-wj9"/>
                             <constraint firstItem="9S7-2S-46b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PRx-Nf-ivX"/>
                             <constraint firstItem="e2X-on-7Zr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WR0-M0-GUg"/>
                             <constraint firstItem="viN-fa-weS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="750" constant="200" id="YXE-cy-wLX"/>
                             <constraint firstItem="gZb-iI-cb7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cD6-CW-1L6"/>
+                            <constraint firstItem="5Ka-1X-f1L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="cOg-Ho-gJl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="viN-fa-weS" secondAttribute="bottom" id="fzP-8u-OQP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gZb-iI-cb7" secondAttribute="trailing" id="hU3-uP-bo3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="viN-fa-weS" secondAttribute="trailing" id="oJj-wV-f21"/>
@@ -243,4 +252,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="97.601199400299862"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icons_24px_CleanAll" width="24" height="24"/>
+    </resources>
 </document>

@@ -18,6 +18,12 @@ class UserLogInController: UIViewController {
     
     @IBOutlet weak var userLogInView: UserLogInView!
     
+    @IBAction func backToLastVC() {
+        
+        //        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +83,7 @@ extension UserLogInController: UserLogInViewDelegate {
         
         UIView.animate(withDuration: 0.3, animations: {
             
-            self.userLogInView.alpha = 1
+            self.userLogInView.alpha = 0
             
             self.logInLabel.text = "Sign in"
         })
@@ -100,17 +106,17 @@ extension UserLogInController: UserLogInViewDelegate {
             
         } else {
             
-            FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword) { (error) in
+            FirebaseAccountManager.shared.onClickLogin(userEmail, userPassword) { [weak self] (error) in
                 
                 if error != nil {
                     
-                    self.showAlert(error!.localizedDescription)
+                    self?.showAlert(error!.localizedDescription)
                     
                     return
                 }
                 //
                 
-                self.showAlert("登入成功")
+                self?.showAlert("登入成功")
                 
                 UserInfo.uid = Auth.auth().currentUser?.uid
                 
@@ -152,7 +158,32 @@ extension UserLogInController: UserSignUpViewDelegate {
             
         } else {
             
-            FirebaseAccountManager.shared.onClickRegister(name, email, password)
+            FirebaseAccountManager.shared.onClickRegister(userName: name,
+                                                          userEmail: email,
+                                                          userPassword: password) { (error) in
+                
+                if error != nil {
+                    
+                    self.showAlert((error?.localizedDescription)!)
+                    
+                    return
+                }
+                
+                self.showAlert("註冊成功，已登入")
+                
+                // 會員資料儲存到 Firebase
+                guard
+                    let userUID = Auth.auth().currentUser?.uid
+                    
+                    else { return }
+                
+                FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
+                
+                // 暫存資料庫，要換成 keychain
+                UserInfo.uid = Auth.auth().currentUser?.uid
+                
+                UserInfo.name = userName
+            }
         }
     }
 }
