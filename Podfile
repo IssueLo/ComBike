@@ -18,5 +18,6 @@ target 'RideTogether' do
   pod 'SwiftLint'
   pod 'KeychainAccess'
   pod 'Polyline'
+  pod 'IQKeyboardManager'
 
 end

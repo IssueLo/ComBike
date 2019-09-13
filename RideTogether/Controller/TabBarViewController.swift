@@ -81,7 +81,7 @@ class TabBarViewController: UITabBarController {
 //        })
         
         do {
-//            try Auth.auth().signOut()
+            try Auth.auth().signOut()
             
         } catch {
             
@@ -106,7 +106,8 @@ class TabBarViewController: UITabBarController {
         
         print(Auth.auth().currentUser?.uid as Any)
         
-        FirebaseDataManeger.shared.test()
+        // 測試～～～～～～
+//        FirebaseDataManeger.shared.test()
     }
 }
 

@@ -143,9 +143,7 @@ extension UserProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // swiftlint:disable force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
-        // swiftlint:enable force_cast
         
         guard let profileCell = cell as? ProfileCell else { return cell }
         
