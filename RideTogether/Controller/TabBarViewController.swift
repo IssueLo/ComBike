@@ -87,7 +87,26 @@ class TabBarViewController: UITabBarController {
             
         }
         
+        // 記得改回去喔！
+        //        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
+        //
+        //        UserInfo.name = "Ruyu"
+        //
+        //        UserInfo.uid = "userID"
+        //
+        //        UserInfo.name = "Kevin"
+        
+        //        UserInfo.uid = "12345678"
+        //
+        //        UserInfo.name = "Nick"
+        
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        
+        FirebaseDataManeger.shared.searchUserInfo(userUID)
+        
         print(Auth.auth().currentUser?.uid as Any)
+        
+        FirebaseDataManeger.shared.test()
     }
 }
 
@@ -101,7 +120,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
             navigationVC.viewControllers.first is UserProfileController
         else { return true }
         
-        // 確認 KeyChain 是否有登入 Token，若沒有需登入會員
+        // 確認是否有登入會員
         guard Auth.auth().currentUser?.uid != nil else {
 
             let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)

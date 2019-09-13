@@ -29,9 +29,6 @@ class UserLogInController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add for FirebaseAccountManager
-        FirebaseAccountManager.shared.belongToVC = self
-        
         setUpUserLogInView()
         
         setUpUserSignUpView()
@@ -110,11 +107,11 @@ extension UserLogInController: UserLogInViewDelegate {
                 
                 self?.showAlert("登入成功", self?.toNextVCHandler)
                 
-                UserInfo.uid = Auth.auth().currentUser?.uid
+//                UserInfo.uid = Auth.auth().currentUser?.uid
                 
 //                self?.toNextVCHandler()
                 
-                guard let userUID = UserInfo.uid else { return }
+                guard let userUID = Auth.auth().currentUser?.uid else { return }
                 
                 // Firebase 抓取資料
                 FirebaseDataManeger.shared.searchUserInfo(userUID)
@@ -184,9 +181,9 @@ extension UserLogInController: UserSignUpViewDelegate {
                 FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
                 
                 // 暫存資料庫，要換成 keychain
-                UserInfo.uid = Auth.auth().currentUser?.uid
+//                UserInfo.uid = Auth.auth().currentUser?.uid
                 
-                UserInfo.name = userName
+                FirebaseAccountManager.shared.userName = userName
             }
         }
     }

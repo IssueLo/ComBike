@@ -33,7 +33,11 @@ class RidingResultViewController: UIViewController {
         
         ridingResultTableView.register(nib, forCellReuseIdentifier: "RidingResultCell")
         
-        ridingResultHeaderView.setupHeaderView(groupResultInfo.name, UserInfo.name!, 1, "st", "00:00:00")
+        ridingResultHeaderView.setupHeaderView(groupResultInfo.name,
+                                               FirebaseAccountManager.shared.userName!,
+                                               1,
+                                               "st",
+                                               "00:00:00")
         
         ridingResultHeaderView.handler = {
             
@@ -76,7 +80,7 @@ extension RidingResultViewController: UITableViewDataSource {
     
     func updateUserInfo(_ userName: String, _ userRank: Int, _ spendTime: String) {
         
-        if userName == UserInfo.name! {
+        if userName == FirebaseAccountManager.shared.userName! {
             
             var userSubRank: String
             

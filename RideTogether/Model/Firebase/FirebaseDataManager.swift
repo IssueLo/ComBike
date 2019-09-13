@@ -17,47 +17,92 @@ class FirebaseDataManeger {
     
     private init() {}
     
+    func test() {
+        
+        let database = Firestore.firestore()
+            
+        let reference = database.collection(FirebaseKey.userInfo.rawValue).document("v5Wsiqy7bFhGMUhaeybw4Cmkvrm1")
+        
+        database.runTransaction({ (transaction, errorPointer) -> Any? in
+            
+            let myDocument: DocumentSnapshot
+            
+            do {
+                
+                try myDocument = transaction.getDocument(reference)
+                
+            } catch let fetchError as NSError {
+                
+                return nil
+            }
+            
+            guard var oldarray = myDocument.data()?["userName"] as? [String] else {
+                
+                return nil
+            }
+            
+            oldarray.append("oo")
+            
+            transaction.updateData(["user": oldarray], forDocument: reference)
+           
+            return nil
+
+        }) { (object, error) in
+            if let error = error {
+                print("Transaction failed: \(error)")
+            } else {
+                print("Transaction successfully committed!")
+            }
+        }
+        
+    }
+    
     // 新加入會員資料
     func addUserInfo(_ userUID: String,
                      _ userName: String,
                      _ userEmail: String) {
         
-        let userInfoCollection = Firestore.firestore().collection("userInfo")
+        let userInfoCollection = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
         
-        let userInfo: [String: Any] = ["userName": userName, "userEmail": userEmail]
+        let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
+                                           UserInfoKey.email.rawValue: userEmail]
         
-        userInfoCollection.document(userUID).setData(userInfo)
+        userInfoCollection.document(userUID).setData(userInfoData)
     }
     
     // 建立群組
     func createGroup(_ groupName: String) {
         
-        let groupCollection = Firestore.firestore().collection("group")
+        let groupCollection = Firestore.firestore().collection(FirebaseKey.group.rawValue)
         
+        // 要打兩次 API，所以要知道 groupID
         let groupID = groupCollection.document().documentID
         
         guard
-            let userUID = UserInfo.uid,
-            let userName = UserInfo.name
+            let userUID = FirebaseAccountManager.shared.userUID,
+            let userName = FirebaseAccountManager.shared.userName
         else { return }
         
-        groupCollection.document(groupID).setData(["name": groupName, "member": [userUID]])
+        groupCollection.document(groupID).setData([GroupKey.name.rawValue: groupName,
+                                                   GroupKey.member.rawValue: [userUID]])
+        
+        groupCollection.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
+            .setData([GroupKey.name.rawValue: userName])
 
-        groupCollection.document(groupID).collection("member").document(userUID).setData(["name": userName])
     }
     
     // 編輯群組 - 增加成員
     func addMemberInGroup(_ groupID: String, _ userUID: String, _ userName: String) {
         
-        let groupDocument = Firestore.firestore().collection("group").document(groupID)
+        let groupDocument = Firestore.firestore().collection(FirebaseKey.group.rawValue).document(groupID)
                 
         groupDocument.getDocument { (querySnapshot, _) in
             
             if let querySnapshot = querySnapshot {
                 
                 guard
-                    let groupName = querySnapshot.data()?["name"] as? String,
-                    var member = querySnapshot.data()?["member"] as? [String]
+                    let groupName = querySnapshot.data()?[GroupKey.name.rawValue] as? String,
+                    var member = querySnapshot.data()?[GroupKey.member.rawValue] as? [String]
                 else { return }
                 
                 for currentMember in member {
@@ -72,9 +117,10 @@ class FirebaseDataManeger {
                 
                 member.append(userUID)
                 
-                groupDocument.setData(["name": groupName, "member": member])
+                groupDocument.setData([GroupKey.name.rawValue: groupName,
+                                       GroupKey.member.rawValue: member])
                 
-                groupDocument.collection("member").document(userUID).setData(["name": userName])
+                groupDocument.collection(GroupKey.member.rawValue).document(userUID).setData([GroupKey.name.rawValue: userName])
             }
         }
     }
@@ -100,13 +146,15 @@ class FirebaseDataManeger {
     // 用 uid 搜尋會員 Name
     func searchUserInfo(_ userID: String) {
         
-        let uesrInfoDocument = Firestore.firestore().collection("userInfo").document(userID)
+        let uesrInfoDocument = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue).document(userID)
         
         uesrInfoDocument.getDocument { (querySnapshot, _) in
                         
             if let querySnapshot = querySnapshot {
                 
-                UserInfo.name = querySnapshot.data()?["userName"] as? String
+//                UserInfo.name = querySnapshot.data()?["userName"] as? String
+                
+                FirebaseAccountManager.shared.userName = querySnapshot.data()?[UserInfoKey.name.rawValue] as? String
             }
         }
     }
@@ -239,7 +287,7 @@ class FirebaseDataManeger {
         
         let geoPoint = userLoction.transferToGeopoint()
         
-        let locationData = ["name": UserInfo.name!, "location": geoPoint] as [String: Any]
+        let locationData = ["name": FirebaseAccountManager.shared.userName!, "location": geoPoint] as [String: Any]
         
         userInfo.setData(locationData)
     }

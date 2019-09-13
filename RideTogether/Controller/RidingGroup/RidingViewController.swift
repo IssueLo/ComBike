@@ -57,7 +57,7 @@ class RidingViewController: UIViewController {
     
     var groupInfo: GroupInfo!
     
-    var memberInfo = MemberInfo(memberName: UserInfo.name!)
+    var memberInfo = MemberInfo(memberName: FirebaseAccountManager.shared.userName!)
     
     var ridingData = [String: Any]()
     
@@ -163,7 +163,7 @@ class RidingViewController: UIViewController {
         // 功能：儲存時間/ 距離/ 最高速度/ 路線
         memberInfo.distance = totalDistance
         
-        ridingData = ["name": UserInfo.name!,
+        ridingData = ["name": FirebaseAccountManager.shared.userName!,
                       "spendTime": timeManager.currentSecond,
                       "distance": totalDistance,
                       "averageSpeed": ((totalDistance / Double(timeManager.currentSecond)) * 3.6),
@@ -172,7 +172,7 @@ class RidingViewController: UIViewController {
         ]
         
         FirebaseDataManeger.shared.uploadRidingData(groupInfo.groupID,
-                                                    UserInfo.uid!,
+                                                    FirebaseAccountManager.shared.userUID!,
                                                     ridingData)
         
         show(ridingResultVC, sender: nil)
@@ -257,7 +257,7 @@ class RidingViewController: UIViewController {
         
         // 即時上傳當前位置
         FirebaseDataManeger.shared.uploadUserLocation(groupInfo.groupID,
-                                                      UserInfo.uid!,
+                                                      FirebaseAccountManager.shared.userUID!,
                                                       location.coordinate)
 //        print(location.timestamp)
         
@@ -310,7 +310,7 @@ class RidingViewController: UIViewController {
         
         for memberLocation in locationOfMember {
             
-            if UserInfo.name == memberLocation.name {
+            if FirebaseAccountManager.shared.userName == memberLocation.name {
                 
                 continue
             } else {

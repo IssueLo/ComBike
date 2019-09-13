@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class GroupListViewController: UIViewController {
     
@@ -49,7 +49,7 @@ class GroupListViewController: UIViewController {
     
     @IBAction func createGroup() {
         
-        guard Auth.auth().currentUser?.uid != nil else {
+        guard FirebaseAccountManager.shared.userUID != nil else {
             
             let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
             
@@ -91,27 +91,6 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        // 記得改回去喔！
-//        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-//
-//        UserInfo.name = "Ruyu"
-//
-//        UserInfo.uid = "userID"
-//
-//        UserInfo.name = "Kevin"
-        
-//        UserInfo.uid = "12345678"
-//
-//        UserInfo.name = "Nick"
-        
-        // 有登入的情況可以搜尋群組資料
-//        if UserInfo.uid != nil {
-//
-////            FirebaseDataManeger.shared.searchUserGroup(self, UserInfo.uid!)
-//
-//            creatObserverOfGroup(UserInfo.uid!)
-//        }
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                             target: self,
                                                             action: #selector(scanQRCode))
@@ -120,9 +99,10 @@ class GroupListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if UserInfo.uid != nil && groupInfoArray.count == 0 {
+        // User 登入且群組資料為空的情況下建立監聽
+        if FirebaseAccountManager.shared.userUID != nil && groupInfoArray.count == 0 {
             
-            creatObserverOfGroup(UserInfo.uid!)
+            creatObserverOfGroup(FirebaseAccountManager.shared.userUID!)
         }
     }
     
@@ -185,10 +165,6 @@ extension GroupListViewController: UITableViewDataSource {
         else { return }
         
         detailVC.groupInfo = self.groupInfoArray[indexPath.row]
-                
-//        guard let detailVC = vc as? ProductDetailViewController else { return }
-//
-//        detailVC.product = product
 
         self.show(detailVC, sender: nil)
     }

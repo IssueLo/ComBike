@@ -151,9 +151,9 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                     
                     // 掃到條碼後的動作
                     guard
-                        let userUID = UserInfo.uid,
+                        let userUID = FirebaseAccountManager.shared.userUID,
                         
-                        let userName = UserInfo.name
+                        let userName = FirebaseAccountManager.shared.userName
                     else {
                         
                         print("使用者尚未登入")

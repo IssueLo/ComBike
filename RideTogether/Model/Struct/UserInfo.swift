@@ -12,7 +12,31 @@ class UserInfo {
 //
 //    private init() {}
     
-    static var uid: String?
+//    static var uid: String?
     
-    static var name: String?
+//    static var name: String?
+}
+
+enum UserInfoKey: String {
+    
+    case name = "userName"
+    
+    case email = "userEmail"
+    
+}
+
+enum GroupKey: String {
+    
+    case name
+    
+    case member
+    
+    case createTime
+}
+
+enum FirebaseKey: String {
+    
+    case userInfo
+    
+    case group
 }
