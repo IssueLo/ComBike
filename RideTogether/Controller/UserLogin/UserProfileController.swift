@@ -13,6 +13,28 @@ import Kingfisher
 
 class UserProfileController: UIViewController {
     
+    var titleOfCellSection1 = ["使用者條款", "隱私權政策"]
+    
+    var titleOfCellSection2 = ["給我們好評👍"]
+    
+    @IBOutlet weak var uiView: UIView! {
+        didSet {
+            let grandientLayer = CAGradientLayer()
+            
+            grandientLayer.frame = uiView.bounds
+            
+            grandientLayer.colors = [UIColor.white.cgColor //UIColor.red.cgColor
+                                     ,UIColor(red: 255, green: 126, blue: 121, alpha: 0).cgColor
+            ]
+            
+            grandientLayer.startPoint = CGPoint(x: 0, y: 0)
+            
+            grandientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+            
+            uiView.layer.insertSublayer(grandientLayer, at: 0)
+        }
+    }
+    
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
             
@@ -24,9 +46,16 @@ class UserProfileController: UIViewController {
         }
     }
     
-    @IBOutlet weak var button: UIButton! {
+    @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
+            uploadPhotoButton.addRound(radis: 21)
+            
+            uploadPhotoButton.backgroundColor = .white
+            
+            uploadPhotoButton.layer.borderWidth = 2
+            
+            uploadPhotoButton.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     
@@ -91,22 +120,6 @@ class UserProfileController: UIViewController {
         
         profileTableView.register(nib, forCellReuseIdentifier: "ProfileCell")
     }
-    
-    @IBOutlet weak var uiView: UIView! {
-        didSet {
-            let grandientLayer = CAGradientLayer()
-
-            grandientLayer.frame = button.bounds
-            
-            grandientLayer.colors = [UIColor.white.cgColor, UIColor.red.cgColor]
-            
-            grandientLayer.startPoint = CGPoint(x: 0.25, y: 0)
-
-            grandientLayer.endPoint = CGPoint(x: 0.75, y: 1)
-            
-            button.layer.addSublayer(grandientLayer)
-        }
-    }
 }
 
 extension UserProfileController: UITableViewDataSource {
@@ -130,9 +143,20 @@ extension UserProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // swiftlint:disable force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
-            
+        // swiftlint:enable force_cast
+        
         guard let profileCell = cell as? ProfileCell else { return cell }
+        
+        switch indexPath.section {
+        
+        case 0: profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
+
+        case 1: profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
+
+        default: return profileCell
+        }
         
         return profileCell
     }

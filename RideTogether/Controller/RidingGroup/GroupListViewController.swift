@@ -92,13 +92,13 @@ class GroupListViewController: UIViewController {
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
         // 記得改回去喔！
-        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-
-        UserInfo.name = "Ruyu"
-
-        UserInfo.uid = "userID"
-
-        UserInfo.name = "Kevin"
+//        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
+//
+//        UserInfo.name = "Ruyu"
+//
+//        UserInfo.uid = "userID"
+//
+//        UserInfo.name = "Kevin"
         
 //        UserInfo.uid = "12345678"
 //
