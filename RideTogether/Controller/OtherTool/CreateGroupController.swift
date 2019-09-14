@@ -34,14 +34,16 @@ class CreateGroupController: UIViewController {
             
         } else {
         
-            FirebaseDataManeger.shared.createGroup(groupName)
-            
-            print("成功建立群組！")
-            
-            // 有 Bug: 要讓 tableView reload
-            
-            dismiss(animated: false, completion: nil)
+            FirebaseDataManeger.shared.createGroup(groupName) { (message) in
+                
+                self.showAlert(message, { (_) in
+                    
+                    self.dismiss(animated: false, completion: nil)
+                })
+            }
         }
+        
+//        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func backGroupVC() {

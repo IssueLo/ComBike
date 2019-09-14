@@ -78,6 +78,7 @@ class GroupListViewController: UIViewController {
     }
 
     @IBOutlet weak var groupListTableView: UITableView! {
+       
         didSet {
             
             groupListTableView.contentInset.bottom = 100
@@ -106,12 +107,12 @@ class GroupListViewController: UIViewController {
         else { return }
         
         // 監聽 GroupData
-        creatObserverOfGroup(uesrUID)
+        creatObserverOfGroup(uesrUID: uesrUID)
     }
     
-    func creatObserverOfGroup(_ userID: String) {
+    func creatObserverOfGroup(uesrUID: String) {
         
-        FirebaseDataManeger.shared.observerForGroupData(userID) { [weak self] (result) in
+        FirebaseDataManeger.shared.observerForGroupData(uesrUID) { [weak self] (result) in
             
             switch result {
                 
@@ -178,7 +179,7 @@ extension GroupListViewController: UITableViewDataSource {
                 as? GroupDetailViewController
         else { return }
         
-        detailVC.groupID = self.groupData[indexPath.row].groupID
+        detailVC.groupData = self.groupData[indexPath.row]
 
         self.show(detailVC, sender: nil)
     }
@@ -193,7 +194,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         else { return }
         
-        resultVC.groupID = self.groupData[indexPath.row].groupID
+        resultVC.groupData = self.groupData[indexPath.row]
         
         present(resultVC, animated: true, completion: nil)
     }

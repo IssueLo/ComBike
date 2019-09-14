@@ -10,13 +10,9 @@ import UIKit
 
 class GroupDetailViewController: UIViewController {
     
-    var groupID: String!
+    var groupData: GroupData!
     
-    var memberData = [MemberData]()
-        
-    var groupInfo: GroupInfo!
-    
-    var memberInGroup = [String]() {
+    var memberData = [MemberData]() {
         
         didSet {
             
@@ -62,7 +58,7 @@ class GroupDetailViewController: UIViewController {
         
 //        ridingVC.groupName = groupInfo.name
         
-        ridingVC.groupInfo = groupInfo
+//        ridingVC.groupInfo = groupInfo
         
 //        show(ridingVC, sender: nil)
         present(ridingVC, animated: true, completion: nil)
@@ -71,7 +67,7 @@ class GroupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = groupInfo.name
+        navigationItem.title = groupData.name
         
         let nib = UINib(nibName: "GroupListCell", bundle: nil)
         
@@ -82,11 +78,7 @@ class GroupDetailViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(showQRCodeVC))
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-//                                                            target: self,
-//                                                            action: #selector(showQRCodeVC))
-        
-        FirebaseDataManeger.shared.observerOfMember(self, groupInfo.groupID)
+        creatObserverOfMember(groupID: groupData.groupID)
     }
     
     @objc func showQRCodeVC() {
@@ -97,16 +89,28 @@ class GroupDetailViewController: UIViewController {
             as? QRCodeViewController
         else { return }
         
-        qrCodeVC.groupID = groupInfo.groupID
+        qrCodeVC.groupID = groupData.groupID
         
         qrCodeVC.modalPresentationStyle = .overFullScreen
         
         present(qrCodeVC, animated: false, completion: nil)
     }
     
-    func creatObserverOfMember() {
+    func creatObserverOfMember(groupID: String) {
         
-        FirebaseDataManeger.shared.observerOfMember(self, groupInfo.groupID)
+        FirebaseDataManeger.shared.observerForMemberData(groupID) { [weak self](result) in
+            
+            switch result {
+                
+            case .success(let memberData):
+                
+                self?.memberData.append(memberData)
+                
+            case .failure:
+                
+                self?.showAlert("GroupDetailVC - 101")
+            }
+        }
     }
     
 }
@@ -121,7 +125,7 @@ extension GroupDetailViewController: UITableViewDataSource {
 //            return 0
 //        } else {
         
-            return memberInGroup.count
+            return memberData.count
 //        }
     }
     
@@ -133,7 +137,7 @@ extension GroupDetailViewController: UITableViewDataSource {
         
 //        groupListCell.groupNameLabel.text = self.groupInfo.memberInfo[indexPath.row].name
         
-        groupListCell.groupNameLabel.text = self.memberInGroup[indexPath.row]
+        groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
                 
         return groupListCell
     }

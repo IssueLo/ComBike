@@ -161,13 +161,17 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                         return
                     }
                     
-                    FirebaseDataManeger.shared.addMemberInGroup(value, userUID, userName)
-                    print("把自己加到該群組 (群組 ID: \(value))")
-                    print("狀況 1: 成功加入群組")
-                    print("狀況 2: 找不到該群組")
-                    print("狀況 3: 已經在該群組")
-
-                    dismiss(animated: true, completion: nil)
+//                    FirebaseDataManeger.shared.addMemberInGroup(value, userUID, userName)
+                    
+                    FirebaseDataManeger.shared.addUserIntoGroup(groupID: value,
+                                                                userUID: userUID,
+                                                                userName: userName) { (message) in
+                                                                    
+                                                                    self.showAlert(message, { (_) in
+                                                                        
+                                                                        self.dismiss(animated: true, completion: nil)
+                                                                    })
+                    }
                 }
             }
         }

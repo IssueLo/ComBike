@@ -10,7 +10,7 @@ import UIKit
 
 class RidingResultViewController: UIViewController {
     
-    var groupID: String!
+    var groupData: GroupData!
     
     @IBOutlet weak var ridingResultHeaderView: RidingResultHeaderView!
     

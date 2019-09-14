@@ -15,7 +15,6 @@ typealias GroupDataHandler = (Result<GroupData>) -> Void
 
 typealias MemberDataHandler = (Result<MemberData>) -> Void
 
-
 class FirebaseDataManeger {
     
     static let shared = FirebaseDataManeger()
@@ -146,7 +145,7 @@ class FirebaseDataManeger {
     // Member 監聽
     func observerForMemberData(_ groupID: String, completion: @escaping (Result<MemberData>) -> Void) {
         
-        let memberOfGroup = database.collection(FirebaseKey.group.rawValue).document(groupID).collection(GroupKey.member.rawValue)
+        let memberOfGroup = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
         memberOfGroup.addSnapshotListener { (querySnapshot, error) in
             
@@ -167,6 +166,7 @@ class FirebaseDataManeger {
                     return completion(Result.success(memberData))
                 }
                 
+                // 退出群組
                 if documentChange.type == .removed {
                     
                     guard let name = documentChange.document.data()["name"] as? String
@@ -186,27 +186,22 @@ class FirebaseDataManeger {
         
     }
 
-    
     // 新加入會員資料 - Done
     func addUserInfo(_ userUID: String,
                      _ userName: String,
                      _ userEmail: String) {
         
-        let userInfoCollection = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
-        
         let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
                                            UserInfoKey.email.rawValue: userEmail]
         
-        userInfoCollection.document(userUID).setData(userInfoData)
+        userInfoDatebase.document(userUID).setData(userInfoData)
     }
     
     // 建立群組 - Done
-    func createGroup(_ groupName: String) {
-        
-        let groupCollection = Firestore.firestore().collection(FirebaseKey.group.rawValue)
+    func createGroup(_ groupName: String, completion: @escaping (String) -> Void) {
         
         // 要打兩次 API，所以要知道 groupID
-        let groupID = groupCollection.document().documentID
+        let groupID = groupDatebase.document().documentID
         
         guard
             let userUID = FirebaseAccountManager.shared.userUID,
@@ -217,46 +212,101 @@ class FirebaseDataManeger {
         
         print("createTime: \(createTime)")
         
-        groupCollection.document(groupID).setData([GroupKey.name.rawValue: groupName,
-                                                   GroupKey.member.rawValue: [userUID],
-                                                   GroupKey.isFinished.rawValue: false,
-                                                   GroupKey.createTime.rawValue: createTime])
+        groupDatebase.document(groupID).setData([GroupKey.name.rawValue: groupName,
+                                                 GroupKey.member.rawValue: [userUID],
+                                                 GroupKey.isFinished.rawValue: false,
+                                                 GroupKey.createTime.rawValue: createTime])
         
-        groupCollection.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
+        groupDatebase.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
             .setData([GroupKey.name.rawValue: userName])
-
+        
+        completion("成功創建群組")
     }
     
     // 編輯群組 - 增加成員
-    func addMemberInGroup(_ groupID: String, _ userUID: String, _ userName: String) {
+    func addUserIntoGroup(groupID: String, userUID: String, userName: String, completion: @escaping (String) -> Void) {
         
-        let groupDocument = Firestore.firestore().collection(FirebaseKey.group.rawValue).document(groupID)
-                
+        let groupDocument = groupDatebase.document(groupID)
+        /*
         groupDocument.getDocument { (querySnapshot, _) in
-            
+
             if let querySnapshot = querySnapshot {
-                
+
                 guard
                     let groupName = querySnapshot.data()?[GroupKey.name.rawValue] as? String,
                     var member = querySnapshot.data()?[GroupKey.member.rawValue] as? [String]
                 else { return }
-                
+
                 for currentMember in member {
-                    
+
                     while userUID == currentMember {
-                        
+
                         print("已經加入了喔")
-                        
+
                         return
                     }
                 }
-                
+
                 member.append(userUID)
-                
+
                 groupDocument.setData([GroupKey.name.rawValue: groupName,
                                        GroupKey.member.rawValue: member])
+
+                groupDocument.collection(GroupKey.member.rawValue).document(userUID)
+         .setData([GroupKey.name.rawValue: userName])
+            }
+        }
+        */
+        database.runTransaction({ (transaction, errorPointer) -> Any? in
+            
+            let myDocument: DocumentSnapshot
+            
+            do {
                 
-                groupDocument.collection(GroupKey.member.rawValue).document(userUID).setData([GroupKey.name.rawValue: userName])
+                try myDocument = transaction.getDocument(groupDocument)
+                
+            } catch let fetchError as NSError {
+                
+                return nil
+            }
+            
+            guard var memberInGroup = myDocument.data()?[GroupKey.member.rawValue] as? [String] else {
+                
+                completion("找不到此群組喔")
+                
+                return nil
+            }
+            
+            for member in memberInGroup {
+                
+                if member == userUID {
+                    
+                    completion("已經在群組內了喔")
+                    
+                    return nil
+                    
+                } else {
+                    
+                    continue
+                }
+            }
+            
+            memberInGroup.append(userUID)
+            
+            transaction.updateData([GroupKey.member.rawValue: memberInGroup], forDocument: groupDocument)
+            
+            groupDocument.collection(GroupKey.member.rawValue).document(userUID)
+                .setData([GroupKey.name.rawValue: userName])
+            
+            completion("已成功加入群組")
+            
+            return nil
+            
+        }) { (object, error) in
+            if let error = error {
+                print("Transaction failed: \(error)")
+            } else {
+                print("Transaction successfully committed!")
             }
         }
     }
@@ -346,26 +396,26 @@ class FirebaseDataManeger {
     }
     
     // 監聽新增成員
-    func observerOfMember(_ groupDetailVC: GroupDetailViewController, _ groupID: String) {
-        
-        let memberOfGroup = Firestore.firestore().collection("group/\(groupID)/member")
-
-        memberOfGroup.addSnapshotListener { (querySnapshot, _) in
-            
-            guard let querySnapshot = querySnapshot else { return }
-            
-            querySnapshot.documentChanges.forEach({ (documentChange) in
-                
-                if documentChange.type == .added {
-                    
-                    guard let memberName = documentChange.document.data()["name"] as? String
-                    else { return }
-                    
-                    groupDetailVC.memberInGroup.append(memberName)
-                }
-            })
-        }
-    }
+//    func observerOfMember(_ groupDetailVC: GroupDetailViewController, _ groupID: String) {
+//        
+//        let memberOfGroup = Firestore.firestore().collection("group/\(groupID)/member")
+//
+//        memberOfGroup.addSnapshotListener { (querySnapshot, _) in
+//            
+//            guard let querySnapshot = querySnapshot else { return }
+//            
+//            querySnapshot.documentChanges.forEach({ (documentChange) in
+//                
+//                if documentChange.type == .added {
+//                    
+//                    guard let memberName = documentChange.document.data()["name"] as? String
+//                    else { return }
+//                    
+//                    groupDetailVC.memberInGroup.append(memberName)
+//                }
+//            })
+//        }
+//    }
         
     // 抓取群組資料
     private func getDataFromGroup(_ groupVC: GroupListViewController,
