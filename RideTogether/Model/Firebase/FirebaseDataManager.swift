@@ -20,54 +20,12 @@ class FirebaseDataManeger {
     static let shared = FirebaseDataManeger()
     
     private init() {}
-    
-//    var handler: (() -> Void)?
-    
+        
     let database = Firestore.firestore()
     
     let userInfoDatebase = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
     
     let groupDatebase = Firestore.firestore().collection(FirebaseKey.group.rawValue)
-    
-    func test() {
-        
-//        let database = Firestore.firestore()
-        
-        let reference = userInfoDatebase.document("v5Wsiqy7bFhGMUhaeybw4Cmkvrm1")
-        
-        database.runTransaction({ (transaction, errorPointer) -> Any? in
-            
-            let myDocument: DocumentSnapshot
-            
-            do {
-                
-                try myDocument = transaction.getDocument(reference)
-                
-            } catch let fetchError as NSError {
-                
-                return nil
-            }
-            
-            guard var oldarray = myDocument.data()?["userName"] as? [String] else {
-                
-                return nil
-            }
-            
-            oldarray.append("oo")
-            
-            transaction.updateData(["user": oldarray], forDocument: reference)
-           
-            return nil
-
-        }) { (object, error) in
-            if let error = error {
-                print("Transaction failed: \(error)")
-            } else {
-                print("Transaction successfully committed!")
-            }
-        }
-        
-    }
     
     // deleteAllGroup
     func deleteGorup(_ documentID: String) {
@@ -183,7 +141,6 @@ class FirebaseDataManeger {
                 return completion(Result.failure(error!))
             }
         }
-        
     }
 
     // 新加入會員資料 - Done
@@ -303,18 +260,22 @@ class FirebaseDataManeger {
             return nil
             
         }) { (object, error) in
+            
             if let error = error {
+                
                 print("Transaction failed: \(error)")
+                
             } else {
+                
                 print("Transaction successfully committed!")
             }
         }
     }
     
-    // 編輯群組 - 更改群組名稱
+    // 編輯群組 - 更改群組名稱(要修改)
     func modifyGroupName(_ groupID: String, _ groupName: String) {
         
-        let groupDocument = Firestore.firestore().collection("group").document(groupID)
+        let groupDocument = groupDatebase.document(groupID)
         
         groupDocument.getDocument { (querySnapshot, _) in
             
@@ -329,10 +290,10 @@ class FirebaseDataManeger {
         }
     }
     
-    // 用 uid 搜尋會員 Name
+    // 用 uid 搜尋會員 Name - Done
     func searchUserInfo(_ userID: String) {
         
-        let uesrInfoDocument = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue).document(userID)
+        let uesrInfoDocument = userInfoDatebase.document(userID)
         
         uesrInfoDocument.getDocument { (querySnapshot, _) in
                         
@@ -343,7 +304,7 @@ class FirebaseDataManeger {
         }
     }
     
-    // 搜尋會員所屬群組
+    // 搜尋會員所屬群組 - 待刪除
     func searchUserGroup(_ groupVC: GroupListViewController, _ userID: String) {
         
         let uesrInfo = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
@@ -395,7 +356,7 @@ class FirebaseDataManeger {
         }
     }
     
-    // 監聽新增成員
+    // 監聽新增成員 - 待刪除
 //    func observerOfMember(_ groupDetailVC: GroupDetailViewController, _ groupID: String) {
 //        
 //        let memberOfGroup = Firestore.firestore().collection("group/\(groupID)/member")
@@ -417,7 +378,7 @@ class FirebaseDataManeger {
 //        }
 //    }
         
-    // 抓取群組資料
+    // 抓取群組資料 - 待刪除
     private func getDataFromGroup(_ groupVC: GroupListViewController,
                                   _ groupID: String,
                                   _ name: String,
@@ -464,22 +425,23 @@ class FirebaseDataManeger {
         }
     }
     
-    // 上傳使用者所在位置
+    // 上傳使用者所在位置 - Done
     func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: CLLocationCoordinate2D) {
         
-        let userInfo = Firestore.firestore().collection("group/\(groupID)/member").document(userUID)
+        let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
         
         let geoPoint = userLoction.transferToGeopoint()
         
-        let locationData = ["name": FirebaseAccountManager.shared.userName!, "location": geoPoint] as [String: Any]
+        let locationData = ["name": FirebaseAccountManager.shared.userName!,
+                            "location": geoPoint] as [String: Any]
         
         userInfo.setData(locationData)
     }
     
     // 監聽同伴所在位置
-    func observerOfMemberLocation(_ ridingViewController: RidingViewController, _ groupID: String) {
+    func observerOfMemberLocation(_ groupID: String, completion: @escaping (LocationOfMember) -> Void) {
         
-        let memberLocationData = Firestore.firestore().collection("group/\(groupID)/member")
+        let memberLocationData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
         memberLocationData.addSnapshotListener { (querySnapshot, _) in
             
@@ -497,8 +459,9 @@ class FirebaseDataManeger {
                     let locationOfMember = LocationOfMember(name: memberName,
                                                             location: memberLocation.transferToCoordinate2D())
                     
-                    ridingViewController.locationOfMember.append(locationOfMember)
+                    completion(locationOfMember)
                     
+//                    ridingViewController.locationOfMember.append(locationOfMember)
                 }
                 
                 if documentChange.type == .modified {
@@ -508,22 +471,27 @@ class FirebaseDataManeger {
                         let memberLocation = documentChange.document.data()["location"] as? GeoPoint
                     else { return }
                     
-                    for number in 0..<ridingViewController.locationOfMember.count {
+                    let locationOfMember = LocationOfMember(name: memberName,
+                                                            location: memberLocation.transferToCoordinate2D())
                     
-                        if memberName == ridingViewController.locationOfMember[number].name {
-                            
-                            ridingViewController.locationOfMember.remove(at: number)
-                            
-                            let locationOfMember = LocationOfMember(name: memberName,
-                                                                    location: memberLocation.transferToCoordinate2D())
-                            
-                            ridingViewController.locationOfMember.append(locationOfMember)
-                            
-                        } else {
-                            
-                            continue
-                        }
-                    }
+                    completion(locationOfMember)
+                    
+//                    for number in 0..<ridingViewController.locationOfMember.count {
+//
+//                        if memberName == ridingViewController.locationOfMember[number].name {
+//
+//                            ridingViewController.locationOfMember.remove(at: number)
+//
+//                            let locationOfMember = LocationOfMember(name: memberName,
+//                                                                    location: memberLocation.transferToCoordinate2D())
+//
+//                            ridingViewController.locationOfMember.append(locationOfMember)
+//
+//                        } else {
+//
+//                            continue
+//                        }
+//                    }
                 }
             })
         }
@@ -554,7 +522,6 @@ class FirebaseDataManeger {
     }
     
     // 更新結果
-    
     func updateRidingResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
         
         let ridingResultData =
@@ -586,10 +553,17 @@ class FirebaseDataManeger {
         }
     }
     
-    // 上傳騎乘紀錄
-    func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: [String: Any]) {
+    // 上傳騎乘紀錄 要把 isFinish 改為 true
+    func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: MemberInfo) {
         
-        let userInfo = Firestore.firestore().collection("group/\(groupID)/member").document(userUID)
+        let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
+        
+        let ridingData = ["name": ridingData.name,
+                          "spendTime": ridingData.spendTime!,
+                          "distance": ridingData.distance!,
+                          "averageSpeed": ridingData.averageSpeed!,
+                          "maximumSpeed": ridingData.maximumSpeed!,
+                          "route": ridingData.route! ] as [String: Any]
         
         userInfo.setData(ridingData)
     }

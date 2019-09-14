@@ -12,10 +12,6 @@ class RidingResultViewController: UIViewController {
     
     var groupData: GroupData!
     
-    @IBOutlet weak var ridingResultHeaderView: RidingResultHeaderView!
-    
-    var groupResultInfo: GroupInfo!
-    
     var memberResultInfo: [MemberInfo] = [] {
         
         didSet {
@@ -24,7 +20,7 @@ class RidingResultViewController: UIViewController {
         }
     }
     
-    var groupName: String!
+    @IBOutlet weak var ridingResultHeaderView: RidingResultHeaderView!
     
     @IBOutlet weak var ridingResultTableView: UITableView!
 
@@ -35,7 +31,7 @@ class RidingResultViewController: UIViewController {
         
         ridingResultTableView.register(nib, forCellReuseIdentifier: "RidingResultCell")
         
-        ridingResultHeaderView.setupHeaderView(groupResultInfo.name,
+        ridingResultHeaderView.setupHeaderView(groupData.name,
                                                FirebaseAccountManager.shared.userName!,
                                                1,
                                                "st",
@@ -48,7 +44,8 @@ class RidingResultViewController: UIViewController {
             self.backToRoot()
         }
         
-        FirebaseDataManeger.shared.observerOfResult(self, groupResultInfo.groupID)
+        // 改
+        FirebaseDataManeger.shared.observerOfResult(self, groupData.groupID)
     }
 }
 
@@ -93,12 +90,11 @@ extension RidingResultViewController: UITableViewDataSource {
             default : userSubRank = "th"
             }
             
-            self.ridingResultHeaderView.setupHeaderView(groupResultInfo.name,
+            self.ridingResultHeaderView.setupHeaderView(groupData.name,
                                                         userName,
                                                         userRank,
                                                         userSubRank,
                                                         spendTime)
-            
         } else {
             
             return

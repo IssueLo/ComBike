@@ -13,6 +13,8 @@ import Firebase
 
 class RidingViewController: UIViewController {
     
+    var groupData: GroupData!
+    
     @IBOutlet weak var infoView: UIView!
     
     @IBOutlet weak var stopButton: UIButton! {
@@ -55,17 +57,11 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var groupInfo: GroupInfo!
-    
     var memberInfo = MemberInfo(memberName: FirebaseAccountManager.shared.userName!)
-    
-    var ridingData = [String: Any]()
     
     var locationOfMember = [LocationOfMember]() {
         
         didSet {
-            
-            print(locationOfMember)
             
             memberLocationAnnotation()
         }
@@ -79,6 +75,7 @@ class RidingViewController: UIViewController {
     
     // 紀錄路線
     var currentCoordinates = [CLLocationCoordinate2D]() {
+        
         didSet {
 
             currentRoute()
@@ -158,22 +155,23 @@ class RidingViewController: UIViewController {
             as? RidingResultViewController
         else { return }
         
-        ridingResultVC.groupResultInfo = self.groupInfo
+        ridingResultVC.groupData = self.groupData
         
         // 功能：儲存時間/ 距離/ 最高速度/ 路線
+        
+        memberInfo.spendTime = timeManager.currentSecond
+        
         memberInfo.distance = totalDistance
         
-        ridingData = ["name": FirebaseAccountManager.shared.userName!,
-                      "spendTime": timeManager.currentSecond,
-                      "distance": totalDistance,
-                      "averageSpeed": ((totalDistance / Double(timeManager.currentSecond)) * 3.6),
-                      "maximumSpeed": maximumSpeed,
-                      "route": currentGeoPoint
-        ]
+        memberInfo.averageSpeed = ((totalDistance / Double(timeManager.currentSecond)) * 3.6)
         
-        FirebaseDataManeger.shared.uploadRidingData(groupInfo.groupID,
+        memberInfo.maximumSpeed = maximumSpeed
+        
+        memberInfo.route = currentGeoPoint
+        
+        FirebaseDataManeger.shared.uploadRidingData(groupData.groupID,
                                                     FirebaseAccountManager.shared.userUID!,
-                                                    ridingData)
+                                                    memberInfo)
         
         show(ridingResultVC, sender: nil)
     }
@@ -192,23 +190,61 @@ class RidingViewController: UIViewController {
         // 開始計時
         timeManager.controlButton(timeLabel)
         
-        locatonTimer = Timer.scheduledTimer(timeInterval: 1,
-                                            target: self,
-                                            selector: #selector(currentLocaton),
-                                            userInfo: nil,
-                                            repeats: true)
-        
         currentLocaton()
         
         let mapButton = MKUserTrackingButton(mapView: mapView)
         
         setupMapViewButton(mapButton)
         
-        FirebaseDataManeger.shared.observerOfMemberLocation(self, groupInfo.groupID)
+        // 功能：抓取同伴當前位置
+        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID) { (locationOfMember) in
+            
+            if self.locationOfMember.count == 0 {
+                
+                self.locationOfMember.append(locationOfMember)
+                
+            } else {
+                
+                for number in 0..<self.locationOfMember.count {
+                    
+                    if locationOfMember.name == self.locationOfMember[number].name {
+                        
+                        self.locationOfMember.remove(at: number)
+                        
+                    }
+                    
+                    self.locationOfMember.append(locationOfMember)
+                }
+                
+            }
+            
+            //                    for number in 0..<ridingViewController.locationOfMember.count {
+            //
+            //                        if memberName == ridingViewController.locationOfMember[number].name {
+            //
+            //                            ridingViewController.locationOfMember.remove(at: number)
+            //
+            //                            let locationOfMember = LocationOfMember(name: memberName,
+            //                                                                    location: memberLocation.transferToCoordinate2D())
+            //
+            //                            ridingViewController.locationOfMember.append(locationOfMember)
+            //
+            //                        } else {
+            //
+            //                            continue
+            //                        }
+            //                    }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        locatonTimer = Timer.scheduledTimer(timeInterval: 1,
+                                            target: self,
+                                            selector: #selector(currentLocaton),
+                                            userInfo: nil,
+                                            repeats: true)
         
         // 1. 還沒有詢問過用戶以獲得權限
         if CLLocationManager.authorizationStatus() == .notDetermined {
@@ -224,6 +260,12 @@ class RidingViewController: UIViewController {
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        locatonTimer?.invalidate()
     }
     
     func setupMapViewButton(_ sender: MKUserTrackingButton) {
@@ -255,15 +297,12 @@ class RidingViewController: UIViewController {
         
         guard let location = locationManager.location else { return }
         
-        // 即時上傳當前位置
-        FirebaseDataManeger.shared.uploadUserLocation(groupInfo.groupID,
-                                                      FirebaseAccountManager.shared.userUID!,
-                                                      location.coordinate)
-//        print(location.timestamp)
-        
-//        let distance = location.distance(from: location)
-        
         if location.speed > 0 {
+            
+            // 上傳當前位置
+            FirebaseDataManeger.shared.uploadUserLocation(groupData.groupID,
+                                                          FirebaseAccountManager.shared.userUID!,
+                                                          location.coordinate)
             
             let speed = String(format: "%.2f", (location.speed) * 3.6)
             
@@ -290,10 +329,6 @@ class RidingViewController: UIViewController {
         maximumSpeedLabel.text = "\(String(format: "%.2f", (maximumSpeed) * 3.6)) km/hr"
         
         distanceLabel.text = "\(String(format: "%.2f", totalDistance/1000)) km"
-                
-        // 功能：抓取同伴當前位置
-//        FirebaseDataManeger.shared.observerOfMemberLocation(self, groupInfo.groupID)
-        
     }
     
     func memberLocationAnnotation() {

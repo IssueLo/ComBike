@@ -55,13 +55,11 @@ class GroupDetailViewController: UIViewController {
             let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
             as? RidingViewController
         else { return }
+
+        ridingVC.groupData = groupData
         
-//        ridingVC.groupName = groupInfo.name
-        
-//        ridingVC.groupInfo = groupInfo
-        
-//        show(ridingVC, sender: nil)
         present(ridingVC, animated: true, completion: nil)
+//        show(ridingVC, sender: nil)
     }
     
     override func viewDidLoad() {
@@ -112,21 +110,13 @@ class GroupDetailViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension GroupDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return groupInfo.memberInfo.count
-//        if memberInGroup.count == nil {
-//
-//            return 0
-//        } else {
-        
-            return memberData.count
-//        }
+        return memberData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,13 +125,10 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
-//        groupListCell.groupNameLabel.text = self.groupInfo.memberInfo[indexPath.row].name
-        
         groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
                 
         return groupListCell
     }
-    
 }
 
 extension GroupDetailViewController: UITableViewDelegate {

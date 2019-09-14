@@ -63,7 +63,7 @@ class FirebaseAccountManager {
             
             print(Auth.auth().currentUser?.uid as Any)
             
-        } catch let error as NSError {
+        } catch let _ as NSError { // error
             
 //            showAlert(belongToVC, error.localizedDescription)
         }
