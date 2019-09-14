@@ -11,17 +11,30 @@ import Firebase
 import FirebaseFirestore
 import MapKit
 
+typealias GroupDataHandler = (Result<GroupData>) -> Void
+
+typealias MemberDataHandler = (Result<MemberData>) -> Void
+
+
 class FirebaseDataManeger {
     
     static let shared = FirebaseDataManeger()
     
     private init() {}
     
+//    var handler: (() -> Void)?
+    
+    let database = Firestore.firestore()
+    
+    let userInfoDatebase = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
+    
+    let groupDatebase = Firestore.firestore().collection(FirebaseKey.group.rawValue)
+    
     func test() {
         
-        let database = Firestore.firestore()
-            
-        let reference = database.collection(FirebaseKey.userInfo.rawValue).document("v5Wsiqy7bFhGMUhaeybw4Cmkvrm1")
+//        let database = Firestore.firestore()
+        
+        let reference = userInfoDatebase.document("v5Wsiqy7bFhGMUhaeybw4Cmkvrm1")
         
         database.runTransaction({ (transaction, errorPointer) -> Any? in
             
@@ -57,7 +70,124 @@ class FirebaseDataManeger {
         
     }
     
-    // 新加入會員資料
+    // deleteAllGroup
+    func deleteGorup(_ documentID: String) {
+        
+        let groupOfUser = groupDatebase.document(documentID)
+
+        groupOfUser.delete()
+    }
+    
+    // Group 監聽
+    // 監聽跟排序無法同時設置
+    func observerForGroupData(_ userID: String, completion: @escaping (Result<GroupData>) -> Void) {
+        
+        let groupOfUser = groupDatebase.whereField(GroupKey.member.rawValue, arrayContains: userID)
+//            .order(by: GroupKey.createTime.rawValue, descending: true)
+        
+        groupOfUser.addSnapshotListener { (querySnapshot, error) in
+            
+            guard let querySnapshot = querySnapshot else {
+               
+                return
+            }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .added {
+                    
+                    guard
+                        let name = documentChange.document.data()["name"] as? String,
+                        let member = documentChange.document.data()["member"] as? [String],
+                        let isFinished = documentChange.document.data()["isFinished"] as? Bool,
+                        let createTime = documentChange.document.data()["createTime"] as? Timestamp
+                    else { return }
+                    
+                    let groupID = documentChange.document.documentID
+                    
+                    let groupData = GroupData(groupID: groupID,
+                                              name: name,
+                                              member: member,
+                                              isFinished: isFinished,
+                                              createTime: createTime)
+                    
+                    completion(Result.success(groupData))
+                }
+                
+                // 旅程完成/ 群組名稱修改
+                if documentChange.type == .modified {
+                    
+                    guard
+                        let name = documentChange.document.data()["name"] as? String,
+                        let member = documentChange.document.data()["member"] as? [String],
+                        let isFinished = documentChange.document.data()["isFinished"] as? Bool,
+                        let createTime = documentChange.document.data()["createTime"] as? Timestamp
+                        else { return }
+                    
+                    let groupID = documentChange.document.documentID
+                    
+                    let groupData = GroupData(groupID: groupID,
+                                              name: name,
+                                              member: member,
+                                              isFinished: isFinished,
+                                              createTime: createTime)
+                    
+                    completion(Result.success(groupData))
+                }
+            })
+            
+            guard error == nil else {
+                
+                return completion(Result.failure(error!))
+            }
+        }
+    }
+    
+    // Member 監聽
+    func observerForMemberData(_ groupID: String, completion: @escaping (Result<MemberData>) -> Void) {
+        
+        let memberOfGroup = database.collection(FirebaseKey.group.rawValue).document(groupID).collection(GroupKey.member.rawValue)
+        
+        memberOfGroup.addSnapshotListener { (querySnapshot, error) in
+            
+            guard let querySnapshot = querySnapshot else {
+                
+                return
+            }
+            
+            querySnapshot.documentChanges.forEach({ (documentChange) in
+                
+                if documentChange.type == .added {
+                    
+                    guard let name = documentChange.document.data()["name"] as? String
+                        else { return }
+                    
+                    let memberData = MemberData(memberName: name)
+                    
+                    return completion(Result.success(memberData))
+                }
+                
+                if documentChange.type == .removed {
+                    
+                    guard let name = documentChange.document.data()["name"] as? String
+                        else { return }
+                    
+                    let memberData = MemberData(memberName: name)
+                    
+                    return completion(Result.success(memberData))
+                }
+            })
+            
+            guard error == nil else {
+                
+                return completion(Result.failure(error!))
+            }
+        }
+        
+    }
+
+    
+    // 新加入會員資料 - Done
     func addUserInfo(_ userUID: String,
                      _ userName: String,
                      _ userEmail: String) {
@@ -70,7 +200,7 @@ class FirebaseDataManeger {
         userInfoCollection.document(userUID).setData(userInfoData)
     }
     
-    // 建立群組
+    // 建立群組 - Done
     func createGroup(_ groupName: String) {
         
         let groupCollection = Firestore.firestore().collection(FirebaseKey.group.rawValue)
@@ -83,8 +213,14 @@ class FirebaseDataManeger {
             let userName = FirebaseAccountManager.shared.userName
         else { return }
         
+        let createTime = Timestamp()
+        
+        print("createTime: \(createTime)")
+        
         groupCollection.document(groupID).setData([GroupKey.name.rawValue: groupName,
-                                                   GroupKey.member.rawValue: [userUID]])
+                                                   GroupKey.member.rawValue: [userUID],
+                                                   GroupKey.isFinished.rawValue: false,
+                                                   GroupKey.createTime.rawValue: createTime])
         
         groupCollection.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
             .setData([GroupKey.name.rawValue: userName])
@@ -152,8 +288,6 @@ class FirebaseDataManeger {
                         
             if let querySnapshot = querySnapshot {
                 
-//                UserInfo.name = querySnapshot.data()?["userName"] as? String
-                
                 FirebaseAccountManager.shared.userName = querySnapshot.data()?[UserInfoKey.name.rawValue] as? String
             }
         }
@@ -184,7 +318,7 @@ class FirebaseDataManeger {
         }
     }
     
-    // 監聽新增群組
+    // 監聽新增群組 - 待刪除
     func observerOfGroup(_ groupVC: GroupListViewController, _ userID: String, handler: @escaping () -> Void) {
         
         let groupOfUser = Firestore.firestore().collection("group").whereField("member", arrayContains: userID)
@@ -275,7 +409,7 @@ class FirebaseDataManeger {
                                       memberInfo: memberInfoArray)
                 
                 // 儲存群組資料
-                groupVC.groupInfoArray.insert(group, at: 0)
+//                groupVC.groupInfoArray.insert(group, at: 0)
             }
         }
     }

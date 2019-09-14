@@ -178,7 +178,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         // 取得從 UIImagePickerController 選擇的檔案
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-//            userImage.image = pickedImage
+            userImage.image = pickedImage
             
             selectedImageFromPicker = pickedImage
         }
@@ -214,7 +214,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             print(url as Any)
                             
-                            self.userImage.kf.setImage(with: url)
+//                            self.userImage.kf.setImage(with: url)
                         }
                     }
                     

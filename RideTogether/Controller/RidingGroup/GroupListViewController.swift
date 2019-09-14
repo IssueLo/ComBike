@@ -11,7 +11,7 @@ import UIKit
 
 class GroupListViewController: UIViewController {
     
-    var groupInfoArray: [GroupInfo] = [] {
+    var groupData = [GroupData]() {
         
         didSet {
             
@@ -100,9 +100,29 @@ class GroupListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // User 登入且群組資料為空的情況下建立監聽
-        if FirebaseAccountManager.shared.userUID != nil && groupInfoArray.count == 0 {
+        guard
+            let uesrUID = FirebaseAccountManager.shared.userUID,
+            groupData.count == 0
+        else { return }
+        
+        // 監聽 GroupData
+        creatObserverOfGroup(uesrUID)
+    }
+    
+    func creatObserverOfGroup(_ userID: String) {
+        
+        FirebaseDataManeger.shared.observerForGroupData(userID) { [weak self] (result) in
             
-            creatObserverOfGroup(FirebaseAccountManager.shared.userUID!)
+            switch result {
+                
+            case .success(let groupData):
+                
+                self?.groupData.insert(groupData, at: 0)
+                
+            case .failure:
+                
+                self?.showAlert("GroupDetailVC - 101")
+            }
         }
     }
     
@@ -112,20 +132,13 @@ class GroupListViewController: UIViewController {
         
         present(qrCodeScannerVC, animated: true, completion: nil)
     }
-    
-    func creatObserverOfGroup(_ userID: String) {
-        
-        FirebaseDataManeger.shared.observerOfGroup(self, userID, handler: {
-            
-        })
-    }
 }
 
 extension GroupListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return groupInfoArray.count
+        return groupData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,7 +147,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
-        groupListCell.groupNameLabel.text = self.groupInfoArray[indexPath.row].name
+        groupListCell.groupNameLabel.text = self.groupData[indexPath.row].name
         
         return groupListCell
     }
@@ -143,15 +156,16 @@ extension GroupListViewController: UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if groupInfoArray[indexPath.row].memberInfo[0].route == nil {
+        if groupData[indexPath.row].isFinished {
             
-            // 如果沒有騎乘紀錄，顯示開始騎乘頁面
-            showGroupDetailViewController(indexPath)
+            // 如果有人完成騎乘，顯示結果頁面
+            presentRidingResultViewController(indexPath)
             
         } else {
             
-            // 如果有騎乘紀錄，顯示結果頁面
-            presentRidingResultViewController(indexPath)
+            // 如果尚未有人完成，顯示開始騎乘頁面
+            showGroupDetailViewController(indexPath)
+
         }
     }
     
@@ -164,7 +178,7 @@ extension GroupListViewController: UITableViewDataSource {
                 as? GroupDetailViewController
         else { return }
         
-        detailVC.groupInfo = self.groupInfoArray[indexPath.row]
+        detailVC.groupID = self.groupData[indexPath.row].groupID
 
         self.show(detailVC, sender: nil)
     }
@@ -179,7 +193,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         else { return }
         
-        resultVC.groupResultInfo = self.groupInfoArray[indexPath.row]
+        resultVC.groupID = self.groupData[indexPath.row].groupID
         
         present(resultVC, animated: true, completion: nil)
     }

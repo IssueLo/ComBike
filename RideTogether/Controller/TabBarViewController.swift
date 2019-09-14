@@ -81,7 +81,7 @@ class TabBarViewController: UITabBarController {
 //        })
         
         do {
-            try Auth.auth().signOut()
+//            try Auth.auth().signOut()
             
         } catch {
             

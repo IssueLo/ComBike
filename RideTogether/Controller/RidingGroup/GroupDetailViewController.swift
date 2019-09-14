@@ -10,6 +10,10 @@ import UIKit
 
 class GroupDetailViewController: UIViewController {
     
+    var groupID: String!
+    
+    var memberData = [MemberData]()
+        
     var groupInfo: GroupInfo!
     
     var memberInGroup = [String]() {
