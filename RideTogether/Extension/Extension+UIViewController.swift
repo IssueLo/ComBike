@@ -10,6 +10,17 @@ import UIKit
 
 extension UIViewController {
     
+    func showAlert(_ message: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
+        
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "確定", style: .default, handler: handler)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func backToRoot(completion: (() -> Void)? = nil) {
         
         if presentingViewController != nil {
@@ -25,9 +36,9 @@ extension UIViewController {
         
         if self is UITabBarController {
 
-            let vc = (self as? UITabBarController)?.selectedViewController
+            let currnetVC = (self as? UITabBarController)?.selectedViewController
 
-            vc?.backToRoot(completion: completion)
+            currnetVC?.backToRoot(completion: completion)
 
             return
         }
@@ -39,16 +50,5 @@ extension UIViewController {
         }
         
         completion?()
-    }
-    
-    func showAlert(_ message: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
-        
-        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "確定", style: .default, handler: handler)
-        
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
     }
 }

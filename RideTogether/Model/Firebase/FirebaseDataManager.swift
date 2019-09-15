@@ -100,8 +100,8 @@ class FirebaseDataManeger {
         }
     }
     
+    // 可能可以排序？
     private func groupData(_ userID: String, completion: @escaping (Result<GroupData>) -> Void) {
-        
         
     }
     
@@ -282,8 +282,7 @@ class FirebaseDataManeger {
     
     // 退出群組
     func removeUserFromGroup(groupID: String,
-                             userUID: String,
-                             completion: @escaping (String) -> Void) {
+                             userUID: String) {
         
         let groupDocument = groupDatebase.document(groupID)
         
@@ -306,18 +305,16 @@ class FirebaseDataManeger {
             
             guard var memberInGroup = myDocument.data()?[GroupKey.member.rawValue] as? [String] else {
                 
-                completion("找不到此群組喔")
-                
                 return nil
             }
             
-            for member in memberInGroup {
+            for number in 0..<memberInGroup.count {
                 
-                if member == userUID {
+                if userUID == memberInGroup[number] {
                     
-                    completion("已經在群組內了喔")
+                    memberInGroup.remove(at: number)
                     
-                    return nil
+                    break
                     
                 } else {
                     
@@ -325,14 +322,7 @@ class FirebaseDataManeger {
                 }
             }
             
-            memberInGroup.append(userUID)
-            
             transaction.updateData([GroupKey.member.rawValue: memberInGroup], forDocument: groupDocument)
-            
-//            groupDocument.collection(GroupKey.member.rawValue).document(userUID)
-//                .setData([GroupKey.name.rawValue: userName])
-            
-            completion("已成功加入群組")
             
             return nil
             
@@ -347,7 +337,6 @@ class FirebaseDataManeger {
                 print("Transaction successfully committed!")
             }
         }
-
     }
     
     // 編輯群組 - 更改群組名稱(要修改)
@@ -468,7 +457,7 @@ class FirebaseDataManeger {
             
             if let querySnapshot = querySnapshot {
                 
-                var memberInfoArray = [MemberInfo]()
+                var memberInfoArray = [MemberData]()
                 
                 for document in querySnapshot.documents {
                     
@@ -477,7 +466,7 @@ class FirebaseDataManeger {
                         
                     else { return }
                                         
-                    var memberInfo = MemberInfo(memberName: name)
+                    var memberInfo = MemberData(memberName: name)
                     
                     memberInfo.route = document.data()["route"] as? [GeoPoint]
                     
@@ -492,10 +481,10 @@ class FirebaseDataManeger {
                     memberInfoArray.append(memberInfo)
                 }
                 
-                let group = GroupInfo(gorupID: groupID,
-                                      groupName: name,
-                                      groupMember: member,
-                                      memberInfo: memberInfoArray)
+//                let group = GroupInfo(gorupID: groupID,
+//                                      groupName: name,
+//                                      groupMember: member,
+//                                      memberInfo: memberInfoArray)
                 
                 // 儲存群組資料
 //                groupVC.groupInfoArray.insert(group, at: 0)
@@ -557,7 +546,7 @@ class FirebaseDataManeger {
     }
     
     // 監聽結果 - Done
-    func observerOfResult(_ groupID: String, completion: @escaping ([MemberInfo]) -> Void) {
+    func observerOfResult(_ groupID: String, completion: @escaping ([MemberData]) -> Void) {
         
         let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
@@ -582,7 +571,7 @@ class FirebaseDataManeger {
     }
     
     // 更新結果 - Done
-    private func updateRidingResult(_ groupID: String, completion: @escaping ([MemberInfo]) -> Void) {
+    private func updateRidingResult(_ groupID: String, completion: @escaping ([MemberData]) -> Void) {
         
         let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
             .order(by: "spendTime", descending: false)
@@ -591,7 +580,7 @@ class FirebaseDataManeger {
             
             if let querySnapshot = querySnapshot {
                 
-                var ridingResultArray = [MemberInfo]()
+                var ridingResultArray = [MemberData]()
                 
                 for document in querySnapshot.documents {
                     
@@ -600,7 +589,7 @@ class FirebaseDataManeger {
                         let spendTime = document.data() ["spendTime"] as? Int
                     else { return }
                     
-                    var memberInfo = MemberInfo(memberName: memberName)
+                    var memberInfo = MemberData(memberName: memberName)
                     
                     memberInfo.spendTime = spendTime
                     
@@ -613,7 +602,7 @@ class FirebaseDataManeger {
     }
     
     // 上傳騎乘紀錄 要把 isFinish 改為 true
-    func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: MemberInfo) {
+    func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: MemberData) {
         
         let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
         

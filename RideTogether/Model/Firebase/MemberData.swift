@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import MapKit
 
 struct MemberData {
     
@@ -29,4 +30,11 @@ struct MemberData {
         
         self.name = memberName
     }
+}
+
+struct LocationOfMember {
+    
+    var name: String
+    
+    var location: CLLocationCoordinate2D
 }

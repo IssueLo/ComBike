@@ -12,7 +12,7 @@ class RidingResultViewController: UIViewController {
     
     var groupData: GroupData!
     
-    var memberResultInfo: [MemberInfo] = [] {
+    var memberResultInfo: [MemberData] = [] {
         
         didSet {
             

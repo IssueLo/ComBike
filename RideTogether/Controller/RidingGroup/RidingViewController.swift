@@ -21,13 +21,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            stopButton.layer.cornerRadius = 25
-            
-            stopButton.layer.borderColor = UIColor.lightGray.cgColor
-            
-            stopButton.layer.borderWidth = 1
-            
-            stopButton.backgroundColor = .white
+            stopButton.addRound(radis: 25, borderColor: .lightGray, backgroundColor: .white)
         }
     }
     
@@ -35,13 +29,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            saveButton.layer.cornerRadius = 25
-            
-            saveButton.layer.borderColor = UIColor.lightGray.cgColor
-            
-            saveButton.layer.borderWidth = 1
-            
-            saveButton.backgroundColor = .white
+            saveButton.addRound(radis: 25, borderColor: .lightGray, backgroundColor: .white)
         }
     }
     
@@ -57,7 +45,7 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var memberInfo = MemberInfo(memberName: FirebaseAccountManager.shared.userName!)
+    var memberInfo = MemberData(memberName: FirebaseAccountManager.shared.userName!)
     
     var locationOfMember = [LocationOfMember]() {
         

@@ -49,13 +49,9 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
-            uploadPhotoButton.addRound(radis: 21)
-            
-            uploadPhotoButton.backgroundColor = .white
+            uploadPhotoButton.addRound(radis: 21, borderColor: .lightGray, backgroundColor: .white)
             
             uploadPhotoButton.layer.borderWidth = 2
-            
-            uploadPhotoButton.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     
@@ -121,7 +117,7 @@ class UserProfileController: UIViewController {
             
             self.showAlert("登出成功")
             
-            print(Auth.auth().currentUser?.uid as Any)
+            FirebaseAccountManager.shared.userName = nil
             
         } catch let error as NSError {
             

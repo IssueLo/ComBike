@@ -102,24 +102,17 @@ class GroupListViewController: UIViewController {
         
         guard let uesrUID = FirebaseAccountManager.shared.userUID else {
             
+            // 登出狀態清空 groupData 資料
             groupData = []
             
             return
         }
         
+        // 登入且 groupData 資料為 0，建立監聽
         if groupData.count == 0 {
             
             creatObserverOfGroup(uesrUID: uesrUID)
         }
-        
-        // User 登入且群組資料為空的情況下建立監聽
-//        guard
-//            let uesrUID = FirebaseAccountManager.shared.userUID,
-//            groupData.count == 0
-//        else { return }
-        
-        // 監聽 GroupData
-//        creatObserverOfGroup(uesrUID: uesrUID)
     }
     
     func creatObserverOfGroup(uesrUID: String) {
@@ -245,10 +238,20 @@ extension GroupListViewController: UITableViewDelegate {
         return 70
     }
     
+    // 退出群組
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         
+        let groupID = groupData[indexPath.row].groupID
+        
+        guard let userUID = FirebaseAccountManager.shared.userUID else {
+            
+            return
+        }
+        
+        FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID, userUID: userUID)
+
         groupData.remove(at: indexPath.row)
 
         tableView.deleteRows(at: [indexPath], with: .automatic)

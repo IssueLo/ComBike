@@ -49,7 +49,6 @@
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
 		95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17A231F734600329927 /* KeyChainManager.swift */; };
 		95CFD17D231F894400329927 /* FirebaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17C231F894400329927 /* FirebaseKey.swift */; };
-		95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17E231F8E8B00329927 /* GroupInfo.swift */; };
 		95CFD181231FE03B00329927 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD180231FE03B00329927 /* TimeManager.swift */; };
 		95CFD184231FEEBA00329927 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD183231FEEBA00329927 /* Polyline.swift */; };
 		95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D613C923155BF5008D885E /* AppDelegate.swift */; };
@@ -104,7 +103,6 @@
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		95CFD17A231F734600329927 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		95CFD17C231F894400329927 /* FirebaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseKey.swift; sourceTree = "<group>"; };
-		95CFD17E231F8E8B00329927 /* GroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfo.swift; sourceTree = "<group>"; };
 		95CFD180231FE03B00329927 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		95CFD183231FEEBA00329927 /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
 		95D613C623155BF5008D885E /* RideTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,14 +141,9 @@
 			children = (
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
 				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
-				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
-				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
-				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
+				95AE91A0232E31D400AD00CF /* RidingGroup */,
+				95AE91A1232E31E400AD00CF /* Profile */,
 				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
-				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
-				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
-				95D613CD23155BF5008D885E /* UserLogInStoryboard.storyboard */,
-				9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -185,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
+				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
@@ -192,13 +186,13 @@
 			path = RidingGroup;
 			sourceTree = "<group>";
 		};
-		954567822327472E009DA63B /* UserLogin */ = {
+		954567822327472E009DA63B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				95D613CB23155BF5008D885E /* UserLogInController.swift */,
 				9545678A2328A326009DA63B /* UserProfileController.swift */,
+				95D613CB23155BF5008D885E /* UserLogInController.swift */,
 			);
-			path = UserLogin;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		954567852327E977009DA63B /* UserLogIn */ = {
@@ -209,14 +203,6 @@
 				9545C98B232A71D700B74B03 /* ProfileCell */,
 			);
 			path = UserLogIn;
-			sourceTree = "<group>";
-		};
-		954567862327E9B4009DA63B /* Struct */ = {
-			isa = PBXGroup;
-			children = (
-				95CFD17E231F8E8B00329927 /* GroupInfo.swift */,
-			);
-			path = Struct;
 			sourceTree = "<group>";
 		};
 		954567872327E9BE009DA63B /* Firebase */ = {
@@ -248,14 +234,13 @@
 			path = HTTP;
 			sourceTree = "<group>";
 		};
-		9589DD722323AFFA003A9A87 /* OtherTool */ = {
+		9589DD722323AFFA003A9A87 /* QRcode */ = {
 			isa = PBXGroup;
 			children = (
-				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9525992D23211BF1009C7750 /* QRCodeScannerController.swift */,
 				9525993323214199009C7750 /* QRCodeViewController.swift */,
 			);
-			path = OtherTool;
+			path = QRcode;
 			sourceTree = "<group>";
 		};
 		9589DD7323253405003A9A87 /* RidingResultHeader */ = {
@@ -264,6 +249,27 @@
 				9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */,
 			);
 			path = RidingResultHeader;
+			sourceTree = "<group>";
+		};
+		95AE91A0232E31D400AD00CF /* RidingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
+				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
+				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
+				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
+				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
+			);
+			path = RidingGroup;
+			sourceTree = "<group>";
+		};
+		95AE91A1232E31E400AD00CF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				95D613CD23155BF5008D885E /* UserLogInStoryboard.storyboard */,
+				9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
@@ -314,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				9545C98E232C84AF00B74B03 /* HTTP */,
-				954567862327E9B4009DA63B /* Struct */,
 				954567872327E9BE009DA63B /* Firebase */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
 				95CFD180231FE03B00329927 /* TimeManager.swift */,
@@ -339,8 +344,8 @@
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
 				95456780232746F6009DA63B /* HomePage */,
 				9545678123274705009DA63B /* RidingGroup */,
-				954567822327472E009DA63B /* UserLogin */,
-				9589DD722323AFFA003A9A87 /* OtherTool */,
+				954567822327472E009DA63B /* Profile */,
+				9589DD722323AFFA003A9A87 /* QRcode */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -515,7 +520,6 @@
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
-				95CFD17F231F8E8B00329927 /* GroupInfo.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
