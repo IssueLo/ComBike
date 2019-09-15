@@ -100,6 +100,11 @@ class FirebaseDataManeger {
         }
     }
     
+    private func groupData(_ userID: String, completion: @escaping (Result<GroupData>) -> Void) {
+        
+        
+    }
+    
     // Member 監聽
     func observerForMemberData(_ groupID: String, completion: @escaping (Result<MemberData>) -> Void) {
         

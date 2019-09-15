@@ -118,6 +118,27 @@ class GroupListViewController: UIViewController {
                 
             case .success(let groupData):
                 
+                // 要判斷是新的群組，還是修改原有群組
+                if self?.groupData.count != 0 {
+                    
+                    guard let groupDataCount = self?.groupData.count else { return }
+                
+                    for number in 0..<groupDataCount {
+                        
+                        if groupData.groupID == self?.groupData[number].groupID {
+                            
+                            self?.groupData.remove(at: number)
+                            
+                            self?.groupData.insert(groupData, at: number)
+                            
+                            return
+                        } else {
+                            
+                            continue
+                        }
+                    }
+                }
+                
                 self?.groupData.insert(groupData, at: 0)
                 
             case .failure:
