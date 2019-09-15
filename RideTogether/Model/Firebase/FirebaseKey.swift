@@ -31,5 +31,21 @@ enum UserInfoKey: String {
     case name = "userName"
     
     case email = "userEmail"
+}
+
+enum MemberInfoKey: String {
     
+    case name
+    
+    case spendTime
+    
+    case distance
+    
+    case averageSpeed
+    
+    case maximumSpeed
+    
+    case route
+    
+    case location
 }

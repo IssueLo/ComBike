@@ -211,29 +211,14 @@ class RidingViewController: UIViewController {
                         
                         self.locationOfMember.remove(at: number)
                         
+                        break
                     }
                     
-                    self.locationOfMember.append(locationOfMember)
+                    continue
                 }
                 
+                self.locationOfMember.append(locationOfMember)
             }
-            
-            //                    for number in 0..<ridingViewController.locationOfMember.count {
-            //
-            //                        if memberName == ridingViewController.locationOfMember[number].name {
-            //
-            //                            ridingViewController.locationOfMember.remove(at: number)
-            //
-            //                            let locationOfMember = LocationOfMember(name: memberName,
-            //                                                                    location: memberLocation.transferToCoordinate2D())
-            //
-            //                            ridingViewController.locationOfMember.append(locationOfMember)
-            //
-            //                        } else {
-            //
-            //                            continue
-            //                        }
-            //                    }
         }
     }
     

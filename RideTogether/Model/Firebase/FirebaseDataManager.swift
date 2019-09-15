@@ -184,7 +184,7 @@ class FirebaseDataManeger {
     func addUserIntoGroup(groupID: String, userUID: String, userName: String, completion: @escaping (String) -> Void) {
         
         let groupDocument = groupDatebase.document(groupID)
-        /*
+        
         groupDocument.getDocument { (querySnapshot, _) in
 
             if let querySnapshot = querySnapshot {
@@ -213,7 +213,7 @@ class FirebaseDataManeger {
          .setData([GroupKey.name.rawValue: userName])
             }
         }
-        */
+ 
         database.runTransaction({ (transaction, errorPointer) -> Any? in
             
             let myDocument: DocumentSnapshot
@@ -438,7 +438,7 @@ class FirebaseDataManeger {
         userInfo.setData(locationData)
     }
     
-    // 監聽同伴所在位置
+    // 監聽同伴所在位置 - Done
     func observerOfMemberLocation(_ groupID: String, completion: @escaping (LocationOfMember) -> Void) {
         
         let memberLocationData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
@@ -460,8 +460,6 @@ class FirebaseDataManeger {
                                                             location: memberLocation.transferToCoordinate2D())
                     
                     completion(locationOfMember)
-                    
-//                    ridingViewController.locationOfMember.append(locationOfMember)
                 }
                 
                 if documentChange.type == .modified {
@@ -475,32 +473,15 @@ class FirebaseDataManeger {
                                                             location: memberLocation.transferToCoordinate2D())
                     
                     completion(locationOfMember)
-                    
-//                    for number in 0..<ridingViewController.locationOfMember.count {
-//
-//                        if memberName == ridingViewController.locationOfMember[number].name {
-//
-//                            ridingViewController.locationOfMember.remove(at: number)
-//
-//                            let locationOfMember = LocationOfMember(name: memberName,
-//                                                                    location: memberLocation.transferToCoordinate2D())
-//
-//                            ridingViewController.locationOfMember.append(locationOfMember)
-//
-//                        } else {
-//
-//                            continue
-//                        }
-//                    }
                 }
             })
         }
     }
     
-    // 監聽結果
-    func observerOfResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
+    // 監聽結果 - Done
+    func observerOfResult(_ groupID: String, completion: @escaping ([MemberInfo]) -> Void) {
         
-        let ridingResultData = Firestore.firestore().collection("group/\(groupID)/member")
+        let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
         ridingResultData.addSnapshotListener { (querySnapshot, _) in
             
@@ -510,23 +491,23 @@ class FirebaseDataManeger {
                 
                 if documentChange.type == .added {
                     
-                    self.updateRidingResult(ridingResultVC, groupID)
+                    self.updateRidingResult(groupID, completion: completion)
                 }
                 
+                // 結果只能上傳，不能修改，這個應該要拿掉
                 if documentChange.type == .modified {
                     
-                    self.updateRidingResult(ridingResultVC, groupID)
+                    self.updateRidingResult(groupID, completion: completion)
                 }
             })
         }
     }
     
-    // 更新結果
-    func updateRidingResult(_ ridingResultVC: RidingResultViewController, _ groupID: String) {
+    // 更新結果 - Done
+    private func updateRidingResult(_ groupID: String, completion: @escaping ([MemberInfo]) -> Void) {
         
-        let ridingResultData =
-            Firestore.firestore().collection("group").document(groupID)
-            .collection("member").order(by: "spendTime", descending: false)
+        let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
+            .order(by: "spendTime", descending: false)
         
         ridingResultData.getDocuments { (querySnapshot, _) in
             
@@ -548,7 +529,7 @@ class FirebaseDataManeger {
                     ridingResultArray.append(memberInfo)
                 }
                 
-                ridingResultVC.memberResultInfo = ridingResultArray
+                completion(ridingResultArray)
             }
         }
     }
@@ -558,13 +539,50 @@ class FirebaseDataManeger {
         
         let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
         
-        let ridingData = ["name": ridingData.name,
-                          "spendTime": ridingData.spendTime!,
-                          "distance": ridingData.distance!,
-                          "averageSpeed": ridingData.averageSpeed!,
-                          "maximumSpeed": ridingData.maximumSpeed!,
-                          "route": ridingData.route! ] as [String: Any]
+        let ridingData = [MemberInfoKey.name.rawValue: ridingData.name,
+                          MemberInfoKey.spendTime.rawValue: ridingData.spendTime!,
+                          MemberInfoKey.distance.rawValue: ridingData.distance!,
+                          MemberInfoKey.averageSpeed.rawValue: ridingData.averageSpeed!,
+                          MemberInfoKey.maximumSpeed.rawValue: ridingData.maximumSpeed!,
+                          MemberInfoKey.route.rawValue: ridingData.route! ] as [String: Any]
         
         userInfo.setData(ridingData)
+        
+        self.groupIsFinished(groupID: groupID)
+    }
+    
+    // 將群組狀態改為已完成
+    private func groupIsFinished(groupID: String) {
+        
+        let groupDocument = groupDatebase.document(groupID)
+        
+        database.runTransaction({ (transaction, errorPointer) -> Any? in
+            
+            let myDocument: DocumentSnapshot
+            
+            do {
+                
+                try myDocument = transaction.getDocument(groupDocument)
+                
+            } catch let fetchError as NSError {
+                
+                return nil
+            }
+            
+            transaction.updateData([GroupKey.isFinished.rawValue: true], forDocument: groupDocument)
+            
+            return nil
+            
+        }) { (object, error) in
+            
+            if let error = error {
+                
+                print("Transaction failed: \(error)")
+                
+            } else {
+                
+                print("Transaction successfully committed!")
+            }
+        }
     }
 }

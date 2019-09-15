@@ -22,7 +22,7 @@ class UserLogInController: UIViewController {
     
     @IBAction func backToLastVC() {
         
-        //        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
@@ -103,17 +103,12 @@ extension UserLogInController: UserLogInViewDelegate {
                     
                     return
                 }
-                //
                 
                 self?.showAlert("登入成功", self?.toNextVCHandler)
                 
-//                UserInfo.uid = Auth.auth().currentUser?.uid
-                
-//                self?.toNextVCHandler()
-                
                 guard let userUID = Auth.auth().currentUser?.uid else { return }
                 
-                // Firebase 抓取資料
+                // 登入成功後取得會員暱稱
                 FirebaseDataManeger.shared.searchUserInfo(userUID)
             }
         }
@@ -179,9 +174,6 @@ extension UserLogInController: UserSignUpViewDelegate {
                     else { return }
                 
                 FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
-                
-                // 暫存資料庫，要換成 keychain
-//                UserInfo.uid = Auth.auth().currentUser?.uid
                 
                 FirebaseAccountManager.shared.userName = userName
             }

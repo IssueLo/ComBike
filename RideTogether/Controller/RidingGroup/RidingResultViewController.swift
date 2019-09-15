@@ -44,8 +44,10 @@ class RidingResultViewController: UIViewController {
             self.backToRoot()
         }
         
-        // 改
-        FirebaseDataManeger.shared.observerOfResult(self, groupData.groupID)
+        FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { (result) in
+            
+            self.memberResultInfo = result
+        }
     }
 }
 
@@ -99,16 +101,10 @@ extension RidingResultViewController: UITableViewDataSource {
             
             return
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 70
     }
-    
-}
-
-extension RidingResultViewController: UITableViewDelegate {
-    
 }
