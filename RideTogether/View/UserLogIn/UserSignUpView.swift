@@ -10,6 +10,8 @@ import UIKit
 
 protocol UserSignUpViewDelegate: AnyObject {
     
+    func toLogInView()
+    
     func userSignUp(userName: String?,
                     userEmail: String?,
                     userPassword: String?,
@@ -19,8 +21,6 @@ protocol UserSignUpViewDelegate: AnyObject {
 class UserSignUpView: UIView {
     
     weak var delegate: UserSignUpViewDelegate?
-    
-    var toLogInViewHandler: (() -> Void)!
     
     @IBOutlet weak var userNameTxtFld: UITextField! {
         didSet {
@@ -68,6 +68,6 @@ class UserSignUpView: UIView {
     
     @IBAction func toLogInView() {
         
-        toLogInViewHandler()
+        delegate?.toLogInView()
     }
 }

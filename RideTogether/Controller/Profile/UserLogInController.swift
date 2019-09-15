@@ -29,39 +29,9 @@ class UserLogInController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUserLogInView()
-        
-        setUpUserSignUpView()
-    }
-    
-    func setUpUserLogInView() {
-        
         userLogInView.delegate = self
         
-        userLogInView.toSignUpViewHandler = {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                
-                self.userLogInView.alpha = 0
-                
-                self.logInLabel.text = "Sign up"
-            })
-        }
-    }
-    
-    func setUpUserSignUpView() {
-        
         userSignUpView.delegate = self
-        
-        userSignUpView.toLogInViewHandler = {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-            
-                self.userLogInView.alpha = 1
-                
-                self.logInLabel.text = "Sign in"
-            })
-        }
     }
     
     // MARK: Firebase 登出
@@ -77,6 +47,16 @@ class UserLogInController: UIViewController {
 }
 
 extension UserLogInController: UserLogInViewDelegate {
+    
+    func toSignUpView() {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.userLogInView.alpha = 0
+            
+            self.logInLabel.text = "Sign up"
+        })
+    }
     
     func userLogIn(userEmail: String?, userPassword: String?) {
         
@@ -113,19 +93,19 @@ extension UserLogInController: UserLogInViewDelegate {
             }
         }
     }
+}
+
+extension UserLogInController: UserSignUpViewDelegate {
     
-    func toOtherPage() {
+    func toLogInView() {
         
         UIView.animate(withDuration: 0.3, animations: {
             
-            self.userLogInView.alpha = 0
+            self.userLogInView.alpha = 1
             
             self.logInLabel.text = "Sign in"
         })
     }
-}
-
-extension UserLogInController: UserSignUpViewDelegate {
     
     func userSignUp(userName: String?, userEmail: String?, userPassword: String?, confirmPassword: String?) {
         

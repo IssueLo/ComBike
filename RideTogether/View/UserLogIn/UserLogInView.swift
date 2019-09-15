@@ -10,15 +10,13 @@ import UIKit
 
 protocol UserLogInViewDelegate: AnyObject {
     
-    func userLogIn(userEmail: String?, userPassword: String?)
+    func toSignUpView()
     
-    func toOtherPage()
+    func userLogIn(userEmail: String?, userPassword: String?)
 }
 
 class UserLogInView: UIView, UITextFieldDelegate {
         
-    var toSignUpViewHandler: (() -> Void)!
-    
     weak var delegate: UserLogInViewDelegate?
     
     @IBOutlet weak var userEmailTxtFld: UITextField! {
@@ -54,10 +52,8 @@ class UserLogInView: UIView, UITextFieldDelegate {
     }
     
     @IBAction func toSignUpView() {
-        
-//        toSignUpViewHandler()
-        
-        delegate?.toOtherPage()
+                
+        delegate?.toSignUpView()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -47,7 +47,6 @@ class CreateGroupController: UIViewController {
     @IBAction func backGroupVC() {
         
         dismiss(animated: false, completion: nil)
-        
 //        presentingViewController?.dismiss(animated: false, completion: nil)
     }
     

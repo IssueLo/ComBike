@@ -166,8 +166,8 @@ class RidingViewController: UIViewController {
     
     @IBAction func backGroupDetailVC() {
         
-//        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
+//        navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {

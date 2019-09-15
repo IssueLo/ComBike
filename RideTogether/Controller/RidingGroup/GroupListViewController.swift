@@ -15,12 +15,23 @@ class GroupListViewController: UIViewController {
         
         didSet {
             
+            if groupData.count == 0 {
+                
+                remindLabel.alpha = 1
+                
+            } else {
+                
+                remindLabel.alpha = 0
+            }
+            
             DispatchQueue.main.async {
                 
                 self.groupListTableView.reloadData()
             }
         }
     }
+    
+    @IBOutlet weak var remindLabel: UILabel!
     
     @IBOutlet weak var createGroupBtn: UIButton! {
         
@@ -196,7 +207,6 @@ extension GroupListViewController: UITableViewDataSource {
             
             // 如果尚未有人完成，顯示開始騎乘頁面
             showGroupDetailViewController(indexPath)
-
         }
     }
     

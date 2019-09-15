@@ -42,12 +42,22 @@
                                     <action selector="createGroup" destination="rbM-8h-mgS" eventType="touchUpInside" id="uU5-dn-5X9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d6-Ls-C5C">
+                                <rect key="frame" x="72.5" y="289.5" width="230.5" height="48"/>
+                                <string key="text">請創建群組
+或掃 QR Code 加入群組喔</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rcb-LK-ghe" firstAttribute="centerX" secondItem="xH5-w9-FVn" secondAttribute="centerX" id="075-5r-BLm"/>
+                            <constraint firstItem="2d6-Ls-C5C" firstAttribute="centerY" secondItem="xH5-w9-FVn" secondAttribute="centerY" constant="-20" id="77S-XM-CeH"/>
                             <constraint firstItem="uvq-lf-W8I" firstAttribute="leading" secondItem="kkI-x2-6kh" secondAttribute="leading" id="Lw6-0n-IfR"/>
                             <constraint firstItem="kkI-x2-6kh" firstAttribute="trailing" secondItem="uvq-lf-W8I" secondAttribute="trailing" id="OuE-s5-Rvi"/>
+                            <constraint firstItem="2d6-Ls-C5C" firstAttribute="centerX" secondItem="xH5-w9-FVn" secondAttribute="centerX" id="QlV-n8-xmp"/>
                             <constraint firstItem="uvq-lf-W8I" firstAttribute="top" secondItem="kkI-x2-6kh" secondAttribute="top" id="adM-CF-d4k"/>
                             <constraint firstItem="kkI-x2-6kh" firstAttribute="bottom" secondItem="uvq-lf-W8I" secondAttribute="bottom" id="d5X-Uj-tII"/>
                             <constraint firstItem="kkI-x2-6kh" firstAttribute="bottom" secondItem="Rcb-LK-ghe" secondAttribute="bottom" constant="24" id="wYp-oO-hNQ"/>
@@ -60,6 +70,7 @@
                     <connections>
                         <outlet property="createGroupBtn" destination="Rcb-LK-ghe" id="a2A-xS-G73"/>
                         <outlet property="groupListTableView" destination="uvq-lf-W8I" id="eas-Fa-fg2"/>
+                        <outlet property="remindLabel" destination="2d6-Ls-C5C" id="SWY-X7-tuw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeV-JH-nZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
