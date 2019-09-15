@@ -23,14 +23,14 @@ extension UIViewController {
             return
         }
         
-//        if self is UITabBarController {
-//
-//            let vc = (self as? UITabBarController)?.selectedViewController
-//
-//            vc?.backToRoot(completion: completion)
-//
-//            return
-//        }
+        if self is UITabBarController {
+
+            let vc = (self as? UITabBarController)?.selectedViewController
+
+            vc?.backToRoot(completion: completion)
+
+            return
+        }
         
         if self is UINavigationController {
             // swiftlint:disable force_cast

@@ -15,7 +15,7 @@ class UserProfileController: UIViewController {
     
     var titleOfCellSection1 = ["使用者條款", "隱私權政策"]
     
-    var titleOfCellSection2 = ["給我們好評👍"]
+    var titleOfCellSection2 = ["給我們好評👍", "登出"]
     
     @IBOutlet weak var uiView: UIView! {
         didSet {
@@ -112,6 +112,22 @@ class UserProfileController: UIViewController {
         // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
         present(imagePickerAlertController, animated: true, completion: nil)
     }
+    
+    func onClickLogout() {
+        
+        do {
+            
+            try Auth.auth().signOut()
+            
+            self.showAlert("登出成功")
+            
+            print(Auth.auth().currentUser?.uid as Any)
+            
+        } catch let error as NSError {
+            
+            self.showAlert(error.localizedDescription)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +146,7 @@ extension UserProfileController: UITableViewDataSource {
             
         case 0: return 2
         
-        case 1: return 1
+        case 1: return 2
         
         default: return 0
         }
@@ -158,6 +174,19 @@ extension UserProfileController: UITableViewDataSource {
         
         return profileCell
     }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            
+            self.onClickLogout()
+            
+            self.backToRoot()
+        }
+    }
 }
 
 extension UserProfileController: UITableViewDelegate {
@@ -184,12 +213,12 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
-        let uniqueString = NSUUID().uuidString
+//        let uniqueString = NSUUID().uuidString
         
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
             
-            print("uniqueString: \(uniqueString)")
+//            print("uniqueString: \(uniqueString)")
             print("selectedImage: \(selectedImage)")
             
             let storageRef = Storage.storage().reference().child("PIC").child("\("123").png")

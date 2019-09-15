@@ -100,14 +100,26 @@ class GroupListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard let uesrUID = FirebaseAccountManager.shared.userUID else {
+            
+            groupData = []
+            
+            return
+        }
+        
+        if groupData.count == 0 {
+            
+            creatObserverOfGroup(uesrUID: uesrUID)
+        }
+        
         // User 登入且群組資料為空的情況下建立監聽
-        guard
-            let uesrUID = FirebaseAccountManager.shared.userUID,
-            groupData.count == 0
-        else { return }
+//        guard
+//            let uesrUID = FirebaseAccountManager.shared.userUID,
+//            groupData.count == 0
+//        else { return }
         
         // 監聽 GroupData
-        creatObserverOfGroup(uesrUID: uesrUID)
+//        creatObserverOfGroup(uesrUID: uesrUID)
     }
     
     func creatObserverOfGroup(uesrUID: String) {
@@ -158,14 +170,17 @@ class GroupListViewController: UIViewController {
 
 extension GroupListViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         
         return groupData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell",
+                                                 for: indexPath)
         
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
@@ -174,7 +189,8 @@ extension GroupListViewController: UITableViewDataSource {
         return groupListCell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -223,8 +239,18 @@ extension GroupListViewController: UITableViewDataSource {
 
 extension GroupListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        
+        groupData.remove(at: indexPath.row)
+
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

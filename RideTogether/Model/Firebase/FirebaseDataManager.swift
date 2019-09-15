@@ -186,7 +186,10 @@ class FirebaseDataManeger {
     }
     
     // 編輯群組 - 增加成員
-    func addUserIntoGroup(groupID: String, userUID: String, userName: String, completion: @escaping (String) -> Void) {
+    func addUserIntoGroup(groupID: String,
+                          userUID: String,
+                          userName: String,
+                          completion: @escaping (String) -> Void) {
         
         let groupDocument = groupDatebase.document(groupID)
         
@@ -275,6 +278,76 @@ class FirebaseDataManeger {
                 print("Transaction successfully committed!")
             }
         }
+    }
+    
+    // 退出群組
+    func removeUserFromGroup(groupID: String,
+                             userUID: String,
+                             completion: @escaping (String) -> Void) {
+        
+        let groupDocument = groupDatebase.document(groupID)
+        
+        let memberDocument = groupDocument.collection(GroupKey.member.rawValue).document(userUID)
+        
+        memberDocument.delete()
+        
+        database.runTransaction({ (transaction, errorPointer) -> Any? in
+            
+            let myDocument: DocumentSnapshot
+            
+            do {
+                
+                try myDocument = transaction.getDocument(groupDocument)
+                
+            } catch let fetchError as NSError {
+                
+                return nil
+            }
+            
+            guard var memberInGroup = myDocument.data()?[GroupKey.member.rawValue] as? [String] else {
+                
+                completion("找不到此群組喔")
+                
+                return nil
+            }
+            
+            for member in memberInGroup {
+                
+                if member == userUID {
+                    
+                    completion("已經在群組內了喔")
+                    
+                    return nil
+                    
+                } else {
+                    
+                    continue
+                }
+            }
+            
+            memberInGroup.append(userUID)
+            
+            transaction.updateData([GroupKey.member.rawValue: memberInGroup], forDocument: groupDocument)
+            
+//            groupDocument.collection(GroupKey.member.rawValue).document(userUID)
+//                .setData([GroupKey.name.rawValue: userName])
+            
+            completion("已成功加入群組")
+            
+            return nil
+            
+        }) { (object, error) in
+            
+            if let error = error {
+                
+                print("Transaction failed: \(error)")
+                
+            } else {
+                
+                print("Transaction successfully committed!")
+            }
+        }
+
     }
     
     // 編輯群組 - 更改群組名稱(要修改)
