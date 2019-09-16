@@ -32,7 +32,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-Pj-rfr">
                                         <rect key="frame" x="24" y="26.5" width="62" height="30"/>
-                                        <state key="normal" title="返回首頁"/>
+                                        <state key="normal" title="返回群組"/>
                                         <connections>
                                             <action selector="backToGroupList" destination="Z3K-OB-pBp" eventType="touchUpInside" id="IJT-49-Mhm"/>
                                         </connections>

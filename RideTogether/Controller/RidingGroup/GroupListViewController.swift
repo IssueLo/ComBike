@@ -176,6 +176,14 @@ extension GroupListViewController: UITableViewDataSource {
         
         groupListCell.groupNameLabel.text = self.groupData[indexPath.row].name
         
+        if !groupData[indexPath.row].isFinished {
+        
+            groupListCell.accessoryType = .disclosureIndicator
+        } else {
+            
+            groupListCell.accessoryType = .none
+        }
+        
         return groupListCell
     }
     
@@ -222,6 +230,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         resultVC.groupData = self.groupData[indexPath.row]
         
+//        self.show(resultVC, sender: nil)
         present(resultVC, animated: true, completion: nil)
     }
 }

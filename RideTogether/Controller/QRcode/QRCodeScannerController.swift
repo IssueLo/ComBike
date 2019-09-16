@@ -158,6 +158,11 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                         
                         print("使用者尚未登入")
                         
+                        self.showAlert("請先登入會員喔", { (_) in
+                            
+                            self.dismiss(animated: true, completion: nil)
+                        })
+                        
                         return
                     }
                                         
