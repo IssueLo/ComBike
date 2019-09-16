@@ -22,6 +22,10 @@ class FirebaseAccountManager {
     
     var userName: String?
     
+    var userEmail: String?
+    
+    var userPhotoURL: String?
+    
     // MARK: Firebase 註冊
     func onClickRegister(userName: String,
                          userEmail: String,
@@ -44,28 +48,6 @@ class FirebaseAccountManager {
                            password: userPassword) { (_, error) in
                             
                             handler(error)
-        }
-    }
-    
-    // MARK: Firebase 登出
-    func onClickLogout() {
-        
-        if Auth.auth().currentUser == nil {
-            
-//            showAlert(self.belongToVC, "未登入")
-        }
-        
-        do {
-            
-            try Auth.auth().signOut()
-            
-//            showAlert(belongToVC, "登出成功")
-            
-            print(Auth.auth().currentUser?.uid as Any)
-            
-        } catch let _ as NSError { // error
-            
-//            showAlert(belongToVC, error.localizedDescription)
         }
     }
     

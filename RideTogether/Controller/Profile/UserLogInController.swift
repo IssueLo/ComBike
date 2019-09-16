@@ -34,12 +34,6 @@ class UserLogInController: UIViewController {
         userSignUpView.delegate = self
     }
     
-    // MARK: Firebase 登出
-    @objc func onClickLogout() {
-        
-        FirebaseAccountManager.shared.onClickLogout()
-    }
-    
     // MARK: Firebase 密碼重設
     @objc func onResetPassword() {
         
@@ -90,6 +84,8 @@ extension UserLogInController: UserLogInViewDelegate {
                 
                 // 登入成功後取得會員暱稱
                 FirebaseDataManeger.shared.searchUserInfo(userUID)
+                
+                FirebaseAccountManager.shared.userEmail = userEmail
             }
         }
     }
@@ -146,16 +142,17 @@ extension UserLogInController: UserSignUpViewDelegate {
                 }
                 
                 self?.showAlert("註冊成功，已登入", self?.toNextVCHandler)
-                
+                                                            
                 // 會員資料儲存到 Firebase
                 guard
                     let userUID = Auth.auth().currentUser?.uid
-                    
-                    else { return }
+                else { return }
                 
                 FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
                 
                 FirebaseAccountManager.shared.userName = userName
+                                                            
+                FirebaseAccountManager.shared.userEmail = userEmail
             }
         }
     }

@@ -13,6 +13,7 @@
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
 		9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519863B232D2EB200FFCE28 /* RidingInfoView.swift */; };
 		951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E735E232F5CA700D48B37 /* StorageOfCode.swift */; };
+		951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7360232F831A00D48B37 /* Kingfisher.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
 		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
 		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
@@ -69,6 +70,7 @@
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
 		9519863B232D2EB200FFCE28 /* RidingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingInfoView.swift; sourceTree = "<group>"; };
 		951E735E232F5CA700D48B37 /* StorageOfCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOfCode.swift; sourceTree = "<group>"; };
+		951E7360232F831A00D48B37 /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
 		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
 		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				95CFD183231FEEBA00329927 /* Polyline.swift */,
+				951E7360232F831A00D48B37 /* Kingfisher.swift */,
 			);
 			path = "Third-Party";
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				9545C993232C85ED00B74B03 /* GroupData.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
+				951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,

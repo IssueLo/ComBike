@@ -159,6 +159,20 @@ class FirebaseDataManeger {
         userInfoDatebase.document(userUID).setData(userInfoData)
     }
     
+    // 更新照片 - Done
+    func updateUserPhoto(_ userUID: String,
+                         _ userName: String,
+                         _ userEmail: String,
+                         _ userPhothURL: String) {
+        
+        let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
+                                           UserInfoKey.email.rawValue: userEmail,
+                                           UserInfoKey.photoURL.rawValue: userPhothURL]
+        
+        userInfoDatebase.document(userUID).setData(userInfoData)
+    }
+    
+    
     // 建立群組 - Done
     func createGroup(_ groupName: String, completion: @escaping (String) -> Void) {
         

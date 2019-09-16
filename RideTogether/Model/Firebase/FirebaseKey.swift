@@ -31,6 +31,8 @@ enum UserInfoKey: String {
     case name = "userName"
     
     case email = "userEmail"
+    
+    case photoURL = "userPhotoURL"
 }
 
 enum MemberInfoKey: String {

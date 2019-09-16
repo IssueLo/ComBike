@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseStorage
 import Firebase
-import Kingfisher
 
 class UserProfileController: UIViewController {
     
@@ -115,9 +114,15 @@ class UserProfileController: UIViewController {
             
             try Auth.auth().signOut()
             
-            self.showAlert("登出成功")
+            self.showAlert("登出成功") { (_) in
+                
+                self.tabBarController?.selectedIndex = 0
+            }
             
+            // User 資料記得清空啊
             FirebaseAccountManager.shared.userName = nil
+            
+            FirebaseAccountManager.shared.userPhotoURL = nil
             
         } catch let error as NSError {
             
@@ -203,35 +208,20 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         // 取得從 UIImagePickerController 選擇的檔案
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-//            userImage.image = pickedImage
-            var scaleRatio = 1.0
-            print("---------------")
-
-            print(pickedImage.size)
-            print(pickedImage.pngData())
-            if pickedImage.size.height > 100 {
-                
-                scaleRatio = Double(100.0 / pickedImage.size.height)
-            }
-            
-            selectedImageFromPicker = pickedImage.scaleImage(scaleSize: CGFloat(scaleRatio))
-            
-            print("---------------")
-            print(selectedImageFromPicker!.size)
-            print(selectedImageFromPicker!.pngData())
-            print("---------------")
-
+            selectedImageFromPicker = pickedImage.resizeImage(targetSize: CGSize(width: 500, height: 300))
         }
         
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
             
-//            print("uniqueString: \(uniqueString)")
-            print("selectedImage: \(selectedImage)")
+            guard
+                let userUID = FirebaseAccountManager.shared.userUID
+            else { return }
             
-            let storageRef = Storage.storage().reference().child("PIC").child("\("123").png")
+            let storageRef = Storage.storage().reference().child("UserPhoto").child("\(userUID).png")
             
             if let uploadData = selectedImage.pngData() {
+                
                 // 這行就是 FirebaseStorage 關鍵的存取方法。
                 storageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
                     
@@ -251,28 +241,22 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             print(url as Any)
                             
+                            guard
+                                let url = url,
+                                let userName = FirebaseAccountManager.shared.userName,
+                                let userEmail = FirebaseAccountManager.shared.userEmail
+                            else { return }
+                            
                             self.userImage.kf.setImage(with: url)
+                            
+                            FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
+
+                            FirebaseDataManeger.shared.updateUserPhoto(userUID,
+                                                                       userName,
+                                                                       userEmail,
+                                                                       url.absoluteString)
                         }
                     }
-                    
-//                    storageRef.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
-//
-//                        if let error = error {
-//
-//                            print("error: \(error)")
-//                            print("data: \(data)")
-//                        } else {
-//
-//                            print("data: \(data)")
-//                            self.userImage.image = UIImage(data: data!)
-//                        }
-//                    })
-                    // 連結取得方式就是：data?.downloadURL()?.absoluteString。
-//                    if let uploadImageUrl = data.downloadURL()?.absoluteString {
-//
-//                        // 我們可以 print 出來看看這個連結事不是我們剛剛所上傳的照片。
-//                        print("Photo Url: \(uploadImageUrl)")
-//                    }
                 })
             }
         }
