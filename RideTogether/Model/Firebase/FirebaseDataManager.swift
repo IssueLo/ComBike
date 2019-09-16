@@ -381,6 +381,10 @@ class FirebaseDataManeger {
             if let querySnapshot = querySnapshot {
                 
                 FirebaseAccountManager.shared.userName = querySnapshot.data()?[UserInfoKey.name.rawValue] as? String
+                
+                FirebaseAccountManager.shared.userEmail = querySnapshot.data()?[UserInfoKey.email.rawValue] as? String
+                
+                FirebaseAccountManager.shared.userPhotoURL = querySnapshot.data()?[UserInfoKey.photoURL.rawValue] as? String
             }
         }
     }

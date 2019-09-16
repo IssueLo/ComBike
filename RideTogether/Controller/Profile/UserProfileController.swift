@@ -137,6 +137,19 @@ class UserProfileController: UIViewController {
         
         profileTableView.register(nib, forCellReuseIdentifier: "ProfileCell")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let photoURL = FirebaseAccountManager.shared.userPhotoURL else {
+            
+            userImage.image = UIImage(named: "UChu")
+            
+            return
+        }
+        
+        userImage.setImage(urlString: photoURL)
+    }
 }
 
 extension UserProfileController: UITableViewDataSource {

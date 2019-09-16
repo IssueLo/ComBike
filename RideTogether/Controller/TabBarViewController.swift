@@ -80,34 +80,11 @@ class TabBarViewController: UITabBarController {
 //            <#code#>
 //        })
         
-        do {
-//            try Auth.auth().signOut()
-            
-        } catch {
-            
-        }
-        
-        // 記得改回去喔！
-        //        UserInfo.uid = "ytjZE12xhheXDTnxBvc8zOUCkS93"
-        //
-        //        UserInfo.name = "Ruyu"
-        //
-        //        UserInfo.uid = "userID"
-        //
-        //        UserInfo.name = "Kevin"
-        
-        //        UserInfo.uid = "12345678"
-        //
-        //        UserInfo.name = "Nick"
-        
         guard let userUID = Auth.auth().currentUser?.uid else { return }
         
         FirebaseDataManeger.shared.searchUserInfo(userUID)
         
         print(Auth.auth().currentUser?.uid as Any)
-        
-        // 測試～～～～～～
-//        FirebaseDataManeger.shared.test()
     }
 }
 

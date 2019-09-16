@@ -22,6 +22,8 @@ class RidingResultViewController: UIViewController {
     
     @IBOutlet weak var ridingResultHeaderView: RidingResultHeaderView!
     
+    @IBOutlet weak var userRankView: UserRankView!
+
     @IBOutlet weak var ridingResultTableView: UITableView!
 
     override func viewDidLoad() {
@@ -31,11 +33,7 @@ class RidingResultViewController: UIViewController {
         
         ridingResultTableView.register(nib, forCellReuseIdentifier: "RidingResultCell")
         
-        ridingResultHeaderView.setupHeaderView(groupData.name,
-                                               FirebaseAccountManager.shared.userName!,
-                                               1,
-                                               "st",
-                                               "00:00:00")
+        ridingResultHeaderView.setupHeaderView(groupData.name)
         
         ridingResultHeaderView.handler = {
             
@@ -43,6 +41,12 @@ class RidingResultViewController: UIViewController {
             
             self.backToRoot()
         }
+        
+        userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
+                                       FirebaseAccountManager.shared.userPhotoURL!,
+                                       1,
+                                       "st",
+                                       "00:00:00")
         
         FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { (result) in
             
@@ -92,11 +96,12 @@ extension RidingResultViewController: UITableViewDataSource {
             default : userSubRank = "th"
             }
             
-            self.ridingResultHeaderView.setupHeaderView(groupData.name,
-                                                        userName,
-                                                        userRank,
-                                                        userSubRank,
-                                                        spendTime)
+            self.userRankView.setupUserRankView(userName,
+                                                FirebaseAccountManager.shared.userPhotoURL!,
+                                                userRank,
+                                                userSubRank,
+                                                spendTime)
+
         } else {
             
             return
@@ -110,4 +115,9 @@ extension RidingResultViewController: UITableViewDelegate {
         
         return 70
     }
+}
+
+extension RidingResultViewController: UIScrollViewDelegate {
+    
+    
 }

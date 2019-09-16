@@ -14,6 +14,7 @@
 		9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519863B232D2EB200FFCE28 /* RidingInfoView.swift */; };
 		951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E735E232F5CA700D48B37 /* StorageOfCode.swift */; };
 		951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7360232F831A00D48B37 /* Kingfisher.swift */; };
+		951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7362232FC5CE00D48B37 /* UserRankView.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
 		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
 		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
@@ -71,6 +72,7 @@
 		9519863B232D2EB200FFCE28 /* RidingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingInfoView.swift; sourceTree = "<group>"; };
 		951E735E232F5CA700D48B37 /* StorageOfCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOfCode.swift; sourceTree = "<group>"; };
 		951E7360232F831A00D48B37 /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		951E7362232FC5CE00D48B37 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
 		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
 		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */,
+				951E7362232FC5CE00D48B37 /* UserRankView.swift */,
 			);
 			path = RidingResultHeader;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				95CFD181231FE03B00329927 /* TimeManager.swift in Sources */,
 				9545C993232C85ED00B74B03 /* GroupData.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
+				951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
