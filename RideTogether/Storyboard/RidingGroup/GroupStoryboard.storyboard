@@ -44,7 +44,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d6-Ls-C5C">
                                 <rect key="frame" x="72.5" y="289.5" width="230.5" height="48"/>
-                                <string key="text">請創建群組
+                                <string key="text">請創建屬於自己的群組
 或掃 QR Code 加入群組喔</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>

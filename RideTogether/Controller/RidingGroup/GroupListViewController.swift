@@ -37,24 +37,9 @@ class GroupListViewController: UIViewController {
         
         didSet {
             
-            createGroupBtn.backgroundColor = .white
+            createGroupBtn.addRound()
             
-            createGroupBtn.layer.cornerRadius = 25
-            
-            createGroupBtn.layer.borderColor = UIColor.lightGray.cgColor
-            
-            createGroupBtn.layer.borderWidth = 1
-            
-            createGroupBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
-            
-            createGroupBtn.layer.shadowOpacity = 0.7
-            
-            createGroupBtn.layer.shadowRadius = 3
-            
-            createGroupBtn.layer.shadowColor = UIColor(red: 44.0/255.0,
-                                                       green: 62.0/255.0,
-                                                       blue: 80.0/255.0,
-                                                       alpha: 1.0).cgColor
+            createGroupBtn.addShadow()
         }
     }
     
@@ -129,7 +114,7 @@ class GroupListViewController: UIViewController {
     func creatObserverOfGroup(uesrUID: String) {
         
         FirebaseDataManeger.shared.observerForGroupData(uesrUID) { [weak self] (result) in
-            
+
             switch result {
                 
             case .success(let groupData):
@@ -138,7 +123,7 @@ class GroupListViewController: UIViewController {
                 if self?.groupData.count != 0 {
                     
                     guard let groupDataCount = self?.groupData.count else { return }
-                
+                    
                     for number in 0..<groupDataCount {
                         
                         if groupData.groupID == self?.groupData[number].groupID {
@@ -162,6 +147,7 @@ class GroupListViewController: UIViewController {
                 self?.showAlert("GroupDetailVC - 101")
             }
         }
+
     }
     
     @objc func scanQRCode() {

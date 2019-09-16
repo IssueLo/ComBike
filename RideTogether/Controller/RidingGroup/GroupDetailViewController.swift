@@ -126,6 +126,8 @@ extension GroupDetailViewController: UITableViewDataSource {
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
         groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
+        
+        groupListCell.accessoryType = .none
                 
         return groupListCell
     }

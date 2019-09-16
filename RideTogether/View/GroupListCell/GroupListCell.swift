@@ -14,4 +14,8 @@ class GroupListCell: UITableViewCell {
     
     @IBOutlet weak var groupNameLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
 }

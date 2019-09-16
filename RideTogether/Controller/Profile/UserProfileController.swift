@@ -49,7 +49,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
-            uploadPhotoButton.addRound(radis: 21, borderColor: .lightGray, backgroundColor: .white)
+            uploadPhotoButton.addRound(radis: 21)
             
             uploadPhotoButton.layer.borderWidth = 2
         }
@@ -203,13 +203,25 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
         // 取得從 UIImagePickerController 選擇的檔案
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            userImage.image = pickedImage
+//            userImage.image = pickedImage
+            var scaleRatio = 1.0
+            print("---------------")
+
+            print(pickedImage.size)
+            print(pickedImage.pngData())
+            if pickedImage.size.height > 100 {
+                
+                scaleRatio = Double(100.0 / pickedImage.size.height)
+            }
             
-            selectedImageFromPicker = pickedImage
+            selectedImageFromPicker = pickedImage.scaleImage(scaleSize: CGFloat(scaleRatio))
+            
+            print("---------------")
+            print(selectedImageFromPicker!.size)
+            print(selectedImageFromPicker!.pngData())
+            print("---------------")
+
         }
-        
-        // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
-//        let uniqueString = NSUUID().uuidString
         
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
@@ -239,7 +251,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             print(url as Any)
                             
-//                            self.userImage.kf.setImage(with: url)
+                            self.userImage.kf.setImage(with: url)
                         }
                     }
                     

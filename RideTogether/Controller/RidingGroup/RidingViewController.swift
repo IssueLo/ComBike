@@ -21,7 +21,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            stopButton.addRound(radis: 25, borderColor: .lightGray, backgroundColor: .white)
+            stopButton.addRound()
         }
     }
     
@@ -29,7 +29,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            saveButton.addRound(radis: 25, borderColor: .lightGray, backgroundColor: .white)
+            saveButton.addRound()
         }
     }
     
