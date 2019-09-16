@@ -50,4 +50,6 @@ enum MemberInfoKey: String {
     case route
     
     case location
+    
+    case altitude
 }

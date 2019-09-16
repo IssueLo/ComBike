@@ -15,6 +15,7 @@
 		951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E735E232F5CA700D48B37 /* StorageOfCode.swift */; };
 		951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7360232F831A00D48B37 /* Kingfisher.swift */; };
 		951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7362232FC5CE00D48B37 /* UserRankView.swift */; };
+		951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7364232FCD7100D48B37 /* PolylineCharts.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
 		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
 		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
@@ -73,6 +74,7 @@
 		951E735E232F5CA700D48B37 /* StorageOfCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOfCode.swift; sourceTree = "<group>"; };
 		951E7360232F831A00D48B37 /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		951E7362232FC5CE00D48B37 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
+		951E7364232FCD7100D48B37 /* PolylineCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineCharts.swift; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
 		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
 		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
+				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
+				951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */,
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,

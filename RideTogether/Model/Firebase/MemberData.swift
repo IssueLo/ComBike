@@ -26,6 +26,8 @@ struct MemberData {
     
     var location: GeoPoint?
     
+    var altitude: [Double]?
+    
     init (memberName: String) {
         
         self.name = memberName

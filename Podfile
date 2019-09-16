@@ -19,5 +19,6 @@ target 'RideTogether' do
   pod 'KeychainAccess'
   pod 'Polyline'
   pod 'IQKeyboardManager'
+  pod 'Charts'
 
 end

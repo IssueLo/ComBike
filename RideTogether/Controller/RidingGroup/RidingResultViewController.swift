@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RidingResultViewController: UIViewController {
     
@@ -25,6 +26,10 @@ class RidingResultViewController: UIViewController {
     @IBOutlet weak var userRankView: UserRankView!
 
     @IBOutlet weak var ridingResultTableView: UITableView!
+    
+    @IBOutlet weak var polylineMapView: MKMapView!
+    
+    @IBOutlet weak var userPolylineView: UserPolylineView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +56,22 @@ class RidingResultViewController: UIViewController {
         FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { (result) in
             
             self.memberResultInfo = result
+            
+            self.updateChartsData()
+        }
+        
+    }
+    
+    func updateChartsData() {
+        
+        for number in 0..<memberResultInfo.count {
+            
+            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
+                
+                guard let polylineData = memberResultInfo[number].altitude else { return }
+                
+                self.userPolylineView.updateChartsData(polylineData)
+            }
         }
     }
 }
@@ -115,9 +136,4 @@ extension RidingResultViewController: UITableViewDelegate {
         
         return 70
     }
-}
-
-extension RidingResultViewController: UIScrollViewDelegate {
-    
-    
 }

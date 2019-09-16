@@ -483,12 +483,27 @@ class FirebaseDataManeger {
                     
                     guard
                         let memberName = document.data() ["name"] as? String,
-                        let spendTime = document.data() ["spendTime"] as? Int
+                        let spendTime = document.data() ["spendTime"] as? Int,
+                        let distance = document.data() ["distance"] as? Double,
+                        let averageSpeed = document.data() ["averageSpeed"] as? Double,
+                        let maximumSpeed = document.data() ["maximumSpeed"] as? Double,
+                        let altitude = document.data() ["altitude"] as? [Double],
+                        let route = document.data() ["route"] as? [GeoPoint]
                     else { return }
                     
                     var memberInfo = MemberData(memberName: memberName)
                     
                     memberInfo.spendTime = spendTime
+                    
+                    memberInfo.distance = distance
+                    
+                    memberInfo.averageSpeed = averageSpeed
+                    
+                    memberInfo.maximumSpeed = maximumSpeed
+                    
+                    memberInfo.altitude = altitude
+                    
+                    memberInfo.route = route
                     
                     ridingResultArray.append(memberInfo)
                 }
@@ -508,7 +523,8 @@ class FirebaseDataManeger {
                           MemberInfoKey.distance.rawValue: ridingData.distance!,
                           MemberInfoKey.averageSpeed.rawValue: ridingData.averageSpeed!,
                           MemberInfoKey.maximumSpeed.rawValue: ridingData.maximumSpeed!,
-                          MemberInfoKey.route.rawValue: ridingData.route! ] as [String: Any]
+                          MemberInfoKey.route.rawValue: ridingData.route!,
+                          MemberInfoKey.altitude.rawValue: ridingData.altitude! ] as [String: Any]
         
         userInfo.setData(ridingData)
         

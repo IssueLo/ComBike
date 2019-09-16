@@ -140,15 +140,25 @@
                                                 <rect key="frame" x="375" y="0.0" width="375" height="603"/>
                                                 <subviews>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9qY-t6-cM0">
-                                                        <rect key="frame" x="24" y="50" width="327" height="529"/>
+                                                        <rect key="frame" x="24" y="50" width="327" height="279"/>
                                                     </mapView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gti-2O-jFy" customClass="UserPolylineView" customModule="RideTogether" customModuleProvider="target">
+                                                        <rect key="frame" x="24" y="379" width="327" height="200"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="VDH-jQ-VsV"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="9qY-t6-cM0" firstAttribute="top" secondItem="GQf-J0-cwA" secondAttribute="top" constant="50" id="DDk-r3-tJJ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="9qY-t6-cM0" secondAttribute="bottom" constant="24" id="gyh-9n-sxi"/>
+                                                    <constraint firstItem="Gti-2O-jFy" firstAttribute="top" secondItem="9qY-t6-cM0" secondAttribute="bottom" constant="50" id="Ow6-Tf-ROB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Gti-2O-jFy" secondAttribute="trailing" constant="24" id="Y4L-Vz-GgC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Gti-2O-jFy" secondAttribute="bottom" constant="24" id="gNa-RT-zcB"/>
+                                                    <constraint firstItem="Gti-2O-jFy" firstAttribute="leading" secondItem="GQf-J0-cwA" secondAttribute="leading" constant="24" id="hfl-Io-mbh"/>
                                                     <constraint firstItem="9qY-t6-cM0" firstAttribute="leading" secondItem="GQf-J0-cwA" secondAttribute="leading" constant="24" id="qOa-cL-WIf"/>
                                                     <constraint firstAttribute="trailing" secondItem="9qY-t6-cM0" secondAttribute="trailing" constant="24" id="wwH-Nc-6aE"/>
+                                                    <constraint firstItem="9qY-t6-cM0" firstAttribute="top" secondItem="GQf-J0-cwA" secondAttribute="top" constant="50" id="x2W-EG-Bip"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -179,18 +189,14 @@
                         <viewLayoutGuide key="safeArea" id="qRG-eK-FjC"/>
                     </view>
                     <connections>
+                        <outlet property="polylineMapView" destination="9qY-t6-cM0" id="Zb2-4A-FNn"/>
                         <outlet property="ridingResultHeaderView" destination="Z3K-OB-pBp" id="Fqh-xh-S3u"/>
                         <outlet property="ridingResultTableView" destination="3tP-St-NEy" id="0Cj-TA-hLs"/>
+                        <outlet property="userPolylineView" destination="Gti-2O-jFy" id="v3s-Px-Wqc"/>
                         <outlet property="userRankView" destination="z2Y-5m-dae" id="4Ws-XT-P1Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nws-MT-Gzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="fFI-5G-Ik3">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="6Aa-5p-BMv"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="142.57871064467767"/>
         </scene>

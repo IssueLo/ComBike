@@ -157,6 +157,8 @@ class RidingViewController: UIViewController {
         
         memberInfo.route = currentGeoPoint
         
+        memberInfo.altitude = currentAltitude
+        
         FirebaseDataManeger.shared.uploadRidingData(groupData.groupID,
                                                     FirebaseAccountManager.shared.userUID!,
                                                     memberInfo)
