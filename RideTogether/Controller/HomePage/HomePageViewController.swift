@@ -10,9 +10,15 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     
+    var jsonArray: NSMutableArray?
+    
+    var routeDataArray = [RouteData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tokenURL = StravaRequest.getToken.makeRequest()
+        
+        HTTPClient.shared.tokenRequest(tokenURL)
     }
-
 }

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -133,6 +134,7 @@ PODS:
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Charts
   - Firebase/Analytics
   - Firebase/Auth
@@ -146,6 +148,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - BoringSSL-GRPC
     - Charts
     - Firebase
@@ -175,6 +178,7 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   Firebase: a2b5951f30ff38fd3b3bdae9c7d340f940fd3c51
@@ -203,6 +207,6 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 9f9ae7c96f50f0714c9666f55374a94693ba14f9
+PODFILE CHECKSUM: 1114d7e6c3253e53fc305aee878b47166f9677d1
 
 COCOAPODS: 1.7.4

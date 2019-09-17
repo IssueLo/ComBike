@@ -20,6 +20,10 @@ class FirebaseDataManeger {
     static let shared = FirebaseDataManeger()
     
     private init() {}
+    
+    static var memberObserverFor: ListenerRegistration!
+    
+    static var groupObserverFor: ListenerRegistration!
         
     let database = Firestore.firestore()
     
@@ -42,7 +46,7 @@ class FirebaseDataManeger {
         let groupOfUser = groupDatebase.whereField(GroupKey.member.rawValue, arrayContains: userID)
 //            .order(by: GroupKey.createTime.rawValue, descending: true)
         
-        groupOfUser.addSnapshotListener { (querySnapshot, error) in
+        FirebaseDataManeger.groupObserverFor = groupOfUser.addSnapshotListener { (querySnapshot, error) in
             
             guard let querySnapshot = querySnapshot else {
                 
@@ -104,8 +108,6 @@ class FirebaseDataManeger {
     private func groupData(_ userID: String, completion: @escaping (Result<GroupData>) -> Void) {
         
     }
-    
-    static var memberObserverFor: ListenerRegistration!
     
     // Member 監聽
     func observerForMemberData(_ groupID: String, completion: @escaping (Result<[MemberData]>) -> Void) {

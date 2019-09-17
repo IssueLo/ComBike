@@ -20,5 +20,6 @@ target 'RideTogether' do
   pod 'Polyline'
   pod 'IQKeyboardManager'
   pod 'Charts'
+  pod 'Alamofire'
 
 end
