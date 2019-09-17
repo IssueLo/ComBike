@@ -25,10 +25,10 @@
                                 <rect key="frame" x="62.5" y="413" width="250" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="irU-zD-oHG">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="54"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="騎乘時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znL-5e-iHl">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="3n1-th-9fK"/>
                                                 </constraints>
@@ -37,9 +37,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eX-be-e2W">
-                                                <rect key="frame" x="0.0" y="25" width="104" height="29"/>
+                                                <rect key="frame" x="0.0" y="25" width="120" height="29"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="104" id="ZRX-iN-dlo"/>
+                                                    <constraint firstAttribute="width" constant="120" id="ZRX-iN-dlo"/>
                                                     <constraint firstAttribute="height" constant="29" id="xO1-Vr-SC5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -48,56 +48,11 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5hv-e6-rNm">
-                                        <rect key="frame" x="146" y="0.0" width="104" height="54"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9r-fG-iMh">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="hZB-FT-3vZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 km/hr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZ5-ng-D0Z">
-                                                <rect key="frame" x="0.0" y="25" width="104" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="29" id="JBl-vD-aXF"/>
-                                                    <constraint firstAttribute="width" constant="104" id="nO5-h5-LmP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7B8-5K-iQi">
-                                        <rect key="frame" x="146" y="74" width="104" height="46"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAA-FY-S0f">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 km/hr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnf-BE-Kpj">
-                                                <rect key="frame" x="0.0" y="17" width="104" height="29"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="104" id="mau-QT-DRq"/>
-                                                    <constraint firstAttribute="height" constant="29" id="uxJ-4o-Hl9"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kkI-i1-Skk">
-                                        <rect key="frame" x="0.0" y="66" width="104" height="54"/>
+                                        <rect key="frame" x="0.0" y="66" width="120" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="騎乘距離" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbQ-Jp-vUP">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="c4e-KF-sG9"/>
                                                 </constraints>
@@ -106,10 +61,55 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuT-Hr-yKB">
-                                                <rect key="frame" x="0.0" y="25" width="104" height="29"/>
+                                                <rect key="frame" x="0.0" y="25" width="120" height="29"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="104" id="4rG-bT-vNH"/>
+                                                    <constraint firstAttribute="width" constant="120" id="4rG-bT-vNH"/>
                                                     <constraint firstAttribute="height" constant="29" id="g22-ky-B7L"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5hv-e6-rNm">
+                                        <rect key="frame" x="130" y="0.0" width="120" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9r-fG-iMh">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="hZB-FT-3vZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999.99 km/hr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZ5-ng-D0Z">
+                                                <rect key="frame" x="0.0" y="25" width="120" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="JBl-vD-aXF"/>
+                                                    <constraint firstAttribute="width" constant="120" id="nO5-h5-LmP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7B8-5K-iQi">
+                                        <rect key="frame" x="130" y="74" width="120" height="46"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAA-FY-S0f">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 km/hr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnf-BE-Kpj">
+                                                <rect key="frame" x="0.0" y="17" width="120" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="mau-QT-DRq"/>
+                                                    <constraint firstAttribute="height" constant="29" id="uxJ-4o-Hl9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>

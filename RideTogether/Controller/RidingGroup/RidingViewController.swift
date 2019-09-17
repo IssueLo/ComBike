@@ -241,6 +241,8 @@ class RidingViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         locatonTimer?.invalidate()
+        
+        locationManager.stopUpdatingLocation()
     }
     
     func setupMapViewButton(_ sender: MKUserTrackingButton) {

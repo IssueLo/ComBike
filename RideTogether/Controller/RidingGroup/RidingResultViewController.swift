@@ -27,7 +27,15 @@ class RidingResultViewController: UIViewController {
 
     @IBOutlet weak var ridingResultTableView: UITableView!
     
-    @IBOutlet weak var polylineMapView: MKMapView!
+    @IBOutlet weak var polylineMapView: MKMapView! {
+        
+        didSet {
+            
+            polylineMapView.layer.borderWidth = 1
+            
+            polylineMapView.delegate = self
+        }
+    }
     
     @IBOutlet weak var userPolylineView: UserPolylineView!
 
@@ -58,8 +66,9 @@ class RidingResultViewController: UIViewController {
             self.memberResultInfo = result
             
             self.updateChartsData()
+            
+            self.updateMapPolyline()
         }
-        
     }
     
     func updateChartsData() {
@@ -68,11 +77,36 @@ class RidingResultViewController: UIViewController {
             
             if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
                 
-                guard let polylineData = memberResultInfo[number].altitude else { return }
+                guard let altitudeData = memberResultInfo[number].altitude else { return }
                 
-                self.userPolylineView.updateChartsData(polylineData)
+                self.userPolylineView.updateChartsData(altitudeData)
             }
         }
+    }
+    
+    func updateMapPolyline() {
+        
+        for number in 0..<memberResultInfo.count {
+            
+            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
+                
+                guard let polylineData = memberResultInfo[number].route else { return }
+                
+                var coordinates = [CLLocationCoordinate2D]()
+                
+                for geoPoint in polylineData {
+                    
+                    coordinates.append(geoPoint.transferToCoordinate2D())
+                }
+                
+                let polylineCode = PolylineManager.shared.encodePolyline(coordinates)
+                
+                PolylineManager.shared.mapView = self.polylineMapView
+                
+                PolylineManager.shared.showPolyline(polylineCode: polylineCode)
+            }
+        }
+
     }
 }
 
@@ -135,5 +169,18 @@ extension RidingResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 70
+    }
+}
+
+extension RidingResultViewController: MKMapViewDelegate {
+    
+    // Map 路線屬性
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 5.0
+        
+        return renderer
+        
     }
 }

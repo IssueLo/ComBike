@@ -8,6 +8,7 @@
 
 import Polyline
 import MapKit
+import Firebase
 
 class PolylineManager {
     
