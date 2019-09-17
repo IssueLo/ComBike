@@ -79,6 +79,12 @@ class GroupDetailViewController: UIViewController {
         creatObserverOfMember(groupID: groupData.groupID)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        FirebaseDataManeger.memberObserverFor.remove()
+    }
+    
     @objc func showQRCodeVC() {
         
         let storyboard = UIStoryboard.init(name: "QRCodeStoryboard", bundle: nil)
@@ -102,7 +108,7 @@ class GroupDetailViewController: UIViewController {
                 
             case .success(let memberData):
                 
-                self?.memberData.append(memberData)
+                self?.memberData = memberData
                 
             case .failure:
                 

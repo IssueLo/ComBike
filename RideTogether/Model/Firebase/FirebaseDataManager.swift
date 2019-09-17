@@ -105,46 +105,62 @@ class FirebaseDataManeger {
         
     }
     
+    static var memberObserverFor: ListenerRegistration!
+    
     // Member 監聽
-    func observerForMemberData(_ groupID: String, completion: @escaping (Result<MemberData>) -> Void) {
+    func observerForMemberData(_ groupID: String, completion: @escaping (Result<[MemberData]>) -> Void) {
         
         let memberOfGroup = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
-        memberOfGroup.addSnapshotListener { (querySnapshot, error) in
+        FirebaseDataManeger.memberObserverFor = memberOfGroup.addSnapshotListener { (querySnapshot, error) in
             
-            guard let querySnapshot = querySnapshot else {
+            guard let documents = querySnapshot?.documents else {
                 
                 return
             }
             
-            querySnapshot.documentChanges.forEach({ (documentChange) in
-                
-                if documentChange.type == .added {
-                    
-                    guard let name = documentChange.document.data()["name"] as? String
-                        else { return }
-                    
-                    let memberData = MemberData(memberName: name)
-                    
-                    return completion(Result.success(memberData))
-                }
-                
-                // 退出群組
-                if documentChange.type == .removed {
-                    
-                    guard let name = documentChange.document.data()["name"] as? String
-                        else { return }
-                    
-                    let memberData = MemberData(memberName: name)
-                    
-                    return completion(Result.success(memberData))
-                }
-            })
+            var memberData = [MemberData]()
             
-            guard error == nil else {
+            for document in documents {
                 
-                return completion(Result.failure(error!))
+                guard let name = document.data()["name"] as? String
+                    else { return }
+                
+                let member = MemberData(memberName: name)
+                
+                memberData.append(member)
             }
+            
+            completion(Result.success(memberData))
+            
+//            querySnapshot.documentChanges.forEach({ (documentChange) in
+//
+//                if documentChange.type == .added {
+//
+//                    guard let name = documentChange.document.data()["name"] as? String
+//                        else { return }
+//
+//                    let memberData = MemberData(memberName: name)
+//
+//                    return completion(Result.success(memberData))
+//                }
+//
+//                // 退出群組
+//                if documentChange.type == .removed {
+//
+//                    guard let name = documentChange.document.data()["name"] as? String
+//                        else { return }
+//
+//                    let memberData = MemberData(memberName: name)
+//
+//                    return completion(Result.success(memberData))
+//                }
+//            })
+//
+//            guard error == nil else {
+//
+//                return completion(Result.failure(error!))
+//            }
         }
     }
 
