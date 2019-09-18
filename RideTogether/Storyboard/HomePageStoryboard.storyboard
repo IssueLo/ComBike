@@ -18,26 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIn-qz-UEz">
-                                <rect key="frame" x="102.5" y="305" width="170.5" height="57.5"/>
-                                <string key="text">此功能尚未開放
-請耐心等候！</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="52P-eW-Gfk">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CIn-qz-UEz" firstAttribute="centerY" secondItem="G6s-6N-Qc6" secondAttribute="centerY" id="D7j-6G-s5M"/>
-                            <constraint firstItem="CIn-qz-UEz" firstAttribute="centerX" secondItem="G6s-6N-Qc6" secondAttribute="centerX" id="WcE-O7-oAf"/>
+                            <constraint firstItem="5I9-Y8-1yx" firstAttribute="trailing" secondItem="52P-eW-Gfk" secondAttribute="trailing" id="3Ky-Mz-bg7"/>
+                            <constraint firstItem="5I9-Y8-1yx" firstAttribute="bottom" secondItem="52P-eW-Gfk" secondAttribute="bottom" id="OlH-ra-8Cc"/>
+                            <constraint firstItem="52P-eW-Gfk" firstAttribute="top" secondItem="5I9-Y8-1yx" secondAttribute="top" id="U8F-wB-dY1"/>
+                            <constraint firstItem="52P-eW-Gfk" firstAttribute="leading" secondItem="5I9-Y8-1yx" secondAttribute="leading" id="wq8-4i-KXR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5I9-Y8-1yx"/>
                     </view>
+                    <connections>
+                        <outlet property="routeListTableView" destination="52P-eW-Gfk" id="OYK-eu-oUm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYB-RN-4C2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175" y="121"/>
+            <point key="canvasLocation" x="-175.19999999999999" y="120.98950524737631"/>
         </scene>
     </scenes>
 </document>

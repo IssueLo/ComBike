@@ -19,6 +19,14 @@ enum Result<T> {
 enum HTTPClientError: Error {
     
     case authorizationError
+    
+    case decodeDataFail
+    
+    case clientError(Data)
+    
+    case serverError
+    
+    case unexpectedError
 }
 
 enum HTTPMethod: String {
@@ -83,7 +91,7 @@ class HTTPClient {
     
     let url = StravaRequest.getRouteData(token: "72be1ac48f46701257e13800c3c4f5a710bbdeab", routeID: "10264990").makeRequest()
     
-    let tokenURL = StravaRequest.getToken.makeRequest()
+//    let tokenURL = StravaRequest.getToken.makeRequest()
     
     func request(_ url: URLRequest,
                  _ completion: @escaping (Result<RouteData>) -> Void) {
@@ -113,17 +121,54 @@ class HTTPClient {
                 
             } catch {
                 
+                completion(Result.failure(error))
             }
         }
     }
     
-    func tokenRequest(_ url: URLRequest) {
+    // 拿到 TokenURL，解開 Data 回傳回去
+    func tokenRequest(_ url: URLRequest,
+                      completion: @escaping (Result<Data>) -> Void) {
         
-        Alamofire.request(tokenURL).responseJSON { (response) in
+        Alamofire.request(url).responseJSON { (response) in
             
 //            print(response.response) // URL 回應
 //            print(response.data)     // 伺服器資料
 //            print(response.result)   // 回應的序列化結果
+            guard let statusCode = response.response?.statusCode else { return }
+            
+            switch statusCode {
+                
+            case 200..<300:
+                
+//                guard let data = response.data else { return }
+                
+                completion(Result.success(response.data!))
+//                do {
+//
+//                    let dataObject = try self.decoder.decode(Token.self, from: data)
+//
+//                    print(dataObject)
+//
+//
+//
+//                } catch {
+//
+//                }
+                
+            case 400..<500:
+                
+                completion(Result.failure(HTTPClientError.clientError(response.data!)))
+                
+            case 500..<600:
+                
+                completion(Result.failure(HTTPClientError.serverError))
+                
+            default: return
+                
+                completion(Result.failure(HTTPClientError.unexpectedError))
+
+            }
             
             guard let data = response.data else { return }
             
@@ -132,7 +177,7 @@ class HTTPClient {
                 let decoder = JSONDecoder()
                 
 
-                 let dataObject = try decoder.decode(Token.self, from: data)
+                let dataObject = try decoder.decode(Token.self, from: data)
                 
                 print(dataObject)
                 

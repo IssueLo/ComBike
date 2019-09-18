@@ -77,6 +77,7 @@ class GroupListViewController: UIViewController {
        
         didSet {
             
+            // BottomSide 可往上多滑 100
             groupListTableView.contentInset.bottom = 100
         }
     }

@@ -91,6 +91,5 @@ class UserPolylineView: LineChartView {
         self.xAxis.axisMaximum = Double(chartData.count)
         
         self.data = chartDataLine
-        
     }
 }

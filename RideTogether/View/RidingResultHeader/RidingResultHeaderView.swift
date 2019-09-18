@@ -23,5 +23,4 @@ class RidingResultHeaderView: UIView {
         
         groupNameLabel.text = groupName
     }
-    
 }

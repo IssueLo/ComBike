@@ -39,6 +39,12 @@
 		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extension+UIViewController.swift */; };
+		953EF9152331242800DD692B /* RouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF9132331242800DD692B /* RouteCell.swift */; };
+		953EF9162331242800DD692B /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953EF9142331242800DD692B /* RouteCell.xib */; };
+		953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF91D2332031C00DD692B /* RouteHeaderView.swift */; };
+		953EF9202332031C00DD692B /* RouteHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953EF91E2332031C00DD692B /* RouteHeaderView.xib */; };
+		953EF924233228A200DD692B /* RouteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF922233228A200DD692B /* RouteListCell.swift */; };
+		953EF925233228A200DD692B /* RouteListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953EF923233228A200DD692B /* RouteListCell.xib */; };
 		954443AF2330D48F00020F9E /* StravaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954443AE2330D48F00020F9E /* StravaRequest.swift */; };
 		95456784232795B6009DA63B /* UserLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95456783232795B6009DA63B /* UserLogInView.swift */; };
 		9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */; };
@@ -49,6 +55,8 @@
 		9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C98F232C84CD00B74B03 /* HTTPClient.swift */; };
 		9545C993232C85ED00B74B03 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C992232C85ED00B74B03 /* GroupData.swift */; };
 		9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C994232C8C4C00B74B03 /* MemberData.swift */; };
+		955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC84E23326F3B00388934 /* StravaAuthManager.swift */; };
+		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594A069232F2C71000A91C0 /* Extension+UIImage.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
@@ -99,6 +107,12 @@
 		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		953EF9132331242800DD692B /* RouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
+		953EF9142331242800DD692B /* RouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
+		953EF91D2332031C00DD692B /* RouteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHeaderView.swift; sourceTree = "<group>"; };
+		953EF91E2332031C00DD692B /* RouteHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteHeaderView.xib; sourceTree = "<group>"; };
+		953EF922233228A200DD692B /* RouteListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListCell.swift; sourceTree = "<group>"; };
+		953EF923233228A200DD692B /* RouteListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteListCell.xib; sourceTree = "<group>"; };
 		954443AE2330D48F00020F9E /* StravaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaRequest.swift; sourceTree = "<group>"; };
 		95456783232795B6009DA63B /* UserLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInView.swift; sourceTree = "<group>"; };
 		9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
@@ -109,6 +123,8 @@
 		9545C98F232C84CD00B74B03 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		9545C992232C85ED00B74B03 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		9545C994232C8C4C00B74B03 /* MemberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
+		955AC84E23326F3B00388934 /* StravaAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthManager.swift; sourceTree = "<group>"; };
+		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		9594A069232F2C71000A91C0 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -178,10 +194,25 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
+		953EF912233123E200DD692B /* RouteListCell */ = {
+			isa = PBXGroup;
+			children = (
+				953EF922233228A200DD692B /* RouteListCell.swift */,
+				953EF923233228A200DD692B /* RouteListCell.xib */,
+				953EF9132331242800DD692B /* RouteCell.swift */,
+				953EF9142331242800DD692B /* RouteCell.xib */,
+				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
+				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
+			);
+			path = RouteListCell;
+			sourceTree = "<group>";
+		};
 		954443AD2330D38800020F9E /* RestfulAPI */ = {
 			isa = PBXGroup;
 			children = (
 				954443AE2330D48F00020F9E /* StravaRequest.swift */,
+				955AC84E23326F3B00388934 /* StravaAuthManager.swift */,
+				955AC8502332790A00388934 /* StravaProvider.swift */,
 			);
 			path = RestfulAPI;
 			sourceTree = "<group>";
@@ -378,6 +409,7 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				953EF912233123E200DD692B /* RouteListCell */,
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				9589DD7323253405003A9A87 /* RidingResultHeader */,
@@ -472,9 +504,12 @@
 				95D613CF23155BF5008D885E /* UserLogInStoryboard.storyboard in Resources */,
 				9545678923287F59009DA63B /* UserProfileStoryboard.storyboard in Resources */,
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
+				953EF9162331242800DD692B /* RouteCell.xib in Resources */,
 				9545678F2328F5FE009DA63B /* ProfileCell.xib in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
+				953EF925233228A200DD692B /* RouteListCell.xib in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
+				953EF9202332031C00DD692B /* RouteHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,10 +580,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
+				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
+				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
 				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */,
+				955AC8512332790A00388934 /* StravaProvider.swift in Sources */,
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
@@ -567,6 +605,7 @@
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
+				953EF924233228A200DD692B /* RouteListCell.swift in Sources */,
 				951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
@@ -579,6 +618,7 @@
 				952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */,
 				9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */,
 				954443AF2330D48F00020F9E /* StravaRequest.swift in Sources */,
+				955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */,
 				9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */,
 				9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */,
 				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
