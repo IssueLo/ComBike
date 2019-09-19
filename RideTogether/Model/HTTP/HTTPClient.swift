@@ -174,13 +174,15 @@ struct RouteData: Codable {
     
     let routeID: Int
     
-    let name: String
+    var name: String
     
     let distance: Double
     
     let map: Map
     
     let estimatedTime: Int
+    
+    let elevationGain: Double
     
     enum CodingKeys: String, CodingKey {
         
@@ -189,6 +191,8 @@ struct RouteData: Codable {
         case routeID = "id"
         
         case estimatedTime = "estimated_moving_time"
+        
+        case elevationGain = "elevation_gain"
         
     }
 }

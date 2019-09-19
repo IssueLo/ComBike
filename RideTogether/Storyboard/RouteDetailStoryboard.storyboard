@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Route Detail View Controller-->
+        <scene sceneID="kKD-dE-jC4">
+            <objects>
+                <viewController storyboardIdentifier="RouteDetailStoryboard" id="4Ur-JV-qUQ" customClass="RouteDetailViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="95n-ka-BlX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-XO-3Wz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-4C-wGO">
+                                <rect key="frame" x="48" y="154" width="279" height="279"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="73I-4C-wGO" secondAttribute="height" multiplier="1:1" id="47N-ay-lAm"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="p7G-en-kQi">
+                                <rect key="frame" x="48" y="154" width="279" height="279"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIQ-bE-0XQ">
+                                <rect key="frame" x="16" y="30" width="44" height="44"/>
+                                <state key="normal" image="Icons_44px_Back01"/>
+                                <connections>
+                                    <action selector="backLastPage" destination="4Ur-JV-qUQ" eventType="touchUpInside" id="ARO-he-BIQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="騎乘總距離：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyr-p7-5RM">
+                                <rect key="frame" x="79" y="503" width="120" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99.99 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoa-mq-e5d">
+                                <rect key="frame" x="202" y="503" width="83" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M3-SI-64k">
+                                <rect key="frame" x="48" y="442" width="279" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  平均坡度  ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-Na-Slk">
+                                <rect key="frame" x="79" y="574" width="123" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999.99 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPF-0E-ZC0">
+                                <rect key="frame" x="200" y="574" width="85" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="累計爬升量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvp-Rl-vqa">
+                                <rect key="frame" x="79" y="539" width="120" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999.99 m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alt-T5-gPw">
+                                <rect key="frame" x="200" y="539" width="84" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="73I-4C-wGO" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" constant="48" id="4Tn-w2-XLD"/>
+                            <constraint firstItem="Kzq-XO-3Wz" firstAttribute="top" secondItem="95n-ka-BlX" secondAttribute="top" id="6Pg-nD-CAL"/>
+                            <constraint firstItem="73I-4C-wGO" firstAttribute="centerX" secondItem="95n-ka-BlX" secondAttribute="centerX" id="96O-40-8pu"/>
+                            <constraint firstItem="p7G-en-kQi" firstAttribute="leading" secondItem="73I-4C-wGO" secondAttribute="leading" id="D7J-sG-k5B"/>
+                            <constraint firstItem="p7G-en-kQi" firstAttribute="bottom" secondItem="73I-4C-wGO" secondAttribute="bottom" id="Gq2-dW-8Qc"/>
+                            <constraint firstItem="73I-4C-wGO" firstAttribute="centerY" secondItem="95n-ka-BlX" secondAttribute="centerY" constant="-40" id="H1f-g6-3i0"/>
+                            <constraint firstItem="VIQ-bE-0XQ" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" constant="16" id="L5v-gg-XW9"/>
+                            <constraint firstItem="p7G-en-kQi" firstAttribute="trailing" secondItem="73I-4C-wGO" secondAttribute="trailing" id="Npf-df-oDm"/>
+                            <constraint firstItem="p7G-en-kQi" firstAttribute="top" secondItem="73I-4C-wGO" secondAttribute="top" id="Wep-LD-79m"/>
+                            <constraint firstItem="u2c-3G-mhH" firstAttribute="trailing" secondItem="Kzq-XO-3Wz" secondAttribute="trailing" id="hgm-E1-HFx"/>
+                            <constraint firstItem="VIQ-bE-0XQ" firstAttribute="top" secondItem="95n-ka-BlX" secondAttribute="top" constant="30" id="ijw-GX-gRa"/>
+                            <constraint firstItem="u2c-3G-mhH" firstAttribute="trailing" secondItem="73I-4C-wGO" secondAttribute="trailing" constant="48" id="jYf-XD-brF"/>
+                            <constraint firstItem="Kzq-XO-3Wz" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" id="nQ3-aO-bIP"/>
+                            <constraint firstItem="u2c-3G-mhH" firstAttribute="bottom" secondItem="Kzq-XO-3Wz" secondAttribute="bottom" constant="450" id="tc3-fb-Pl9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u2c-3G-mhH"/>
+                    </view>
+                    <connections>
+                        <outlet property="aveAlopeLabel" destination="bPF-0E-ZC0" id="g6O-TM-eoX"/>
+                        <outlet property="distanceLabel" destination="hoa-mq-e5d" id="gcy-2n-9hd"/>
+                        <outlet property="elevationLabel" destination="alt-T5-gPw" id="cXe-b3-Is6"/>
+                        <outlet property="locationLabel" destination="6M3-SI-64k" id="vED-9z-A6j"/>
+                        <outlet property="mapBackView" destination="73I-4C-wGO" id="Mlo-oL-aMw"/>
+                        <outlet property="routeImageView" destination="Kzq-XO-3Wz" id="xNl-51-Q2i"/>
+                        <outlet property="routeMapView" destination="p7G-en-kQi" id="f6E-5X-ll0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBL-1X-4cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239.19999999999999" y="288.30584707646182"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons_44px_Back01" width="44" height="44"/>
+    </resources>
+</document>

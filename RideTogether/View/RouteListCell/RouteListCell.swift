@@ -10,6 +10,8 @@ import UIKit
 
 class RouteListCell: UITableViewCell {
     
+    var handler: ((IndexPath) -> Void)?
+    
     var routeListData = [RouteData]() {
         
         didSet {
@@ -66,6 +68,21 @@ extension RouteListCell: UICollectionViewDataSource {
         routeCell.routeView.setImage(urlString: urlString)
         
         return routeCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+//        let storyboard = UIStoryboard(name: "DetailRouteStoryboard", bundle: nil)
+//
+//        guard
+//            let routeDetailVC = storyboard.instantiateViewController(withIdentifier: "DetailRouteStoryboard")
+//                as? RouteDetailViewController
+//        else { return }
+//
+//        routeDetailVC.routeData = self.routeListData[indexPath.row]
+        
+        handler!(indexPath)
     }
 }
 

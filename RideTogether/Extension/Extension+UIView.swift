@@ -25,7 +25,7 @@ extension UIView {
     
     func addShadow() {
         
-        self.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.layer.shadowOffset = CGSize(width: 6, height: 4)
         
         self.layer.shadowOpacity = 0.7
         

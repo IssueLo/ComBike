@@ -80,11 +80,20 @@ class HomePageViewController: UIViewController {
                     
                     switch result {
                         
-                    case .success(let routeData):
+                    case .success(var routeData):
+                        
+                        let array = routeData.name.components(separatedBy: "：")
+                        
+                        if array.count == 1 {
+                            
+                            routeData.name = array[0]
+                        } else {
+                            
+                            routeData.name = array[1]
+                        }
                         
                         currentRouteData.append(routeData)
                         
-                        print("**leave: \(routeID)")
                         group.leave()
                         
                     case .failure(let error):
@@ -102,10 +111,6 @@ class HomePageViewController: UIViewController {
             })
         }
         
-//        let tokenURL = StravaRequest.getToken.makeRequest()
-//
-//        HTTPClient.shared.tokenRequest(tokenURL)
-        
         let nib = UINib(nibName: "RouteListCell", bundle: nil)
         
         routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
@@ -114,6 +119,12 @@ class HomePageViewController: UIViewController {
 
         routeListTableView.register(headerNib,
                                     forHeaderFooterViewReuseIdentifier: "RouteHeaderView")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
 }
 
@@ -136,6 +147,23 @@ extension HomePageViewController: UITableViewDataSource {
         guard let routeListCell = cell as? RouteListCell else { return cell }
         
         routeListCell.routeListData = self.routeDataArray[indexPath.section]
+        
+        routeListCell.handler = { (indexPath) in
+            
+            let storyboard = UIStoryboard(name: "RouteDetailStoryboard", bundle: nil)
+            
+            guard
+                let routeDetailVC = storyboard.instantiateViewController(withIdentifier: "RouteDetailStoryboard")
+                    as? RouteDetailViewController
+                else { return }
+            
+            routeDetailVC.routeData = routeListCell.routeListData[indexPath.row]
+            
+            routeDetailVC.hidesBottomBarWhenPushed = true
+            
+            self.show(routeDetailVC, sender: nil)
+                        
+        }
         
         return routeListCell
     }
