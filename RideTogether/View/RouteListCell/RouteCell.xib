@@ -41,17 +41,16 @@
                             <constraint firstItem="PoW-dI-wsf" firstAttribute="leading" secondItem="q6o-wx-c21" secondAttribute="leading" constant="8" id="I2u-TU-d3E"/>
                             <constraint firstItem="yQN-KB-yJK" firstAttribute="top" secondItem="PoW-dI-wsf" secondAttribute="bottom" constant="4" id="JNF-83-OLD"/>
                             <constraint firstItem="PoW-dI-wsf" firstAttribute="top" secondItem="q6o-wx-c21" secondAttribute="top" constant="8" id="Lf7-aM-buR"/>
-                            <constraint firstAttribute="width" constant="150" id="PMk-sD-UpS"/>
                             <constraint firstAttribute="trailing" secondItem="PoW-dI-wsf" secondAttribute="trailing" constant="8" id="Q7w-BH-5pN"/>
-                            <constraint firstAttribute="height" constant="150" id="gWQ-N6-P3x"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="q6o-wx-c21" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7nL-nM-L3A"/>
                 <constraint firstAttribute="bottom" secondItem="q6o-wx-c21" secondAttribute="bottom" id="AbU-22-k4V"/>
+                <constraint firstAttribute="trailing" secondItem="q6o-wx-c21" secondAttribute="trailing" id="cBc-f6-CNm"/>
                 <constraint firstItem="q6o-wx-c21" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iwC-mb-jaQ"/>
+                <constraint firstItem="q6o-wx-c21" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nfD-Sw-dbn"/>
             </constraints>
             <size key="customSize" width="150" height="150"/>
             <connections>

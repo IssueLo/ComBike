@@ -71,6 +71,19 @@ extension RouteListCell: UICollectionViewDataSource {
 
 extension RouteListCell: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        cell.alpha = 0
+
+        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+
+            cell.alpha = 1
+        })
+
+        animator.startAnimation()
+    }
 }
 
 extension RouteListCell: UICollectionViewDelegateFlowLayout {
@@ -86,7 +99,7 @@ extension RouteListCell: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 0, left: 12, bottom: 24, right: 12)
     }
     
     func collectionView(_ collectionView: UICollectionView,

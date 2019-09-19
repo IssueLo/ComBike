@@ -53,6 +53,10 @@ class HomePageViewController: UIViewController {
             routeListTableView.dataSource = self
             
             routeListTableView.delegate = self
+            
+            routeListTableView.sectionFooterHeight = 0
+            
+            routeListTableView.contentInset.bottom = -20
         }
     }
     
