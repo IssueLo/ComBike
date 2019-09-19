@@ -33,7 +33,7 @@ enum StravaRequest: Request {
             let dict = ["client_id": 38371,
                         "client_secret": "b9e9b0bc892ae3c12d4c181df8930d17ff7bd8b2",
                         "grant_type": "refresh_token",
-                        "refresh_token": "cfa09b3ce3ca214dfbd80509b3387b342b9c6e8a"] as [String : Any]
+                        "refresh_token": "cfa09b3ce3ca214dfbd80509b3387b342b9c6e8a"] as [String: Any]
             
             return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
             

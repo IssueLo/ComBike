@@ -11,11 +11,11 @@ import MapKit
 
 class RouteCell: UICollectionViewCell {
     
-    @IBOutlet weak var routeMapView: MKMapView! {
+    @IBOutlet weak var routeView: UIImageView! {
         
         didSet {
             
-            routeMapView.delegate = self
+            routeView.addRound(radis: 8)
         }
     }
     
@@ -24,7 +24,7 @@ class RouteCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.addRound(radis: 8)
+        contentView.addRound(radis: 12)
     }
 }
 

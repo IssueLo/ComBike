@@ -21,6 +21,8 @@ class StravaProvider {
                 
                 let url = StravaRequest.getRouteData(token: token.accessToken, routeID: routeID).makeRequest()
                 
+//                let url = StravaRequest.getRouteData(token: "ff3cfa55de0cf744f1421a7fd56f8f5336acaf5c", routeID: routeID).makeRequest()
+                
                 HTTPClient.shared.request(url, completion)
                 
             case .failure:

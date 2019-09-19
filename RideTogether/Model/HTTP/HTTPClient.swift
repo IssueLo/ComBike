@@ -89,17 +89,13 @@ class HTTPClient {
     
     private init() { }
     
-    let url = StravaRequest.getRouteData(token: "72be1ac48f46701257e13800c3c4f5a710bbdeab", routeID: "10264990").makeRequest()
-    
-//    let tokenURL = StravaRequest.getToken.makeRequest()
-    
     func request(_ url: URLRequest,
                  _ completion: @escaping (Result<RouteData>) -> Void) {
         
         Alamofire.request(url).responseJSON { (response) in
             
             //            print(response.request)  // 原始的 URL 要求
-            print(response.response?.statusCode) // URL 回應
+            //            print(response.response?.statusCode) // URL 回應
             //            print(response.data)     // 伺服器資料
             //            print(response.result)   // 回應的序列化結果
             
@@ -141,20 +137,7 @@ class HTTPClient {
                 
             case 200..<300:
                 
-//                guard let data = response.data else { return }
-                
                 completion(Result.success(response.data!))
-//                do {
-//
-//                    let dataObject = try self.decoder.decode(Token.self, from: data)
-//
-//                    print(dataObject)
-//
-//
-//
-//                } catch {
-//
-//                }
                 
             case 400..<500:
                 
@@ -176,7 +159,6 @@ class HTTPClient {
                 
                 let decoder = JSONDecoder()
                 
-
                 let dataObject = try decoder.decode(Token.self, from: data)
                 
                 print(dataObject)
@@ -190,6 +172,8 @@ class HTTPClient {
 
 struct RouteData: Codable {
     
+    let routeID: Int
+    
     let name: String
     
     let distance: Double
@@ -202,7 +186,10 @@ struct RouteData: Codable {
         
         case name, distance, map
         
+        case routeID = "id"
+        
         case estimatedTime = "estimated_moving_time"
+        
     }
 }
 

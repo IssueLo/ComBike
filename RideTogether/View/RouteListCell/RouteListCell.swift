@@ -10,7 +10,16 @@ import UIKit
 
 class RouteListCell: UITableViewCell {
     
-    var routeListData = [String]()
+    var routeListData = [RouteData]() {
+        
+        didSet {
+            
+            DispatchQueue.main.async {
+                
+                self.routeCollectionView.reloadData()
+            }
+        }
+    }
     
     @IBOutlet weak var routeCollectionView: UICollectionView! {
         
@@ -50,7 +59,11 @@ extension RouteListCell: UICollectionViewDataSource {
         
         guard let routeCell = cell as? RouteCell else { return cell }
         
-        routeCell.routeNameLabel.text = routeListData[indexPath.row]
+        routeCell.routeNameLabel.text = routeListData[indexPath.row].name
+        
+        let urlString = "https://bike100.tw/wp-content/uploads/\(routeListData[indexPath.row].routeID).jpg"
+        
+        routeCell.routeView.setImage(urlString: urlString)
         
         return routeCell
     }
@@ -65,8 +78,8 @@ extension RouteListCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 140, height: 140)
+
+        return CGSize(width: 150, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView,

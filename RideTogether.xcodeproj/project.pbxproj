@@ -210,9 +210,9 @@
 		954443AD2330D38800020F9E /* RestfulAPI */ = {
 			isa = PBXGroup;
 			children = (
-				954443AE2330D48F00020F9E /* StravaRequest.swift */,
-				955AC84E23326F3B00388934 /* StravaAuthManager.swift */,
 				955AC8502332790A00388934 /* StravaProvider.swift */,
+				955AC84E23326F3B00388934 /* StravaAuthManager.swift */,
+				954443AE2330D48F00020F9E /* StravaRequest.swift */,
 			);
 			path = RestfulAPI;
 			sourceTree = "<group>";
