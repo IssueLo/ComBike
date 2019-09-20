@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseStorage
-import Firebase
+import FirebaseAuth
 
 class UserProfileController: UIViewController {
     
@@ -245,7 +245,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                         return
                     }
                     
-                    storageRef.downloadURL { (url, error) in
+                    storageRef.downloadURL { [weak self](url, error) in
                         
                         if let error = error {
                             
@@ -260,7 +260,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                                 let userEmail = FirebaseAccountManager.shared.userEmail
                             else { return }
                             
-                            self.userImage.kf.setImage(with: url)
+                            self?.userImage.kf.setImage(with: url)
                             
                             FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
 

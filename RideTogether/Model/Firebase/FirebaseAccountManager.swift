@@ -6,7 +6,6 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-import Firebase
 import FirebaseAuth
 
 class FirebaseAccountManager {

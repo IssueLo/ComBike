@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseFirestore
 import MapKit
 
@@ -189,7 +188,6 @@ class FirebaseDataManeger {
         
         userInfoDatebase.document(userUID).setData(userInfoData)
     }
-    
     
     // 建立群組 - Done
     func createGroup(_ groupName: String, completion: @escaping (String) -> Void) {
@@ -402,7 +400,8 @@ class FirebaseDataManeger {
                 
                 FirebaseAccountManager.shared.userEmail = querySnapshot.data()?[UserInfoKey.email.rawValue] as? String
                 
-                FirebaseAccountManager.shared.userPhotoURL = querySnapshot.data()?[UserInfoKey.photoURL.rawValue] as? String
+                FirebaseAccountManager.shared.userPhotoURL = querySnapshot.data()?[UserInfoKey.photoURL.rawValue]
+                    as? String
             }
         }
     }
@@ -556,7 +555,7 @@ class FirebaseDataManeger {
         
         database.runTransaction({ (transaction, errorPointer) -> Any? in
             
-            let myDocument: DocumentSnapshot
+            var myDocument: DocumentSnapshot
             
             do {
                 

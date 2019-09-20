@@ -76,7 +76,7 @@ class HomePageViewController: UIViewController {
                 print("**enter: \(routeID)")
                 group.enter()
                 
-                StravaProvider.getRouteData(routeID) { (result) in
+                StravaProvider.getRouteData(routeID) { [weak self] (result) in
                     
                     switch result {
                         
@@ -104,10 +104,8 @@ class HomePageViewController: UIViewController {
             }
             
             group.notify(queue: .main, execute: {
-                print("**notify: \(area)")
-                print("**notify: \(currentRouteData)")
-                self.routeDataArray.append(currentRouteData)
                 
+                self.routeDataArray.append(currentRouteData)
             })
         }
         
@@ -174,13 +172,12 @@ extension HomePageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RouteHeaderView") as? RouteHeaderView
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RouteHeaderView")
+            as? RouteHeaderView
         
         headerView?.routeAreaLabel.text = headerTitle[section]
 
         headerView?.contentView.backgroundColor = .white
-        
-//        headerView?.backgroundColor = .blue
         
         return headerView
     }
@@ -189,13 +186,4 @@ extension HomePageViewController: UITableViewDelegate {
         
         return 50
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        return "Hi"
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        <#code#>
-//    }
 }

@@ -62,7 +62,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-5m-dae" customClass="UserRankView" customModule="RideTogether" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_36px_Profile_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-9M-FiJ">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-9M-FiJ">
                                                                 <rect key="frame" x="159.5" y="34" width="56" height="56"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="56" id="3wp-Tk-A2k"/>
@@ -202,6 +202,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icons_36px_Profile_Normal" width="36" height="36"/>
+        <image name="UChu" width="194" height="194"/>
     </resources>
 </document>

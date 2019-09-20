@@ -187,19 +187,25 @@ class RidingViewController: UIViewController {
         setupMapViewButton(mapButton)
         
         // 功能：抓取同伴當前位置
-        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID) { (locationOfMember) in
+        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID)
+        { [weak self](locationOfMember) in
             
-            if self.locationOfMember.count == 0 {
+            guard let countOfMember = self?.locationOfMember.count else {
                 
-                self.locationOfMember.append(locationOfMember)
+                return
+            }
+            
+            if countOfMember == 0 {
+                
+                self?.locationOfMember.append(locationOfMember)
                 
             } else {
                 
-                for number in 0..<self.locationOfMember.count {
+                for number in 0..<countOfMember {
                     
-                    if locationOfMember.name == self.locationOfMember[number].name {
+                    if locationOfMember.name == self?.locationOfMember[number].name {
                         
-                        self.locationOfMember.remove(at: number)
+                        self?.locationOfMember.remove(at: number)
                         
                         break
                     }
@@ -207,7 +213,7 @@ class RidingViewController: UIViewController {
                     continue
                 }
                 
-                self.locationOfMember.append(locationOfMember)
+                self?.locationOfMember.append(locationOfMember)
             }
         }
     }

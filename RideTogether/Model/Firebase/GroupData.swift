@@ -6,8 +6,7 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-import Foundation
-import Firebase
+import FirebaseFirestore
 
 struct GroupData {
     

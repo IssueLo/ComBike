@@ -6,14 +6,9 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-//import Foundation
 import UIKit
 
 class TimeManager {
-    
-//    static var shared = TimeManager()
-//    
-//    private init() {}
     
     var timerMove: Timer?
     

@@ -34,11 +34,11 @@ class CreateGroupController: UIViewController {
             
         } else {
         
-            FirebaseDataManeger.shared.createGroup(groupName) { (message) in
+            FirebaseDataManeger.shared.createGroup(groupName) { [weak self](message) in
                 
-                self.showAlert(message, { (_) in
+                self?.showAlert(message, { (_) in
                     
-                    self.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: false, completion: nil)
                 })
             }
         }

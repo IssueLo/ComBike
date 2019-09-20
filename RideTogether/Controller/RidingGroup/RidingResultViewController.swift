@@ -61,13 +61,14 @@ class RidingResultViewController: UIViewController {
                                        "st",
                                        "00:00:00")
         
-        FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { (result) in
+        FirebaseDataManeger.shared.observerOfResult(groupData.groupID)
+        { [weak self](result) in
             
-            self.memberResultInfo = result
+            self?.memberResultInfo = result
             
-            self.updateChartsData()
+            self?.updateChartsData()
             
-            self.updateMapPolyline()
+            self?.updateMapPolyline()
         }
     }
     
@@ -176,8 +177,11 @@ extension RidingResultViewController: MKMapViewDelegate {
     
     // Map 路線屬性
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
         let renderer = MKPolylineRenderer(overlay: overlay)
+        
         renderer.strokeColor = UIColor.blue
+        
         renderer.lineWidth = 5.0
         
         return renderer
