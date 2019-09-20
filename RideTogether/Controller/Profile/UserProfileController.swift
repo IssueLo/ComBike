@@ -79,6 +79,7 @@ class UserProfileController: UIViewController {
                 
                 // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.photoLibrary)，並 present UIImagePickerController
                 imagePickerController.sourceType = .photoLibrary
+                
                 self.present(imagePickerController, animated: true, completion: nil)
             }
         }
@@ -123,6 +124,8 @@ class UserProfileController: UIViewController {
             FirebaseAccountManager.shared.userName = nil
             
             FirebaseAccountManager.shared.userPhotoURL = nil
+            
+            FirebaseDataManeger.groupObserverFor.remove()
             
         } catch let error as NSError {
             

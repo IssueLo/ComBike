@@ -184,6 +184,15 @@ extension GroupListViewController: UITableViewDataSource {
             groupListCell.accessoryType = .none
         }
         
+        guard let photoURLString = groupData[indexPath.row].photoURLString else {
+            
+            groupListCell.groupImage.image = UIImage(named: "UChu")
+            
+            return groupListCell
+        }
+        
+        groupListCell.groupImage.setImage(urlString: photoURLString)
+        
         return groupListCell
     }
     

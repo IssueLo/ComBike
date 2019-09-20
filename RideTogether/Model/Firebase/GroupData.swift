@@ -12,6 +12,8 @@ struct GroupData {
     
     var groupID: String
     
+    var photoURLString: String?
+
     var name: String
     
     var member: [String]

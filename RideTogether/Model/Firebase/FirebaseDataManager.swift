@@ -65,8 +65,11 @@ class FirebaseDataManeger {
                     else { return }
                     
                     let groupID = documentChange.document.documentID
+                    
+                    let groupPhotoURL = documentChange.document.data()["photoURLString"] as? String
 //                    self.deleteGorup(groupID)
                     let groupData = GroupData(groupID: groupID,
+                                              photoURLString: groupPhotoURL,
                                               name: name,
                                               member: member,
                                               isFinished: isFinished,
@@ -87,7 +90,10 @@ class FirebaseDataManeger {
                     
                     let groupID = documentChange.document.documentID
                     
+                    let groupPhotoURL = documentChange.document.data()["photoURLString"] as? String
+                    
                     let groupData = GroupData(groupID: groupID,
+                                              photoURLString: groupPhotoURL,
                                               name: name,
                                               member: member,
                                               isFinished: isFinished,
@@ -207,13 +213,22 @@ class FirebaseDataManeger {
         userInfoDatebase.document(userUID).setData(userInfoData)
     }
     
-    // MARK: 更新照片 - Done
+    // MARK: 更新 User 照片 - Done
     func updateUserPhoto(_ userUID: String,
                          _ userPhothURL: String) {
         
         let userPhotoData: [String: Any] = [UserInfoKey.photoURL.rawValue: userPhothURL]
         
         userInfoDatebase.document(userUID).setData(userPhotoData, merge: true)
+    }
+    
+    // MARK: 更新 Group 照片 - Done
+    func updateGroupPhoto(_ groupUID: String,
+                          _ groupPhothURL: String) {
+        
+        let groupPhotoData: [String: Any] = [GroupKey.photoURLString.rawValue: groupPhothURL]
+        
+        groupDatebase.document(groupUID).setData(groupPhotoData, merge: true)
     }
     
     // MARK: 建立群組 - Done

@@ -17,6 +17,8 @@ enum GroupKey: String {
     
     case groupID
     
+    case photoURLString
+    
     case name
     
     case member
