@@ -54,7 +54,7 @@
                                             <action selector="backGroupVC" destination="vCK-Lz-ESP" eventType="touchUpInside" id="yGj-PB-bwL"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-37-ppi">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-37-ppi">
                                         <rect key="frame" x="107" y="24" width="56" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="RJC-kD-PJf"/>
@@ -100,6 +100,7 @@
                     </view>
                     <connections>
                         <outlet property="backView" destination="8rr-u3-IKm" id="IXd-LA-kE2"/>
+                        <outlet property="groupImageView" destination="hgb-37-ppi" id="uhe-7Q-HpS"/>
                         <outlet property="groupNameTxtFld" destination="TK2-6e-iUu" id="jjl-d1-7Ao"/>
                     </connections>
                 </viewController>

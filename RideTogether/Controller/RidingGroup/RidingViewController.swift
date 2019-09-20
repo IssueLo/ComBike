@@ -187,8 +187,7 @@ class RidingViewController: UIViewController {
         setupMapViewButton(mapButton)
         
         // 功能：抓取同伴當前位置
-        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID)
-        { [weak self](locationOfMember) in
+        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID) { [weak self](locationOfMember) in
             
             guard let countOfMember = self?.locationOfMember.count else {
                 

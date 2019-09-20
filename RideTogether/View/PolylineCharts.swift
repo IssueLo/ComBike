@@ -26,7 +26,7 @@ class UserPolylineView: LineChartView {
 //        formatterX.positiveSuffix = "s"  //数字后缀
 //        self.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatterX)
         
-        let xValues = ["0 km","1 km"]
+        let xValues = ["0 km", "1 km"]
         self.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValues)
         
         self.legend.form = .none
@@ -71,7 +71,7 @@ class UserPolylineView: LineChartView {
         //渐变颜色数组
         let gradientColors = [UIColor.orange.cgColor, UIColor.white.cgColor] as CFArray
         //每组颜色所在位置（范围0~1)
-        let colorLocations:[CGFloat] = [1.0, 0.0]
+        let colorLocations: [CGFloat] = [1.0, 0.0]
         //生成渐变色
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(),
                                        colors: gradientColors, locations: colorLocations)

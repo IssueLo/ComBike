@@ -17,7 +17,16 @@ class CreateGroupController: UIViewController {
         }
     }
     
+    @IBOutlet weak var groupImageView: UIImageView! {
+        
+        didSet {
+            
+            groupImageView.addRound(radis: Double(groupImageView.bounds.width / 2))
+        }
+    }
+    
     @IBOutlet weak var groupNameTxtFld: UITextField! {
+       
         didSet {
             
             groupNameTxtFld.placeholder = "請輸入群組名稱"

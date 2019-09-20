@@ -11,8 +11,12 @@ import MapKit
 
 struct MemberData {
     
+//    let uid: String
+    
     let name: String
     
+    var photoURLString: String?
+        
     var spendTime: Int?
     
     var distance: Double?

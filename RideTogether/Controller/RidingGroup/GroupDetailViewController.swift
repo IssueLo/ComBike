@@ -132,7 +132,14 @@ extension GroupDetailViewController: UITableViewDataSource {
         guard let groupListCell = cell as? GroupListCell else { return cell }
         
         groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
-                        
+        
+        guard let photoURLString = self.memberData[indexPath.row].photoURLString else {
+            
+            return groupListCell
+        }
+        
+        groupListCell.groupImage.setImage(urlString: photoURLString)
+        
         return groupListCell
     }
 }

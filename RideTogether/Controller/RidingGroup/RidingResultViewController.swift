@@ -61,8 +61,7 @@ class RidingResultViewController: UIViewController {
                                        "st",
                                        "00:00:00")
         
-        FirebaseDataManeger.shared.observerOfResult(groupData.groupID)
-        { [weak self](result) in
+        FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
             
             self?.memberResultInfo = result
             
