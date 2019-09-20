@@ -10,7 +10,13 @@ import UIKit
 
 class GroupListCell: UITableViewCell {
     
-    @IBOutlet weak var groupImage: UIImageView!
+    @IBOutlet weak var groupImage: UIImageView! {
+        
+        didSet {
+            
+            groupImage.addRound(radis: Double(groupImage.bounds.width / 2))
+        }
+    }
     
     @IBOutlet weak var groupNameLabel: UILabel!
     

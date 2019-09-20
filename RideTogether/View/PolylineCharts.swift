@@ -14,14 +14,6 @@ class UserPolylineView: LineChartView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        let formatter = DateFormatter()
-//
-//        formatter.dateFormat = "yyyy/MM/dd HH:mm"
-//
-//        let date = Date()
-//
-//        let dateString = formatter.string(from: date)
-        
         self.chartDescription?.text = "坡度紀錄"
         
         self.xAxis.labelPosition = .bottom

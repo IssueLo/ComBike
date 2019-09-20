@@ -141,6 +141,13 @@ class UserProfileController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard let userName = FirebaseAccountManager.shared.userName else {
+            
+            return
+        }
+        
+        navigationController?.navigationBar.topItem?.title = userName + "の個人頁面"
+        
         guard let photoURL = FirebaseAccountManager.shared.userPhotoURL else {
             
             userImage.image = UIImage(named: "UChu")
@@ -179,7 +186,11 @@ extension UserProfileController: UITableViewDataSource {
         
         switch indexPath.section {
         
-        case 0: profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
+        case 0:
+            
+            profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
+            
+            profileCell.accessoryType = .disclosureIndicator
 
         case 1: profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
 
@@ -254,19 +265,13 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             print(url as Any)
                             
-                            guard
-                                let url = url,
-                                let userName = FirebaseAccountManager.shared.userName,
-                                let userEmail = FirebaseAccountManager.shared.userEmail
-                            else { return }
+                            guard let url = url else { return }
                             
                             self?.userImage.kf.setImage(with: url)
                             
                             FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
 
                             FirebaseDataManeger.shared.updateUserPhoto(userUID,
-                                                                       userName,
-                                                                       userEmail,
                                                                        url.absoluteString)
                         }
                     }

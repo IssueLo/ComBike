@@ -32,7 +32,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    var headerTitle = ["北部推薦路線", "中部推薦路線", "南部推薦路線", "東部推薦路線"]
+    var headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
     
     var north = ["10221097", "10221464", "10891667", "16080569", "9542274"]
     

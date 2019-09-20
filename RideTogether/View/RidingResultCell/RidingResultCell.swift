@@ -10,7 +10,13 @@ import UIKit
 
 class RidingResultCell: UITableViewCell {
     
-    @IBOutlet weak var memberImage: UIImageView!
+    @IBOutlet weak var memberImage: UIImageView! {
+        
+        didSet {
+            
+            memberImage.addRound(radis: Double(memberImage.bounds.width / 2))
+        }
+    }
     
     @IBOutlet weak var memberNameLabel: UILabel!
     

@@ -113,7 +113,7 @@ class FirebaseDataManeger {
         
         let memberOfGroup = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
         
-        FirebaseDataManeger.memberObserverFor = memberOfGroup.addSnapshotListener { (querySnapshot, error) in
+        FirebaseDataManeger.memberObserverFor = memberOfGroup.addSnapshotListener { (querySnapshot, _) in
             
             guard let documents = querySnapshot?.documents else {
                 
@@ -178,15 +178,11 @@ class FirebaseDataManeger {
     
     // 更新照片 - Done
     func updateUserPhoto(_ userUID: String,
-                         _ userName: String,
-                         _ userEmail: String,
                          _ userPhothURL: String) {
         
-        let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
-                                           UserInfoKey.email.rawValue: userEmail,
-                                           UserInfoKey.photoURL.rawValue: userPhothURL]
+        let userPhotoData: [String: Any] = [UserInfoKey.photoURL.rawValue: userPhothURL]
         
-        userInfoDatebase.document(userUID).setData(userInfoData)
+        userInfoDatebase.document(userUID).setData(userPhotoData, merge: true)
     }
     
     // 建立群組 - Done
@@ -252,7 +248,7 @@ class FirebaseDataManeger {
 //            }
 //        }
  
-        database.runTransaction({ (transaction, errorPointer) -> Any? in
+        database.runTransaction({ (transaction, _) -> Any? in
             
             let myDocument: DocumentSnapshot
             
@@ -260,7 +256,7 @@ class FirebaseDataManeger {
                 
                 try myDocument = transaction.getDocument(groupDocument)
                 
-            } catch let fetchError as NSError {
+            } catch {
                 
                 return nil
             }
@@ -297,7 +293,7 @@ class FirebaseDataManeger {
             
             return nil
             
-        }) { (object, error) in
+        }) { (_, error) in
             
             if let error = error {
                 
@@ -320,7 +316,7 @@ class FirebaseDataManeger {
         
         memberDocument.delete()
         
-        database.runTransaction({ (transaction, errorPointer) -> Any? in
+        database.runTransaction({ (transaction, _) -> Any? in
             
             let myDocument: DocumentSnapshot
             
@@ -328,7 +324,7 @@ class FirebaseDataManeger {
                 
                 try myDocument = transaction.getDocument(groupDocument)
                 
-            } catch let fetchError as NSError {
+            } catch {
                 
                 return nil
             }
@@ -356,7 +352,7 @@ class FirebaseDataManeger {
             
             return nil
             
-        }) { (object, error) in
+        }) { (_, error) in
             
             if let error = error {
                 
@@ -553,33 +549,6 @@ class FirebaseDataManeger {
         
         let groupDocument = groupDatebase.document(groupID)
         
-        database.runTransaction({ (transaction, errorPointer) -> Any? in
-            
-            var myDocument: DocumentSnapshot
-            
-            do {
-                
-                try myDocument = transaction.getDocument(groupDocument)
-                
-            } catch let fetchError as NSError {
-                
-                return nil
-            }
-            
-            transaction.updateData([GroupKey.isFinished.rawValue: true], forDocument: groupDocument)
-            
-            return nil
-            
-        }) { (object, error) in
-            
-            if let error = error {
-                
-                print("Transaction failed: \(error)")
-                
-            } else {
-                
-                print("Transaction successfully committed!")
-            }
-        }
+        groupDocument.setData(["isFinished": true], merge: true)
     }
 }

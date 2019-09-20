@@ -425,8 +425,8 @@
 			children = (
 				953EF912233123E200DD692B /* RouteListCell */,
 				952806A1231E104A00EFD895 /* GroupListCell */,
-				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				9589DD7323253405003A9A87 /* RidingResultHeader */,
+				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,

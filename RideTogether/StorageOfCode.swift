@@ -183,3 +183,40 @@ private func getDataFromGroup(_ groupVC: GroupListViewController,
 }
  
 */
+
+/*
+// 將群組狀態改為已完成
+private func groupIsFinished(groupID: String) {
+    
+    let groupDocument = groupDatebase.document(groupID)
+    
+    database.runTransaction({ (transaction, errorPointer) -> Any? in
+        
+        var myDocument: DocumentSnapshot
+        
+        do {
+            
+            try myDocument = transaction.getDocument(groupDocument)
+            
+        } catch let fetchError as NSError {
+            
+            return nil
+        }
+        
+        transaction.updateData([GroupKey.isFinished.rawValue: true], forDocument: groupDocument)
+        
+        return nil
+        
+    }) { (object, error) in
+        
+        if let error = error {
+            
+            print("Transaction failed: \(error)")
+            
+        } else {
+            
+            print("Transaction successfully committed!")
+        }
+    }
+}
+*/
