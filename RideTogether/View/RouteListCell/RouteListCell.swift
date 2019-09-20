@@ -61,7 +61,9 @@ extension RouteListCell: UICollectionViewDataSource {
         
         guard let routeCell = cell as? RouteCell else { return cell }
         
-        routeCell.routeNameLabel.text = routeListData[indexPath.row].name
+        let routeNameArray = routeListData[indexPath.row].name.components(separatedBy: "（")
+        
+        routeCell.routeNameLabel.text = routeNameArray[0]
         
         let urlString = "https://bike100.tw/wp-content/uploads/\(routeListData[indexPath.row].routeID).jpg"
         
