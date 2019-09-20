@@ -501,12 +501,6 @@ class FirebaseDataManeger {
                     
                     self.updateRidingResult(groupID, completion: completion)
                 }
-                
-                // 結果只能上傳，不能修改，這個應該要拿掉
-                if documentChange.type == .modified {
-                    
-                    self.updateRidingResult(groupID, completion: completion)
-                }
             })
         }
     }
@@ -523,7 +517,11 @@ class FirebaseDataManeger {
                 
                 var ridingResultArray = [MemberData]()
                 
+                let group = DispatchGroup()
+                
                 for document in querySnapshot.documents {
+                    
+                    group.enter()
                     
                     guard
                         let memberName = document.data() ["name"] as? String,
@@ -549,10 +547,29 @@ class FirebaseDataManeger {
                     
                     memberInfo.route = route
                     
-                    ridingResultArray.append(memberInfo)
+                    self.searchMemberPhoto(memberUID: document.documentID, completion: { (result) in
+                        
+                        switch result {
+                            
+                        case .success(let memberUID):
+                            
+                            memberInfo.photoURLString = memberUID
+                            
+                            ridingResultArray.append(memberInfo)
+                            
+                            group.leave()
+                            
+                        case .failure:
+                            
+                            return
+                        }
+                    })
                 }
                 
-                completion(ridingResultArray)
+                group.notify(queue: .main, execute: {
+                    
+                    completion(ridingResultArray)
+                })
             }
         }
     }

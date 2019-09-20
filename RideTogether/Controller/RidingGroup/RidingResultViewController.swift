@@ -57,8 +57,8 @@ class RidingResultViewController: UIViewController {
         
         userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
                                        FirebaseAccountManager.shared.userPhotoURL!,
-                                       1,
-                                       "st",
+                                       0,
+                                       "",
                                        "00:00:00")
         
         FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
@@ -134,6 +134,13 @@ extension RidingResultViewController: UITableViewDataSource {
         self.updateUserInfo(memberResultInfo[indexPath.row].name,
                             (indexPath.row + 1),
                             spendTime)
+        
+        guard let photoURLString = self.memberResultInfo[indexPath.row].photoURLString else {
+            
+            return ridingResultCell
+        }
+        
+        ridingResultCell.memberImage.setImage(urlString: photoURLString)
         
         return ridingResultCell
     }
