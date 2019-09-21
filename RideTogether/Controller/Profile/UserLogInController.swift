@@ -131,8 +131,7 @@ extension UserLogInController: UserSignUpViewDelegate {
             
             FirebaseAccountManager.shared.onClickRegister(userName: name,
                                                           userEmail: email,
-                                                          userPassword: password)
-            { [weak self](error) in
+                                                          userPassword: password) { [weak self](error) in
                 
                 if error != nil {
                     

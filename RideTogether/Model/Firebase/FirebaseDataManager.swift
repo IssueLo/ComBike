@@ -15,6 +15,8 @@ typealias GroupDataHandler = (Result<GroupData>) -> Void
 typealias MemberDataHandler = (Result<MemberData>) -> Void
 
 // swiftlint:disable multiple_closures_with_trailing_closure
+// swiftlint:disable type_body_length
+// swiftlint:disable file_length
 class FirebaseDataManeger {
     
     static let shared = FirebaseDataManeger()
@@ -616,3 +618,5 @@ class FirebaseDataManeger {
     }
 }
 // swiftlint:enable multiple_closures_with_trailing_closure
+// swiftlint:enable type_body_length
+// swiftlint:enable file_length

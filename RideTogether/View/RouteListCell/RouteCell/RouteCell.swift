@@ -15,7 +15,7 @@ class RouteCell: UICollectionViewCell {
         
         didSet {
             
-            routeView.addRound(radis: 8)
+//            routeView.addRound(radis: 8)
         }
     }
     
@@ -24,7 +24,7 @@ class RouteCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.addRound(radis: 12)
+        contentView.addRound(radis: 12, borderColor: .white)
     }
 }
 

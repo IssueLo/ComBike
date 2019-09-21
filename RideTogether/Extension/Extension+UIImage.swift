@@ -57,6 +57,7 @@ extension UIImage {
         return newImage!
     }
     
+    // swiftlint:disable function_body_length
     func fixOrientation() -> UIImage {
         if self.imageOrientation == UIImage.Orientation.up {
             return self
@@ -109,7 +110,7 @@ extension UIImage {
             ctx?.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.height, height: self.size.width))
         default:
             ctx?.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-            break
+//            break
         }
         
         // And now we just create a new UIImage from the drawing context
@@ -118,4 +119,5 @@ extension UIImage {
         
         return img
     }
+    // swiftlint:enable function_body_length
 }

@@ -76,7 +76,7 @@ class HomePageViewController: UIViewController {
                 print("**enter: \(routeID)")
                 group.enter()
                 
-                StravaProvider.getRouteData(routeID) { [weak self] (result) in
+                StravaProvider.getRouteData(routeID) { (result) in
                     
                     switch result {
                         

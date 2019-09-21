@@ -252,13 +252,7 @@ class RidingViewController: UIViewController {
     
     func setupMapViewButton(_ sender: MKUserTrackingButton) {
         
-        sender.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
-        
-        sender.layer.borderColor = UIColor.white.cgColor
-        
-        sender.layer.borderWidth = 1
-        
-        sender.layer.cornerRadius = 5
+        sender.addRound(radis: 5, borderColor: .white, backgroundColor: UIColor(white: 1, alpha: 0.8))
         
         mapView.addSubview(sender)
         

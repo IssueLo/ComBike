@@ -6,7 +6,6 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-
 /*
  
 guard let documents = querySnapshot?.documents else {
