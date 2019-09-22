@@ -49,6 +49,8 @@ class RouteDetailViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
 //        presentingViewController?.dismiss(animated: false, completion: nil)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func viewDidLoad() {

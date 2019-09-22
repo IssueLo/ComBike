@@ -11,12 +11,13 @@ import UIKit
 extension UIView {
     
     func addRound(radis: Double = 25,
+                  borderWidth: Double = 1,
                   borderColor: UIColor = .lightGray,
                   backgroundColor: UIColor = .white) {
         
         self.layer.cornerRadius = CGFloat(radis)
         
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = CGFloat(borderWidth)
         
         self.layer.borderColor = borderColor.cgColor
         

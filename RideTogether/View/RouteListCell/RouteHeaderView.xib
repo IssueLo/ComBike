@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,20 +15,44 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c4-cy-rTs">
-                    <rect key="frame" x="12" y="14.5" width="42" height="21"/>
+                    <rect key="frame" x="16" y="14.5" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_Next" translatesAutoresizingMaskIntoConstraints="NO" id="Coi-bv-5P5">
+                    <rect key="frame" x="294" y="20" width="10" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="Byj-X6-Vh8"/>
+                        <constraint firstAttribute="width" constant="10" id="d2S-Eg-Qjr"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhu-7d-uab">
+                    <rect key="frame" x="243" y="10" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="See all"/>
+                    <connections>
+                        <action selector="seeAllRoute:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="NbE-X5-XGY"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="8c4-cy-rTs" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="12" id="Ikb-SK-gy7"/>
+                <constraint firstItem="Bhu-7d-uab" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="1Eg-i8-2aR"/>
+                <constraint firstItem="8c4-cy-rTs" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="Ikb-SK-gy7"/>
+                <constraint firstAttribute="trailing" secondItem="Coi-bv-5P5" secondAttribute="trailing" constant="16" id="ZZm-oO-byr"/>
                 <constraint firstItem="8c4-cy-rTs" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="doX-Ff-I8y"/>
+                <constraint firstItem="Coi-bv-5P5" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="mE4-pM-aNr"/>
+                <constraint firstItem="Coi-bv-5P5" firstAttribute="leading" secondItem="Bhu-7d-uab" secondAttribute="trailing" constant="5" id="qyS-1J-gjX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
                 <outlet property="routeAreaLabel" destination="8c4-cy-rTs" id="VjC-dO-if4"/>
+                <outlet property="seeAllRouteBtn" destination="Bhu-7d-uab" id="94u-7X-Dpu"/>
             </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="Icons_24px_Next" width="32" height="32"/>
+    </resources>
 </document>

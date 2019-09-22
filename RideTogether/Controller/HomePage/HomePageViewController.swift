@@ -12,15 +12,13 @@ class HomePageViewController: UIViewController {
     
     var jsonArray: NSMutableArray?
     
-    var routeData = [RouteData]() {
-        
-        didSet {
-            
-            self.routeListTableView.reloadData()
-            
-            print(routeDataArray)
-        }
-    }
+//    var routeData = [RouteData]() {
+//        
+//        didSet {
+//            
+//            self.routeListTableView.reloadData()
+//        }
+//    }
     
     var routeDataArray = [[RouteData]]() {
         
@@ -178,14 +176,32 @@ extension HomePageViewController: UITableViewDelegate {
             as? RouteHeaderView
         
         headerView?.routeAreaLabel.text = headerTitle[section]
-
-        headerView?.contentView.backgroundColor = .white
+        
+        headerView?.handler = {
+            
+            let storyboard = UIStoryboard(name: "AreaRouteStoryboard", bundle: nil)
+            
+            guard let areaRouteVC = storyboard.instantiateViewController(withIdentifier: "AreaRouteViewController")
+                as? AreaRouteViewController
+            else { return }
+            
+            areaRouteVC.view.layoutIfNeeded()
+            
+            areaRouteVC.areaRouteData = self.routeDataArray[section]
+                        
+            self.show(areaRouteVC, sender: nil)
+        }
         
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 50
+        return 48
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 140
     }
 }

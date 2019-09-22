@@ -62,6 +62,8 @@
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594A069232F2C71000A91C0 /* Extension+UIImage.swift */; };
 		95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE909A23371F6800F40ADD /* Extension+UIColor.swift */; };
+		95BE909D233783A200F40ADD /* AreaRouteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */; };
+		95BE909F2337842C00F40ADD /* AreaRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
 		95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17A231F734600329927 /* KeyChainManager.swift */; };
@@ -133,6 +135,8 @@
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		9594A069232F2C71000A91C0 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		95BE909A23371F6800F40ADD /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AreaRouteStoryboard.storyboard; sourceTree = "<group>"; };
+		95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaRouteViewController.swift; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		95CFD17A231F734600329927 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -174,8 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
-				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
-				951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */,
+				95BE90A02337B27100F40ADD /* RouteRecommend */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
 				95AE91A1232E31E400AD00CF /* Profile */,
 				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
@@ -227,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9525992B23211914009C7750 /* HomePageViewController.swift */,
+				95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */,
 				951D92582333735400275B78 /* RouteDetailViewController.swift */,
 			);
 			path = HomePage;
@@ -338,6 +342,16 @@
 				9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		95BE90A02337B27100F40ADD /* RouteRecommend */ = {
+			isa = PBXGroup;
+			children = (
+				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
+				95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */,
+				951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */,
+			);
+			path = RouteRecommend;
 			sourceTree = "<group>";
 		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
@@ -513,6 +527,7 @@
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
+				95BE909D233783A200F40ADD /* AreaRouteStoryboard.storyboard in Resources */,
 				9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
@@ -636,6 +651,7 @@
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
 				95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */,
 				952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */,
+				95BE909F2337842C00F40ADD /* AreaRouteViewController.swift in Sources */,
 				9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */,
 				954443AF2330D48F00020F9E /* StravaRequest.swift in Sources */,
 				955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */,
