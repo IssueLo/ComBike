@@ -90,7 +90,7 @@ extension RouteDetailViewController: MKMapViewDelegate {
         
         let renderer = MKPolylineRenderer(overlay: overlay)
         
-        renderer.strokeColor = UIColor.blue
+        renderer.strokeColor = .hexStringToUIColor()
         
         renderer.lineWidth = 5.0
         

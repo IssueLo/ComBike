@@ -13,7 +13,7 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var backView: UIView! {
         didSet {
             
-            backView.layer.cornerRadius = 10
+            backView.layer.cornerRadius = 8
         }
     }
     

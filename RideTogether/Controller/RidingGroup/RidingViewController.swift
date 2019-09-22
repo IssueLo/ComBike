@@ -21,7 +21,11 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            stopButton.addRound()
+            stopButton.addRound(backgroundColor: .hexStringToUIColor())
+            
+            stopButton.setTitleColor(.white, for: .normal)
+            
+            saveButton.addTarget(self, action: #selector(stopRiding), for: .touchUpInside)
         }
     }
     
@@ -29,7 +33,11 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            saveButton.addRound()
+            saveButton.addRound(backgroundColor: .hexStringToUIColor())
+            
+            saveButton.setTitleColor(.white, for: .normal)
+            
+            saveButton.addTarget(self, action: #selector(saveRidingData), for: .touchUpInside)
         }
     }
     
@@ -85,7 +93,7 @@ class RidingViewController: UIViewController {
     
     var locatonTimer: Timer?
     
-    @IBAction func stopRiding() {
+    @objc func stopRiding() {
         
         timeManager.controlButton(timeLabel)
         
@@ -96,9 +104,7 @@ class RidingViewController: UIViewController {
             coverView.alpha = 0.4
             
             self.stopButton.setTitle("繼續", for: .normal)
-            
-            self.saveButton.setTitleColor(.black, for: .normal)
-            
+                        
             self.stopButton.translatesAutoresizingMaskIntoConstraints = true
             
             self.saveButton.translatesAutoresizingMaskIntoConstraints = true
@@ -123,9 +129,7 @@ class RidingViewController: UIViewController {
                 self.coverView.alpha = 0
 
                 self.stopButton.setTitle("停止", for: .normal)
-                
-                self.saveButton.setTitleColor(.lightGray, for: .normal)
-                
+                                
                 self.stopButton.center.x = (self.screenWidth / 2)
 
                 self.saveButton.center.x = (self.screenWidth / 2)
@@ -134,7 +138,7 @@ class RidingViewController: UIViewController {
         }
     }
     
-    @IBAction func saveRidingData() {
+    @objc func saveRidingData() {
         
         let storyboard = UIStoryboard(name: "RidingResultStoryboard", bundle: nil)
         
@@ -369,7 +373,7 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     // Map 路線屬性
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.blue
+        renderer.strokeColor = .hexStringToUIColor()
         renderer.lineWidth = 5.0
         
         return renderer

@@ -10,9 +10,17 @@ import UIKit
 
 class QRCodeView: UIView {
     
+    var handler: (() -> Void)?
+    
     @IBOutlet weak var qrCodeImage: UIImageView!
     
-    var handler: (() -> Void)?
+    @IBOutlet weak var qrCodeBackView: UIView! {
+        
+        didSet {
+            
+            qrCodeBackView.addRound(radis: 8)
+        }
+    }
     
     @IBAction func backGroupDeteilVC() {
         
