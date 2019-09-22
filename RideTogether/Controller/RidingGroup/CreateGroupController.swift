@@ -13,7 +13,7 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var backView: UIView! {
         didSet {
             
-            backView.layer.cornerRadius = 14
+            backView.layer.cornerRadius = 10
         }
     }
     
@@ -21,10 +21,12 @@ class CreateGroupController: UIViewController {
         
         didSet {
             
-            groupImageView.addRound(radis: Double(groupImageView.bounds.width / 2))
+            groupImageView.addRound(radis: Double(groupImageView.bounds.width / 2),
+                                    borderWidth: 0.8,
+                                    borderColor: .black)
         }
     }
-    
+
     @IBOutlet weak var groupNameTxtFld: UITextField! {
        
         didSet {
@@ -33,7 +35,20 @@ class CreateGroupController: UIViewController {
         }
     }
     
-    @IBAction func createGroup() {
+    @IBOutlet weak var createGroupBtn: UIButton! {
+        
+        didSet {
+
+            createGroupBtn.addRound(radis: 16,
+                                    backgroundColor: .hexStringToUIColor())
+            
+            createGroupBtn.setTitleColor(.white, for: .normal)
+            
+            createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
+        }
+    }
+    
+    @objc func createGroup() {
         
         guard let groupName = groupNameTxtFld.text else { return }
         

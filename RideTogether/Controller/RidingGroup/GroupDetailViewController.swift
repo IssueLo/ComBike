@@ -21,31 +21,26 @@ class GroupDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var memberListTableView: UITableView!
+    @IBOutlet weak var memberListTableView: UITableView! {
+        
+        didSet {
+            
+            memberListTableView.contentInset.bottom = 12
+            
+            memberListTableView.contentInset.top = 12
+        }
+    }
     
     @IBOutlet weak var startBtn: UIButton! {
         
         didSet {
 
-            startBtn.addRound(radis: 25)
+            startBtn.addRound(backgroundColor: .hexStringToUIColor())
             
-            startBtn.addShadow()
+            startBtn.setTitleColor(.white, for: .normal)
+            
+            startBtn.addTarget(self, action: #selector(startRiding), for: .touchUpInside)
         }
-    }
-    
-    @IBAction func startRiding() {
-        
-        let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
-        
-        guard
-            let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
-            as? RidingViewController
-        else { return }
-
-        ridingVC.groupData = groupData
-        
-        present(ridingVC, animated: true, completion: nil)
-//        show(ridingVC, sender: nil)
     }
     
     override func viewDidLoad() {
@@ -168,6 +163,21 @@ class GroupDetailViewController: UIViewController {
         // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
         present(imagePickerAlertController, animated: true, completion: nil)
     }
+    
+    @objc func startRiding() {
+            
+            let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
+            
+            guard
+                let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
+                as? RidingViewController
+            else { return }
+
+            ridingVC.groupData = groupData
+            
+            present(ridingVC, animated: true, completion: nil)
+    //        show(ridingVC, sender: nil)
+        }
 }
 
 extension GroupDetailViewController: UITableViewDataSource {
@@ -185,6 +195,8 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
         
+        groupListCell.statusLabel.alpha = 0
+        
         guard let photoURLString = self.memberData[indexPath.row].photoURLString else {
             
             return groupListCell
@@ -198,10 +210,10 @@ extension GroupDetailViewController: UITableViewDataSource {
 
 extension GroupDetailViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 70
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 70
+//    }
 }
 
 extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
