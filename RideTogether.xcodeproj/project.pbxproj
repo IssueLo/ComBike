@@ -61,6 +61,7 @@
 		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594A069232F2C71000A91C0 /* Extension+UIImage.swift */; };
+		95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE909A23371F6800F40ADD /* Extension+UIColor.swift */; };
 		95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD176231F677E00329927 /* TabBarViewController.swift */; };
 		95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */; };
 		95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CFD17A231F734600329927 /* KeyChainManager.swift */; };
@@ -131,6 +132,7 @@
 		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		9594A069232F2C71000A91C0 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		95BE909A23371F6800F40ADD /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		95CFD176231F677E00329927 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		95CFD17A231F734600329927 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */,
 				9545C98C232A876B00B74B03 /* Extension+UIView.swift */,
 				9594A069232F2C71000A91C0 /* Extension+UIImage.swift */,
+				95BE909A23371F6800F40ADD /* Extension+UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				9545678E2328F5FE009DA63B /* ProfileCell.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
+				95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */,
 				952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */,
 				9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */,
 				954443AF2330D48F00020F9E /* StravaRequest.swift in Sources */,

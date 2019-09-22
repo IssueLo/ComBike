@@ -58,6 +58,7 @@ extension UIImage {
     }
     
     // swiftlint:disable function_body_length
+    // swiftlint:disable cyclomatic_complexity
     func fixOrientation() -> UIImage {
         if self.imageOrientation == UIImage.Orientation.up {
             return self
@@ -77,6 +78,7 @@ extension UIImage {
             transform = transform.rotated(by: CGFloat(-Double.pi / 2))
         case .up, .upMirrored:
             break
+        @unknown default: break
         }
         
         switch self.imageOrientation {
@@ -120,4 +122,5 @@ extension UIImage {
         return img
     }
     // swiftlint:enable function_body_length
+    // swiftlint:enable cyclomatic_complexity
 }

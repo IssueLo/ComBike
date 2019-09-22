@@ -73,22 +73,24 @@ class RidingResultViewController: UIViewController {
     
     func updateChartsData() {
         
-        for number in 0..<memberResultInfo.count {
+        for number in 0..<memberResultInfo.count
+            where FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
             
-            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
+//            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
                 
                 guard let altitudeData = memberResultInfo[number].altitude else { return }
                 
                 self.userPolylineView.updateChartsData(altitudeData)
-            }
+//            }
         }
     }
     
     func updateMapPolyline() {
         
-        for number in 0..<memberResultInfo.count {
+        for number in 0..<memberResultInfo.count
+            where FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
             
-            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
+//            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
                 
                 guard let polylineData = memberResultInfo[number].route else { return }
                 
@@ -104,7 +106,7 @@ class RidingResultViewController: UIViewController {
                 PolylineManager.shared.mapView = self.polylineMapView
                 
                 PolylineManager.shared.showPolyline(polylineCode: polylineCode)
-            }
+//            }
         }
 
     }

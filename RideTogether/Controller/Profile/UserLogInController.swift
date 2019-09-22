@@ -11,6 +11,14 @@ import FirebaseAuth
 
 class UserLogInController: UIViewController {
     
+    @IBOutlet weak var backCoverView: UIView! {
+        
+        didSet {
+            
+            backCoverView.backgroundColor = UIColor.hexStringToUIColor()
+        }
+    }
+    
     @IBOutlet weak var logInLabel: UILabel!
     
     @IBOutlet weak var userSignUpView: UserSignUpView!

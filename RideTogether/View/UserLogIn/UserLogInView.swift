@@ -51,6 +51,14 @@ class UserLogInView: UIView, UITextFieldDelegate {
                             userPassword: userPasswordTxtFld.text)
     }
     
+    @IBOutlet weak var toSingUpViewBtn: UIButton! {
+        
+        didSet {
+            
+            toSingUpViewBtn.setTitleColor(.hexStringToUIColor(), for: .normal)
+        }
+    }
+    
     @IBAction func toSignUpView() {
                 
         delegate?.toSignUpView()

@@ -63,6 +63,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
+        
         allRouteList = [north, central, southern, east]
         
         let group = DispatchGroup()

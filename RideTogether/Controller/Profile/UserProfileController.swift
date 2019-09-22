@@ -18,19 +18,21 @@ class UserProfileController: UIViewController {
     
     @IBOutlet weak var uiView: UIView! {
         didSet {
-            let grandientLayer = CAGradientLayer()
             
-            grandientLayer.frame = uiView.bounds
-            
-            grandientLayer.colors = [UIColor.white.cgColor //UIColor.red.cgColor
-                                     ,UIColor(red: 255, green: 126, blue: 121, alpha: 0).cgColor
-            ]
-            
-            grandientLayer.startPoint = CGPoint(x: 0, y: 0)
-            
-            grandientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-            
-            uiView.layer.insertSublayer(grandientLayer, at: 0)
+            uiView.backgroundColor = UIColor.hexStringToUIColor()
+//            let grandientLayer = CAGradientLayer()
+//
+//            grandientLayer.frame = uiView.bounds
+//
+//            grandientLayer.colors = [UIColor.white.cgColor //UIColor.red.cgColor
+//                                     ,UIColor(red: 255, green: 126, blue: 121, alpha: 0).cgColor
+//            ]
+//
+//            grandientLayer.startPoint = CGPoint(x: 0, y: 0)
+//
+//            grandientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+//
+//            uiView.layer.insertSublayer(grandientLayer, at: 0)
         }
     }
     
@@ -125,7 +127,10 @@ class UserProfileController: UIViewController {
             
             FirebaseAccountManager.shared.userPhotoURL = nil
             
-            FirebaseDataManeger.groupObserverFor.remove()
+            if FirebaseDataManeger.groupObserverFor != nil {
+                
+                FirebaseDataManeger.groupObserverFor.remove()
+            }
             
         } catch let error as NSError {
             

@@ -55,6 +55,8 @@ class UserSignUpView: UIView {
         didSet {
             
             signUpButton.layer.cornerRadius = 25
+            
+            signUpButton.backgroundColor = .hexStringToUIColor()
         }
     }
     
@@ -64,6 +66,14 @@ class UserSignUpView: UIView {
                              userEmail: userEmailTxtFld.text,
                              userPassword: userPasswordTxtFld.text,
                              confirmPassword: confirmPasswordTxtFld.text)
+    }
+    
+    @IBOutlet weak var toLogInViewBtn: UIButton! {
+        
+        didSet {
+            
+            toLogInViewBtn.setTitleColor(.hexStringToUIColor(), for: .normal)
+        }
     }
     
     @IBAction func toLogInView() {
