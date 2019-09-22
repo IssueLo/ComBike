@@ -16,11 +16,11 @@ class GroupListViewController: UIViewController {
             
             if groupData.count == 0 {
                 
-                remindLabel.alpha = 1
+                remindBackView.alpha = 1
                 
             } else {
                 
-                remindLabel.alpha = 0
+                remindBackView.alpha = 0
             }
             
             DispatchQueue.main.async {
@@ -32,17 +32,21 @@ class GroupListViewController: UIViewController {
     
     @IBOutlet weak var remindLabel: UILabel!
     
+    @IBOutlet weak var remindBackView: UIView!
+    
     @IBOutlet weak var createGroupBtn: UIButton! {
         
         didSet {
             
-            createGroupBtn.addRound()
+            createGroupBtn.addRound(backgroundColor: .hexStringToUIColor())
             
-            createGroupBtn.addShadow()
+            createGroupBtn.setTitleColor(.white, for: .normal)
+            
+            createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         }
     }
     
-    @IBAction func createGroup() {
+    @objc func createGroup() {
         
         guard FirebaseAccountManager.shared.userUID != nil else {
             
@@ -88,9 +92,16 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-                                                            target: self,
-                                                            action: #selector(scanQRCode))
+        let creatGroupIcon = UIBarButtonItem(barButtonSystemItem: .add,
+                                             target: self,
+                                             action: #selector(createGroup))
+        
+        let scanIcon = UIBarButtonItem(image: UIImage(named: "Icons_QRCodeScan"),
+                                       style: .done,
+                                       target: self,
+                                       action: #selector(scanQRCode))
+        
+        navigationItem.rightBarButtonItems = [scanIcon, creatGroupIcon]
     }
     
     override func viewWillAppear(_ animated: Bool) {
