@@ -13,7 +13,7 @@ extension UIView {
     func addRound(radis: Double = 25,
                   borderWidth: Double = 1,
                   borderColor: UIColor = .lightGray,
-                  backgroundColor: UIColor = .white) {
+                  backgroundColor: UIColor = .hexStringToUIColor()) {
         
         self.layer.cornerRadius = CGFloat(radis)
         
@@ -24,11 +24,27 @@ extension UIView {
         self.backgroundColor = backgroundColor
     }
     
+    func addRoundOnTop(radis: Double = 15,
+                       borderWidth: Double = 0,
+                       borderColor: UIColor = .lightGray,
+                       backgroundColor: UIColor = .white) {
+        
+        self.layer.cornerRadius = CGFloat(radis)
+        
+        self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        self.layer.borderWidth = CGFloat(borderWidth)
+        
+        self.layer.borderColor = borderColor.cgColor
+        
+        self.backgroundColor = backgroundColor
+    }
+    
     func addShadow() {
         
-        self.layer.shadowOffset = CGSize(width: 6, height: 4)
+        self.layer.shadowOffset = CGSize(width: 3, height: -2)
         
-        self.layer.shadowOpacity = 0.7
+        self.layer.shadowOpacity = 0.4
         
         self.layer.shadowRadius = 3
         

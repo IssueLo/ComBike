@@ -187,6 +187,8 @@ extension HomePageViewController: UITableViewDelegate {
             
             areaRouteVC.view.layoutIfNeeded()
             
+            areaRouteVC.navigationItem.title = self.headerTitle[section]
+            
             areaRouteVC.areaRouteData = self.routeDataArray[section]
                         
             self.show(areaRouteVC, sender: nil)

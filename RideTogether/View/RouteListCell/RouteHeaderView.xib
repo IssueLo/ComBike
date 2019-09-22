@@ -15,20 +15,19 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c4-cy-rTs">
-                    <rect key="frame" x="16" y="14.5" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="16" y="16" width="37.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_Next" translatesAutoresizingMaskIntoConstraints="NO" id="Coi-bv-5P5">
-                    <rect key="frame" x="294" y="20" width="10" height="10"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_Next_02" translatesAutoresizingMaskIntoConstraints="NO" id="Coi-bv-5P5">
+                    <rect key="frame" x="290" y="15.5" width="14" height="19"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="10" id="Byj-X6-Vh8"/>
-                        <constraint firstAttribute="width" constant="10" id="d2S-Eg-Qjr"/>
+                        <constraint firstAttribute="width" constant="14" id="d2S-Eg-Qjr"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhu-7d-uab">
-                    <rect key="frame" x="243" y="10" width="46" height="30"/>
+                    <rect key="frame" x="239" y="10" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="See all"/>
                     <connections>
@@ -53,6 +52,6 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="Icons_24px_Next" width="32" height="32"/>
+        <image name="Icons_24px_Next_02" width="17" height="19"/>
     </resources>
 </document>

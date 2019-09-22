@@ -18,12 +18,8 @@ class RouteDetailViewController: UIViewController {
     @IBOutlet weak var routeMapView: MKMapView! {
         
         didSet {
-            
-            routeMapView.layer.borderWidth = 1
-            
+                
             routeMapView.delegate = self
-            
-            routeMapView.addRound()
         }
     }
     
@@ -31,7 +27,7 @@ class RouteDetailViewController: UIViewController {
         
         didSet {
             
-            mapBackView.addRound()
+            mapBackView.addRoundOnTop()
             
             mapBackView.addShadow()
         }
