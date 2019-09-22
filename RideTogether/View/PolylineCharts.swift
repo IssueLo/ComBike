@@ -14,8 +14,6 @@ class UserPolylineView: LineChartView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.chartDescription?.text = "坡度紀錄"
-        
         self.xAxis.labelPosition = .bottom
         
         self.xAxis.axisMinimum = 0
@@ -60,7 +58,7 @@ class UserPolylineView: LineChartView {
         
         chartDataSet.lineWidth = 2
         
-        chartDataSet.colors = [.orange]
+        chartDataSet.colors = [.hexStringToUIColor()]
         
         chartDataSet.mode = .cubicBezier
         

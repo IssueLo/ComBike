@@ -104,6 +104,8 @@ class RidingViewController: UIViewController {
             coverView.alpha = 0.4
             
             self.stopButton.setTitle("繼續", for: .normal)
+            
+            self.stopButton.backgroundColor = .black
                         
             self.stopButton.translatesAutoresizingMaskIntoConstraints = true
             
@@ -129,6 +131,8 @@ class RidingViewController: UIViewController {
                 self.coverView.alpha = 0
 
                 self.stopButton.setTitle("停止", for: .normal)
+                
+                self.stopButton.backgroundColor = .hexStringToUIColor()
                                 
                 self.stopButton.center.x = (self.screenWidth / 2)
 

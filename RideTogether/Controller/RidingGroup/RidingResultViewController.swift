@@ -17,7 +17,10 @@ class RidingResultViewController: UIViewController {
         
         didSet {
             
-            ridingResultTableView.reloadData()
+            DispatchQueue.main.async {
+                
+                self.ridingResultTableView.reloadData()
+            }
         }
     }
     
@@ -25,19 +28,60 @@ class RidingResultViewController: UIViewController {
     
     @IBOutlet weak var userRankView: UserRankView!
 
-    @IBOutlet weak var ridingResultTableView: UITableView!
+    @IBOutlet weak var ridingResultTableView: UITableView! {
+       
+        didSet {
+            
+            ridingResultTableView.contentInset.bottom = 12
+            
+            ridingResultTableView.contentInset.top = 12
+        }
+    }
     
     @IBOutlet weak var polylineMapView: MKMapView! {
         
         didSet {
-            
-            polylineMapView.layer.borderWidth = 1
-            
+                        
             polylineMapView.delegate = self
         }
     }
     
     @IBOutlet weak var userPolylineView: UserPolylineView!
+    
+    @IBOutlet weak var resultScrollView: UIScrollView! {
+        
+        didSet {
+            
+            resultScrollView.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var resultPageController: UIPageControl! {
+        
+        didSet {
+            
+//            resultPageController.addTarget(self,
+//                                           action: #selector(resultPageControll),
+//                                           for: .touchUpInside)
+        }
+    }
+    
+    @IBAction func resultPageControll(_ sender: UIPageControl) {
+        
+        // 依照目前圓點在的頁數算出位置
+        var frame = resultScrollView.frame
+        frame.origin.x = frame.size.width * CGFloat(sender.currentPage)
+        frame.origin.y = 0
+
+        // 再將 UIScrollView 滑動到該點
+        resultScrollView.scrollRectToVisible(frame, animated: true)
+        
+//        let currentPageNumber = sender.currentPage
+//        let width = resultScrollView.frame.size.width
+//        let offset = CGPoint(x: width * CGFloat(currentPageNumber), y: 0)
+//        //讓ScrollView隨著PageControl到達我們要的位置
+//        resultScrollView.setContentOffset(offset, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +113,8 @@ class RidingResultViewController: UIViewController {
             
             self?.updateMapPolyline()
         }
+        
+        resultPageController.currentPage = 0
     }
     
     func updateChartsData() {
@@ -109,6 +155,20 @@ class RidingResultViewController: UIViewController {
 //            }
         }
 
+    }
+}
+
+extension RidingResultViewController {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+//        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+//
+//        resultPageControl.currentPage = page
+        
+        let currentPage = Int(resultScrollView.contentOffset.x / resultScrollView.frame.size.width)
+        
+        resultPageController.currentPage = currentPage
     }
 }
 
@@ -175,10 +235,10 @@ extension RidingResultViewController: UITableViewDataSource {
 
 extension RidingResultViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 70
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 70
+//    }
 }
 
 extension RidingResultViewController: MKMapViewDelegate {
@@ -188,7 +248,7 @@ extension RidingResultViewController: MKMapViewDelegate {
         
         let renderer = MKPolylineRenderer(overlay: overlay)
         
-        renderer.strokeColor = UIColor.blue
+        renderer.strokeColor = .hexStringToUIColor()
         
         renderer.lineWidth = 5.0
         
