@@ -14,11 +14,15 @@ class GroupListCell: UITableViewCell {
         
         didSet {
             
-            groupImage.addRound(radis: Double(groupImage.bounds.width / 2))
+            groupImage.addRound(radis: Double(groupImage.bounds.width / 2),
+                                borderWidth: 1,
+                                borderColor: .black)
         }
     }
     
     @IBOutlet weak var groupNameLabel: UILabel!
+    
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

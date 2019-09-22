@@ -45,43 +45,15 @@ class GroupListViewController: UIViewController {
             createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         }
     }
-    
-    @objc func createGroup() {
-        
-        guard FirebaseAccountManager.shared.userUID != nil else {
-            
-            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
-            
-            guard
-                let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
-                    as? UserLogInController
-            else { return }
-            
-            loginVC.toNextVCHandler = { (UIAlertAction) in
-                
-                self.dismiss(animated: true, completion: nil)
-            }
-
-            present(loginVC, animated: true, completion: nil)
-            
-            return
-        }
-        
-        let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
-        
-        let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
-        
-        createGroupVC.modalPresentationStyle = .overFullScreen
-        
-        present(createGroupVC, animated: false, completion: nil)
-    }
 
     @IBOutlet weak var groupListTableView: UITableView! {
        
         didSet {
             
             // BottomSide 可往上多滑 100
-            groupListTableView.contentInset.bottom = 100
+            groupListTableView.contentInset.bottom = 12
+            
+            groupListTableView.contentInset.top = 12
         }
     }
     
@@ -161,6 +133,36 @@ class GroupListViewController: UIViewController {
 
     }
     
+    @objc func createGroup() {
+        
+        guard FirebaseAccountManager.shared.userUID != nil else {
+            
+            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            
+            guard
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+                    as? UserLogInController
+            else { return }
+            
+            loginVC.toNextVCHandler = { (UIAlertAction) in
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+
+            present(loginVC, animated: true, completion: nil)
+            
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
+        
+        let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
+        
+        createGroupVC.modalPresentationStyle = .overFullScreen
+        
+        present(createGroupVC, animated: false, completion: nil)
+    }
+    
     @objc func scanQRCode() {
         
         let qrCodeScannerVC = QRCodeScannerController()
@@ -189,10 +191,16 @@ extension GroupListViewController: UITableViewDataSource {
         
         if !groupData[indexPath.row].isFinished {
         
-            groupListCell.accessoryType = .disclosureIndicator
+            groupListCell.statusLabel.text = "進行中"
+            
+            groupListCell.statusLabel.textColor = .hexStringToUIColor()
         } else {
             
-            groupListCell.accessoryType = .none
+//            groupListCell.accessoryType = .none
+            
+            groupListCell.statusLabel.text = "已完成"
+
+            groupListCell.statusLabel.textColor = .gray
         }
         
         guard let photoURLString = groupData[indexPath.row].photoURLString else {
@@ -257,11 +265,11 @@ extension GroupListViewController: UITableViewDataSource {
 
 extension GroupListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 70
-    }
+//    func tableView(_ tableView: UITableView,
+//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 70
+//    }
     
     // 退出群組
     func tableView(_ tableView: UITableView,
