@@ -39,24 +39,30 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
             
-            userImage.layer.cornerRadius = 64
-            
-            userImage.layer.borderWidth = 3
-            
-            userImage.layer.borderColor = UIColor.white.cgColor
+            userImage.addRound(radis: Double(userImage.bounds.width / 2),
+                               backgroundColor: .white)
         }
     }
+    
+    @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
-            uploadPhotoButton.addRound(radis: 21)
-            
-            uploadPhotoButton.layer.borderWidth = 2
+            uploadPhotoButton.addRound(radis: Double(uploadPhotoButton.bounds.height / 2),
+                                       backgroundColor: .white)
         }
     }
     
-    @IBOutlet weak var profileTableView: UITableView!
+    @IBOutlet weak var profileTableView: UITableView! {
+        
+        didSet {
+            
+            profileTableView.dataSource = self
+            
+            profileTableView.delegate = self
+        }
+    }
     
     @IBAction func uploadPhotoAction() {
         
@@ -149,12 +155,16 @@ class UserProfileController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.isNavigationBarHidden = true
+
         guard let userName = FirebaseAccountManager.shared.userName else {
             
             return
         }
         
-        navigationController?.navigationBar.topItem?.title = userName + "の個人頁面"
+        userNameLabel.text = userName
+        
+        //topItem?.title = userName + "の個人頁面"
         
         guard let photoURL = FirebaseAccountManager.shared.userPhotoURL else {
             
@@ -198,9 +208,11 @@ extension UserProfileController: UITableViewDataSource {
             
             profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
             
-            profileCell.accessoryType = .disclosureIndicator
+            //profileCell.accessoryType = .disclosureIndicator
 
         case 1: profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
+            
+        profileCell.nextPageImage.alpha = 0
 
         default: return profileCell
         }
@@ -224,10 +236,14 @@ extension UserProfileController: UITableViewDataSource {
 
 extension UserProfileController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 0
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        return 100
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        
+//        return 0
+//    }
 }
 
 extension UserProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
