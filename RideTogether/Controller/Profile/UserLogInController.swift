@@ -18,9 +18,7 @@ class UserLogInController: UIViewController {
             backCoverView.backgroundColor = UIColor.hexStringToUIColor()
         }
     }
-    
-    @IBOutlet weak var logInLabel: UILabel!
-    
+        
     @IBOutlet weak var userSignUpView: UserSignUpView!
     
     @IBOutlet weak var userLogInView: UserLogInView!
@@ -54,8 +52,6 @@ extension UserLogInController: UserLogInViewDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             
             self.userLogInView.alpha = 0
-            
-            self.logInLabel.text = "Sign up"
         })
     }
     
@@ -105,8 +101,6 @@ extension UserLogInController: UserSignUpViewDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             
             self.userLogInView.alpha = 1
-            
-            self.logInLabel.text = "Sign in"
         })
     }
     

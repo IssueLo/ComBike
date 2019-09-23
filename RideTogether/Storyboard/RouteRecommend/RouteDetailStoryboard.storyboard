@@ -145,7 +145,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIQ-bE-0XQ">
-                                <rect key="frame" x="16" y="30" width="27.5" height="22"/>
+                                <rect key="frame" x="16" y="16" width="27.5" height="22"/>
                                 <state key="normal" image="Icons_44px_Back02"/>
                                 <connections>
                                     <action selector="backLastPage" destination="4Ur-JV-qUQ" eventType="touchUpInside" id="ARO-he-BIQ"/>
@@ -161,7 +161,7 @@
                             <constraint firstItem="73I-4C-wGO" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" id="dCI-70-Ll2"/>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" id="fK7-rv-Ouk"/>
                             <constraint firstItem="u2c-3G-mhH" firstAttribute="trailing" secondItem="73I-4C-wGO" secondAttribute="trailing" id="hYo-fK-4lw"/>
-                            <constraint firstItem="VIQ-bE-0XQ" firstAttribute="top" secondItem="95n-ka-BlX" secondAttribute="top" constant="30" id="ijw-GX-gRa"/>
+                            <constraint firstItem="VIQ-bE-0XQ" firstAttribute="top" secondItem="u2c-3G-mhH" secondAttribute="top" constant="16" id="ijw-GX-gRa"/>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="bottom" secondItem="73I-4C-wGO" secondAttribute="top" constant="24" id="kKf-9C-tmX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u2c-3G-mhH"/>
