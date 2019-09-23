@@ -474,6 +474,7 @@
 				95D613C423155BF5008D885E /* Resources */,
 				400601211A5ADF2327733431 /* [CP] Embed Pods Frameworks */,
 				951554BA2318DB0F0080BBB7 /* ShellScript */,
+				95CE545A2338D41A00878896 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -582,6 +583,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" \n";
+		};
+		95CE545A2338D41A00878896 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		CAACCD5A4C10B50A32B64CF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -806,6 +824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

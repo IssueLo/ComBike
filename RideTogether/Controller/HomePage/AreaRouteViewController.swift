@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class AreaRouteViewController: UIViewController {
         
@@ -33,6 +34,7 @@ class AreaRouteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Crashlytics.sharedInstance().crash()
 
         let nib = UINib(nibName: "RouteCell", bundle: nil)
         
