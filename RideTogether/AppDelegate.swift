@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
+//        UserDefaults.standard.value(forKey: <#T##String#>) = nil
+        
         return true
     }
 

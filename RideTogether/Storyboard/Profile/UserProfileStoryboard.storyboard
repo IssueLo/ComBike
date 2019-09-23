@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-DP-p04">
-                                        <rect key="frame" x="159.5" y="62" width="56" height="56"/>
+                                        <rect key="frame" x="159.5" y="72" width="56" height="56"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="5tw-op-7KB"/>
@@ -28,7 +28,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO4-gG-cdu">
-                                        <rect key="frame" x="195.5" y="103" width="20" height="15"/>
+                                        <rect key="frame" x="195.5" y="113" width="20" height="15"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Hh7-sH-nq8"/>
@@ -40,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEX-mw-gmY">
-                                        <rect key="frame" x="112.5" y="130" width="150" height="21"/>
+                                        <rect key="frame" x="112.5" y="140" width="150" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="TqT-ND-KYD"/>
                                         </constraints>
@@ -54,7 +54,7 @@
                                     <constraint firstItem="Qp5-DP-p04" firstAttribute="centerX" secondItem="FoL-5y-eiP" secondAttribute="centerX" id="6Pv-Ic-Zwn"/>
                                     <constraint firstAttribute="height" constant="180" id="84s-WS-06p"/>
                                     <constraint firstItem="kO4-gG-cdu" firstAttribute="bottom" secondItem="Qp5-DP-p04" secondAttribute="bottom" id="Leh-Cv-Tie"/>
-                                    <constraint firstItem="Qp5-DP-p04" firstAttribute="centerY" secondItem="FoL-5y-eiP" secondAttribute="centerY" id="WS1-HS-fZx"/>
+                                    <constraint firstItem="Qp5-DP-p04" firstAttribute="centerY" secondItem="FoL-5y-eiP" secondAttribute="centerY" constant="10" id="WS1-HS-fZx"/>
                                     <constraint firstItem="kO4-gG-cdu" firstAttribute="trailing" secondItem="Qp5-DP-p04" secondAttribute="trailing" id="qQI-Co-wwl"/>
                                     <constraint firstItem="yEX-mw-gmY" firstAttribute="centerX" secondItem="FoL-5y-eiP" secondAttribute="centerX" id="uzD-xB-eN2"/>
                                 </constraints>

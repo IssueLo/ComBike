@@ -20,19 +20,6 @@ class UserProfileController: UIViewController {
         didSet {
             
             uiView.backgroundColor = UIColor.hexStringToUIColor()
-//            let grandientLayer = CAGradientLayer()
-//
-//            grandientLayer.frame = uiView.bounds
-//
-//            grandientLayer.colors = [UIColor.white.cgColor //UIColor.red.cgColor
-//                                     ,UIColor(red: 255, green: 126, blue: 121, alpha: 0).cgColor
-//            ]
-//
-//            grandientLayer.startPoint = CGPoint(x: 0, y: 0)
-//
-//            grandientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-//
-//            uiView.layer.insertSublayer(grandientLayer, at: 0)
         }
     }
     
@@ -61,6 +48,8 @@ class UserProfileController: UIViewController {
             profileTableView.dataSource = self
             
             profileTableView.delegate = self
+            
+            profileTableView.contentInset.top = 10
         }
     }
     
@@ -125,7 +114,7 @@ class UserProfileController: UIViewController {
             
             self.showAlert("登出成功") { (_) in
                 
-                self.tabBarController?.selectedIndex = 0
+                self.tabBarController?.selectedIndex = 1
             }
             
             // User 資料記得清空啊
@@ -204,21 +193,29 @@ extension UserProfileController: UITableViewDataSource {
         
         switch indexPath.section {
         
-        case 0:
+        case 0: profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
             
-            profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
-            
-            //profileCell.accessoryType = .disclosureIndicator
+            // profileCell.accessoryType = .disclosureIndicator
 
-        case 1: profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
+        case 1:
+        
+            profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
             
-        profileCell.nextPageImage.alpha = 0
+            profileCell.nextPageImage.alpha = 0
+            
+            if indexPath.row == 1 {
+                
+                profileCell.titleLabel.textColor = .hexStringToUIColor()
+            }
 
         default: return profileCell
         }
         
         return profileCell
     }
+}
+
+extension UserProfileController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
@@ -232,10 +229,6 @@ extension UserProfileController: UITableViewDataSource {
             self.backToRoot()
         }
     }
-}
-
-extension UserProfileController: UITableViewDelegate {
-    
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //
 //        return 100

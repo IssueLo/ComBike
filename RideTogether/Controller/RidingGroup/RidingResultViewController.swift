@@ -140,6 +140,11 @@ class RidingResultViewController: UIViewController {
                 
                 guard let polylineData = memberResultInfo[number].route else { return }
                 
+                if polylineData.count == 0 {
+                    
+                    return
+                }
+                
                 var coordinates = [CLLocationCoordinate2D]()
                 
                 for geoPoint in polylineData {

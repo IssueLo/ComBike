@@ -31,7 +31,9 @@
                         <viewLayoutGuide key="safeArea" id="5I9-Y8-1yx"/>
                     </view>
                     <navigationItem key="navigationItem" title="單車路線推薦" id="M5Q-Gu-dNf">
-                        <barButtonItem key="backBarButtonItem" title=" " id="XEI-82-viV"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="XEI-82-viV">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="routeListTableView" destination="52P-eW-Gfk" id="OYK-eu-oUm"/>

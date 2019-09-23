@@ -13,34 +13,52 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="KGk-i7-Jjw" customClass="ProfileCell" customModule="RideTogether" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="ProfileCell" customModule="RideTogether" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-hx-rzR">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-hx-rzR">
                         <rect key="frame" x="24" y="43" width="327" height="1"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="i7p-5g-gKd"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3P-qj-nki">
-                        <rect key="frame" x="24" y="12" width="311" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3P-qj-nki">
+                        <rect key="frame" x="24" y="12" width="327" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="jiP-Mn-gRy"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icons_24px_Next" translatesAutoresizingMaskIntoConstraints="NO" id="JzB-Q1-dCS">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons_24px_Next" translatesAutoresizingMaskIntoConstraints="NO" id="JzB-Q1-dCS">
                         <rect key="frame" x="335" y="14" width="16" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="w2B-n5-qpJ"/>
+                            <constraint firstAttribute="height" constant="16" id="yOa-fP-yH2"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JzB-Q1-dCS" secondAttribute="trailing" constant="24" id="0ct-NW-Az0"/>
+                    <constraint firstItem="e3P-qj-nki" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="8Eo-N0-TOf"/>
+                    <constraint firstAttribute="bottom" secondItem="KhQ-hx-rzR" secondAttribute="bottom" id="EHI-xY-7uV"/>
+                    <constraint firstItem="e3P-qj-nki" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Enk-e3-9wf"/>
+                    <constraint firstAttribute="trailing" secondItem="KhQ-hx-rzR" secondAttribute="trailing" constant="24" id="Ig5-EB-6gp"/>
+                    <constraint firstItem="e3P-qj-nki" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ycl-xc-M49"/>
+                    <constraint firstItem="JzB-Q1-dCS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pYj-hV-O3I"/>
+                    <constraint firstItem="e3P-qj-nki" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="rei-Lj-n31"/>
+                    <constraint firstItem="KhQ-hx-rzR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="vzW-lN-wG9"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nextPageImage" destination="JzB-Q1-dCS" id="LjG-ge-UCf"/>
-                <outlet property="titleLabel" destination="e3P-qj-nki" id="rhP-fW-IdN"/>
+                <outlet property="titleLabel" destination="e3P-qj-nki" id="8co-2C-eyZ"/>
             </connections>
-            <point key="canvasLocation" x="136.95652173913044" y="110.49107142857143"/>
+            <point key="canvasLocation" x="136.80000000000001" y="109.74512743628186"/>
         </tableViewCell>
     </objects>
     <resources>

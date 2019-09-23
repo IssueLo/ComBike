@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="345.5"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-4C-wGO">
-                                <rect key="frame" x="0.0" y="321.5" width="375" height="345.5"/>
+                                <rect key="frame" x="0.0" y="321.5" width="375" height="385.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M3-SI-64k">
                                         <rect key="frame" x="149.5" y="24" width="76" height="23"/>
@@ -124,7 +124,7 @@
                                     <constraint firstItem="ciq-fC-COP" firstAttribute="leading" secondItem="qEl-9I-oew" secondAttribute="leading" id="2Dm-Uk-zbh"/>
                                     <constraint firstItem="zWh-Ym-O7Z" firstAttribute="leading" secondItem="RRa-tx-P5n" secondAttribute="leading" id="48b-Y4-RaQ"/>
                                     <constraint firstItem="zyr-p7-5RM" firstAttribute="leading" secondItem="qEl-9I-oew" secondAttribute="trailing" constant="1" id="6cw-gA-jgE"/>
-                                    <constraint firstAttribute="bottom" secondItem="UUM-y0-rq7" secondAttribute="bottom" constant="36" id="7zj-uE-aoA"/>
+                                    <constraint firstAttribute="bottom" secondItem="UUM-y0-rq7" secondAttribute="bottom" constant="76" id="7zj-uE-aoA"/>
                                     <constraint firstItem="ciq-fC-COP" firstAttribute="centerY" secondItem="eeq-Na-Slk" secondAttribute="centerY" constant="-2" id="Edb-nO-rIf"/>
                                     <constraint firstItem="zWh-Ym-O7Z" firstAttribute="trailing" secondItem="RRa-tx-P5n" secondAttribute="trailing" id="HFL-c2-BPW"/>
                                     <constraint firstItem="RRa-tx-P5n" firstAttribute="leading" secondItem="Kzq-XO-3Wz" secondAttribute="leading" id="HhY-ep-ziP"/>
@@ -156,7 +156,7 @@
                         <constraints>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="trailing" secondItem="u2c-3G-mhH" secondAttribute="trailing" id="Fg2-hC-6IZ"/>
                             <constraint firstItem="VIQ-bE-0XQ" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" constant="16" id="L5v-gg-XW9"/>
-                            <constraint firstItem="73I-4C-wGO" firstAttribute="bottom" secondItem="u2c-3G-mhH" secondAttribute="bottom" id="NGc-Sr-1a4"/>
+                            <constraint firstItem="73I-4C-wGO" firstAttribute="bottom" secondItem="u2c-3G-mhH" secondAttribute="bottom" constant="40" id="NGc-Sr-1a4"/>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="top" secondItem="95n-ka-BlX" secondAttribute="top" id="bgb-uh-q6o"/>
                             <constraint firstItem="73I-4C-wGO" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" id="dCI-70-Ll2"/>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" id="fK7-rv-Ouk"/>

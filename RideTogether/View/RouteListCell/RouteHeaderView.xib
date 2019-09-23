@@ -39,8 +39,8 @@
                 <constraint firstItem="Bhu-7d-uab" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="1Eg-i8-2aR"/>
                 <constraint firstItem="8c4-cy-rTs" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="Ikb-SK-gy7"/>
                 <constraint firstAttribute="trailing" secondItem="Coi-bv-5P5" secondAttribute="trailing" constant="16" id="ZZm-oO-byr"/>
+                <constraint firstItem="Coi-bv-5P5" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="cgi-FG-Coo"/>
                 <constraint firstItem="8c4-cy-rTs" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="doX-Ff-I8y"/>
-                <constraint firstItem="Coi-bv-5P5" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="mE4-pM-aNr"/>
                 <constraint firstItem="Coi-bv-5P5" firstAttribute="leading" secondItem="Bhu-7d-uab" secondAttribute="trailing" constant="5" id="qyS-1J-gjX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>

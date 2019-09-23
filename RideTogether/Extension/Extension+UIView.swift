@@ -53,4 +53,20 @@ extension UIView {
                                          blue: 80.0/255.0,
                                          alpha: 1.0).cgColor
     }
+    
+//    func caGradientLayer() {
+//
+//        let grandientLayer = CAGradientLayer()
+//
+//        grandientLayer.frame = uiView.bounds
+//
+//        grandientLayer.colors = [UIColor.white.cgColor //UIColor.red.cgColor
+//                                             ,UIColor(red: 255, green: 126, blue: 121, alpha: 0).cgColor]
+//
+//        grandientLayer.startPoint = CGPoint(x: 0, y: 0)
+//
+//        grandientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+//
+//        uiView.layer.insertSublayer(grandientLayer, at: 0)
+//    }
 }
