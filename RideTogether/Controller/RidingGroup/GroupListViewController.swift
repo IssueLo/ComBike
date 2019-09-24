@@ -66,7 +66,7 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_Camera"),
+        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
                                              style: .done,
                                              target: self,
                                              action: #selector(createGroup))
