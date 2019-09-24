@@ -151,6 +151,8 @@ class GroupListViewController: UIViewController {
                 
                 self.dismiss(animated: true, completion: nil)
             }
+            
+            loginVC.modalPresentationStyle = .fullScreen
 
             present(loginVC, animated: true, completion: nil)
             

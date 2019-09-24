@@ -518,6 +518,11 @@ class FirebaseDataManeger {
                     
                     self.updateRidingResult(groupID, completion: completion)
                 }
+                
+                if documentChange.type == .modified {
+                    
+                    self.updateRidingResult(groupID, completion: completion)
+                }
             })
         }
     }

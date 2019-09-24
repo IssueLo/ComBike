@@ -149,6 +149,10 @@ class RidingViewController: UIViewController {
     
     @objc func saveRidingData() {
         
+        locatonTimer?.invalidate()
+        
+        locationManager.stopUpdatingLocation()
+        
         let storyboard = UIStoryboard(name: "RidingResultStoryboard", bundle: nil)
         
         guard
