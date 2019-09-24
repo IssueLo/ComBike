@@ -211,11 +211,19 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
         case let credentials as ASAuthorizationAppleIDCredential:
             let user = User(credentials: credentials)
             print(user)
+                                    
+            UserDefaults.standard.setValue(user.id, forKey: "UserUID")
+            
+            // 登入成功後取得會員暱稱
+            FirebaseDataManeger.shared.searchUserInfo(user.id)
+            
+            FirebaseAccountManager.shared.userEmail = user.email
             
             FirebaseDataManeger.shared.appleSignIn(user.id,
                                                    user.firstName,
                                                    user.email)
-            // User 資料
+            
+            showAlert("登入成功", self.toNextVCHandler)
 
         default: break
         }

@@ -99,11 +99,21 @@ class RidingResultViewController: UIViewController {
             self.backToRoot()
         }
         
-        userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
-                                       FirebaseAccountManager.shared.userPhotoURL!,
-                                       0,
-                                       "",
-                                       "00：00：00")
+        if FirebaseAccountManager.shared.userPhotoURL != nil {
+            
+            userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
+                                           FirebaseAccountManager.shared.userPhotoURL!,
+                                           0,
+                                           "",
+                                           "00：00：00")
+            
+        } else {
+            
+            userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
+                                           0,
+                                           "",
+                                           "00：00：00")
+        }
         
         FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
             
@@ -263,11 +273,20 @@ extension RidingResultViewController: UITableViewDataSource {
             default : userSubRank = "th"
             }
             
-            self.userRankView.setupUserRankView(userName,
-                                                FirebaseAccountManager.shared.userPhotoURL!,
-                                                userRank,
-                                                userSubRank,
-                                                spendTime)
+            if FirebaseAccountManager.shared.userPhotoURL != nil {
+                
+                self.userRankView.setupUserRankView(userName,
+                                                    FirebaseAccountManager.shared.userPhotoURL!,
+                                                    userRank,
+                                                    userSubRank,
+                                                    spendTime)
+            } else {
+                
+                self.userRankView.setupUserRankView(userName,
+                                                    userRank,
+                                                    userSubRank,
+                                                    spendTime)
+            }
 
         } else {
             

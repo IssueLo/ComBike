@@ -42,4 +42,18 @@ class UserRankView: UIView {
         
         userSpendTimeLabel.text = userSpendtime
     }
+    
+    func setupUserRankView(_ userName: String,
+                           _ userRank: Int,
+                           _ userSubRank: String,
+                           _ userSpendtime: String) {
+        
+        userNameLabel.text = userName
+                
+        userRankLabel.text = String(userRank)
+        
+        userSubRankLabel.text = userSubRank
+        
+        userSpendTimeLabel.text = userSpendtime
+    }
 }
