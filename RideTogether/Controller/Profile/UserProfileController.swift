@@ -108,6 +108,8 @@ class UserProfileController: UIViewController {
     
     func onClickLogout() {
         
+        UserDefaults.standard.removeObject(forKey: "UserUID")
+        
         do {
             
             try Auth.auth().signOut()

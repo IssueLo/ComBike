@@ -88,6 +88,8 @@ extension UserLogInController: UserLogInViewDelegate {
                 
                 guard let userUID = Auth.auth().currentUser?.uid else { return }
                 
+                UserDefaults.standard.setValue(userUID, forKey: "UserUID")
+                
                 // 登入成功後取得會員暱稱
                 FirebaseDataManeger.shared.searchUserInfo(userUID)
                 
@@ -136,7 +138,8 @@ extension UserLogInController: UserSignUpViewDelegate {
             
             FirebaseAccountManager.shared.onClickRegister(userName: name,
                                                           userEmail: email,
-                                                          userPassword: password) { [weak self](error) in
+                                                          userPassword: password)
+            { [weak self](error) in
                 
                 if error != nil {
                     
@@ -151,6 +154,8 @@ extension UserLogInController: UserSignUpViewDelegate {
                 guard
                     let userUID = Auth.auth().currentUser?.uid
                 else { return }
+                
+                UserDefaults.standard.setValue(userUID, forKey: "UserUID")
                 
                 FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
                 
@@ -207,6 +212,9 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
             let user = User(credentials: credentials)
             print(user)
             
+            FirebaseDataManeger.shared.appleSignIn(user.id,
+                                                   user.firstName,
+                                                   user.email)
             // User 資料
 
         default: break

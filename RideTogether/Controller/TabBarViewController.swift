@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 private enum Tab {
     
@@ -80,11 +79,9 @@ class TabBarViewController: UITabBarController {
 //            <#code#>
 //        })
         
-        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        guard let userUID = FirebaseAccountManager.shared.userUID else { return }
         
         FirebaseDataManeger.shared.searchUserInfo(userUID)
-        
-        print(Auth.auth().currentUser?.uid as Any)
     }
 }
 
@@ -99,7 +96,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
         else { return true }
         
         // 確認是否有登入會員
-        guard Auth.auth().currentUser?.uid != nil else {
+        guard FirebaseAccountManager.shared.userUID != nil else {
 
             let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
             

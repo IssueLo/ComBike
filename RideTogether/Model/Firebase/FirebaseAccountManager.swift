@@ -16,7 +16,9 @@ class FirebaseAccountManager {
     
     var userUID: String? {
         
-        return Auth.auth().currentUser?.uid
+        return UserDefaults.standard.value(forKey: "UserUID") as? String
+            
+//        return Auth.auth().currentUser?.uid
     }
     
     var userName: String?
