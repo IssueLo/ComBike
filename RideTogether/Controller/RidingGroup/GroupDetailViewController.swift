@@ -166,18 +166,20 @@ class GroupDetailViewController: UIViewController {
     
     @objc func startRiding() {
             
-            let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
-            
-            guard
-                let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
-                as? RidingViewController
-            else { return }
+        let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
+        
+        guard
+            let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
+            as? RidingViewController
+        else { return }
 
-            ridingVC.groupData = groupData
-            
-            present(ridingVC, animated: true, completion: nil)
-    //        show(ridingVC, sender: nil)
-        }
+        ridingVC.groupData = groupData
+        
+        ridingVC.modalPresentationStyle = .fullScreen
+    
+        present(ridingVC, animated: true, completion: nil)
+//        show(ridingVC, sender: nil)
+    }
 }
 
 extension GroupDetailViewController: UITableViewDataSource {

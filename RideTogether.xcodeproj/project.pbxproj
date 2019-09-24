@@ -11,6 +11,7 @@
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
+		95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */; };
 		9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519863B232D2EB200FFCE28 /* RidingInfoView.swift */; };
 		951D9257233371AA00275B78 /* RouteDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */; };
 		951D92592333735400275B78 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D92582333735400275B78 /* RouteDetailViewController.swift */; };
@@ -84,6 +85,8 @@
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
+		95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfAppleSignIn.swift; sourceTree = "<group>"; };
+		95195B79233A4C9B00B81703 /* RideTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideTogether.entitlements; sourceTree = "<group>"; };
 		9519863B232D2EB200FFCE28 /* RidingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingInfoView.swift; sourceTree = "<group>"; };
 		951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		951D92582333735400275B78 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
@@ -251,8 +254,9 @@
 		954567822327472E009DA63B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				9545678A2328A326009DA63B /* UserProfileController.swift */,
 				95D613CB23155BF5008D885E /* UserLogInController.swift */,
+				9545678A2328A326009DA63B /* UserProfileController.swift */,
+				95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -384,6 +388,7 @@
 		95D613C823155BF5008D885E /* RideTogether */ = {
 			isa = PBXGroup;
 			children = (
+				95195B79233A4C9B00B81703 /* RideTogether.entitlements */,
 				95D613C923155BF5008D885E /* AppDelegate.swift */,
 				95CFD182231FEE9300329927 /* Third-Party */,
 				95D613DC23155C20008D885E /* Extension */,
@@ -662,6 +667,7 @@
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,
+				95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */,
 				9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */,
 				9525993423214199009C7750 /* QRCodeViewController.swift in Sources */,
 				9545678E2328F5FE009DA63B /* ProfileCell.swift in Sources */,
@@ -823,11 +829,12 @@
 			baseConfigurationReference = B5F17ADEBFE156AD3509BD71 /* Pods-RideTogether.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RideTogether/RideTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -844,10 +851,11 @@
 			baseConfigurationReference = 38001BBEC0A2B8B4F6323FD5 /* Pods-RideTogether.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RideTogether/RideTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

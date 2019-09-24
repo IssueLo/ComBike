@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import Firebase
 
+// swiftlint:disable file_length
 class RidingViewController: UIViewController {
     
     var groupData: GroupData!
@@ -111,7 +112,7 @@ class RidingViewController: UIViewController {
             self.stopButton.backgroundColor = .black
                         
             self.stopButton.translatesAutoresizingMaskIntoConstraints = true
-            
+
             self.saveButton.translatesAutoresizingMaskIntoConstraints = true
             
             UIView.animate(withDuration: 0.3) {
@@ -409,3 +410,4 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 //    }
     
 }
+// swiftlint:enable file_length

@@ -627,6 +627,17 @@ class FirebaseDataManeger {
         
         groupDocument.setData(["isFinished": true], merge: true)
     }
+    
+    // MARK: 新加入 Apple SignIn會員資料 - Done
+    func appleSignIn(_ userUID: String,
+                     _ userName: String,
+                     _ userEmail: String) {
+        
+        let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
+                                           UserInfoKey.email.rawValue: userEmail]
+        
+        userInfoDatebase.document(userUID).setData(userInfoData, merge: true)
+    }
 }
 // swiftlint:enable multiple_closures_with_trailing_closure
 // swiftlint:enable type_body_length

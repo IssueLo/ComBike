@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import AuthenticationServices
 
 class UserLogInController: UIViewController {
     
@@ -37,6 +38,8 @@ class UserLogInController: UIViewController {
         userLogInView.delegate = self
         
         userSignUpView.delegate = self
+        
+        setupView()
     }
     
     // MARK: Firebase 密碼重設
@@ -156,5 +159,69 @@ extension UserLogInController: UserSignUpViewDelegate {
                 FirebaseAccountManager.shared.userEmail = userEmail
             }
         }
+    }
+}
+
+// Apple SignIn
+extension UserLogInController {
+    
+    func setupView() {
+            
+        let appleButton = ASAuthorizationAppleIDButton()
+        
+        appleButton.translatesAutoresizingMaskIntoConstraints = false
+        appleButton.addTarget(self, action: #selector(didTapAppleButton), for: .touchUpInside)
+
+        userLogInView.addSubview(appleButton)
+        NSLayoutConstraint.activate([
+            appleButton.centerYAnchor.constraint(equalTo: userLogInView.centerYAnchor),
+            appleButton.leadingAnchor.constraint(equalTo: userLogInView.logInButton.leadingAnchor),
+            appleButton.trailingAnchor.constraint(equalTo: userLogInView.logInButton.trailingAnchor)
+            ])
+    }
+    
+    @objc
+    func didTapAppleButton() {
+        
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        
+        controller.performRequests()
+    }
+}
+
+extension UserLogInController: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        switch authorization.credential {
+            
+        case let credentials as ASAuthorizationAppleIDCredential:
+            let user = User(credentials: credentials)
+            print(user)
+            
+            // User 資料
+
+        default: break
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("something bad happened", error)
+    }
+}
+
+extension UserLogInController: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        
+        return view.window!
     }
 }

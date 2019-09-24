@@ -53,6 +53,14 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(UserDefaults.standard.value(forKey: "UserID"))
+        
+        UserDefaults.standard.removeObject(forKey: "UserID")
+        
+//        UserDefaults.standard.setValue("123", forKey: "UserID")
+        
+        print(UserDefaults.standard.value(forKey: "UserID"))
+
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         
         allRouteList = [north, central, southern, east]
