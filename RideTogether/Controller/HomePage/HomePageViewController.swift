@@ -52,16 +52,6 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        UserDefaults.standard.removeObject(forKey: "UserUID")
-//        
-//        print(UserDefaults.standard.value(forKey: "UserUID"))
-//        
-//        UserDefaults.standard.setValue("a2222", forKey: "UserUID")
-//                
-//        print(UserDefaults.standard.value(forKey: "UserUID"))
-        
-        print(FirebaseAccountManager.shared.userUID)
 
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         

@@ -167,7 +167,7 @@ extension UserLogInController: UserSignUpViewDelegate {
     }
 }
 
-// Apple SignIn
+// MARK: Apple SignIn
 extension UserLogInController {
     
     func setupView() {
@@ -179,7 +179,7 @@ extension UserLogInController {
 
         userLogInView.addSubview(appleButton)
         NSLayoutConstraint.activate([
-            appleButton.centerYAnchor.constraint(equalTo: userLogInView.centerYAnchor),
+            appleButton.topAnchor.constraint(equalTo: userLogInView.logInButton.bottomAnchor, constant: 8),
             appleButton.leadingAnchor.constraint(equalTo: userLogInView.logInButton.leadingAnchor),
             appleButton.trailingAnchor.constraint(equalTo: userLogInView.logInButton.trailingAnchor)
             ])

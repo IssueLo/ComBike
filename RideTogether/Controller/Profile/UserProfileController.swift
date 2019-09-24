@@ -12,9 +12,7 @@ import FirebaseAuth
 
 class UserProfileController: UIViewController {
     
-    var titleOfCellSection1 = ["使用者條款", "隱私權政策"]
-    
-    var titleOfCellSection2 = ["給我們好評👍", "登出"]
+    var titleOfCell = ["隱私權政策", "登出"]
     
     @IBOutlet weak var uiView: UIView! {
         didSet {
@@ -172,19 +170,12 @@ extension UserProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch section {
-            
-        case 0: return 2
-        
-        case 1: return 2
-        
-        default: return 0
-        }
+        return titleOfCell.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -193,27 +184,24 @@ extension UserProfileController: UITableViewDataSource {
         
         guard let profileCell = cell as? ProfileCell else { return cell }
         
-        switch indexPath.section {
+        profileCell.titleLabel.text = titleOfCell[indexPath.row]
         
-        case 0: profileCell.titleLabel.text = titleOfCellSection1[indexPath.row]
+        switch indexPath.row {
+        
+        case 0: return profileCell
             
             // profileCell.accessoryType = .disclosureIndicator
 
         case 1:
-        
-            profileCell.titleLabel.text = titleOfCellSection2[indexPath.row]
             
             profileCell.nextPageImage.alpha = 0
             
-            if indexPath.row == 1 {
-                
-                profileCell.titleLabel.textColor = .hexStringToUIColor()
-            }
+            profileCell.titleLabel.textColor = .hexStringToUIColor()
+            
+            return profileCell
 
         default: return profileCell
         }
-        
-        return profileCell
     }
 }
 
@@ -224,7 +212,7 @@ extension UserProfileController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if indexPath.section == 0 && indexPath.row == 1 {
             
             self.onClickLogout()
             
