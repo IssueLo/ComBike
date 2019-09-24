@@ -12,48 +12,29 @@ class HomePageViewController: UIViewController {
     
     var jsonArray: NSMutableArray?
     
-//    var routeData = [RouteData]() {
-//        
-//        didSet {
-//            
-//            self.routeListTableView.reloadData()
-//        }
-//    }
-    
     var routeDataArray = [[RouteData]]() {
         
         didSet {
             
             self.routeListTableView.reloadData()
-            
-            print(routeDataArray)
         }
     }
     
     var headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
-    
+
+    var allRouteList = [[String]]()
+
     var north = ["10221097", "10221464", "10891667", "16080569", "9542274"]
-    
-    var aaaa = ["9796401", "19742365", "9797337", "10320290"]
     
     var central = ["10009162", "10905234", "10077338", "10189536", "10905629", "16069201"]
     
     var southern = ["10118302", "12027904", "10118771", "9893309", "10122332", "10151516"]
     
     var east = ["10418563", "10231327", "10250324", "9563425", "10871570"]
-    
-    var allRouteList = [[String]]()
-    
-    @IBOutlet weak var launchScreen: UIView! {
-        
-        didSet {
-            
-//            UIView.animate(withDuration: 1) {
-//
-//                self.launchScreen.alpha = 0
-//            }
-        }
-    }
+
+    var noPicture = ["9796401", "19742365", "9797337", "10320290"]
+
+    @IBOutlet weak var launchScreen: UIView!
     
     @IBOutlet weak var routeListTableView: UITableView! {
         

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Component 15 – 2.png",
+      "filename" : "Icons_createGroup.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Component 15 – 2@2x.png",
+      "filename" : "Icons_createGroup@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Component 15 – 2@3x-2.png",
+      "filename" : "Icons_createGroup@3x.png",
       "scale" : "3x"
     }
   ],

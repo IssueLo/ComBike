@@ -29,7 +29,7 @@ class RouteDetailViewController: UIViewController {
             
             mapBackView.addRoundOnTop()
             
-            mapBackView.addShadow()
+            mapBackView.addShadow(offset: CGSize(width: 3, height: -2), opacity: 0.4)
         }
     }
     

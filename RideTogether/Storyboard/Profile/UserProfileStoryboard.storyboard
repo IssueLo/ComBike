@@ -20,27 +20,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-DP-p04">
-                                        <rect key="frame" x="159.5" y="72" width="56" height="56"/>
+                                        <rect key="frame" x="152.5" y="65" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="56" id="5tw-op-7KB"/>
+                                            <constraint firstAttribute="width" constant="70" id="5tw-op-7KB"/>
                                             <constraint firstAttribute="width" secondItem="Qp5-DP-p04" secondAttribute="height" multiplier="1:1" id="a70-i4-O1P"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO4-gG-cdu">
-                                        <rect key="frame" x="195.5" y="113" width="20" height="15"/>
+                                        <rect key="frame" x="202.5" y="115" width="20" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Hh7-sH-nq8"/>
-                                            <constraint firstAttribute="height" constant="15" id="HlR-7R-4pY"/>
+                                            <constraint firstAttribute="height" constant="20" id="HlR-7R-4pY"/>
                                         </constraints>
-                                        <state key="normal" image="photo-camera"/>
+                                        <state key="normal" image="Icons_Camera"/>
                                         <connections>
                                             <action selector="uploadPhotoAction" destination="u9E-lF-KaV" eventType="touchUpInside" id="1dd-i2-AHi"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEX-mw-gmY">
-                                        <rect key="frame" x="112.5" y="140" width="150" height="21"/>
+                                        <rect key="frame" x="112.5" y="147" width="150" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="TqT-ND-KYD"/>
                                         </constraints>
@@ -111,7 +111,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icons_Camera" width="24" height="24"/>
         <image name="UChu" width="89.5" height="89"/>
-        <image name="photo-camera" width="32.5" height="25.5"/>
     </resources>
 </document>

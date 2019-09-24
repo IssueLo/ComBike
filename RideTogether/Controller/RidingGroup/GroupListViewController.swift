@@ -42,6 +42,8 @@ class GroupListViewController: UIViewController {
             
             createGroupBtn.setTitleColor(.white, for: .normal)
             
+            createGroupBtn.addShadow()
+            
             createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         }
     }
@@ -64,7 +66,8 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        let creatGroupIcon = UIBarButtonItem(barButtonSystemItem: .add,
+        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_Camera"),
+                                             style: .done,
                                              target: self,
                                              action: #selector(createGroup))
         

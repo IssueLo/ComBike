@@ -56,6 +56,8 @@ class UserSignUpView: UIView {
             
             signUpButton.layer.cornerRadius = 25
             
+            signUpButton.addShadow()
+            
             signUpButton.backgroundColor = .hexStringToUIColor()
         }
     }

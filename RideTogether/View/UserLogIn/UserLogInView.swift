@@ -42,6 +42,10 @@ class UserLogInView: UIView, UITextFieldDelegate {
         didSet {
             
             logInButton.layer.cornerRadius = 25
+            
+            logInButton.addShadow()
+            
+            logInButton.backgroundColor = .hexStringToUIColor()
         }
     }
         

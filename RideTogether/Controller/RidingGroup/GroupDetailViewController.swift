@@ -87,7 +87,7 @@ class GroupDetailViewController: UIViewController {
                                         target: self,
                                         action: #selector(showQRCodeVC))
         
-        let addGroupPhotoBtn = UIBarButtonItem(image: UIImage(named: "photo-camera"),
+        let addGroupPhotoBtn = UIBarButtonItem(image: UIImage(named: "Icons_Camera"),
                                                style: .plain,
                                                target: self,
                                                action: #selector(uploadPhotoAction))
