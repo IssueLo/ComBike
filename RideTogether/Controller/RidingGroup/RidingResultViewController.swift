@@ -103,7 +103,7 @@ class RidingResultViewController: UIViewController {
                                        FirebaseAccountManager.shared.userPhotoURL!,
                                        0,
                                        "",
-                                       "00:00:00")
+                                       "00：00：00")
         
         FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
             
@@ -202,14 +202,52 @@ extension RidingResultViewController: UITableViewDataSource {
                             (indexPath.row + 1),
                             spendTime)
         
-        guard let photoURLString = self.memberResultInfo[indexPath.row].photoURLString else {
+        let memberUID = memberResultInfo[indexPath.row].uid
+        
+//        let group = DispatchGroup()
+        
+//        group.enter()
+        
+        FirebaseDataManeger.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
             
-            return ridingResultCell
+            switch result {
+                
+            case .success(let photoURLString):
+                
+                guard let photoURLString = photoURLString else {
+                    
+//                    group.leave()
+                    
+                    return
+                }
+                
+                ridingResultCell.memberImage.setImage(urlString: photoURLString)
+                
+//                group.leave()
+                
+                return
+                
+            case .failure:
+                
+//                group.leave()
+                
+                return
+            }
         }
         
-        ridingResultCell.memberImage.setImage(urlString: photoURLString)
+//        group.notify(queue: .main) {
+            
+            return ridingResultCell
+//        }
         
-        return ridingResultCell
+//        guard let photoURLString = self.memberResultInfo[indexPath.row].photoURLString else {
+//
+//            return ridingResultCell
+//        }
+        
+//        ridingResultCell.memberImage.setImage(urlString: photoURLString)
+//
+//        return ridingResultCell
     }
     
     func updateUserInfo(_ userName: String, _ userRank: Int, _ spendTime: String) {

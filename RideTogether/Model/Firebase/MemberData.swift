@@ -11,7 +11,7 @@ import MapKit
 
 struct MemberData {
     
-//    let uid: String
+    let uid: String
     
     let name: String
     
@@ -31,9 +31,11 @@ struct MemberData {
     
     var altitude: [Double]?
     
-    init (memberName: String) {
+    init (memberName: String, memberNameUID: String) {
         
         self.name = memberName
+        
+        self.uid = memberNameUID
     }
 }
 

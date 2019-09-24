@@ -53,7 +53,8 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var memberInfo = MemberData(memberName: FirebaseAccountManager.shared.userName!)
+    var memberInfo = MemberData(memberName: FirebaseAccountManager.shared.userName!,
+                                memberNameUID: FirebaseAccountManager.shared.userUID!)
     
     var locationOfMember = [LocationOfMember]() {
         
@@ -101,6 +102,8 @@ class RidingViewController: UIViewController {
             
             locatonTimer?.invalidate()
             
+            locationManager.stopUpdatingLocation()
+            
             coverView.alpha = 0.4
             
             self.stopButton.setTitle("繼續", for: .normal)
@@ -125,6 +128,8 @@ class RidingViewController: UIViewController {
                                                 selector: #selector(currentLocaton),
                                                 userInfo: nil,
                                                 repeats: true)
+            
+            locationManager.startUpdatingLocation()
             
             UIView.animate(withDuration: 0.3) {
                 
@@ -362,9 +367,6 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 
         // 使用者移動多少距離後會更新座標點
         locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
-
-        //        myLocationMgr.startUpdatingLocation()// Start location
-        //        myLocationMgr.stopUpdatingLocation()// Stop location
 
         //        // 3. 配置 mapView
         mapView.delegate = self as MKMapViewDelegate

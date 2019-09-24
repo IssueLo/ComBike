@@ -15,13 +15,49 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Gt-qW-W0e">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backView_main" translatesAutoresizingMaskIntoConstraints="NO" id="e2L-ce-Vdn">
+                                        <rect key="frame" x="121" y="203.5" width="133" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="FgV-Eq-kxo"/>
+                                            <constraint firstAttribute="width" secondItem="e2L-ce-Vdn" secondAttribute="height" multiplier="2:3" id="xSu-je-8DV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's ride together !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YW4-Qo-qCJ">
+                                        <rect key="frame" x="83" y="393.5" width="209" height="31"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="22"/>
+                                        <color key="textColor" red="0.95294117649999999" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="YW4-Qo-qCJ" firstAttribute="centerX" secondItem="e2L-ce-Vdn" secondAttribute="centerX" id="GZd-a6-juw"/>
+                                    <constraint firstItem="YW4-Qo-qCJ" firstAttribute="top" secondItem="e2L-ce-Vdn" secondAttribute="bottom" constant="-10" id="VhZ-cM-fca"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Gt-qW-W0e" secondAttribute="bottom" id="5wd-VM-FAg"/>
+                            <constraint firstItem="e2L-ce-Vdn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-30" id="CDH-eB-Cdf"/>
+                            <constraint firstItem="1Gt-qW-W0e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NVK-9p-xRd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Gt-qW-W0e" secondAttribute="trailing" id="gqR-6f-E8n"/>
+                            <constraint firstItem="e2L-ce-Vdn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lZ0-91-9EI"/>
+                            <constraint firstItem="1Gt-qW-W0e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q5f-N6-8KN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backView_main" width="152" height="231"/>
+    </resources>
 </document>

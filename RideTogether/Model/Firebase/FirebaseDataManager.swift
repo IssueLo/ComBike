@@ -136,7 +136,7 @@ class FirebaseDataManeger {
                 guard let name = document.data()["name"] as? String
                     else { return }
                 
-                var member = MemberData(memberName: name)
+                var member = MemberData(memberName: name, memberNameUID: document.documentID)
                 
                 self.searchMemberPhoto(memberUID: document.documentID, completion: { (result) in
                     
@@ -189,7 +189,7 @@ class FirebaseDataManeger {
     }
     
     // MARK: 用 uid 搜尋 Photo
-    private func searchMemberPhoto(memberUID: String, completion: @escaping (Result<String?>) -> Void) {
+    func searchMemberPhoto(memberUID: String, completion: @escaping (Result<String?>) -> Void) {
         
         let uesrInfoDocument = userInfoDatebase.document(memberUID)
         
@@ -534,11 +534,11 @@ class FirebaseDataManeger {
                 
                 var ridingResultArray = [MemberData]()
                 
-                let group = DispatchGroup()
+//                let group = DispatchGroup()
                 
                 for document in querySnapshot.documents {
                     
-                    group.enter()
+//                    group.enter()
                     
                     guard
                         let memberName = document.data() ["name"] as? String,
@@ -550,10 +550,10 @@ class FirebaseDataManeger {
                         let route = document.data() ["route"] as? [GeoPoint]
                     else { return }
                     
-                    var memberInfo = MemberData(memberName: memberName)
+                    var memberInfo = MemberData(memberName: memberName, memberNameUID: document.documentID)
                     
                     memberInfo.spendTime = spendTime
-                    
+                    print("SpendTime:\(spendTime)")
                     memberInfo.distance = distance
                     
                     memberInfo.averageSpeed = averageSpeed
@@ -564,29 +564,35 @@ class FirebaseDataManeger {
                     
                     memberInfo.route = route
                     
-                    self.searchMemberPhoto(memberUID: document.documentID, completion: { (result) in
-                        
-                        switch result {
-                            
-                        case .success(let memberUID):
-                            
-                            memberInfo.photoURLString = memberUID
-                            
-                            ridingResultArray.append(memberInfo)
-                            
-                            group.leave()
-                            
-                        case .failure:
-                            
-                            return
-                        }
-                    })
+                    ridingResultArray.append(memberInfo)
+                    
+//                    group.leave()
+                    // 照片 API 回來的時間不是照發出 request 時間排序的
+//                    self.searchMemberPhoto(memberUID: document.documentID, completion: { (result) in
+//
+//                        switch result {
+//
+//                        case .success(let memberUID):
+//
+//                            memberInfo.photoURLString = memberUID
+//
+//                            ridingResultArray.append(memberInfo)
+//
+//                            group.leave()
+//
+//                        case .failure:
+//
+//                            return
+//                        }
+//                    })
                 }
                 
-                group.notify(queue: .main, execute: {
+//                group.notify(queue: .main, execute: {
                     
                     completion(ridingResultArray)
-                })
+                    
+//                    print(ridingResultArray)
+//                })
             }
         }
     }

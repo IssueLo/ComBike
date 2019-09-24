@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Crashlytics
 
 class HomePageViewController: UIViewController {
     
@@ -44,6 +43,17 @@ class HomePageViewController: UIViewController {
     var east = ["10418563", "10231327", "10250324", "9563425", "10871570"]
     
     var allRouteList = [[String]]()
+    
+    @IBOutlet weak var launchScreen: UIView! {
+        
+        didSet {
+            
+//            UIView.animate(withDuration: 1) {
+//
+//                self.launchScreen.alpha = 0
+//            }
+        }
+    }
     
     @IBOutlet weak var routeListTableView: UITableView! {
         
@@ -107,6 +117,11 @@ class HomePageViewController: UIViewController {
             group.notify(queue: .main, execute: {
                 
                 self.routeDataArray.append(currentRouteData)
+                
+                UIView.animate(withDuration: 1) {
+                    
+                    self.launchScreen.alpha = 0
+                }
             })
         }
         
