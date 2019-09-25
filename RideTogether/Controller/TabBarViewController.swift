@@ -72,6 +72,9 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 不支援暗黑模式
+        overrideUserInterfaceStyle = .light
+        
         delegate = self
         
         viewControllers = tabs.map({ $0.callController() })
