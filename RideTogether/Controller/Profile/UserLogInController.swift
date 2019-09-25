@@ -234,16 +234,26 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
                                     
             UserDefaults.standard.setValue(user.id, forKey: "UserUID")
             
-            // 登入成功後取得會員暱稱
-            FirebaseDataManeger.shared.searchUserInfo(user.id)
-            
-            FirebaseAccountManager.shared.userEmail = user.email
-            
-            FirebaseDataManeger.shared.appleSignIn(user.id,
-                                                   user.firstName,
-                                                   user.email)
-            
-            showAlert("登入成功", self.toNextVCHandler)
+            if user.email == "" {
+                
+                // 舊會員，登入成功後取得會員暱稱
+                FirebaseDataManeger.shared.searchUserInfo(user.id)
+                
+                showAlert("登入成功", self.toNextVCHandler)
+                
+            } else {
+                
+                // 儲存新會員資料
+                FirebaseAccountManager.shared.userName = user.firstName
+                
+                FirebaseAccountManager.shared.userEmail = user.email
+                
+                FirebaseDataManeger.shared.appleSignIn(user.id,
+                                                       user.firstName,
+                                                       user.email)
+                
+                showAlert("登入成功", self.toNextVCHandler)
+            }
 
         default: break
         }
