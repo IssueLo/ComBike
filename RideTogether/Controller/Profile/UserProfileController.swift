@@ -103,35 +103,6 @@ class UserProfileController: UIViewController {
         // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
         present(imagePickerAlertController, animated: true, completion: nil)
     }
-    
-    func onClickLogout() {
-        
-        UserDefaults.standard.removeObject(forKey: "UserUID")
-        
-        do {
-            
-            try Auth.auth().signOut()
-            
-            self.showAlert("登出成功") { (_) in
-                
-                self.tabBarController?.selectedIndex = 1
-            }
-            
-            // User 資料記得清空啊
-            FirebaseAccountManager.shared.userName = nil
-            
-            FirebaseAccountManager.shared.userPhotoURL = nil
-            
-            if FirebaseDataManeger.groupObserverFor != nil {
-                
-                FirebaseDataManeger.groupObserverFor.remove()
-            }
-            
-        } catch let error as NSError {
-            
-            self.showAlert(error.localizedDescription)
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,9 +123,7 @@ class UserProfileController: UIViewController {
         }
         
         userNameLabel.text = userName
-        
-        //topItem?.title = userName + "の個人頁面"
-        
+                
         guard let photoURL = FirebaseAccountManager.shared.userPhotoURL else {
             
             userImage.image = UIImage(named: "UChu")
@@ -186,6 +155,8 @@ extension UserProfileController: UITableViewDataSource {
         
         profileCell.titleLabel.text = titleOfCell[indexPath.row]
         
+        profileCell.nextPageImage.alpha = 0
+        
         switch indexPath.row {
         
         case 0: return profileCell
@@ -193,8 +164,6 @@ extension UserProfileController: UITableViewDataSource {
             // profileCell.accessoryType = .disclosureIndicator
 
         case 1:
-            
-            profileCell.nextPageImage.alpha = 0
             
             profileCell.titleLabel.textColor = .hexStringToUIColor()
             
@@ -212,21 +181,59 @@ extension UserProfileController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 && indexPath.row == 1 {
+        switch indexPath.row {
+        case 0:
             
-            self.onClickLogout()
+            toPrivacyWebView()
             
-            self.backToRoot()
+        case 1:
+            
+            onClickLogout()
+            
+            backToRoot()
+            
+        default:
+            return
         }
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        return 100
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        
-//        return 0
-//    }
+    
+    func toPrivacyWebView() {
+        
+        let webViewStoryboard = UIStoryboard(name: "PrivacyWebStoryboard", bundle: nil)
+        
+        let webViewVC = webViewStoryboard.instantiateViewController(identifier: "PrivacyWebController")
+        
+        present(webViewVC, animated: true, completion: nil)
+    }
+    
+    func onClickLogout() {
+        
+        UserDefaults.standard.removeObject(forKey: "UserUID")
+        
+        do {
+            
+            try Auth.auth().signOut()
+            
+            self.showAlert("登出成功") { (_) in
+                
+                self.tabBarController?.selectedIndex = 1
+            }
+            
+            // User 資料記得清空啊
+            FirebaseAccountManager.shared.userName = nil
+            
+            FirebaseAccountManager.shared.userPhotoURL = nil
+            
+            if FirebaseDataManeger.groupObserverFor != nil {
+                
+                FirebaseDataManeger.groupObserverFor.remove()
+            }
+            
+        } catch let error as NSError {
+            
+            self.showAlert(error.localizedDescription)
+        }
+    }
 }
 
 extension UserProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

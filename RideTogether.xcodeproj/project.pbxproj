@@ -12,6 +12,8 @@
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
 		95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */; };
+		95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */; };
+		95195B7D233AF6D000B81703 /* PrivacyWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B7C233AF6D000B81703 /* PrivacyWebController.swift */; };
 		9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519863B232D2EB200FFCE28 /* RidingInfoView.swift */; };
 		951D9257233371AA00275B78 /* RouteDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */; };
 		951D92592333735400275B78 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D92582333735400275B78 /* RouteDetailViewController.swift */; };
@@ -87,6 +89,8 @@
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
 		95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfAppleSignIn.swift; sourceTree = "<group>"; };
 		95195B79233A4C9B00B81703 /* RideTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideTogether.entitlements; sourceTree = "<group>"; };
+		95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivacyWebStoryboard.storyboard; sourceTree = "<group>"; };
+		95195B7C233AF6D000B81703 /* PrivacyWebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWebController.swift; sourceTree = "<group>"; };
 		9519863B232D2EB200FFCE28 /* RidingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingInfoView.swift; sourceTree = "<group>"; };
 		951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		951D92582333735400275B78 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				95D613CB23155BF5008D885E /* UserLogInController.swift */,
 				9545678A2328A326009DA63B /* UserProfileController.swift */,
 				95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */,
+				95195B7C233AF6D000B81703 /* PrivacyWebController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			children = (
 				95D613CD23155BF5008D885E /* UserLogInStoryboard.storyboard */,
 				9545678823287F59009DA63B /* UserProfileStoryboard.storyboard */,
+				95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
+				95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
@@ -653,6 +660,7 @@
 				9525992C23211914009C7750 /* HomePageViewController.swift in Sources */,
 				9545C98D232A876B00B74B03 /* Extension+UIView.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
+				95195B7D233AF6D000B81703 /* PrivacyWebController.swift in Sources */,
 				9525993223213FE0009C7750 /* QRCodeView.swift in Sources */,
 				952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */,
 				9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */,

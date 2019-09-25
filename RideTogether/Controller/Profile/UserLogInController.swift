@@ -12,6 +12,8 @@ import AuthenticationServices
 
 class UserLogInController: UIViewController {
     
+    var toNextVCHandler: ((UIAlertAction) -> Void)!
+    
     @IBOutlet weak var backCoverView: UIView! {
         
         didSet {
@@ -24,8 +26,16 @@ class UserLogInController: UIViewController {
     
     @IBOutlet weak var userLogInView: UserLogInView!
     
-    var toNextVCHandler: ((UIAlertAction) -> Void)!
-    
+    @IBOutlet weak var toPrivacyWVBtn: UIButton! {
+        
+        didSet {
+            
+            toPrivacyWVBtn.addTarget(self,
+                                     action: #selector(toPrivacyWebView),
+                                     for: .touchUpInside)
+        }
+    }
+
     @IBAction func backToLastVC() {
         
 //        navigationController?.popViewController(animated: true)
@@ -42,8 +52,19 @@ class UserLogInController: UIViewController {
         setupView()
     }
     
+    @objc
+    func toPrivacyWebView() {
+        
+        let webViewStoryboard = UIStoryboard(name: "PrivacyWebStoryboard", bundle: nil)
+        
+        let webViewVC = webViewStoryboard.instantiateViewController(identifier: "PrivacyWebController")
+        
+        present(webViewVC, animated: true, completion: nil)
+    }
+    
     // MARK: Firebase 密碼重設
-    @objc func onResetPassword() {
+    @objc
+    func onResetPassword() {
         
     }
 }
@@ -138,8 +159,7 @@ extension UserLogInController: UserSignUpViewDelegate {
             
             FirebaseAccountManager.shared.onClickRegister(userName: name,
                                                           userEmail: email,
-                                                          userPassword: password)
-            { [weak self](error) in
+                                                          userPassword: password) { [weak self](error) in
                 
                 if error != nil {
                     
