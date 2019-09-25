@@ -172,6 +172,8 @@ class GroupListViewController: UIViewController {
         
         let qrCodeScannerVC = QRCodeScannerController()
         
+        qrCodeScannerVC.modalPresentationStyle = .fullScreen
+        
         present(qrCodeScannerVC, animated: true, completion: nil)
     }
 }
@@ -263,6 +265,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         resultVC.groupData = self.groupData[indexPath.row]
         
+        resultVC.modalPresentationStyle = .fullScreen
 //        self.show(resultVC, sender: nil)
         present(resultVC, animated: true, completion: nil)
     }

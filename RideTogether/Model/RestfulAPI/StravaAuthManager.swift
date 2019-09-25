@@ -27,7 +27,7 @@ class StravaAuthManager {
                     
                     let accessToken = try decoder.decode(Token.self, from: data)
                     
-                    print(accessToken)
+//                    print(accessToken)
                     
                     completion(Result.success(accessToken))
                 

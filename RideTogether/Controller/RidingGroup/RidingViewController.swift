@@ -181,7 +181,9 @@ class RidingViewController: UIViewController {
                                                     FirebaseAccountManager.shared.userUID!,
                                                     memberInfo)
         
-        show(ridingResultVC, sender: nil)
+        ridingResultVC.modalPresentationStyle = .fullScreen
+        
+        present(ridingResultVC, animated: true, completion: nil)
     }
     
     @IBAction func backGroupDetailVC() {

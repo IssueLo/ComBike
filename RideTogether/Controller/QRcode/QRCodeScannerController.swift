@@ -165,15 +165,17 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                         
                         return
                     }
-                                        
+
                     FirebaseDataManeger.shared.addUserIntoGroup(groupID: value,
                                                                 userUID: userUID,
                                                                 userName: userName) { (message) in
-                                                                    
-                                                                    self.showAlert(message, { (_) in
-                                                                        
-                                                                        self.dismiss(animated: true, completion: nil)
-                                                                    })
+
+                                                                    DispatchQueue.main.async {
+                                                                        self.showAlert(message, { (_) in
+                                                                            
+                                                                            self.dismiss(animated: true, completion: nil)
+                                                                        })
+                                                                    }
                     }
                 }
             }

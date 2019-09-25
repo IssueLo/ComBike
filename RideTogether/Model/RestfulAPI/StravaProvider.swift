@@ -28,7 +28,7 @@ class StravaProvider {
                 return
             }
             
-            print(result)
+//            print(result)
         }
     }
 }

@@ -65,7 +65,7 @@ class HomePageViewController: UIViewController {
         
             for routeID in area {
                 
-                print("**enter: \(routeID)")
+//                print("**enter: \(routeID)")
                 group.enter()
                 
                 StravaProvider.getRouteData(routeID) { (result) in

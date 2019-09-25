@@ -161,7 +161,7 @@ class HTTPClient {
                 
                 let dataObject = try decoder.decode(Token.self, from: data)
                 
-                print(dataObject)
+//                print(dataObject)
                 
             } catch {
                 
