@@ -60,6 +60,7 @@
 		9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C98F232C84CD00B74B03 /* HTTPClient.swift */; };
 		9545C993232C85ED00B74B03 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C992232C85ED00B74B03 /* GroupData.swift */; };
 		9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C994232C8C4C00B74B03 /* MemberData.swift */; };
+		95546E59233B1CD300A1D1F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95546E58233B1CD300A1D1F3 /* MapKit.framework */; };
 		955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC84E23326F3B00388934 /* StravaAuthManager.swift */; };
 		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
@@ -137,6 +138,7 @@
 		9545C98F232C84CD00B74B03 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		9545C992232C85ED00B74B03 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		9545C994232C8C4C00B74B03 /* MemberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
+		95546E58233B1CD300A1D1F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		955AC84E23326F3B00388934 /* StravaAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthManager.swift; sourceTree = "<group>"; };
 		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95546E59233B1CD300A1D1F3 /* MapKit.framework in Frameworks */,
 				9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +179,7 @@
 		434C3E47F412A67E6528010E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95546E58233B1CD300A1D1F3 /* MapKit.framework */,
 				BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */,
 			);
 			name = Frameworks;
@@ -839,6 +843,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RideTogether/RideTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
@@ -861,6 +866,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RideTogether/RideTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TPD4KTK4ZX;
 				INFOPLIST_FILE = RideTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
