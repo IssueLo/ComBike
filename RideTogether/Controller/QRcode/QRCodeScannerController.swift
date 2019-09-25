@@ -173,7 +173,8 @@ extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
                                                                     DispatchQueue.main.async {
                                                                         self.showAlert(message, { (_) in
                                                                             
-                                                                            self.dismiss(animated: true, completion: nil)
+                                                                            self.dismiss(animated: true,
+                                                                                         completion: nil)
                                                                         })
                                                                     }
                     }
