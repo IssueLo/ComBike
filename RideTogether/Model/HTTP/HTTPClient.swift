@@ -159,7 +159,7 @@ class HTTPClient {
                 
                 let decoder = JSONDecoder()
                 
-                let dataObject = try decoder.decode(Token.self, from: data)
+                let _ = try decoder.decode(Token.self, from: data) // dataObject
                 
 //                print(dataObject)
                 

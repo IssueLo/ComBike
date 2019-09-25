@@ -61,6 +61,7 @@
 		9545C993232C85ED00B74B03 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C992232C85ED00B74B03 /* GroupData.swift */; };
 		9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C994232C8C4C00B74B03 /* MemberData.swift */; };
 		95546E59233B1CD300A1D1F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95546E58233B1CD300A1D1F3 /* MapKit.framework */; };
+		95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */; };
 		955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC84E23326F3B00388934 /* StravaAuthManager.swift */; };
 		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
@@ -79,6 +80,11 @@
 		95D613CF23155BF5008D885E /* UserLogInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613CD23155BF5008D885E /* UserLogInStoryboard.storyboard */; };
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
+		95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C7233B7870006D4FAC /* FirstPageController.swift */; };
+		95EA35CA233B7885006D4FAC /* SecondPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C9233B7885006D4FAC /* SecondPageController.swift */; };
+		95EA35CC233B7897006D4FAC /* ThirdPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CB233B7897006D4FAC /* ThirdPageController.swift */; };
+		95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */; };
+		95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CF233B7A96006D4FAC /* PageViewController.swift */; };
 		9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +145,7 @@
 		9545C992232C85ED00B74B03 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		9545C994232C8C4C00B74B03 /* MemberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
 		95546E58233B1CD300A1D1F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserIndicaterStoryboard.storyboard; sourceTree = "<group>"; };
 		955AC84E23326F3B00388934 /* StravaAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthManager.swift; sourceTree = "<group>"; };
 		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
@@ -159,6 +166,11 @@
 		95D613D023155BF6008D885E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D613D523155BF6008D885E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95EA35C7233B7870006D4FAC /* FirstPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
+		95EA35C9233B7885006D4FAC /* SecondPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageController.swift; sourceTree = "<group>"; };
+		95EA35CB233B7897006D4FAC /* ThirdPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageController.swift; sourceTree = "<group>"; };
+		95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicaterController.swift; sourceTree = "<group>"; };
+		95EA35CF233B7A96006D4FAC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B5F17ADEBFE156AD3509BD71 /* Pods-RideTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.debug.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.debug.xcconfig"; sourceTree = "<group>"; };
 		BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,6 +200,7 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
 				95BE90A02337B27100F40ADD /* RouteRecommend */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
@@ -444,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
+				95EA35C6233B7777006D4FAC /* UserIndicaterController */,
 				95456780232746F6009DA63B /* HomePage */,
 				9545678123274705009DA63B /* RidingGroup */,
 				954567822327472E009DA63B /* Profile */,
@@ -465,6 +479,18 @@
 				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		95EA35C6233B7777006D4FAC /* UserIndicaterController */ = {
+			isa = PBXGroup;
+			children = (
+				95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */,
+				95EA35CF233B7A96006D4FAC /* PageViewController.swift */,
+				95EA35C7233B7870006D4FAC /* FirstPageController.swift */,
+				95EA35C9233B7885006D4FAC /* SecondPageController.swift */,
+				95EA35CB233B7897006D4FAC /* ThirdPageController.swift */,
+			);
+			path = UserIndicaterController;
 			sourceTree = "<group>";
 		};
 		E2F7A3C4657FC71E1631E9EB /* Pods */ = {
@@ -538,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */,
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */,
 				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
@@ -648,6 +675,8 @@
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
+				95EA35CA233B7885006D4FAC /* SecondPageController.swift in Sources */,
+				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
 				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
@@ -657,6 +686,8 @@
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
+				95EA35CC233B7897006D4FAC /* ThirdPageController.swift in Sources */,
+				95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */,
 				95CFD17D231F894400329927 /* FirebaseKey.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
@@ -675,6 +706,7 @@
 				951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				953EF924233228A200DD692B /* RouteListCell.swift in Sources */,
+				95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */,
 				951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
