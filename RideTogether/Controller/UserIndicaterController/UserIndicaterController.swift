@@ -10,7 +10,17 @@ import UIKit
 
 class UserIndicaterController: UIViewController {
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: UIPageControl! {
+        
+        didSet {
+            
+            pageControl.pageIndicatorTintColor = .lightGray
+            
+            pageControl.currentPageIndicatorTintColor = .hexStringToUIColor()
+            
+            pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

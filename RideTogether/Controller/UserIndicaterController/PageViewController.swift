@@ -17,12 +17,21 @@ protocol PageViewControllerDelegate: class {
                             didUpdatePageIndex pageIndex: Int)
 }
 
+// swiftlint:disable force_cast
 class PageViewController: UIPageViewController {
     
-    var viewControllerList = [UIViewController]()
-    
     weak var pageViewControllerDelegate: PageViewControllerDelegate?
-
+    
+    var viewControllerList = [FirstPageController]()
+    
+    var indicaterImage = ["backView_guide_01", "backView_guide_02", "backView_guide_03"]
+    
+    var indicaterTitleLbl = ["推薦路線", "組隊約騎", "紀錄活動"]
+    
+    var indicaterSubTitleLbl = ["提供台灣北中南東單車推薦路線",
+                                "三五好友大家一起騎",
+                                "紀錄騎乘距離、坡度、路線"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,19 +41,35 @@ class PageViewController: UIPageViewController {
         
         viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
         
-        viewControllerList.append(getViewController(withStoryboardID: "SecondPageController"))
+        viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
 
-        viewControllerList.append(getViewController(withStoryboardID: "ThirdPageController"))
+        viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
 
         self.setViewControllers([self.viewControllerList.first!],
                                 direction: UIPageViewController.NavigationDirection.forward,
                                 animated: true, completion: nil)
 
+        setIndicaterView()
     }
     
-    private func getViewController(withStoryboardID storyboardID: String) -> UIViewController {
+    private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
         return UIStoryboard(name: "UserIndicaterStoryboard",
-                            bundle: nil).instantiateViewController(withIdentifier: storyboardID)
+                            bundle: nil).instantiateViewController(withIdentifier: storyboardID) as! FirstPageController
+    }
+    
+    func setIndicaterView() {
+        
+        for number in 0..<viewControllerList.count {
+            
+            viewControllerList[number].loadViewIfNeeded()
+            
+            viewControllerList[number].indicaterImage.image = UIImage(named: indicaterImage[number])
+            
+            viewControllerList[number].indicaterTitleLbl.text = indicaterTitleLbl[number]
+            
+            viewControllerList[number].indicaterSubTitleLbl.text = indicaterSubTitleLbl[number]
+        }
+        
     }
 }
 
@@ -53,7 +78,7 @@ extension PageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        let currentIndex: Int = viewControllerList.firstIndex(of: viewController)!
+        let currentIndex: Int = viewControllerList.firstIndex(of: viewController as! FirstPageController)!
         
         let priviousIndex: Int = currentIndex - 1
         
@@ -64,7 +89,7 @@ extension PageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        let currentIndex: Int = viewControllerList.firstIndex(of: viewController)!
+        let currentIndex: Int = viewControllerList.firstIndex(of: viewController as! FirstPageController)!
         
         let nextIndex: Int = currentIndex + 1
         
@@ -84,8 +109,9 @@ extension PageViewController: UIPageViewControllerDelegate {
         let currentViewController: UIViewController = (self.viewControllers?.first)!
 
         // 取得當前頁數的 index
-        let currentIndex: Int = viewControllerList.firstIndex(of: currentViewController)!
+        let currentIndex: Int = viewControllerList.firstIndex(of: currentViewController as! FirstPageController)!
 
         pageViewControllerDelegate?.pageViewController(self, didUpdatePageIndex: currentIndex)
     }
 }
+// swiftlint:ensable force_cast

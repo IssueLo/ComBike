@@ -81,8 +81,6 @@
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
 		95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C7233B7870006D4FAC /* FirstPageController.swift */; };
-		95EA35CA233B7885006D4FAC /* SecondPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C9233B7885006D4FAC /* SecondPageController.swift */; };
-		95EA35CC233B7897006D4FAC /* ThirdPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CB233B7897006D4FAC /* ThirdPageController.swift */; };
 		95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */; };
 		95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CF233B7A96006D4FAC /* PageViewController.swift */; };
 		9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */; };
@@ -167,8 +165,6 @@
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D613D523155BF6008D885E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EA35C7233B7870006D4FAC /* FirstPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
-		95EA35C9233B7885006D4FAC /* SecondPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageController.swift; sourceTree = "<group>"; };
-		95EA35CB233B7897006D4FAC /* ThirdPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageController.swift; sourceTree = "<group>"; };
 		95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicaterController.swift; sourceTree = "<group>"; };
 		95EA35CF233B7A96006D4FAC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B5F17ADEBFE156AD3509BD71 /* Pods-RideTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.debug.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -487,8 +483,6 @@
 				95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */,
 				95EA35CF233B7A96006D4FAC /* PageViewController.swift */,
 				95EA35C7233B7870006D4FAC /* FirstPageController.swift */,
-				95EA35C9233B7885006D4FAC /* SecondPageController.swift */,
-				95EA35CB233B7897006D4FAC /* ThirdPageController.swift */,
 			);
 			path = UserIndicaterController;
 			sourceTree = "<group>";
@@ -675,7 +669,6 @@
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
-				95EA35CA233B7885006D4FAC /* SecondPageController.swift in Sources */,
 				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
@@ -686,7 +679,6 @@
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
-				95EA35CC233B7897006D4FAC /* ThirdPageController.swift in Sources */,
 				95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */,
 				95CFD17D231F894400329927 /* FirebaseKey.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,

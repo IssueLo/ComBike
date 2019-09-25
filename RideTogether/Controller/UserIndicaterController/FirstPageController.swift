@@ -10,6 +10,12 @@ import UIKit
 
 class FirstPageController: UIViewController {
     
+    @IBOutlet weak var indicaterImage: UIImageView!
+    
+    @IBOutlet weak var indicaterTitleLbl: UILabel!
+    
+    @IBOutlet weak var indicaterSubTitleLbl: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -22,13 +22,13 @@
                                 </connections>
                             </containerView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-A3-2Bo">
-                                <rect key="frame" x="168" y="530" width="39" height="37"/>
+                                <rect key="frame" x="168" y="335" width="39" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XU6-Sh-kLj" firstAttribute="trailing" secondItem="ogg-8F-hvi" secondAttribute="trailing" id="2Cu-Mt-f8k"/>
-                            <constraint firstItem="XU6-Sh-kLj" firstAttribute="bottom" secondItem="LdT-A3-2Bo" secondAttribute="bottom" constant="100" id="Pmn-wm-2eV"/>
+                            <constraint firstItem="LdT-A3-2Bo" firstAttribute="centerY" secondItem="M32-ui-cb2" secondAttribute="centerY" constant="20" id="MYW-de-pwK"/>
                             <constraint firstItem="ogg-8F-hvi" firstAttribute="top" secondItem="XU6-Sh-kLj" secondAttribute="top" id="SXt-6R-lnA"/>
                             <constraint firstItem="ogg-8F-hvi" firstAttribute="leading" secondItem="XU6-Sh-kLj" secondAttribute="leading" id="fuF-sd-XJJ"/>
                             <constraint firstItem="XU6-Sh-kLj" firstAttribute="bottom" secondItem="ogg-8F-hvi" secondAttribute="bottom" id="gsf-2T-hw3"/>
@@ -44,36 +44,6 @@
             </objects>
             <point key="canvasLocation" x="-829" y="98"/>
         </scene>
-        <!--Second Page Controller-->
-        <scene sceneID="6CW-Yc-tND">
-            <objects>
-                <viewController storyboardIdentifier="SecondPageController" id="0NQ-iD-cZd" customClass="SecondPageController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3v4-fn-t9o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="zya-eO-RBO"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JLO-QI-RyY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1020" y="104"/>
-        </scene>
-        <!--Third Page Controller-->
-        <scene sceneID="63M-8U-Obn">
-            <objects>
-                <viewController storyboardIdentifier="ThirdPageController" id="872-F8-vR4" customClass="ThirdPageController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hfF-CT-VL9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="H1P-V4-gTc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KI6-da-AUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1024" y="782"/>
-        </scene>
         <!--First Page Controller-->
         <scene sceneID="ArT-ml-eIz">
             <objects>
@@ -81,13 +51,47 @@
                     <view key="view" contentMode="scaleToFill" id="rtk-yk-Xjx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ERQ-Dt-xim">
+                                <rect key="frame" x="67.5" y="113.5" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="5a2-mH-NVp"/>
+                                    <constraint firstAttribute="height" constant="200" id="NTH-Jz-0Vr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提供台灣北中南東單車推薦路線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYY-bs-cLq">
+                                <rect key="frame" x="47.5" y="451.5" width="229" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推薦路線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSK-Qz-EoL">
+                                <rect key="frame" x="47.5" y="385.5" width="160" height="56"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="40"/>
+                                <color key="textColor" red="0.95294117649999999" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZSK-Qz-EoL" firstAttribute="centerX" secondItem="rtk-yk-Xjx" secondAttribute="centerX" constant="-60" id="Le5-ue-ge5"/>
+                            <constraint firstItem="vYY-bs-cLq" firstAttribute="top" secondItem="ZSK-Qz-EoL" secondAttribute="bottom" constant="10" id="Nfx-yk-Zh5"/>
+                            <constraint firstItem="vYY-bs-cLq" firstAttribute="leading" secondItem="ZSK-Qz-EoL" secondAttribute="leading" id="Vd4-eS-QJh"/>
+                            <constraint firstItem="ERQ-Dt-xim" firstAttribute="centerY" secondItem="rtk-yk-Xjx" secondAttribute="centerY" constant="-120" id="WiA-dd-J4T"/>
+                            <constraint firstItem="ZSK-Qz-EoL" firstAttribute="centerY" secondItem="rtk-yk-Xjx" secondAttribute="centerY" constant="80" id="kR4-5e-MDE"/>
+                            <constraint firstItem="ERQ-Dt-xim" firstAttribute="centerX" secondItem="rtk-yk-Xjx" secondAttribute="centerX" id="y0a-9c-Ga1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JSu-Hh-KER"/>
                     </view>
+                    <connections>
+                        <outlet property="indicaterImage" destination="ERQ-Dt-xim" id="g3q-HK-aXZ"/>
+                        <outlet property="indicaterSubTitleLbl" destination="vYY-bs-cLq" id="WFw-Bc-gR7"/>
+                        <outlet property="indicaterTitleLbl" destination="ZSK-Qz-EoL" id="lmF-9G-1e2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlY-Yn-0vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="-574"/>
+            <point key="canvasLocation" x="972" y="104"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="bG2-yW-vhs">
