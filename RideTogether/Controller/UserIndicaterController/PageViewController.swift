@@ -97,29 +97,9 @@ extension PageViewController: UIPageViewControllerDataSource {
         
         let nextIndex: Int = currentIndex + 1
         
-//        let tabBarStoryboard = UIStoryboard(name: "TabBarStoryboard", bundle: nil)
-//
-//        let tabBarViewController = tabBarStoryboard.instantiateViewController(identifier: "TabBarViewController")
-        
         // 判斷下一頁的 index 是否大於總頁數，若大於則停留在當前的頁數
         return nextIndex > viewControllerList.count - 1 ? nil : viewControllerList[nextIndex]
-        
-//        if nextIndex < viewControllerList.count {
-//
-//            return viewControllerList[nextIndex]
-//
-//        } else {
-//
-//            return tabBarViewController
-//        }
     }
-    
-    
-//    init(transitionStyle style: UIPageViewController.TransitionStyle,
-//         navigationOrientation: UIPageViewController.NavigationOrientation,
-//         options: [UIPageViewController.OptionsKey : Any]? = nil) {
-//        <#code#>
-//    }
 }
 
 extension PageViewController: UIPageViewControllerDelegate {

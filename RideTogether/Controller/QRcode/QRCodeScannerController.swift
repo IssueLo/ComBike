@@ -79,7 +79,7 @@ class QRCodeScannerController: UIViewController {
             
             backButton.translatesAutoresizingMaskIntoConstraints = false
             
-            NSLayoutConstraint.activate([backButton.topAnchor.constraint(equalTo: view.topAnchor,
+            NSLayoutConstraint.activate([backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                                                          constant: 24),
                                          backButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                                               constant: -16)

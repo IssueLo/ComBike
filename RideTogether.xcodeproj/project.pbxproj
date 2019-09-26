@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9513F511233CB0660076CC75 /* FadeOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9513F510233CB0660076CC75 /* FadeOutTransition.swift */; };
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		38001BBEC0A2B8B4F6323FD5 /* Pods-RideTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.release.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.release.xcconfig"; sourceTree = "<group>"; };
+		9513F510233CB0660076CC75 /* FadeOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutTransition.swift; sourceTree = "<group>"; };
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
 				95CFD180231FE03B00329927 /* TimeManager.swift */,
 				952599272321187D009C7750 /* QRCodeMaker.swift */,
+				9513F510233CB0660076CC75 /* FadeOutTransition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,8 +455,8 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95CFD176231F677E00329927 /* TabBarViewController.swift */,
 				95EA35C6233B7777006D4FAC /* UserIndicaterController */,
+				95CFD176231F677E00329927 /* TabBarViewController.swift */,
 				95456780232746F6009DA63B /* HomePage */,
 				9545678123274705009DA63B /* RidingGroup */,
 				954567822327472E009DA63B /* Profile */,
@@ -709,6 +712,7 @@
 				9545678E2328F5FE009DA63B /* ProfileCell.swift in Sources */,
 				952806AF231E512700EFD895 /* CreateGroupController.swift in Sources */,
 				9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */,
+				9513F511233CB0660076CC75 /* FadeOutTransition.swift in Sources */,
 				95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */,
 				952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */,
 				95BE909F2337842C00F40ADD /* AreaRouteViewController.swift in Sources */,

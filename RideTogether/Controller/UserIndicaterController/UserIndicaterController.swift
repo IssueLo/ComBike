@@ -10,6 +10,11 @@ import UIKit
 
 class UserIndicaterController: UIViewController {
     
+    let pageViewController = PageViewController.init(transitionStyle: .scroll,
+                                                     navigationOrientation: .horizontal)
+    
+    let tabBarViewController = TabBarViewController()
+    
     @IBOutlet weak var launchScreen: UIView! {
         
         didSet {
@@ -28,12 +33,13 @@ class UserIndicaterController: UIViewController {
         didSet {
             
             skipBtn.addRound(backgroundColor: .hexStringToUIColor())
+            
+            skipBtn.addTarget(self,
+                              action: #selector(skipIndicaterVC),
+                              for: .touchUpInside)
         }
     }
     
-    let pageViewController = PageViewController.init(transitionStyle: .scroll,
-                                                     navigationOrientation: .horizontal)
-            
     @IBOutlet weak var pageControl: UIPageControl! {
         
         didSet {
@@ -59,7 +65,6 @@ class UserIndicaterController: UIViewController {
         pageViewController.didMove(toParent: self)
         
         pageViewController.pageViewControllerDelegate = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,6 +72,19 @@ class UserIndicaterController: UIViewController {
 
     }
     
+    @objc
+    func skipIndicaterVC() {
+        
+        tabBarViewController.modalPresentationStyle = .fullScreen
+        
+//        tabBarViewController.modalTransitionStyle = .crossDissolve
+        
+//        navigationController?.delegate = self
+        
+        tabBarViewController.transitioningDelegate = self
+        
+        present(tabBarViewController, animated: true, completion: nil)
+    }
 }
 
 extension UserIndicaterController: PageViewControllerDelegate {
@@ -79,5 +97,49 @@ extension UserIndicaterController: PageViewControllerDelegate {
     func pageViewController(_ pageViewController: PageViewController, didUpdatePageIndex pageIndex: Int) {
 
         pageControl.currentPage = pageIndex
+    }
+}
+
+//extension UserIndicaterController: UINavigationControllerDelegate {
+//
+//    func navigationController(_ navigationController: UINavigationController,
+//                              animationControllerFor operation: UINavigationController.Operation,
+//                              from fromVC: UIViewController,
+//                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//
+//        let trasnition = FadeOutTransition()
+//
+//        return trasnition
+//    }
+//}
+//
+//extension UserIndicaterController: UITabBarControllerDelegate {
+//
+//    func tabBarController(_ tabBarController: UITabBarController,
+//                          animationControllerForTransitionFrom fromVC: UIViewController,
+//                          to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//
+//        let trasnition = FadeOutTransition()
+//
+//        return trasnition
+//    }
+//}
+
+extension UserIndicaterController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        let trasnition = FadeOutTransition()
+        
+        return trasnition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+       
+        let trasnition = FadeOutTransition()
+        
+        return trasnition
     }
 }
