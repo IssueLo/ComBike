@@ -214,10 +214,6 @@ extension RidingResultViewController: UITableViewDataSource {
         
         let memberUID = memberResultInfo[indexPath.row].uid
         
-//        let group = DispatchGroup()
-        
-//        group.enter()
-        
         FirebaseDataManeger.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
             
             switch result {
@@ -226,38 +222,22 @@ extension RidingResultViewController: UITableViewDataSource {
                 
                 guard let photoURLString = photoURLString else {
                     
-//                    group.leave()
+                    ridingResultCell.memberImage.image = UIImage(named: "UChu")
                     
                     return
                 }
                 
                 ridingResultCell.memberImage.setImage(urlString: photoURLString)
                 
-//                group.leave()
-                
                 return
                 
             case .failure:
                 
-//                group.leave()
-                
                 return
             }
         }
-        
-//        group.notify(queue: .main) {
             
-            return ridingResultCell
-//        }
-        
-//        guard let photoURLString = self.memberResultInfo[indexPath.row].photoURLString else {
-//
-//            return ridingResultCell
-//        }
-        
-//        ridingResultCell.memberImage.setImage(urlString: photoURLString)
-//
-//        return ridingResultCell
+        return ridingResultCell
     }
     
     func updateUserInfo(_ userName: String, _ userRank: Int, _ spendTime: String) {

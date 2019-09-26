@@ -49,6 +49,8 @@ class UserRankView: UIView {
                            _ userSpendtime: String) {
         
         userNameLabel.text = userName
+        
+        userImageView.image = UIImage(named: "UChu")
                 
         userRankLabel.text = String(userRank)
         

@@ -201,6 +201,8 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         guard let photoURLString = self.memberData[indexPath.row].photoURLString else {
             
+            groupListCell.groupImage.image = UIImage(named: "UChu")
+            
             return groupListCell
         }
         

@@ -13,7 +13,7 @@ class UserIndicaterController: UIViewController {
     let pageViewController = PageViewController.init(transitionStyle: .scroll,
                                                      navigationOrientation: .horizontal)
     
-    let tabBarViewController = TabBarViewController()
+    lazy var tabBarViewController = TabBarViewController()
     
     @IBOutlet weak var launchScreen: UIView! {
         
@@ -65,6 +65,8 @@ class UserIndicaterController: UIViewController {
         pageViewController.didMove(toParent: self)
         
         pageViewController.pageViewControllerDelegate = self
+        
+//        tabBarViewController = TabBarViewController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +76,8 @@ class UserIndicaterController: UIViewController {
     
     @objc
     func skipIndicaterVC() {
+        
+//        let tabBarViewController = TabBarViewController()
         
         tabBarViewController.modalPresentationStyle = .fullScreen
         
