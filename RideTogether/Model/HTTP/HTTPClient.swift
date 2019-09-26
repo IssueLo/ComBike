@@ -153,19 +153,19 @@ class HTTPClient {
 
             }
             
-            guard let data = response.data else { return }
-            
-            do {
-                
-                let decoder = JSONDecoder()
-                
-                let _ = try decoder.decode(Token.self, from: data) // dataObject
+//            guard let data = response.data else { return }
+//
+//            do {
+//
+//                let decoder = JSONDecoder()
+//
+//                let dataObject = try decoder.decode(Token.self, from: data)
                 
 //                print(dataObject)
                 
-            } catch {
-                
-            }
+//            } catch {
+//
+//            }
         }
     }
 }
