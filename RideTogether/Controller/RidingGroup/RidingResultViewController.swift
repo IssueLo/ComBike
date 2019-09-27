@@ -94,9 +94,14 @@ class RidingResultViewController: UIViewController {
         
         ridingResultHeaderView.handler = {
             
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true) {
+//
+//                self.backToRoot()
+//            }
             
             self.backToRoot()
+            
+//            self.tabBarController?.selectedIndex = 1
         }
         
         if FirebaseAccountManager.shared.userPhotoURL != nil {

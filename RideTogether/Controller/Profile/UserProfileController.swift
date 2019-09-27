@@ -190,7 +190,7 @@ extension UserProfileController: UITableViewDelegate {
             
             onClickLogout()
             
-            backToRoot()
+//            backToRoot()
             
         default:
             return
@@ -215,7 +215,7 @@ extension UserProfileController: UITableViewDelegate {
             try Auth.auth().signOut()
             
             self.showAlert("登出成功") { (_) in
-                
+
                 self.tabBarController?.selectedIndex = 1
             }
             

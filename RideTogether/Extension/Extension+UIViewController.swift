@@ -23,17 +23,6 @@ extension UIViewController {
     
     func backToRoot(completion: (() -> Void)? = nil) {
         
-        if presentingViewController != nil {
-            
-            let superVC = presentingViewController
-            
-            dismiss(animated: false, completion: nil)
-            
-            superVC?.backToRoot(completion: completion)
-            
-            return
-        }
-        
         if self is UITabBarController {
 
             let currnetVC = (self as? UITabBarController)?.selectedViewController
@@ -45,8 +34,29 @@ extension UIViewController {
         
         if self is UINavigationController {
             // swiftlint:disable force_cast
-            (self as! UINavigationController).popToRootViewController(animated: false)
+            (self as! UINavigationController).popToRootViewController(animated: true)
             // swiftlint:enable force_cast
+        }
+        
+        if presentingViewController != nil {
+            
+            if presentingViewController is UserIndicaterController {
+                
+                return
+            }
+
+            let superVC = presentingViewController
+            
+            if self is RidingResultViewController {
+                
+                dismiss(animated: true, completion: nil)
+            }
+
+            dismiss(animated: false, completion: nil)
+
+            superVC?.backToRoot(completion: completion)
+
+            return
         }
         
         completion?()
