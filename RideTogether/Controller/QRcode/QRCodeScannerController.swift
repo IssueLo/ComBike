@@ -73,7 +73,9 @@ class QRCodeScannerController: UIViewController {
             
             view.addSubview(backButton)
             
-            backButton.setImage(UIImage(named: "Icons_24px_CleanAll"), for: .normal)
+            backButton.setBackgroundImage(UIImage(named: "Icons_24px_CleanAll"), for: .normal)
+            
+            backButton.backgroundRect(forBounds: CGRect(x: 0, y: 0, width: 28, height: 28))
             
             backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
             

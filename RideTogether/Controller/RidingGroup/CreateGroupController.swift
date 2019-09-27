@@ -48,7 +48,22 @@ class CreateGroupController: UIViewController {
         }
     }
     
-    @objc func createGroup() {
+    @IBOutlet weak var backGroupVCBtn: UIButton! {
+        
+        didSet {
+            
+//            backGroupVCBtn.imageView?.contentMode = .scaleAspectFit
+//            
+//            backGroupVCBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            
+            backGroupVCBtn.addTarget(self,
+                                     action: #selector(backGroupVC),
+                                     for: .touchUpInside)
+        }
+    }
+    
+    @objc
+    func createGroup() {
         
         guard let groupName = groupNameTxtFld.text else { return }
         
@@ -68,7 +83,8 @@ class CreateGroupController: UIViewController {
         }
     }
     
-    @IBAction func backGroupVC() {
+    @objc
+    func backGroupVC() {
         
         dismiss(animated: false, completion: nil)
 //        presentingViewController?.dismiss(animated: false, completion: nil)

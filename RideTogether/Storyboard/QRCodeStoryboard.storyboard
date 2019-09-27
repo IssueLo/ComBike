@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,12 +10,12 @@
         <!--Code View Controller-->
         <scene sceneID="3vY-ZN-cin">
             <objects>
-                <viewController storyboardIdentifier="QRCodeViewController" id="eAN-Tp-lQH" customClass="QRCodeViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRCodeViewController" id="eAN-Tp-lQH" customClass="QRCodeViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CeS-Kw-AeU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-1J-EZA" customClass="QRCodeView" customModule="RideTogether" customModuleProvider="target">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-1J-EZA" customClass="QRCodeView" customModule="ComBike" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -25,17 +24,21 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cI0-cH-qsr">
-                                <rect key="frame" x="97.5" y="243.5" width="180" height="180"/>
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZH-ZC-CtV">
-                                        <rect key="frame" x="157" y="4" width="19" height="22"/>
-                                        <state key="normal" image="Icons_24px_CleanAll"/>
+                                        <rect key="frame" x="164" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZZH-ZC-CtV" secondAttribute="height" multiplier="1:1" id="1zb-xE-XQN"/>
+                                            <constraint firstAttribute="width" constant="28" id="95W-3z-Ap3"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Icons_24px_CleanAll"/>
                                         <connections>
                                             <action selector="backGroupDeteilVC" destination="ijh-1J-EZA" eventType="touchUpInside" id="Y9W-iX-xIZ"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VZV-u6-aV8">
-                                        <rect key="frame" x="30" y="30" width="120" height="120"/>
+                                        <rect key="frame" x="40" y="40" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="TDV-pa-vEE"/>
                                             <constraint firstAttribute="height" constant="120" id="WL0-7g-G9S"/>
@@ -44,12 +47,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ZZH-ZC-CtV" firstAttribute="top" secondItem="cI0-cH-qsr" secondAttribute="top" constant="4" id="J1J-qc-DO1"/>
+                                    <constraint firstItem="ZZH-ZC-CtV" firstAttribute="top" secondItem="cI0-cH-qsr" secondAttribute="top" constant="8" id="J1J-qc-DO1"/>
                                     <constraint firstItem="VZV-u6-aV8" firstAttribute="centerX" secondItem="cI0-cH-qsr" secondAttribute="centerX" id="SdJ-4h-0TG"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZZH-ZC-CtV" secondAttribute="trailing" constant="4" id="nzp-va-Ea3"/>
-                                    <constraint firstAttribute="height" constant="180" id="rQ3-Of-o3f"/>
+                                    <constraint firstAttribute="width" secondItem="cI0-cH-qsr" secondAttribute="height" multiplier="1:1" id="cJ7-If-gwD"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZH-ZC-CtV" secondAttribute="trailing" constant="8" id="nzp-va-Ea3"/>
                                     <constraint firstItem="VZV-u6-aV8" firstAttribute="centerY" secondItem="cI0-cH-qsr" secondAttribute="centerY" id="sOR-du-hwA"/>
-                                    <constraint firstAttribute="width" constant="180" id="xiu-3j-Gnc"/>
+                                    <constraint firstAttribute="width" constant="200" id="xiu-3j-Gnc"/>
                                 </constraints>
                             </view>
                         </subviews>

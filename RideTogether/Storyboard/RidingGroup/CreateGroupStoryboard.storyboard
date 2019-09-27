@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +10,7 @@
         <!--Create Group Controller-->
         <scene sceneID="9NH-Fd-rwm">
             <objects>
-                <viewController storyboardIdentifier="CreateGroupController" id="vCK-Lz-ESP" customClass="CreateGroupController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGroupController" id="vCK-Lz-ESP" customClass="CreateGroupController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a5a-bX-aZm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,11 +34,12 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLO-1R-gaH">
-                                        <rect key="frame" x="217" y="12" width="19" height="22"/>
-                                        <state key="normal" image="Icons_24px_CleanAll"/>
-                                        <connections>
-                                            <action selector="backGroupVC" destination="vCK-Lz-ESP" eventType="touchUpInside" id="yGj-PB-bwL"/>
-                                        </connections>
+                                        <rect key="frame" x="212" y="12" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xLO-1R-gaH" secondAttribute="height" multiplier="1:1" id="8zQ-sI-6zA"/>
+                                            <constraint firstAttribute="width" constant="28" id="zRN-hz-f6N"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Icons_24px_CleanAll"/>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-37-ppi">
                                         <rect key="frame" x="98" y="24" width="56" height="56"/>
@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="width" constant="252" id="KXi-bP-Xql"/>
                                     <constraint firstItem="hgb-37-ppi" firstAttribute="top" secondItem="8rr-u3-IKm" secondAttribute="top" constant="24" id="Q5H-Yg-YFo"/>
                                     <constraint firstItem="CmI-sL-IGx" firstAttribute="centerX" secondItem="8rr-u3-IKm" secondAttribute="centerX" id="W9j-aG-TD8"/>
-                                    <constraint firstAttribute="trailing" secondItem="xLO-1R-gaH" secondAttribute="trailing" constant="16" id="dgQ-Zd-0Hn"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLO-1R-gaH" secondAttribute="trailing" constant="12" id="dgQ-Zd-0Hn"/>
                                     <constraint firstItem="xLO-1R-gaH" firstAttribute="top" secondItem="8rr-u3-IKm" secondAttribute="top" constant="12" id="nDH-wc-zQv"/>
                                     <constraint firstItem="CmI-sL-IGx" firstAttribute="top" secondItem="1Be-0Y-Ld5" secondAttribute="bottom" constant="28" id="pWZ-x3-9tc"/>
                                     <constraint firstItem="hgb-37-ppi" firstAttribute="centerX" secondItem="8rr-u3-IKm" secondAttribute="centerX" id="siD-bl-4Um"/>
@@ -94,6 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="fmb-si-Ai7"/>
                     </view>
                     <connections>
+                        <outlet property="backGroupVCBtn" destination="xLO-1R-gaH" id="uZm-dp-U4K"/>
                         <outlet property="backView" destination="8rr-u3-IKm" id="IXd-LA-kE2"/>
                         <outlet property="createGroupBtn" destination="CmI-sL-IGx" id="1Yc-FJ-eNx"/>
                         <outlet property="groupImageView" destination="hgb-37-ppi" id="uhe-7Q-HpS"/>

@@ -65,8 +65,6 @@ class UserIndicaterController: UIViewController {
         pageViewController.didMove(toParent: self)
         
         pageViewController.pageViewControllerDelegate = self
-        
-//        tabBarViewController = TabBarViewController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,8 +74,6 @@ class UserIndicaterController: UIViewController {
     
     @objc
     func skipIndicaterVC() {
-        
-//        let tabBarViewController = TabBarViewController()
         
         tabBarViewController.modalPresentationStyle = .fullScreen
         
@@ -101,6 +97,25 @@ extension UserIndicaterController: PageViewControllerDelegate {
     func pageViewController(_ pageViewController: PageViewController, didUpdatePageIndex pageIndex: Int) {
 
         pageControl.currentPage = pageIndex
+    }
+}
+
+extension UserIndicaterController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        let trasnition = FadeOutTransition()
+        
+        return trasnition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+       
+        let trasnition = FadeOutTransition()
+        
+        return trasnition
     }
 }
 
@@ -128,22 +143,3 @@ extension UserIndicaterController: PageViewControllerDelegate {
 //        return trasnition
 //    }
 //}
-
-extension UserIndicaterController: UIViewControllerTransitioningDelegate {
-
-    func animationController(forPresented presented: UIViewController,
-                             presenting: UIViewController,
-                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        let trasnition = FadeOutTransition()
-        
-        return trasnition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-       
-        let trasnition = FadeOutTransition()
-        
-        return trasnition
-    }
-}
