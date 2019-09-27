@@ -74,19 +74,19 @@ class QRCodeScannerController: UIViewController {
             view.addSubview(backButton)
             
             backButton.setBackgroundImage(UIImage(named: "Icons_24px_CleanAll"), for: .normal)
-            
-            backButton.backgroundRect(forBounds: CGRect(x: 0, y: 0, width: 28, height: 28))
-            
+
             backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
             
             backButton.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                                                         constant: 24),
+                                                                         constant: 8),
                                          backButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                                              constant: -16)
+                                                                              constant: -16),
+                                         backButton.widthAnchor.constraint(equalToConstant: 28),
+                                         backButton.heightAnchor.constraint(equalToConstant: 28)
                 ])
-            
+            print(backButton.bounds.size)
             // 設置 QR Code 掃描框
             settingScannerFrame()
             
@@ -123,6 +123,7 @@ class QRCodeScannerController: UIViewController {
         
         dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension QRCodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
