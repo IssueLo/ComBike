@@ -54,36 +54,48 @@ class UserIndicaterController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                        
         // 手動 ContainerView
         self.addChild(pageViewController)
-        
+
         pageViewController.view.frame = containerView.frame
-        
+
         containerView.addSubview(pageViewController.view)
-        
+
         pageViewController.didMove(toParent: self)
-        
+
         pageViewController.pageViewControllerDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        skipIndicaterVC()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
     }
     
     @objc
     func skipIndicaterVC() {
         
+//        UIView.animate(withDuration: 0.8) {
+//
+//            self.view.alpha = 0
+//        }
+//
+//        dismiss(animated: false, completion: nil)
         tabBarViewController.modalPresentationStyle = .fullScreen
         
-//        tabBarViewController.modalTransitionStyle = .crossDissolve
-        
-//        navigationController?.delegate = self
-        
         tabBarViewController.transitioningDelegate = self
-        
+
         present(tabBarViewController, animated: true, completion: nil)
+        
+//        tabBarViewController.modalTransitionStyle = .crossDissolve
+//
+//        navigationController?.delegate = self
     }
 }
 

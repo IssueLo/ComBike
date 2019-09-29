@@ -10,7 +10,7 @@
         <!--User Indicater Controller-->
         <scene sceneID="P4o-5v-mIb">
             <objects>
-                <viewController id="04Q-5h-YCx" customClass="UserIndicaterController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserIndicaterController" id="04Q-5h-YCx" customClass="UserIndicaterController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M32-ui-cb2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
         <!--First Page Controller-->
         <scene sceneID="ArT-ml-eIz">
             <objects>
-                <viewController storyboardIdentifier="FirstPageController" id="fMT-To-XNg" customClass="FirstPageController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstPageController" id="fMT-To-XNg" customClass="FirstPageController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtk-yk-Xjx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

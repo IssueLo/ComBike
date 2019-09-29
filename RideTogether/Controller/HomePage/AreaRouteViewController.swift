@@ -25,6 +25,8 @@ class AreaRouteViewController: UIViewController {
         
         didSet {
             
+            areaRouteCollectionView.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+            
             areaRouteCollectionView.dataSource = self
             
             areaRouteCollectionView.delegate = self
@@ -34,9 +36,13 @@ class AreaRouteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: "RouteCell", bundle: nil)
+        let nib = UINib(nibName: "AreaRouteCell", bundle: nil)
         
-        areaRouteCollectionView.register(nib, forCellWithReuseIdentifier: "RouteCell")
+        areaRouteCollectionView.register(nib, forCellWithReuseIdentifier: "AreaRouteCell")
+        
+        if let layout = areaRouteCollectionView.collectionViewLayout as? CollectionViewLayout {
+            layout.delegate = self
+        }
     }
 }
 
@@ -50,19 +56,19 @@ extension AreaRouteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RouteCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaRouteCell", for: indexPath)
         
-        guard let routeCell = cell as? RouteCell else { return cell }
+        guard let areaRouteCell = cell as? AreaRouteCell else { return cell }
         
         let routeNameArray = areaRouteData[indexPath.row].name.components(separatedBy: "（")
         
-        routeCell.routeNameLabel.text = routeNameArray[0]
+        areaRouteCell.routeNameLabel.text = routeNameArray[0]
         
         let urlString = "https://bike100.tw/wp-content/uploads/\(areaRouteData[indexPath.row].routeID).jpg"
         
-        routeCell.routeView.setImage(urlString: urlString)
+        areaRouteCell.routeView.setImage(urlString: urlString)
         
-        return routeCell
+        return areaRouteCell
     }
         
     func collectionView(_ collectionView: UICollectionView,
@@ -84,39 +90,85 @@ extension AreaRouteViewController: UICollectionViewDataSource {
     
 }
 
-extension AreaRouteViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let screenWidth = UIScreen.main.bounds.width
-        
-        let width = (screenWidth - 28) / 2
-        
-        let height = width * 140 / 170
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        return UIEdgeInsets(top: 24, left: 14, bottom: 24, right: 14)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 10
-    }
+extension AreaRouteViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
+
         return 0
+    }
+}
+
+//extension AreaRouteViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let screenWidth = UIScreen.main.bounds.width
+//
+//        let width = (screenWidth - 28) / 2
+//
+//        let height = width * 140 / 170
+//
+//        return CGSize(width: width, height: height)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//
+//        return UIEdgeInsets(top: 24, left: 14, bottom: 24, right: 14)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//
+//        return 10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//
+//        return 0
+//    }
+//}
+
+extension AreaRouteViewController: CollectionViewLayoutDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        heightForViewAtIndexPath indexPath: IndexPath) -> CGFloat {
+        
+//        let number = String(format: "%.2f", areaRouteData[indexPath.item].elevationGain)
+            
+//        let aveAlope: Double = {
+//
+//            return (areaRouteData[indexPath.item].distance / 1000) / (areaRouteData[indexPath.item].elevationGain / 100)
+//        }()
+//
+//        return CGFloat(aveAlope * 100)
+
+//        switch number {
+//        case 0: return 260
+//        case 1: return 220
+//        case 2: return 180
+//        case 3: return 300
+//        default:
+//            return 100
+//        }
+        
+        let number = indexPath.item % 4
+
+        switch number {
+        case 0: return 260
+        case 1: return 220
+        case 2: return 180
+        case 3: return 300
+        default:
+            return 100
+        }
     }
 }
