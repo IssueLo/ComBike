@@ -25,7 +25,12 @@ class AreaRouteViewController: UIViewController {
         
         didSet {
             
-            areaRouteCollectionView.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+            let cellSpace: CGFloat = 8
+            
+            areaRouteCollectionView.contentInset = UIEdgeInsets(top: cellSpace,
+                                                                left: cellSpace,
+                                                                bottom: cellSpace,
+                                                                right: cellSpace)
             
             areaRouteCollectionView.dataSource = self
             

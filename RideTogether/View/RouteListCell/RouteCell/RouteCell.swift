@@ -14,7 +14,7 @@ class RouteCell: UICollectionViewCell {
         
         didSet {
             
-            routeView.addRound(radis: 5, borderWidth: 0)
+//            routeView.addRound(radis: 5, borderWidth: 0)
         }
     }
     

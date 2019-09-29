@@ -2,14 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RouteCell" id="gTV-IL-0wX" customClass="RouteCell" customModule="RideTogether" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RouteCell" id="gTV-IL-0wX" customClass="RouteCell" customModule="ComBike" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="143" height="140"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -20,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="143" height="140"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQN-KB-yJK">
-                                <rect key="frame" x="10" y="115" width="33" height="15"/>
+                                <rect key="frame" x="8" y="115" width="33" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Msh-rt-mH1"/>
                                 </constraints>
@@ -29,17 +28,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoW-dI-wsf">
-                                <rect key="frame" x="10" y="0.0" width="123" height="110"/>
+                                <rect key="frame" x="8" y="0.0" width="127" height="110"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yQN-KB-yJK" secondAttribute="bottom" constant="10" id="3NK-11-7HR"/>
                             <constraint firstItem="yQN-KB-yJK" firstAttribute="leading" secondItem="PoW-dI-wsf" secondAttribute="leading" id="CHs-Pq-PSR"/>
-                            <constraint firstItem="PoW-dI-wsf" firstAttribute="leading" secondItem="q6o-wx-c21" secondAttribute="leading" constant="10" id="I2u-TU-d3E"/>
+                            <constraint firstItem="PoW-dI-wsf" firstAttribute="leading" secondItem="q6o-wx-c21" secondAttribute="leading" constant="8" id="I2u-TU-d3E"/>
                             <constraint firstItem="yQN-KB-yJK" firstAttribute="top" secondItem="PoW-dI-wsf" secondAttribute="bottom" constant="5" id="JNF-83-OLD"/>
                             <constraint firstItem="PoW-dI-wsf" firstAttribute="top" secondItem="q6o-wx-c21" secondAttribute="top" id="Lf7-aM-buR"/>
-                            <constraint firstAttribute="trailing" secondItem="PoW-dI-wsf" secondAttribute="trailing" constant="10" id="Q7w-BH-5pN"/>
+                            <constraint firstAttribute="trailing" secondItem="PoW-dI-wsf" secondAttribute="trailing" constant="8" id="Q7w-BH-5pN"/>
                         </constraints>
                     </view>
                 </subviews>

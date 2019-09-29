@@ -19,7 +19,7 @@ class CollectionViewLayout: UICollectionViewLayout {
     weak var delegate: CollectionViewLayoutDelegate?
     
     var numberOfColumns = 2  // 看要分成幾個 column
-    var cellSpace: CGFloat = 6  // cell 之間間距
+    var cellSpace: CGFloat = 8  // cell 之間間距
     
     var layoutAttributeCache = [UICollectionViewLayoutAttributes]()  // 建立一個 Array 儲存 ViewLayoutAttributes
     
