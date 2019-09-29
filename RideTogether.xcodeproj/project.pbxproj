@@ -239,8 +239,8 @@
 				953EF923233228A200DD692B /* RouteListCell.xib */,
 				95504744233378F600CFD58F /* RouteCell */,
 				9563D66A233F9E0A00072349 /* AreaRouteCell */,
-				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
 				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
+				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
 				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
 			);
 			path = RouteListCell;

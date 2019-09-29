@@ -39,6 +39,8 @@ class GroupDetailViewController: UIViewController {
             
             startBtn.setTitleColor(.white, for: .normal)
             
+            startBtn.addShadow()
+            
             startBtn.addTarget(self, action: #selector(startRiding), for: .touchUpInside)
         }
     }

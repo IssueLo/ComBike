@@ -26,6 +26,8 @@ class RidingViewController: UIViewController {
             
             stopButton.setTitleColor(.white, for: .normal)
             
+            stopButton.addShadow()
+            
             saveButton.addTarget(self, action: #selector(stopRiding), for: .touchUpInside)
         }
     }
@@ -33,6 +35,8 @@ class RidingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton! {
         
         didSet {
+            
+            saveButton.addShadow()
             
             saveButton.addRound(backgroundColor: .hexStringToUIColor())
             

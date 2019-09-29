@@ -28,10 +28,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="246" height="30"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cun-ml-spf">
-                                            <rect key="frame" x="0.0" y="6.5" width="246" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cun-ml-spf">
+                                            <rect key="frame" x="8" y="4" width="230" height="22.5"/>
+                                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -47,10 +47,10 @@
                             <constraint firstAttribute="trailing" secondItem="haM-at-jv8" secondAttribute="trailing" id="2nu-lu-Fqq"/>
                             <constraint firstItem="haM-at-jv8" firstAttribute="leading" secondItem="PPQ-nD-9sx" secondAttribute="leading" id="5HD-Sk-pH8"/>
                             <constraint firstItem="haM-at-jv8" firstAttribute="top" secondItem="PPQ-nD-9sx" secondAttribute="top" id="6hR-p0-i3A"/>
-                            <constraint firstItem="cun-ml-spf" firstAttribute="leading" secondItem="PPQ-nD-9sx" secondAttribute="leading" id="Czu-Tj-twj"/>
+                            <constraint firstItem="cun-ml-spf" firstAttribute="leading" secondItem="PPQ-nD-9sx" secondAttribute="leading" constant="8" id="Czu-Tj-twj"/>
                             <constraint firstAttribute="height" constant="30" id="EWL-uM-PZn"/>
                             <constraint firstAttribute="bottom" secondItem="haM-at-jv8" secondAttribute="bottom" id="b1a-tl-4U3"/>
-                            <constraint firstAttribute="trailing" secondItem="cun-ml-spf" secondAttribute="trailing" id="oZi-7Z-GJE"/>
+                            <constraint firstAttribute="trailing" secondItem="cun-ml-spf" secondAttribute="trailing" constant="8" id="oZi-7Z-GJE"/>
                         </constraints>
                     </view>
                 </subviews>
