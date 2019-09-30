@@ -113,7 +113,7 @@ class RidingViewController: UIViewController {
             
             self.stopButton.setTitle("繼續", for: .normal)
             
-            self.stopButton.backgroundColor = .black
+            self.stopButton.backgroundColor = .hexStringToUIColor(hex: "101E3F")
                         
             self.stopButton.translatesAutoresizingMaskIntoConstraints = true
 

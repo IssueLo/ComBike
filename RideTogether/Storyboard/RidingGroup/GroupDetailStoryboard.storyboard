@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,13 +10,13 @@
         <!--GroupName-->
         <scene sceneID="0dz-Gq-rKw">
             <objects>
-                <viewController storyboardIdentifier="GroupDetailViewController" id="iuE-XP-EsE" customClass="GroupDetailViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupDetailViewController" id="iuE-XP-EsE" customClass="GroupDetailViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNs-wx-fJM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NWX-fZ-KuN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="565"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="iuE-XP-EsE" id="LAz-Z3-0li"/>
@@ -25,7 +24,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-m2-htZ">
-                                <rect key="frame" x="132.5" y="589" width="110" height="54"/>
+                                <rect key="frame" x="132.5" y="569" width="110" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="8Wg-Gy-T70"/>
                                     <constraint firstAttribute="width" constant="110" id="uVg-Yo-pLe"/>
@@ -43,8 +42,8 @@
                         <constraints>
                             <constraint firstItem="2lP-d5-5cN" firstAttribute="trailing" secondItem="NWX-fZ-KuN" secondAttribute="trailing" id="FfY-xt-kk3"/>
                             <constraint firstItem="GOA-m2-htZ" firstAttribute="centerX" secondItem="iNs-wx-fJM" secondAttribute="centerX" id="FuQ-gY-suD"/>
-                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="GOA-m2-htZ" secondAttribute="bottom" constant="24" id="OQl-XA-eYY"/>
-                            <constraint firstItem="GOA-m2-htZ" firstAttribute="top" secondItem="NWX-fZ-KuN" secondAttribute="bottom" constant="24" id="Py3-dp-6Wc"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="NWX-fZ-KuN" secondAttribute="bottom" constant="122" id="Ne8-15-cnA"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="GOA-m2-htZ" secondAttribute="bottom" constant="44" id="OQl-XA-eYY"/>
                             <constraint firstItem="NWX-fZ-KuN" firstAttribute="top" secondItem="2lP-d5-5cN" secondAttribute="top" id="Zg1-k3-sov"/>
                             <constraint firstItem="NWX-fZ-KuN" firstAttribute="leading" secondItem="2lP-d5-5cN" secondAttribute="leading" id="vdf-GE-m3n"/>
                         </constraints>

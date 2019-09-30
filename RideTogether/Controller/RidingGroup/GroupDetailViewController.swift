@@ -48,6 +48,8 @@ class GroupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
+                
         navigationItem.title = groupData.name
         
         let nib = UINib(nibName: "GroupListCell", bundle: nil)
@@ -57,6 +59,12 @@ class GroupDetailViewController: UIViewController {
         creatObserverOfMember(groupID: groupData.groupID)
 
         setNavigationButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -179,6 +187,9 @@ class GroupDetailViewController: UIViewController {
         
         ridingVC.modalPresentationStyle = .fullScreen
     
+        // 指定轉場
+        ridingVC.transitioningDelegate = self
+
         present(ridingVC, animated: true, completion: nil)
 //        show(ridingVC, sender: nil)
     }
@@ -277,5 +288,42 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
         }
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// 轉場效果
+extension GroupDetailViewController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        let trasnition = StartFadeOutTransition()
+        
+        trasnition.handler = {
+                              
+            self.navigationController?.navigationBar.isHidden = true
+            
+            self.startBtn.translatesAutoresizingMaskIntoConstraints = true
+            
+            self.startBtn.frame = CGRect(x: -30,
+                                         y: -30,
+                                         width: UIScreen.main.bounds.width + 60,
+                                         height: UIScreen.main.bounds.height + 60)
+        }
+        
+        return trasnition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+       
+        let trasnition = StartFadeOutTransition()
+        
+        trasnition.handler = {
+                                        
+            self.startBtn.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        return trasnition
     }
 }

@@ -10,7 +10,7 @@
         <!--Riding View Controller-->
         <scene sceneID="dRD-Jt-afr">
             <objects>
-                <viewController storyboardIdentifier="RidingViewController" id="T99-ud-Lsf" customClass="RidingViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RidingViewController" id="T99-ud-Lsf" customClass="RidingViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goj-q5-tDH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,8 +130,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFi-gL-xdb">
-                                <rect key="frame" x="340" y="12" width="19" height="22"/>
-                                <state key="normal" image="Icons_24px_CleanAll"/>
+                                <rect key="frame" x="331" y="12" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="kIx-5K-KAP"/>
+                                    <constraint firstAttribute="width" constant="28" id="lkX-Jf-lEQ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Icons_24px_CleanAll"/>
                                 <connections>
                                     <action selector="backGroupDetailVC" destination="T99-ud-Lsf" eventType="touchUpInside" id="sTN-Ly-Uvo"/>
                                 </connections>

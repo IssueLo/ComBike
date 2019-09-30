@@ -114,6 +114,7 @@ extension UserIndicaterController: PageViewControllerDelegate {
     }
 }
 
+// 轉場效果
 extension UserIndicaterController: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,

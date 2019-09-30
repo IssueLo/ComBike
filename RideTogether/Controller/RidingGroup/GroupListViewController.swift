@@ -82,6 +82,10 @@ class GroupListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBar.isHidden = false
+        
+        self.tabBarController?.tabBar.isHidden = false
+        
         guard let uesrUID = FirebaseAccountManager.shared.userUID else {
             
             // 登出狀態清空 groupData 資料
