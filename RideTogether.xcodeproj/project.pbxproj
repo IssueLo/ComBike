@@ -68,6 +68,7 @@
 		9563D669233E215800072349 /* RouteCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563D668233E215800072349 /* RouteCollectionViewLayout.swift */; };
 		9563D66C23409E6E00072349 /* AreaRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563D66B23409E6E00072349 /* AreaRouteCell.swift */; };
 		9563D66E23409E8300072349 /* AreaRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9563D66D23409E8300072349 /* AreaRouteCell.xib */; };
+		9563D6702341CF0400072349 /* RouteIDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563D66F2341CF0400072349 /* RouteIDData.swift */; };
 		9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */; };
 		9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594A069232F2C71000A91C0 /* Extension+UIImage.swift */; };
 		95BE909B23371F6800F40ADD /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE909A23371F6800F40ADD /* Extension+UIColor.swift */; };
@@ -154,6 +155,7 @@
 		9563D668233E215800072349 /* RouteCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewLayout.swift; sourceTree = "<group>"; };
 		9563D66B23409E6E00072349 /* AreaRouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaRouteCell.swift; sourceTree = "<group>"; };
 		9563D66D23409E8300072349 /* AreaRouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaRouteCell.xib; sourceTree = "<group>"; };
+		9563D66F2341CF0400072349 /* RouteIDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteIDData.swift; sourceTree = "<group>"; };
 		9589DD76232537FC003A9A87 /* RidingResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultHeaderView.swift; sourceTree = "<group>"; };
 		9594A069232F2C71000A91C0 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		95BE909A23371F6800F40ADD /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9525992B23211914009C7750 /* HomePageViewController.swift */,
+				9563D66F2341CF0400072349 /* RouteIDData.swift */,
 				95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */,
 				951D92582333735400275B78 /* RouteDetailViewController.swift */,
 			);
@@ -723,6 +726,7 @@
 				951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */,
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9563D669233E215800072349 /* RouteCollectionViewLayout.swift in Sources */,
+				9563D6702341CF0400072349 /* RouteIDData.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,
 				95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */,

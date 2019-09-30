@@ -57,7 +57,6 @@ class FadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
 }
 
-
 class StartFadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     var handler: (() -> Void)!

@@ -155,15 +155,6 @@ extension AreaRouteViewController: CollectionViewLayoutDelegate {
 //        }()
 //
 //        return CGFloat(aveAlope * 100)
-
-//        switch number {
-//        case 0: return 260
-//        case 1: return 220
-//        case 2: return 180
-//        case 3: return 300
-//        default:
-//            return 100
-//        }
         
         let number = indexPath.item % 4
 

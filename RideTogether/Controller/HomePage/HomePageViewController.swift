@@ -27,40 +27,6 @@ class HomePageViewController: UIViewController {
 
     var allRouteList = [[String]]()
 
-//    var north = ["10221097", "10221464", "10891667", "16080569", "9542274"]
-    
-    var north = ["10221097",
-                 "10221464",
-                 "10231553",
-                 "16080569",
-                 "12136269",
-                 "11461780",
-                 "12135523",
-                 "16079014",
-                 "16081012",
-                 "9848440",
-                 "10227823",
-                 "10891667",
-                 "12028044",
-                 "10188763",
-                 "9760455",
-                 "12028001",
-                 "10871132",
-                 "12136018",
-                 "10186714",
-                 "10231829",
-                 "18286379",
-                 "10214648",
-                 "16081424"]
-    
-    var central = ["10009162", "10905234", "10077338", "10189536", "10905629", "16069201"]
-    
-    var southern = ["10118302", "12027904", "10118771", "9893309", "10122332", "10151516"]
-    
-    var east = ["10418563", "10231327", "10250324", "9563425", "10871570"]
-
-    var noPicture = ["9796401", "19742365", "9797337", "10320290"]
-
     @IBOutlet weak var launchScreen: UIView!
     
     @IBOutlet weak var routeListTableView: UITableView! {
@@ -90,7 +56,10 @@ class HomePageViewController: UIViewController {
         
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         
-        allRouteList = [north, central, southern, east]
+        allRouteList = [RouteIDData.northern,
+                        RouteIDData.central,
+                        RouteIDData.southern,
+                        RouteIDData.eastern]
         
         let group = DispatchGroup()
         
