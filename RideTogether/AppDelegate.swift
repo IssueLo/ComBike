@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    let userIndicaterSB = UIStoryboard(name: "UserIndicaterStoryboard", bundle: nil)
+    
+    lazy var userIndicaterVC = userIndicaterSB.instantiateViewController(identifier: "UserIndicaterController")
+    
+    let tabBarSB = UIStoryboard(name: "TabBarStoryboard", bundle: nil)
+    
+    lazy var tabBarVC = tabBarSB.instantiateViewController(identifier: "TabBarViewController")
+        
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,8 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
-//        UserDefaults.standard.value(forKey: <#T##String#>) = nil
+        UserDefaults.standard.removeObject(forKey: "UserLogined")
         
+        if UserDefaults.standard.value(forKey: "UserLogined") == nil {
+            
+            self.window?.rootViewController = userIndicaterVC
+            
+        } else {
+            
+            self.window?.rootViewController = tabBarVC
+        }
+                
         return true
     }
 

@@ -77,6 +77,8 @@ class TabBarViewController: UITabBarController {
         
         delegate = self
         
+        UserDefaults.standard.setValue(true, forKey: "UserLogined")
+                
         viewControllers = tabs.map({ $0.callController() })
 //        viewControllers = tabs.map({ (<#Tab#>) -> T in
 //            <#code#>
