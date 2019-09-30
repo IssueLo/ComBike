@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
-        UserDefaults.standard.removeObject(forKey: "UserLogined")
+//        UserDefaults.standard.removeObject(forKey: "UserLogined")
         
         if UserDefaults.standard.value(forKey: "UserLogined") == nil {
             

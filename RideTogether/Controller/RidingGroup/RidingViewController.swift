@@ -16,7 +16,43 @@ class RidingViewController: UIViewController {
     
     var groupData: GroupData!
     
-    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var infoView: UIView! {
+        
+        didSet {
+            
+            infoView.addRoundOnTop()
+            
+            infoView.addShadow(offset: CGSize(width: 3, height: -2),
+                               opacity: 0.4)
+        }
+    }
+    
+    @IBOutlet weak var currentSpeedView: UIView! {
+        
+        didSet {
+            
+            currentSpeedView.addRound(radis: Double(currentSpeedView.bounds.width / 2),
+                                      borderWidth: 2)
+        }
+    }
+    
+    @IBOutlet weak var timeView: UIView! {
+        
+        didSet {
+            
+            timeView.addRound(radis: Double(timeView.bounds.width / 2),
+                              borderWidth: 1.5)
+        }
+    }
+
+    @IBOutlet weak var distanceView: UIView! {
+        
+        didSet {
+            
+            distanceView.addRound(radis: Double(distanceView.bounds.width / 2),
+                                  borderWidth: 1.5)
+        }
+    }
     
     @IBOutlet weak var stopButton: UIButton! {
         
@@ -50,7 +86,7 @@ class RidingViewController: UIViewController {
     
     @IBOutlet weak var currentSpeedLabel: UILabel!
     
-    @IBOutlet weak var maximumSpeedLabel: UILabel!
+//    @IBOutlet weak var maximumSpeedLabel: UILabel!
     
     @IBOutlet weak var distanceLabel: UILabel!
     
@@ -306,7 +342,7 @@ class RidingViewController: UIViewController {
             
             let speed = String(format: "%.2f", (location.speed) * 3.6)
             
-            currentSpeedLabel.text = "\(speed) km/hr"
+            currentSpeedLabel.text = "\(speed)"
             
             totalDistance += location.speed
             
@@ -318,7 +354,7 @@ class RidingViewController: UIViewController {
             
         } else {
             
-            currentSpeedLabel.text = "0.00 km/hr"
+            currentSpeedLabel.text = "0.00"
         }
         
         if maximumSpeed < location.speed {
@@ -326,9 +362,9 @@ class RidingViewController: UIViewController {
             maximumSpeed = location.speed
         }
         
-        maximumSpeedLabel.text = "\(String(format: "%.2f", (maximumSpeed) * 3.6)) km/hr"
+//        maximumSpeedLabel.text = "\(String(format: "%.2f", (maximumSpeed) * 3.6)) km/hr"
         
-        distanceLabel.text = "\(String(format: "%.2f", totalDistance/1000)) km"
+        distanceLabel.text = "\(String(format: "%.2f", totalDistance/1000))"
     }
     
     func memberLocationAnnotation() {
