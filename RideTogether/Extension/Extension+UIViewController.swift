@@ -10,6 +10,11 @@ import UIKit
 
 extension UIViewController {
     
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+    
     func showAlert(_ message: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
         
         let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)

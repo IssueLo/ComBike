@@ -22,14 +22,11 @@ private enum Tab {
         
         switch self {
             
-        case .lobby: controller = UIStoryboard(name: "RouteListStoryboard",
-                                               bundle: nil).instantiateInitialViewController()!
+        case .lobby: controller = StoryboardCategory.routeList.getStoryboard().instantiateInitialViewController()!
             
-        case .ridingInfo: controller = UIStoryboard(name: "GroupStoryboard",
-                                                    bundle: nil).instantiateInitialViewController()!
+        case .ridingInfo: controller = StoryboardCategory.group.getStoryboard().instantiateInitialViewController()!
             
-        case .profile: controller = UIStoryboard(name: "UserProfileStoryboard",
-                                                 bundle: nil).instantiateInitialViewController()!
+        case .profile: controller = StoryboardCategory.uesrProfile.getStoryboard().instantiateInitialViewController()!
             
         }
         
@@ -46,20 +43,20 @@ private enum Tab {
             
         case .lobby:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_Recommend"),
-                                selectedImage: UIImage(named: "Icons_Recommend")
+                                image: UIImage.setIcon(.Icons_Recommend),
+                                selectedImage: UIImage.setIcon(.Icons_Recommend)
             )
             
         case .ridingInfo:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_BicycleRider"),
-                                selectedImage: UIImage(named: "Icons_BicycleRider")
+                                image: UIImage.setIcon(.Icons_BicycleRider),
+                                selectedImage: UIImage.setIcon(.Icons_BicycleRider)
             )
         
         case .profile:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_Biker"),
-                                selectedImage: UIImage(named: "Icons_Biker")
+                                image: UIImage.setIcon(.Icons_Biker),
+                                selectedImage: UIImage.setIcon(.Icons_Biker)
             )
         }
     }
@@ -103,9 +100,9 @@ extension TabBarViewController: UITabBarControllerDelegate {
         // 確認是否有登入會員
         guard FirebaseAccountManager.shared.userUID != nil else {
 
-            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.userLogin.getStoryboard()
             
-            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
+            guard let loginVC = storyboard.instantiateViewController(withIdentifier: UserLogInController.identifier)
                 as? UserLogInController
             else {
                 return false

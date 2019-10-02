@@ -60,13 +60,15 @@ class PageViewController: UIPageViewController {
         
         for _ in 0..<count {
             
-            viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
+            viewControllerList.append(getViewController(withStoryboardID: FirstPageController.identifier))
         }
     }
     
     private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
-        return UIStoryboard(name: "UserIndicaterStoryboard",
-                            bundle: nil).instantiateViewController(withIdentifier: storyboardID) as! FirstPageController
+        
+        return StoryboardCategory.userIndicater.getStoryboard()
+            .instantiateViewController(withIdentifier: storyboardID) as! FirstPageController
+        
     }
     
     private func setIndicaterView() {

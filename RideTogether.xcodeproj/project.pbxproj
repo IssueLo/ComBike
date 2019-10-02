@@ -12,6 +12,7 @@
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
 		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
+		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
 		95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */; };
 		95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */; };
@@ -99,6 +100,7 @@
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
+		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
 		95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfAppleSignIn.swift; sourceTree = "<group>"; };
 		95195B79233A4C9B00B81703 /* RideTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideTogether.entitlements; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				952806B9231E98E900EFD895 /* Extension+UIViewController.swift */,
+				951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */,
 				9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */,
 				9545C98C232A876B00B74B03 /* Extension+UIView.swift */,
 				9594A069232F2C71000A91C0 /* Extension+UIImage.swift */,
@@ -748,6 +751,7 @@
 				955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */,
 				9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */,
 				9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */,
+				951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */,
 				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
 				951764F42343437B0080BC38 /* RouteData.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
