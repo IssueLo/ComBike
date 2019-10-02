@@ -24,32 +24,44 @@ class PageViewController: UIPageViewController {
     
     var viewControllerList = [FirstPageController]()
     
-    var indicaterImage = ["backView_guide_01", "backView_guide_02", "backView_guide_03"]
+    let indicaterImage = ["backView_guide_01",
+                          "backView_guide_02",
+                          "backView_guide_03"]
     
-    var indicaterTitleLbl = ["推薦路線", "組隊約騎", "紀錄活動"]
+    let indicaterTitleLbl = ["推薦路線",
+                             "組隊約騎",
+                             "紀錄活動"]
     
-    var indicaterSubTitleLbl = ["提供台灣北中南東單車推薦路線",
+    let indicaterSubTitleLbl = ["提供台灣北中南東單車推薦路線",
                                 "三五好友大家一起騎",
                                 "紀錄騎乘距離、坡度、路線"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UIPageViewController 需要以下這兩項
         dataSource = self
-        
+
         delegate = self
         
-        viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
-        
-        viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
-
-        viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
+        appendViewControllerList(count: 3)
 
         self.setViewControllers([self.viewControllerList.first!],
                                 direction: UIPageViewController.NavigationDirection.forward,
-                                animated: true, completion: nil)
+                                animated: true,
+                                completion: nil)
 
         setIndicaterView()
+    }
+    
+    private func appendViewControllerList(count: Int) {
+        
+        pageViewControllerDelegate?.pageViewController(self, didUpdateNumberOfPage: count)
+        
+        for _ in 0..<count {
+            
+            viewControllerList.append(getViewController(withStoryboardID: "FirstPageController"))
+        }
     }
     
     private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
@@ -57,7 +69,7 @@ class PageViewController: UIPageViewController {
                             bundle: nil).instantiateViewController(withIdentifier: storyboardID) as! FirstPageController
     }
     
-    func setIndicaterView() {
+    private func setIndicaterView() {
         
         for number in 0..<viewControllerList.count {
             

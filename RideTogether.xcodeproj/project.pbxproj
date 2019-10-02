@@ -11,6 +11,7 @@
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
 		95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */; };
 		95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */; };
@@ -23,8 +24,8 @@
 		951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7362232FC5CE00D48B37 /* UserRankView.swift */; };
 		951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7364232FCD7100D48B37 /* PolylineCharts.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
-		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
-		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
+		9525992A232118DE009C7750 /* RouteListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* RouteListStoryboard.storyboard */; };
+		9525992C23211914009C7750 /* RouteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* RouteListController.swift */; };
 		9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992D23211BF1009C7750 /* QRCodeScannerController.swift */; };
 		9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */; };
 		9525993223213FE0009C7750 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993123213FE0009C7750 /* QRCodeView.swift */; };
@@ -97,6 +98,7 @@
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
 		95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfAppleSignIn.swift; sourceTree = "<group>"; };
 		95195B79233A4C9B00B81703 /* RideTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideTogether.entitlements; sourceTree = "<group>"; };
@@ -110,8 +112,8 @@
 		951E7362232FC5CE00D48B37 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 		951E7364232FCD7100D48B37 /* PolylineCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineCharts.swift; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
-		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
-		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		95259929232118DE009C7750 /* RouteListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteListStoryboard.storyboard; sourceTree = "<group>"; };
+		9525992B23211914009C7750 /* RouteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListController.swift; sourceTree = "<group>"; };
 		9525992D23211BF1009C7750 /* QRCodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerController.swift; sourceTree = "<group>"; };
 		9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCodeStoryboard.storyboard; sourceTree = "<group>"; };
 		9525993123213FE0009C7750 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
@@ -206,8 +208,8 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
+				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
 				95BE90A02337B27100F40ADD /* RouteRecommend */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
 				95AE91A1232E31E400AD00CF /* Profile */,
@@ -261,7 +263,7 @@
 		95456780232746F6009DA63B /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				9525992B23211914009C7750 /* HomePageViewController.swift */,
+				9525992B23211914009C7750 /* RouteListController.swift */,
 				9563D66F2341CF0400072349 /* RouteIDData.swift */,
 				95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */,
 				951D92582333735400275B78 /* RouteDetailViewController.swift */,
@@ -327,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				9545C98F232C84CD00B74B03 /* HTTPClient.swift */,
+				951764F32343437B0080BC38 /* RouteData.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -392,7 +395,7 @@
 		95BE90A02337B27100F40ADD /* RouteRecommend */ = {
 			isa = PBXGroup;
 			children = (
-				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
+				95259929232118DE009C7750 /* RouteListStoryboard.storyboard */,
 				95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */,
 				951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */,
 			);
@@ -590,7 +593,7 @@
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				95BE909D233783A200F40ADD /* AreaRouteStoryboard.storyboard in Resources */,
-				9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */,
+				9525992A232118DE009C7750 /* RouteListStoryboard.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
 				951D9257233371AA00275B78 /* RouteDetailStoryboard.storyboard in Resources */,
@@ -708,7 +711,7 @@
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
 				95456784232795B6009DA63B /* UserLogInView.swift in Sources */,
-				9525992C23211914009C7750 /* HomePageViewController.swift in Sources */,
+				9525992C23211914009C7750 /* RouteListController.swift in Sources */,
 				9545C98D232A876B00B74B03 /* Extension+UIView.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				95195B7D233AF6D000B81703 /* PrivacyWebController.swift in Sources */,
@@ -746,6 +749,7 @@
 				9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */,
 				9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */,
 				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
+				951764F42343437B0080BC38 /* RouteData.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class RouteListController: UIViewController {
     
     var jsonArray: NSMutableArray?
     
@@ -127,7 +127,7 @@ class HomePageViewController: UIViewController {
     }
 }
 
-extension HomePageViewController: UITableViewDataSource {
+extension RouteListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -169,7 +169,7 @@ extension HomePageViewController: UITableViewDataSource {
     
 }
 
-extension HomePageViewController: UITableViewDelegate {
+extension RouteListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         

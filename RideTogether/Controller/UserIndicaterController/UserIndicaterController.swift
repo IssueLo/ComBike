@@ -25,9 +25,7 @@ class UserIndicaterController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var containerView: UIView!
-    
+
     @IBOutlet weak var skipBtn: UIButton! {
         
         didSet {
@@ -54,41 +52,31 @@ class UserIndicaterController: UIViewController {
         }
     }
     
+    @IBOutlet weak var containerView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
                         
         // 手動 ContainerView
+        setContainerView()
+    }
+    
+    private func setContainerView() {
+        
         self.addChild(pageViewController)
-
+        
+        pageViewController.pageViewControllerDelegate = self
+        
         pageViewController.view.frame = containerView.frame
 
         containerView.addSubview(pageViewController.view)
 
         pageViewController.didMove(toParent: self)
-
-        pageViewController.pageViewControllerDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        skipIndicaterVC()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     @objc
     func skipIndicaterVC() {
-        
-//        UIView.animate(withDuration: 0.8) {
-//
-//            self.view.alpha = 0
-//        }
-//
-//        dismiss(animated: false, completion: nil)
+
         tabBarViewController.modalPresentationStyle = .fullScreen
         
         tabBarViewController.transitioningDelegate = self
@@ -105,7 +93,7 @@ extension UserIndicaterController: PageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: PageViewController, didUpdateNumberOfPage numberOfPage: Int) {
 
-//        pageControl.numberOfPages = numberOfPage
+        pageControl.numberOfPages = numberOfPage
     }
 
     func pageViewController(_ pageViewController: PageViewController, didUpdatePageIndex pageIndex: Int) {
@@ -146,7 +134,7 @@ extension UserIndicaterController: UIViewControllerTransitioningDelegate {
 //        return trasnition
 //    }
 //}
-//
+
 //extension UserIndicaterController: UITabBarControllerDelegate {
 //
 //    func tabBarController(_ tabBarController: UITabBarController,
