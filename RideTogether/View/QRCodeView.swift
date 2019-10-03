@@ -23,10 +23,8 @@ class QRCodeView: UIView {
     }
     
     @IBAction func backGroupDeteilVC() {
-        
-        guard let handler = handler else { return }
-        
-        handler()
+                
+        handler?()
     }
     
     func setQRcode(_ qrCodeImage: UIImage?) {

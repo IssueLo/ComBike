@@ -44,7 +44,6 @@ class RouteDetailViewController: UIViewController {
     @IBAction func backLastPage() {
         
         navigationController?.popViewController(animated: true)
-//        presentingViewController?.dismiss(animated: false, completion: nil)
         
         navigationController?.isNavigationBarHidden = false
     }
@@ -70,7 +69,7 @@ class RouteDetailViewController: UIViewController {
         locationLabel.text = routeData.name
         
         distanceLabel.text = String(format: "%.2f", (routeData.distance) * 2 / 1000) + " km"
-            
+        
         elevationLabel.text = String(format: "%.2f", routeData.elevationGain) + " m"
         
         let aveAlope: Double = {

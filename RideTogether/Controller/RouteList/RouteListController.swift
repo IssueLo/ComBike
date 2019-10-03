@@ -23,7 +23,7 @@ class RouteListController: UIViewController {
         }
     }
     
-    var headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
+    let headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
 
     var allRouteList = [[String]]()
 
@@ -46,15 +46,27 @@ class RouteListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let storyboard = UIStoryboard(name: "UserIndicaterStoryboard", bundle: nil)
-//
-//        let indicaterVC = storyboard.instantiateViewController(withIdentifier: "UserIndicaterController")
-//
-//        indicaterVC.modalPresentationStyle = .fullScreen
-                
-//        present(indicaterVC, animated: false, completion: nil)
-        
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
+        
+        getRouteData()
+        
+        let nib = UINib(nibName: "RouteListCell", bundle: nil)
+        
+        routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
+        
+        let headerNib = UINib(nibName: "RouteHeaderView", bundle: nil)
+
+        routeListTableView.register(headerNib,
+                                    forHeaderFooterViewReuseIdentifier: "RouteHeaderView")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    func getRouteData() {
         
         allRouteList = [RouteIDData.northern,
                         RouteIDData.central,
@@ -69,7 +81,6 @@ class RouteListController: UIViewController {
         
             for routeID in area {
                 
-//                print("**enter: \(routeID)")
                 group.enter()
                 
                 StravaProvider.getRouteData(routeID) { (result) in
@@ -99,7 +110,7 @@ class RouteListController: UIViewController {
                 }
             }
             
-            group.notify(queue: .main, execute: {
+        group.notify(queue: .main, execute: {
                 
                 self.routeDataArray.append(currentRouteData)
                 
@@ -109,24 +120,10 @@ class RouteListController: UIViewController {
                 }
             })
         }
-        
-        let nib = UINib(nibName: "RouteListCell", bundle: nil)
-        
-        routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
-        
-        let headerNib = UINib(nibName: "RouteHeaderView", bundle: nil)
-
-        routeListTableView.register(headerNib,
-                                    forHeaderFooterViewReuseIdentifier: "RouteHeaderView")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.isNavigationBarHidden = false
     }
 }
 
+// swiftlint:disable line_length
 extension RouteListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -149,10 +146,10 @@ extension RouteListController: UITableViewDataSource {
         
         routeListCell.handler = { (indexPath) in
             
-            let storyboard = UIStoryboard(name: "RouteDetailStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.routeDetail.getStoryboard()
             
             guard
-                let routeDetailVC = storyboard.instantiateViewController(withIdentifier: "RouteDetailStoryboard")
+                let routeDetailVC = storyboard.instantiateViewController(withIdentifier: RouteDetailViewController.identifier)
                     as? RouteDetailViewController
                 else { return }
             
@@ -161,12 +158,10 @@ extension RouteListController: UITableViewDataSource {
             routeDetailVC.hidesBottomBarWhenPushed = true
             
             self.show(routeDetailVC, sender: nil)
-                        
         }
         
         return routeListCell
     }
-    
 }
 
 extension RouteListController: UITableViewDelegate {
@@ -180,9 +175,9 @@ extension RouteListController: UITableViewDelegate {
         
         headerView?.handler = {
             
-            let storyboard = UIStoryboard(name: "AreaRouteStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.areaRoute.getStoryboard()
             
-            guard let areaRouteVC = storyboard.instantiateViewController(withIdentifier: "AreaRouteViewController")
+            guard let areaRouteVC = storyboard.instantiateViewController(withIdentifier: AreaRouteViewController.identifier)
                 as? AreaRouteViewController
             else { return }
             
@@ -208,3 +203,4 @@ extension RouteListController: UITableViewDelegate {
         return 140
     }
 }
+// swiftlint:enable line_length
