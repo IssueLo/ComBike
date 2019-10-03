@@ -133,7 +133,7 @@ class RidingViewController: UIViewController {
     
     @objc
     func stopRiding() {
-        
+
         timeManager.controlButton(timeLabel)
         
         if stopButton.titleLabel?.text == "停止" {
@@ -293,7 +293,7 @@ class RidingViewController: UIViewController {
         }
         // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            locationManager.startUpdatingLocation()
+
         }
     }
     

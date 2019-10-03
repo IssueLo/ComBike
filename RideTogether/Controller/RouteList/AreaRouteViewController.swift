@@ -99,7 +99,6 @@ extension AreaRouteViewController: UICollectionViewDataSource {
         
         self.show(routeDetailVC, sender: nil)
     }
-    
 }
 
 extension AreaRouteViewController: UICollectionViewDelegate {
