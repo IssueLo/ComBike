@@ -79,7 +79,7 @@ class CreateGroupController: UIViewController {
                 
                 self?.showAlert(message, { (_) in
                     
-                    self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: false)
                 })
             }
         }
@@ -88,8 +88,7 @@ class CreateGroupController: UIViewController {
     @objc
     func backGroupVC() {
         
-        dismiss(animated: false, completion: nil)
-//        presentingViewController?.dismiss(animated: false, completion: nil)
+        dismiss(animated: false)
     }
     
     override func viewDidLoad() {

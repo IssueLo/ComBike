@@ -39,7 +39,7 @@ class GroupDetailViewController: UIViewController {
             
             startBtn.setTitleColor(.white, for: .normal)
             
-            startBtn.addShadow()
+//            startBtn.addShadow()
             
             startBtn.addTarget(self,
                                action: #selector(startRiding),
@@ -105,45 +105,41 @@ class GroupDetailViewController: UIViewController {
                                                action: #selector(uploadPhotoAction))
         
         navigationItem.rightBarButtonItems = [qrCodeBtn, addGroupPhotoBtn]
-        
     }
     
     @objc func showQRCodeVC() {
         
-        let storyboard = UIStoryboard.init(name: "QRCodeStoryboard", bundle: nil)
-        
-        guard let qrCodeVC = storyboard.instantiateViewController(withIdentifier: "QRCodeViewController")
-            as? QRCodeViewController
+        let storyboard = StoryboardCategory.qrCode.getStoryboard()
+
+        guard let qrCodeVC = storyboard.instantiateViewController(
+            withIdentifier: QRCodeViewController.identifier
+            ) as? QRCodeViewController
+            
         else { return }
         
         qrCodeVC.groupID = groupData.groupID
         
         qrCodeVC.modalPresentationStyle = .overFullScreen
         
-        present(qrCodeVC, animated: false, completion: nil)
+        present(qrCodeVC, animated: false)
     }
-    
-    @objc func uploadPhotoAction() {
-        
+    // 相機搬出去
+    @objc
+    func uploadPhotoAction() {
         // 建立一個 UIImagePickerController 的實體
         let imagePickerController = UIImagePickerController()
-        
         // 委任代理
         imagePickerController.delegate = self
-        
         // 建立一個 UIAlertController 的實體
         // 設定 UIAlertController 的標題與樣式為 動作清單 (actionSheet)
         let imagePickerAlertController = UIAlertController(title: "上傳圖片",
                                                            message: "請選擇要上傳的圖片",
                                                            preferredStyle: .actionSheet)
-        
         // 建立三個 UIAlertAction 的實體
         // 新增 UIAlertAction 在 UIAlertController actionSheet 的 動作 (action) 與標題
         let imageFromLibAction = UIAlertAction(title: "照片圖庫", style: .default) { (_) in
-            
             // 判斷是否可以從照片圖庫取得照片來源
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                
                 // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.photoLibrary)，並 present UIImagePickerController
                 imagePickerController.sourceType = .photoLibrary
                 
@@ -151,10 +147,8 @@ class GroupDetailViewController: UIViewController {
             }
         }
         let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (_) in
-            
             // 判斷是否可以從相機取得照片來源
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                
                 // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.camera)，並 present UIImagePickerController
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
@@ -166,7 +160,6 @@ class GroupDetailViewController: UIViewController {
             
             imagePickerAlertController.dismiss(animated: true, completion: nil)
         }
-        
         // 將上面三個 UIAlertAction 動作加入 UIAlertController
         imagePickerAlertController.addAction(imageFromLibAction)
         imagePickerAlertController.addAction(imageFromCameraAction)
@@ -176,24 +169,25 @@ class GroupDetailViewController: UIViewController {
         present(imagePickerAlertController, animated: true, completion: nil)
     }
     
-    @objc func startRiding() {
+    @objc
+    func startRiding() {
             
-        let storyboard = UIStoryboard.init(name: "RidingStoryboard", bundle: nil)
-        
+        let storyboard = StoryboardCategory.riding.getStoryboard()
+
         guard
-            let ridingVC = storyboard.instantiateViewController(withIdentifier: "RidingViewController")
-            as? RidingViewController
+            let ridingVC = storyboard.instantiateViewController(
+                withIdentifier: RidingViewController.identifier
+                ) as? RidingViewController
+            
         else { return }
 
         ridingVC.groupData = groupData
         
         ridingVC.modalPresentationStyle = .fullScreen
-    
         // 指定轉場
         ridingVC.transitioningDelegate = self
 
         present(ridingVC, animated: true, completion: nil)
-//        show(ridingVC, sender: nil)
     }
 }
 
@@ -208,20 +202,23 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell", for: indexPath)
         
-        guard let groupListCell = cell as? GroupListCell else { return cell }
+        guard
+            let groupListCell = cell as? GroupListCell
+            
+        else { return cell }
         
         groupListCell.groupNameLabel.text = self.memberData[indexPath.row].name
         
         groupListCell.statusLabel.alpha = 0
         
-        guard let photoURLString = self.memberData[indexPath.row].photoURLString else {
+        if let photoURLString = self.memberData[indexPath.row].photoURLString {
+            
+            groupListCell.groupImage.setImage(urlString: photoURLString)
+            
+        } else {
             
             groupListCell.groupImage.image = UIImage(named: "UChu")
-            
-            return groupListCell
         }
-        
-        groupListCell.groupImage.setImage(urlString: photoURLString)
         
         return groupListCell
     }
@@ -229,12 +226,8 @@ extension GroupDetailViewController: UITableViewDataSource {
 
 extension GroupDetailViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 70
-//    }
 }
-
+// 這個怎麼搬呢
 extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -254,12 +247,10 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
             let storageRef = Storage.storage().reference().child("GroupPhoto").child("\(groupData.groupID).png")
             
             if let uploadData = selectedImage.pngData() {
-                
                 // 這行就是 FirebaseStorage 關鍵的存取方法。
                 storageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
                     
                     if error != nil {
-                        
                         // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
                         print("Error: \(error!.localizedDescription)")
                         return
@@ -279,8 +270,6 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
                                 let groupUID = self?.groupData.groupID
                             else { return }
                             
-//                            self?.userImage.kf.setImage(with: url)
-
                             FirebaseDataManeger.shared.updateGroupPhoto(groupUID,
                                                                         url.absoluteString)
                         }
@@ -289,7 +278,7 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
             }
         }
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 
