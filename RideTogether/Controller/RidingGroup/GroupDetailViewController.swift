@@ -41,7 +41,9 @@ class GroupDetailViewController: UIViewController {
             
             startBtn.addShadow()
             
-            startBtn.addTarget(self, action: #selector(startRiding), for: .touchUpInside)
+            startBtn.addTarget(self,
+                               action: #selector(startRiding),
+                               for: .touchUpInside)
         }
     }
     

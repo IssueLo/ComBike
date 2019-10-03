@@ -112,7 +112,7 @@ extension UserLogInController: UserLogInViewDelegate {
                 UserDefaults.standard.setValue(userUID, forKey: "UserUID")
                 
                 // 登入成功後取得會員暱稱
-                FirebaseDataManeger.shared.searchUserInfo(userUID)
+                FirebaseDataManeger.shared.getUserInfo(userUID)
                 
                 FirebaseAccountManager.shared.userEmail = userEmail
             }
@@ -195,7 +195,9 @@ extension UserLogInController {
         let appleButton = ASAuthorizationAppleIDButton()
         
         appleButton.translatesAutoresizingMaskIntoConstraints = false
-        appleButton.addTarget(self, action: #selector(didTapAppleButton), for: .touchUpInside)
+        appleButton.addTarget(self,
+                              action: #selector(didTapAppleButton),
+                              for: .touchUpInside)
 
         userLogInView.addSubview(appleButton)
         NSLayoutConstraint.activate([
@@ -237,7 +239,7 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
             if user.email == "" {
                 
                 // 舊會員，登入成功後取得會員暱稱
-                FirebaseDataManeger.shared.searchUserInfo(user.id)
+                FirebaseDataManeger.shared.getUserInfo(user.id)
                 
                 showAlert("登入成功", self.toNextVCHandler)
                 

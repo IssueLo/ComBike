@@ -84,7 +84,7 @@ class TabBarViewController: UITabBarController {
         
         if let userUID = FirebaseAccountManager.shared.userUID {
             
-            FirebaseDataManeger.shared.searchUserInfo(userUID)
+            FirebaseDataManeger.shared.getUserInfo(userUID)
         }
     }
 }

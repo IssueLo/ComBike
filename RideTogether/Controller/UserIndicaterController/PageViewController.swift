@@ -66,9 +66,11 @@ class PageViewController: UIPageViewController {
     
     private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
         
-        return StoryboardCategory.userIndicater.getStoryboard()
-            .instantiateViewController(withIdentifier: storyboardID) as! FirstPageController
+        let userIndicaterSB = StoryboardCategory.userIndicater.getStoryboard()
         
+        let pageController = userIndicaterSB.instantiateViewController(identifier: storyboardID) as! FirstPageController
+        
+        return pageController
     }
     
     private func setIndicaterView() {

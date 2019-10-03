@@ -44,7 +44,9 @@ class CreateGroupController: UIViewController {
             
             createGroupBtn.setTitleColor(.white, for: .normal)
             
-            createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
+            createGroupBtn.addTarget(self,
+                                     action: #selector(createGroup),
+                                     for: .touchUpInside)
         }
     }
     

@@ -432,7 +432,7 @@ class FirebaseDataManeger {
     }
     
     // MARK: 用 uid 搜尋會員 Name - Done
-    func searchUserInfo(_ userID: String) {
+    func getUserInfo(_ userID: String) {
         
         let uesrInfoDocument = userInfoDatebase.document(userID)
         

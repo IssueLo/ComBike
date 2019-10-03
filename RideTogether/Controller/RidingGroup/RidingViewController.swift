@@ -64,7 +64,9 @@ class RidingViewController: UIViewController {
             
             stopButton.addShadow()
             
-            saveButton.addTarget(self, action: #selector(stopRiding), for: .touchUpInside)
+            saveButton.addTarget(self,
+                                 action: #selector(stopRiding),
+                                 for: .touchUpInside)
         }
     }
     
@@ -78,7 +80,9 @@ class RidingViewController: UIViewController {
             
             saveButton.setTitleColor(.white, for: .normal)
             
-            saveButton.addTarget(self, action: #selector(saveRidingData), for: .touchUpInside)
+            saveButton.addTarget(self,
+                                 action: #selector(saveRidingData),
+                                 for: .touchUpInside)
         }
     }
     
@@ -197,7 +201,7 @@ class RidingViewController: UIViewController {
         let storyboard = UIStoryboard(name: "RidingResultStoryboard", bundle: nil)
         
         guard
-            let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor")
+            let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewController")
             as? RidingResultViewController
         else { return }
         

@@ -44,15 +44,16 @@ class GroupListViewController: UIViewController {
             
 //            createGroupBtn.addShadow()
             
-            createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
+            createGroupBtn.addTarget(self,
+                                     action: #selector(createGroup),
+                                     for: .touchUpInside)
         }
     }
 
     @IBOutlet weak var groupListTableView: UITableView! {
        
         didSet {
-            
-            // BottomSide 可往上多滑 100
+
             groupListTableView.contentInset.bottom = 12
             
             groupListTableView.contentInset.top = 12
@@ -76,18 +77,16 @@ class GroupListViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        guard let uesrUID = FirebaseAccountManager.shared.userUID else {
+        if let uesrUID = FirebaseAccountManager.shared.userUID {
+            // 登入且 groupData 資料為 0，建立監聽
+            if groupData.count == 0 {
+                
+                creatObserverOfGroup(uesrUID: uesrUID)
+            }
             
+        } else {
             // 登出狀態清空 groupData 資料
             groupData = []
-            
-            return
-        }
-        
-        // 登入且 groupData 資料為 0，建立監聽
-        if groupData.count == 0 {
-            
-            creatObserverOfGroup(uesrUID: uesrUID)
         }
     }
     
@@ -106,7 +105,7 @@ class GroupListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [scanIcon, creatGroupIcon]
     }
     
-    func creatObserverOfGroup(uesrUID: String) {
+    private func creatObserverOfGroup(uesrUID: String) {
         
         FirebaseDataManeger.shared.observerForGroupData(uesrUID) { [weak self] (result) in
 
@@ -145,39 +144,45 @@ class GroupListViewController: UIViewController {
 
     }
     
-    @objc func createGroup() {
-        
-        guard FirebaseAccountManager.shared.userUID != nil else {
+    @objc
+    func createGroup() {
+        // 由 Model 判斷
+        if FirebaseAccountManager.shared.userUID == nil {
             
-            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.userLogin.getStoryboard()
             
             guard
-                let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
-                    as? UserLogInController
+                let loginVC = storyboard.instantiateViewController(
+                    withIdentifier: UserLogInController.identifier
+                    ) as? UserLogInController
+
             else { return }
             
             loginVC.toNextVCHandler = { (UIAlertAction) in
                 
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true)
             }
             
             loginVC.modalPresentationStyle = .fullScreen
 
-            present(loginVC, animated: true, completion: nil)
+            present(loginVC, animated: true)
             
-            return
+        } else {
+            
+            let storyboard = StoryboardCategory.createGroup.getStoryboard()
+            
+            let createGroupVC = storyboard.instantiateViewController(
+                withIdentifier: CreateGroupController.identifier
+            )
+            
+            createGroupVC.modalPresentationStyle = .overFullScreen
+            
+            present(createGroupVC, animated: false)
         }
-        
-        let storyboard = UIStoryboard(name: "CreateGroupStoryboard", bundle: nil)
-        
-        let createGroupVC = storyboard.instantiateViewController(withIdentifier: "CreateGroupController")
-        
-        createGroupVC.modalPresentationStyle = .overFullScreen
-        
-        present(createGroupVC, animated: false, completion: nil)
     }
     
-    @objc func scanQRCode() {
+    @objc
+    func scanQRCode() {
         
         let qrCodeScannerVC = QRCodeScannerController()
         
@@ -201,32 +206,34 @@ extension GroupListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell",
                                                  for: indexPath)
         
-        guard let groupListCell = cell as? GroupListCell else { return cell }
+        guard
+            let groupListCell = cell as? GroupListCell
+            
+        else { return cell }
         
         groupListCell.groupNameLabel.text = self.groupData[indexPath.row].name
         
-        if !groupData[indexPath.row].isFinished {
+        if groupData[indexPath.row].isFinished {
         
+            groupListCell.statusLabel.text = "已完成"
+            
+            groupListCell.statusLabel.textColor = .gray
+            
+        } else {
+            
             groupListCell.statusLabel.text = "進行中"
             
             groupListCell.statusLabel.textColor = .hexStringToUIColor()
+        }
+        
+        if let photoURLString = groupData[indexPath.row].photoURLString {
+            
+            groupListCell.groupImage.setImage(urlString: photoURLString)
+            
         } else {
             
-//            groupListCell.accessoryType = .none
-            
-            groupListCell.statusLabel.text = "已完成"
-
-            groupListCell.statusLabel.textColor = .gray
-        }
-        
-        guard let photoURLString = groupData[indexPath.row].photoURLString else {
-            
             groupListCell.groupImage.image = UIImage(named: "UChu")
-            
-            return groupListCell
         }
-        
-        groupListCell.groupImage.setImage(urlString: photoURLString)
         
         return groupListCell
     }
@@ -237,12 +244,10 @@ extension GroupListViewController: UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if groupData[indexPath.row].isFinished {
-            
             // 如果有人完成騎乘，顯示結果頁面
             presentRidingResultViewController(indexPath)
             
         } else {
-            
             // 如果尚未有人完成，顯示開始騎乘頁面
             showGroupDetailViewController(indexPath)
         }
@@ -250,11 +255,13 @@ extension GroupListViewController: UITableViewDataSource {
     
     private func showGroupDetailViewController(_ indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard.init(name: "GroupDetailStoryboard", bundle: nil)
+        let storyboard = StoryboardCategory.groupDetail.getStoryboard()
         
         guard
-            let detailVC = storyboard.instantiateViewController(withIdentifier: "GroupDetailViewController")
-                as? GroupDetailViewController
+            let detailVC = storyboard.instantiateViewController(
+                withIdentifier: GroupDetailViewController.identifier
+                ) as? GroupDetailViewController
+            
         else { return }
         
         detailVC.groupData = self.groupData[indexPath.row]
@@ -264,29 +271,24 @@ extension GroupListViewController: UITableViewDataSource {
     
     private func presentRidingResultViewController(_ indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard.init(name: "RidingResultStoryboard", bundle: nil)
+        let storyboard = StoryboardCategory.ridingResult.getStoryboard()
         
         guard
-            let resultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewControllor")
-            as? RidingResultViewController
+            let resultVC = storyboard.instantiateViewController(
+                withIdentifier: RidingResultViewController.identifier
+                ) as? RidingResultViewController
         
         else { return }
         
         resultVC.groupData = self.groupData[indexPath.row]
         
         resultVC.modalPresentationStyle = .fullScreen
-//        self.show(resultVC, sender: nil)
-        present(resultVC, animated: true, completion: nil)
+
+        present(resultVC, animated: true)
     }
 }
 
 extension GroupListViewController: UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView,
-//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 70
-//    }
     
     // 退出群組
     func tableView(_ tableView: UITableView,
@@ -295,12 +297,11 @@ extension GroupListViewController: UITableViewDelegate {
         
         let groupID = groupData[indexPath.row].groupID
         
-        guard let userUID = FirebaseAccountManager.shared.userUID else {
+        if let userUID = FirebaseAccountManager.shared.userUID {
             
-            return
+            FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID,
+                                                           userUID: userUID)
         }
-        
-        FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID, userUID: userUID)
 
         groupData.remove(at: indexPath.row)
 

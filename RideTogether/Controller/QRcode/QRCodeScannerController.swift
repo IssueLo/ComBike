@@ -75,7 +75,9 @@ class QRCodeScannerController: UIViewController {
             
             backButton.setBackgroundImage(UIImage(named: "Icons_24px_CleanAll"), for: .normal)
 
-            backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+            backButton.addTarget(self,
+                                 action: #selector(backAction),
+                                 for: .touchUpInside)
             
             backButton.translatesAutoresizingMaskIntoConstraints = false
             
