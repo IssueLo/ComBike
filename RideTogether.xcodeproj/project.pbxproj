@@ -48,6 +48,7 @@
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extension+UIViewController.swift */; };
 		953EA7012345E60F00D2EC02 /* RouteInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */; };
+		953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EA702234634B300D2EC02 /* RouteDetailView.swift */; };
 		953EF9152331242800DD692B /* RouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF9132331242800DD692B /* RouteCell.swift */; };
 		953EF9162331242800DD692B /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953EF9142331242800DD692B /* RouteCell.xib */; };
 		953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF91D2332031C00DD692B /* RouteHeaderView.swift */; };
@@ -138,6 +139,7 @@
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteInfoManager.swift; sourceTree = "<group>"; };
+		953EA702234634B300D2EC02 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		953EF9132331242800DD692B /* RouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
 		953EF9142331242800DD692B /* RouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
 		953EF91D2332031C00DD692B /* RouteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHeaderView.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
+				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
 				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
 				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
@@ -701,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
+				953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
 				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,

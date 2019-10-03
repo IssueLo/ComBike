@@ -18,7 +18,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="p7G-en-kQi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="345.5"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-4C-wGO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-4C-wGO" customClass="RouteDetailView" customModule="ComBike" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="321.5" width="375" height="385.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M3-SI-64k">
@@ -142,6 +142,13 @@
                                     <constraint firstItem="zWh-Ym-O7Z" firstAttribute="top" secondItem="Fvp-Rl-vqa" secondAttribute="bottom" constant="9" id="vu0-hQ-zHS"/>
                                     <constraint firstItem="UUM-y0-rq7" firstAttribute="top" secondItem="Kzq-XO-3Wz" secondAttribute="bottom" constant="16" id="x0f-hF-Sh8"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="aveAlopeLabel" destination="bPF-0E-ZC0" id="q7t-vR-UbD"/>
+                                    <outlet property="distanceLabel" destination="hoa-mq-e5d" id="2bf-Dz-nIp"/>
+                                    <outlet property="elevationLabel" destination="alt-T5-gPw" id="XNM-dM-HxB"/>
+                                    <outlet property="locationLabel" destination="6M3-SI-64k" id="3Zl-FD-Aoe"/>
+                                    <outlet property="routeImageView" destination="Kzq-XO-3Wz" id="NQW-Bx-2sN"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIQ-bE-0XQ">
                                 <rect key="frame" x="16" y="16" width="27.5" height="22"/>
@@ -166,12 +173,7 @@
                         <viewLayoutGuide key="safeArea" id="u2c-3G-mhH"/>
                     </view>
                     <connections>
-                        <outlet property="aveAlopeLabel" destination="bPF-0E-ZC0" id="g6O-TM-eoX"/>
-                        <outlet property="distanceLabel" destination="hoa-mq-e5d" id="gcy-2n-9hd"/>
-                        <outlet property="elevationLabel" destination="alt-T5-gPw" id="cXe-b3-Is6"/>
-                        <outlet property="locationLabel" destination="6M3-SI-64k" id="vED-9z-A6j"/>
-                        <outlet property="mapBackView" destination="73I-4C-wGO" id="Mlo-oL-aMw"/>
-                        <outlet property="routeImageView" destination="Kzq-XO-3Wz" id="xNl-51-Q2i"/>
+                        <outlet property="routeDetailView" destination="73I-4C-wGO" id="AcA-cj-5Gd"/>
                         <outlet property="routeMapView" destination="p7G-en-kQi" id="f6E-5X-ll0"/>
                     </connections>
                 </viewController>

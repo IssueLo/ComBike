@@ -24,27 +24,26 @@ class PageViewController: UIPageViewController {
     
     var viewControllerList = [FirstPageController]()
     
-    let indicaterImage = ["backView_guide_01",
-                          "backView_guide_02",
-                          "backView_guide_03"]
-    
     let indicaterTitleLbl = ["推薦路線",
                              "組隊約騎",
                              "紀錄活動"]
     
+    let indicaterImage = ["backView_guide_01",
+                          "backView_guide_02",
+                          "backView_guide_03"]
+   
     let indicaterSubTitleLbl = ["提供台灣北中南東單車推薦路線",
                                 "三五好友大家一起騎",
                                 "紀錄騎乘距離、坡度、路線"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // UIPageViewController 需要以下這兩項
         dataSource = self
 
         delegate = self
         
-        appendViewControllerList(count: 3)
+        appendViewControllerList(count: indicaterTitleLbl.count)
 
         self.setViewControllers([self.viewControllerList.first!],
                                 direction: UIPageViewController.NavigationDirection.forward,
@@ -56,11 +55,13 @@ class PageViewController: UIPageViewController {
     
     private func appendViewControllerList(count: Int) {
         
-        pageViewControllerDelegate?.pageViewController(self, didUpdateNumberOfPage: count)
+        pageViewControllerDelegate?.pageViewController(self,
+                                                       didUpdateNumberOfPage: count)
         
         for _ in 0..<count {
             
-            viewControllerList.append(getViewController(withStoryboardID: FirstPageController.identifier))
+            viewControllerList
+                .append(getViewController(withStoryboardID: FirstPageController.identifier))
         }
     }
     
@@ -68,7 +69,9 @@ class PageViewController: UIPageViewController {
         
         let userIndicaterSB = StoryboardCategory.userIndicater.getStoryboard()
         
-        let pageController = userIndicaterSB.instantiateViewController(identifier: storyboardID) as! FirstPageController
+        let pageController = userIndicaterSB.instantiateViewController(
+            identifier: storyboardID
+            ) as! FirstPageController
         
         return pageController
     }
