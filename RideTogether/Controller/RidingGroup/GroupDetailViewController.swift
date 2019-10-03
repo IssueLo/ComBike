@@ -38,9 +38,7 @@ class GroupDetailViewController: UIViewController {
             startBtn.addRound(backgroundColor: .hexStringToUIColor())
             
             startBtn.setTitleColor(.white, for: .normal)
-            
-//            startBtn.addShadow()
-            
+                        
             startBtn.addTarget(self,
                                action: #selector(startRiding),
                                for: .touchUpInside)
@@ -281,7 +279,6 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
         dismiss(animated: true)
     }
 }
-
 // 轉場效果
 extension GroupDetailViewController: UIViewControllerTransitioningDelegate {
 

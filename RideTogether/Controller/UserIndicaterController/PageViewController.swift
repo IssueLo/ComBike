@@ -101,7 +101,6 @@ extension PageViewController: UIPageViewControllerDataSource {
         let currentIndex: Int = viewControllerList.firstIndex(of: viewController as! FirstPageController)!
         
         let priviousIndex: Int = currentIndex - 1
-        
         // 判斷上一頁的 index 是否小於 0，若小於 0 則停留在當前的頁數
         return priviousIndex < 0 ? nil : viewControllerList[priviousIndex]
     }
@@ -112,7 +111,6 @@ extension PageViewController: UIPageViewControllerDataSource {
         let currentIndex: Int = viewControllerList.firstIndex(of: viewController as! FirstPageController)!
         
         let nextIndex: Int = currentIndex + 1
-        
         // 判斷下一頁的 index 是否大於總頁數，若大於則停留在當前的頁數
         return nextIndex > viewControllerList.count - 1 ? nil : viewControllerList[nextIndex]
     }
@@ -124,10 +122,8 @@ extension PageViewController: UIPageViewControllerDelegate {
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
-
          // 取得當前頁數的 viewController
         let currentViewController: UIViewController = (self.viewControllers?.first)!
-
         // 取得當前頁數的 index
         let currentIndex: Int = viewControllerList.firstIndex(of: currentViewController as! FirstPageController)!
 

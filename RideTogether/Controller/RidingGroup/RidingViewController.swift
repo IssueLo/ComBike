@@ -57,13 +57,11 @@ class RidingViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton! {
         
         didSet {
-            
+                        
             stopButton.addRound(backgroundColor: .hexStringToUIColor())
             
             stopButton.setTitleColor(.white, for: .normal)
-            
-            stopButton.addShadow()
-            
+
             saveButton.addTarget(self,
                                  action: #selector(stopRiding),
                                  for: .touchUpInside)
@@ -73,9 +71,7 @@ class RidingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton! {
         
         didSet {
-            
-            saveButton.addShadow()
-            
+                        
             saveButton.addRound(backgroundColor: .hexStringToUIColor())
             
             saveButton.setTitleColor(.white, for: .normal)
@@ -114,7 +110,6 @@ class RidingViewController: UIViewController {
     let timeManager = TimeManager()
     
     let locationManager = CLLocationManager()
-    
     // 紀錄路線
     var currentCoordinates = [CLLocationCoordinate2D]() {
         
@@ -125,13 +120,10 @@ class RidingViewController: UIViewController {
     }
     
     var currentGeoPoint = [GeoPoint]()
-    
     // 紀錄距離
     var totalDistance: Double = 0
-    
     // 紀錄最高速度
     var maximumSpeed: Double = 0
-    
     // 紀錄海拔高度
     var currentAltitude = [CLLocationDistance]()
     
@@ -139,7 +131,8 @@ class RidingViewController: UIViewController {
     
     var locatonTimer: Timer?
     
-    @objc func stopRiding() {
+    @objc
+    func stopRiding() {
         
         timeManager.controlButton(timeLabel)
         
@@ -192,17 +185,20 @@ class RidingViewController: UIViewController {
         }
     }
     
-    @objc func saveRidingData() {
+    @objc
+    func saveRidingData() {
         
         locatonTimer?.invalidate()
         
         locationManager.stopUpdatingLocation()
         
-        let storyboard = UIStoryboard(name: "RidingResultStoryboard", bundle: nil)
+        let storyboard = StoryboardCategory.ridingResult.getStoryboard()
         
         guard
-            let ridingResultVC = storyboard.instantiateViewController(withIdentifier: "RidingResultViewController")
-            as? RidingResultViewController
+            let ridingResultVC = storyboard.instantiateViewController(
+                withIdentifier: RidingResultViewController.identifier
+                ) as? RidingResultViewController
+            
         else { return }
         
         ridingResultVC.groupData = self.groupData
@@ -227,20 +223,18 @@ class RidingViewController: UIViewController {
         
         ridingResultVC.modalPresentationStyle = .fullScreen
         
-        present(ridingResultVC, animated: true, completion: nil)
+        present(ridingResultVC, animated: true)
     }
     
     @IBAction func backGroupDetailVC() {
-        
+
         dismiss(animated: true, completion: nil)
-//        navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMapView()
-        
         // 開始計時
         timeManager.controlButton(timeLabel)
         
@@ -249,35 +243,33 @@ class RidingViewController: UIViewController {
         let mapButton = MKUserTrackingButton(mapView: mapView)
         
         setupMapViewButton(mapButton)
-        
         // 功能：抓取同伴當前位置
-        FirebaseDataManeger.shared.observerOfMemberLocation(groupData.groupID) { [weak self](locationOfMember) in
+        FirebaseDataManeger
+            .shared
+            .observerOfMemberLocation(groupData.groupID) { [weak self] locationOfMember in
             
-            guard let countOfMember = self?.locationOfMember.count else {
+                guard let countOfMember = self?.locationOfMember.count else { return }
                 
-                return
-            }
-            
-            if countOfMember == 0 {
+                if countOfMember == 0 {
                 
-                self?.locationOfMember.append(locationOfMember)
+                    self?.locationOfMember.append(locationOfMember)
                 
-            } else {
+                } else {
                 
-                for number in 0..<countOfMember {
+                    for number in 0..<countOfMember {
                     
-                    if locationOfMember.name == self?.locationOfMember[number].name {
+                        if locationOfMember.name == self?.locationOfMember[number].name {
                         
-                        self?.locationOfMember.remove(at: number)
+                            self?.locationOfMember.remove(at: number)
                         
-                        break
+                            break
+                        }
+                    
+                        continue
                     }
-                    
-                    continue
-                }
                 
-                self?.locationOfMember.append(locationOfMember)
-            }
+                    self?.locationOfMember.append(locationOfMember)
+                }
         }
     }
     
@@ -289,18 +281,17 @@ class RidingViewController: UIViewController {
                                             selector: #selector(currentLocaton),
                                             userInfo: nil,
                                             repeats: true)
-        
         // 1. 還沒有詢問過用戶以獲得權限
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
-            //            locationManager.requestAlwaysAuthorization()
+//            locationManager.requestAlwaysAuthorization()
         }
-            // 2. 用戶不同意
+        // 2. 用戶不同意
         else if CLLocationManager.authorizationStatus() == .denied {
 //            showAlert("Location services were previously denied.
 //            Please enable location services for this app in Settings.")
         }
-            // 3. 用戶已經同意
+        // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
         }
@@ -316,7 +307,9 @@ class RidingViewController: UIViewController {
     
     func setupMapViewButton(_ sender: MKUserTrackingButton) {
         
-        sender.addRound(radis: 5, borderColor: .white, backgroundColor: UIColor(white: 1, alpha: 0.8))
+        sender.addRound(radis: 5,
+                        borderColor: .white,
+                        backgroundColor: UIColor(white: 1, alpha: 0.8))
         
         mapView.addSubview(sender)
         
@@ -333,12 +326,12 @@ class RidingViewController: UIViewController {
         PolylineManager.shared.showPolyline(coordinates: currentCoordinates)
     }
     
-    @objc func currentLocaton() {
+    @objc
+    func currentLocaton() {
         
         guard let location = locationManager.location else { return }
         
         if location.speed > 0 {
-            
             // 上傳當前位置
             FirebaseDataManeger.shared.uploadUserLocation(groupData.groupID,
                                                           FirebaseAccountManager.shared.userUID!,
@@ -409,28 +402,26 @@ extension RidingViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func setupMapView() {
 
         mapView.showsUserLocation = true
-
         // 2. 配置 locationManager
         locationManager.delegate = self
-
         // 定位的精確度
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
         // 使用者移動多少距離後會更新座標點
         locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
-
-        //        // 3. 配置 mapView
-        mapView.delegate = self as MKMapViewDelegate
+        // 3. 配置 mapView
+        mapView.delegate = self //as MKMapViewDelegate
         
         mapView.showsUserLocation = true
         
         mapView.userTrackingMode = .follow
     }
-    
     // Map 路線屬性
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
         let renderer = MKPolylineRenderer(overlay: overlay)
+        
         renderer.strokeColor = .hexStringToUIColor()
+        
         renderer.lineWidth = 5.0
         
         return renderer

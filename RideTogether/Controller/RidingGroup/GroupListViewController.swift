@@ -41,9 +41,7 @@ class GroupListViewController: UIViewController {
             createGroupBtn.addRound(backgroundColor: .hexStringToUIColor())
             
             createGroupBtn.setTitleColor(.white, for: .normal)
-            
-//            createGroupBtn.addShadow()
-            
+                        
             createGroupBtn.addTarget(self,
                                      action: #selector(createGroup),
                                      for: .touchUpInside)

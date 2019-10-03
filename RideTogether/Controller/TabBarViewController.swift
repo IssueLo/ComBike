@@ -70,10 +70,8 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         delegate = self
-        
         // 不支援暗黑模式
         overrideUserInterfaceStyle = .light
-        
         // 第一次使用顯示導覽頁面，之後不顯示
         UserDefaults.standard.setValue(true, forKey: "UserLogined")
                 
