@@ -20,7 +20,7 @@ enum StoryboardCategory: String {
 
     case routeDetail = "RouteDetailStoryboard"
 
-    case group = "GroupStoryboard"
+    case groupList = "GroupListStoryboard"
 
     case createGroup = "CreateGroupStoryboard"
     

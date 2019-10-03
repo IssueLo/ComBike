@@ -32,7 +32,7 @@ class UserIndicaterController: UIViewController {
             
             skipBtn.addRound(backgroundColor: .hexStringToUIColor())
             
-            skipBtn.addShadow()
+//            skipBtn.addShadow()
             
             skipBtn.addTarget(self,
                               action: #selector(skipIndicaterVC),

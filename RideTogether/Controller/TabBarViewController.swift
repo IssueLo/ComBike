@@ -24,7 +24,7 @@ private enum Tab {
             
         case .lobby: controller = StoryboardCategory.routeList.getStoryboard().instantiateInitialViewController()!
             
-        case .ridingInfo: controller = StoryboardCategory.group.getStoryboard().instantiateInitialViewController()!
+        case .ridingInfo: controller = StoryboardCategory.groupList.getStoryboard().instantiateInitialViewController()!
             
         case .profile: controller = StoryboardCategory.uesrProfile.getStoryboard().instantiateInitialViewController()!
             
@@ -69,11 +69,12 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegate = self
+        
         // 不支援暗黑模式
         overrideUserInterfaceStyle = .light
         
-        delegate = self
-        
+        // 第一次使用顯示導覽頁面，之後不顯示
         UserDefaults.standard.setValue(true, forKey: "UserLogined")
                 
         viewControllers = tabs.map({ $0.callController() })
@@ -81,9 +82,10 @@ class TabBarViewController: UITabBarController {
 //            <#code#>
 //        })
         
-        guard let userUID = FirebaseAccountManager.shared.userUID else { return }
-        
-        FirebaseDataManeger.shared.searchUserInfo(userUID)
+        if let userUID = FirebaseAccountManager.shared.userUID {
+            
+            FirebaseDataManeger.shared.searchUserInfo(userUID)
+        }
     }
 }
 
@@ -95,6 +97,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
         guard
             let navigationVC = viewController as? UINavigationController,
             navigationVC.viewControllers.first is UserProfileController
+            
         else { return true }
         
         // 確認是否有登入會員
@@ -102,23 +105,24 @@ extension TabBarViewController: UITabBarControllerDelegate {
 
             let storyboard = StoryboardCategory.userLogin.getStoryboard()
             
-            guard let loginVC = storyboard.instantiateViewController(withIdentifier: UserLogInController.identifier)
-                as? UserLogInController
-            else {
-                return false
-            }
+            guard
+                let loginVC = storyboard.instantiateViewController(
+                    withIdentifier: UserLogInController.identifier
+                    ) as? UserLogInController
+
+            else { return false }
             
             loginVC.toNextVCHandler = { (UIAlertAction) in
                 
                 tabBarController.selectedIndex = 2
                 
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true)
             }
             
             loginVC.modalPresentationStyle = .fullScreen
 
-            present(loginVC, animated: true, completion: nil)
-            
+            present(loginVC, animated: true)
+             
             return false
         }
         

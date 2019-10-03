@@ -66,20 +66,20 @@ class RouteDetailViewController: UIViewController {
         
         let urlString = "https://bike100.tw/wp-content/uploads/\(routeData.routeID).jpg"
         
-        locationLabel.text = routeData.name
-        
-        distanceLabel.text = String(format: "%.2f", (routeData.distance) * 2 / 1000) + " km"
-        
-        elevationLabel.text = String(format: "%.2f", routeData.elevationGain) + " m"
-        
         let aveAlope: Double = {
             
             return (routeData.distance / 1000) / (routeData.elevationGain / 100)
         }()
         
-        aveAlopeLabel.text = String(format: "%.1f", aveAlope) + " %"
+        locationLabel.text = routeData.name
         
         routeImageView.setImage(urlString: urlString)
+        
+        distanceLabel.text = String(format: "%.2f", (routeData.distance) * 2 / 1000) + " km"
+        
+        elevationLabel.text = String(format: "%.2f", routeData.elevationGain) + " m"
+        
+        aveAlopeLabel.text = String(format: "%.1f", aveAlope) + " %"
     }
 }
 

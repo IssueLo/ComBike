@@ -49,7 +49,7 @@ class RouteListController: UIViewController {
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         
         getRouteData()
-        
+        // cell註冊要改喔
         let nib = UINib(nibName: "RouteListCell", bundle: nil)
         
         routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
@@ -74,7 +74,7 @@ class RouteListController: UIViewController {
                         RouteIDData.eastern]
         
         let group = DispatchGroup()
-        
+        // 這要搬去 Model?
         for area in allRouteList {
             
             var currentRouteData = [RouteData]()
@@ -123,7 +123,6 @@ class RouteListController: UIViewController {
     }
 }
 
-// swiftlint:disable line_length
 extension RouteListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,7 +139,10 @@ extension RouteListController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteListCell", for: indexPath)
         
-        guard let routeListCell = cell as? RouteListCell else { return cell }
+        guard
+            let routeListCell = cell as? RouteListCell
+            
+        else { return cell }
         
         routeListCell.routeListData = self.routeDataArray[indexPath.section]
         
@@ -149,8 +151,10 @@ extension RouteListController: UITableViewDataSource {
             let storyboard = StoryboardCategory.routeDetail.getStoryboard()
             
             guard
-                let routeDetailVC = storyboard.instantiateViewController(withIdentifier: RouteDetailViewController.identifier)
-                    as? RouteDetailViewController
+                let routeDetailVC = storyboard.instantiateViewController(
+                    withIdentifier: RouteDetailViewController.identifier
+                    )as? RouteDetailViewController
+                
                 else { return }
             
             routeDetailVC.routeData = routeListCell.routeListData[indexPath.row]
@@ -168,8 +172,9 @@ extension RouteListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RouteHeaderView")
-            as? RouteHeaderView
+        let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: "RouteHeaderView"
+            ) as? RouteHeaderView
         
         headerView?.routeAreaLabel.text = headerTitle[section]
         
@@ -177,8 +182,11 @@ extension RouteListController: UITableViewDelegate {
             
             let storyboard = StoryboardCategory.areaRoute.getStoryboard()
             
-            guard let areaRouteVC = storyboard.instantiateViewController(withIdentifier: AreaRouteViewController.identifier)
-                as? AreaRouteViewController
+            guard
+                let areaRouteVC = storyboard.instantiateViewController(
+                    withIdentifier: AreaRouteViewController.identifier
+                    ) as? AreaRouteViewController
+                
             else { return }
             
             areaRouteVC.view.layoutIfNeeded()
@@ -203,4 +211,3 @@ extension RouteListController: UITableViewDelegate {
         return 140
     }
 }
-// swiftlint:enable line_length

@@ -42,7 +42,7 @@ class GroupListViewController: UIViewController {
             
             createGroupBtn.setTitleColor(.white, for: .normal)
             
-            createGroupBtn.addShadow()
+//            createGroupBtn.addShadow()
             
             createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         }
@@ -66,17 +66,7 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
-                                             style: .done,
-                                             target: self,
-                                             action: #selector(createGroup))
-        
-        let scanIcon = UIBarButtonItem(image: UIImage(named: "Icons_QRCodeScan"),
-                                       style: .done,
-                                       target: self,
-                                       action: #selector(scanQRCode))
-        
-        navigationItem.rightBarButtonItems = [scanIcon, creatGroupIcon]
+        setNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +89,21 @@ class GroupListViewController: UIViewController {
             
             creatObserverOfGroup(uesrUID: uesrUID)
         }
+    }
+    
+    private func setNavigationItem() {
+        
+        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
+                                             style: .done,
+                                             target: self,
+                                             action: #selector(createGroup))
+        
+        let scanIcon = UIBarButtonItem(image: UIImage(named: "Icons_QRCodeScan"),
+                                       style: .done,
+                                       target: self,
+                                       action: #selector(scanQRCode))
+        
+        navigationItem.rightBarButtonItems = [scanIcon, creatGroupIcon]
     }
     
     func creatObserverOfGroup(uesrUID: String) {

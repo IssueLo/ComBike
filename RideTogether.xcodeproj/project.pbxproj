@@ -32,7 +32,7 @@
 		9525993223213FE0009C7750 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993123213FE0009C7750 /* QRCodeView.swift */; };
 		9525993423214199009C7750 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993323214199009C7750 /* QRCodeViewController.swift */; };
 		95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */; };
-		95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */; };
+		95280695231D3FA700EFD895 /* GroupListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */; };
 		95280698231E065700EFD895 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95280697231E065700EFD895 /* GroupListCell.xib */; };
 		9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupListViewController.swift */; };
 		9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069D231E098A00EFD895 /* GroupListCell.swift */; };
@@ -121,7 +121,7 @@
 		9525993123213FE0009C7750 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		9525993323214199009C7750 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManager.swift; sourceTree = "<group>"; };
-		95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupStoryboard.storyboard; sourceTree = "<group>"; };
+		95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupListStoryboard.storyboard; sourceTree = "<group>"; };
 		95280697231E065700EFD895 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		9528069B231E086200EFD895 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		9528069D231E098A00EFD895 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
 				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
+				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
 				95BE90A02337B27100F40ADD /* RouteList */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
 				95AE91A1232E31E400AD00CF /* Profile */,
@@ -374,7 +374,7 @@
 		95AE91A0232E31D400AD00CF /* RidingGroup */ = {
 			isa = PBXGroup;
 			children = (
-				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
+				95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */,
 				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
 				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
@@ -591,7 +591,7 @@
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				9563D66E23409E8300072349 /* AreaRouteCell.xib in Resources */,
 				95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */,
-				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
+				95280695231D3FA700EFD895 /* GroupListStoryboard.storyboard in Resources */,
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,

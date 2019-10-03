@@ -45,7 +45,8 @@ class AreaRouteViewController: UIViewController {
         
         areaRouteCollectionView.register(nib, forCellWithReuseIdentifier: "AreaRouteCell")
         
-        if let layout = areaRouteCollectionView.collectionViewLayout as? CollectionViewLayout {
+        if let layout = areaRouteCollectionView.collectionViewLayout
+            as? CollectionViewLayout {
             
             layout.delegate = self
         }
@@ -64,7 +65,10 @@ extension AreaRouteViewController: UICollectionViewDataSource {
             
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaRouteCell", for: indexPath)
         
-        guard let areaRouteCell = cell as? AreaRouteCell else { return cell }
+        guard
+            let areaRouteCell = cell as? AreaRouteCell
+            
+        else { return cell }
         
         let routeNameArray = areaRouteData[indexPath.row].name.components(separatedBy: "（")
         
@@ -83,8 +87,10 @@ extension AreaRouteViewController: UICollectionViewDataSource {
         let storyboard = StoryboardCategory.routeDetail.getStoryboard()
                     
         guard
-            let routeDetailVC = storyboard.instantiateViewController(withIdentifier: RouteDetailViewController.identifier)
-                as? RouteDetailViewController
+            let routeDetailVC = storyboard.instantiateViewController(
+                withIdentifier: RouteDetailViewController.identifier
+                ) as? RouteDetailViewController
+            
         else { return }
         
         routeDetailVC.routeData = self.areaRouteData[indexPath.row]
