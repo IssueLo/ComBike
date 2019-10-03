@@ -242,16 +242,43 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
+		953EA7042346393E00D2EC02 /* RouteList */ = {
+			isa = PBXGroup;
+			children = (
+				953EA706234639A700D2EC02 /* RouteHeaderView */,
+				953EF912233123E200DD692B /* RouteListCell */,
+				9563D66A233F9E0A00072349 /* AreaRouteCell */,
+				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
+			);
+			path = RouteList;
+			sourceTree = "<group>";
+		};
+		953EA7052346394E00D2EC02 /* RidingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				952806A1231E104A00EFD895 /* GroupListCell */,
+				9589DD7323253405003A9A87 /* RidingResultHeader */,
+				952806B8231E6A6100EFD895 /* RidingResultCell */,
+				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
+			);
+			path = RidingGroup;
+			sourceTree = "<group>";
+		};
+		953EA706234639A700D2EC02 /* RouteHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
+				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
+			);
+			path = RouteHeaderView;
+			sourceTree = "<group>";
+		};
 		953EF912233123E200DD692B /* RouteListCell */ = {
 			isa = PBXGroup;
 			children = (
 				953EF922233228A200DD692B /* RouteListCell.swift */,
 				953EF923233228A200DD692B /* RouteListCell.xib */,
 				95504744233378F600CFD58F /* RouteCell */,
-				9563D66A233F9E0A00072349 /* AreaRouteCell */,
-				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
-				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
-				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
 			);
 			path = RouteListCell;
 			sourceTree = "<group>";
@@ -351,6 +378,7 @@
 		9563D66A233F9E0A00072349 /* AreaRouteCell */ = {
 			isa = PBXGroup;
 			children = (
+				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
 				9563D66B23409E6E00072349 /* AreaRouteCell.swift */,
 				9563D66D23409E8300072349 /* AreaRouteCell.xib */,
 			);
@@ -499,14 +527,10 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				953EF912233123E200DD692B /* RouteListCell */,
-				952806A1231E104A00EFD895 /* GroupListCell */,
-				9589DD7323253405003A9A87 /* RidingResultHeader */,
-				952806B8231E6A6100EFD895 /* RidingResultCell */,
+				953EA7042346393E00D2EC02 /* RouteList */,
+				953EA7052346394E00D2EC02 /* RidingGroup */,
 				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
-				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
-				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
 				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
 			path = View;
