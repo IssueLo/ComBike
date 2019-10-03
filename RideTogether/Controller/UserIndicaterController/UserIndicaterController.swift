@@ -31,9 +31,7 @@ class UserIndicaterController: UIViewController {
         didSet {
             
             skipBtn.addRound(backgroundColor: .hexStringToUIColor())
-            
-//            skipBtn.addShadow()
-            
+                        
             skipBtn.addTarget(self,
                               action: #selector(skipIndicaterVC),
                               for: .touchUpInside)
@@ -56,7 +54,6 @@ class UserIndicaterController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                        
         // 手動 ContainerView
         setContainerView()
     }
@@ -101,7 +98,6 @@ extension UserIndicaterController: PageViewControllerDelegate {
         pageControl.currentPage = pageIndex
     }
 }
-
 // 轉場效果
 extension UserIndicaterController: UIViewControllerTransitioningDelegate {
 

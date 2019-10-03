@@ -20,12 +20,15 @@ class RouteListController: UIViewController {
                 
                 self.routeListTableView.reloadData()
             }
+            
+            UIView.animate(withDuration: 1) {
+                
+                self.launchScreen.alpha = 0
+            }
         }
     }
     
     let headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
-
-    var allRouteList = [[String]]()
 
     @IBOutlet weak var launchScreen: UIView!
     
@@ -68,57 +71,14 @@ class RouteListController: UIViewController {
     
     func getRouteData() {
         
-        allRouteList = [RouteIDData.northern,
-                        RouteIDData.central,
-                        RouteIDData.southern,
-                        RouteIDData.eastern]
+        let allRouteList = [RouteIDData.northern,
+                            RouteIDData.central,
+                            RouteIDData.southern,
+                            RouteIDData.eastern]
         
-        let group = DispatchGroup()
-        // 這要搬去 Model?
-        for area in allRouteList {
+        RouteInfoManager.getRouteInfo(routeIDList: allRouteList) { (allRouteData) in
             
-            var currentRouteData = [RouteData]()
-        
-            for routeID in area {
-                
-                group.enter()
-                
-                StravaProvider.getRouteData(routeID) { (result) in
-                    
-                    switch result {
-                        
-                    case .success(var routeData):
-                        
-                        let array = routeData.name.components(separatedBy: "：")
-                        
-                        if array.count == 1 {
-                            
-                            routeData.name = array[0]
-                        } else {
-                            
-                            routeData.name = array[1]
-                        }
-                        
-                        currentRouteData.append(routeData)
-                        
-                        group.leave()
-                        
-                    case .failure(let error):
-                        
-                        print(error)
-                    }
-                }
-            }
-            
-        group.notify(queue: .main, execute: {
-                
-                self.routeDataArray.append(currentRouteData)
-                
-                UIView.animate(withDuration: 1) {
-                    
-                    self.launchScreen.alpha = 0
-                }
-            })
+            self.routeDataArray = allRouteData
         }
     }
 }
