@@ -69,7 +69,7 @@ class FirebaseDataManeger {
                     let groupID = documentChange.document.documentID
                     
                     let groupPhotoURL = documentChange.document.data()["photoURLString"] as? String
-//                    self.deleteGorup(groupID)
+
                     let groupData = GroupData(groupID: groupID,
                                               photoURLString: groupPhotoURL,
                                               name: name,

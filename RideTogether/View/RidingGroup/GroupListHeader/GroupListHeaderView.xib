@@ -14,14 +14,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-KB-SGZ">
-                    <rect key="frame" x="16" y="14.5" width="42" height="21"/>
+                    <rect key="frame" x="24" y="14.5" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="Nw5-KB-SGZ" firstAttribute="leading" secondItem="fXD-hm-OTL" secondAttribute="leading" constant="16" id="23e-8Q-HCN"/>
+                <constraint firstItem="Nw5-KB-SGZ" firstAttribute="leading" secondItem="fXD-hm-OTL" secondAttribute="leading" constant="24" id="23e-8Q-HCN"/>
                 <constraint firstItem="Nw5-KB-SGZ" firstAttribute="centerY" secondItem="fXD-hm-OTL" secondAttribute="centerY" id="QQo-wU-4hE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="lTR-eo-A14"/>

@@ -83,6 +83,11 @@ class GroupListViewController: UIViewController {
 
         groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
+        let headerNib = UINib(nibName: "GroupListHeaderView", bundle: nil)
+
+        groupListTableView.register(headerNib,
+                                    forHeaderFooterViewReuseIdentifier: "GroupListHeaderView")
+        
         setNavigationItem()
     }
     
@@ -315,6 +320,24 @@ extension GroupListViewController: UITableViewDataSource {
 
 extension GroupListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: "GroupListHeaderView"
+            ) as? GroupListHeaderView
+        
+        let createTime = Int(separatedGroupData[section][0].createTime.seconds)
+        
+        headerView?.createDateLabel.text = DateManager.secondToDate(seconds: createTime)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 48
+    }
+    
     // 退出群組
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
@@ -327,9 +350,14 @@ extension GroupListViewController: UITableViewDelegate {
             FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID,
                                                            userUID: userUID)
         }
+        
+        if separatedGroupData[indexPath.section].count == 1 {
+            
+            separatedGroupData.remove(at: indexPath.section)
+            
+        } else {
 
-        separatedGroupData[indexPath.section].remove(at: indexPath.row)
-
-//        tableView.deleteRows(at: [indexPath], with: .left)
+            separatedGroupData[indexPath.section].remove(at: indexPath.row)
+        }
     }
 }
