@@ -42,6 +42,11 @@ class GroupSortingManager {
     
     static func separatedGroupData(sortedGroupData: [GroupData]) -> [[GroupData]] {
         
+        if sortedGroupData.count == 0 {
+            
+            return []
+        }
+        
         var dateTitles: [String] = [DateManager.secondToDate(seconds: Int(sortedGroupData[0].createTime.seconds))]
         
         var separatedGroupData: [[GroupData]] = [[sortedGroupData[0]]]

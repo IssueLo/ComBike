@@ -41,7 +41,7 @@ class GroupListViewController: UIViewController {
     var sortedGroupData = [GroupData]() {
 
         didSet {
-
+            
             separatedGroupData = GroupSortingManager.separatedGroupData(sortedGroupData: sortedGroupData)
         }
     }
@@ -346,6 +346,11 @@ extension GroupListViewController: UITableViewDelegate {
             withIdentifier: "GroupListHeaderView"
             ) as? GroupListHeaderView
         
+        if separatedGroupData.count == 0 {
+            
+            return headerView
+        }
+        
         let createTime = Int(separatedGroupData[section][0].createTime.seconds)
         
         headerView?.createDateLabel.text = DateManager.secondToDate(seconds: createTime)
@@ -383,20 +388,21 @@ extension GroupListViewController: UITableViewDelegate {
                    forRowAt indexPath: IndexPath) {
         
         let groupID = separatedGroupData[indexPath.section][indexPath.row].groupID
-        
+
         if let userUID = FirebaseAccountManager.shared.userUID {
             
             FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID,
                                                            userUID: userUID)
         }
         
-        if separatedGroupData[indexPath.section].count == 1 {
-            
-            separatedGroupData.remove(at: indexPath.section)
-            
-        } else {
+        for number in rawGroupData.indices {
 
-            separatedGroupData[indexPath.section].remove(at: indexPath.row)
+            if groupID == rawGroupData[number].groupID {
+                
+                rawGroupData.remove(at: number)
+                
+                break
+            }
         }
     }
 }
