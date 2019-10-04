@@ -10,11 +10,11 @@ import UIKit
 
 class GroupListViewController: UIViewController {
     
-    var groupData = [GroupData]() {
+    var rawGroupData = [GroupData]() {
         
         didSet {
             
-            if groupData.count == 0 {
+            if rawGroupData.count == 0 {
                 
                 remindBackView.alpha = 1
                 
@@ -23,8 +23,26 @@ class GroupListViewController: UIViewController {
                 remindBackView.alpha = 0
             }
             
+//            sortedGroupData = GroupSortingManager.sortingByDate(groupData: rawGroupData)
+            
+            sortedGroupData = rawGroupData.sorted { $0.createTime.seconds > $1.createTime.seconds }
+        }
+    }
+
+    var sortedGroupData = [GroupData]() {
+
+        didSet {
+
+            separatedGroupData = GroupSortingManager.separatedGroupData(sortedGroupData: sortedGroupData)
+        }
+    }
+    
+    var separatedGroupData = [[GroupData]]() {
+        
+        didSet {
+            
             DispatchQueue.main.async {
-                
+
                 self.groupListTableView.reloadData()
             }
         }
@@ -75,22 +93,22 @@ class GroupListViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        if let uesrUID = FirebaseAccountManager.shared.userUID {
+        if let userUID = FirebaseAccountManager.shared.userUID {
             // 登入且 groupData 資料為 0，建立監聽
-            if groupData.count == 0 {
+            if rawGroupData.count == 0 {
                 
-                creatObserverOfGroup(uesrUID: uesrUID)
+                createObserverOfGroup(userUID: userUID)
             }
             
         } else {
             // 登出狀態清空 groupData 資料
-            groupData = []
+            rawGroupData = []
         }
     }
     
     private func setNavigationItem() {
         
-        let creatGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
+        let createGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
                                              style: .done,
                                              target: self,
                                              action: #selector(createGroup))
@@ -100,29 +118,29 @@ class GroupListViewController: UIViewController {
                                        target: self,
                                        action: #selector(scanQRCode))
         
-        navigationItem.rightBarButtonItems = [scanIcon, creatGroupIcon]
+        navigationItem.rightBarButtonItems = [scanIcon, createGroupIcon]
     }
     
-    private func creatObserverOfGroup(uesrUID: String) {
+    private func createObserverOfGroup(userUID: String) {
         
-        FirebaseDataManeger.shared.observerForGroupData(uesrUID) { [weak self] (result) in
+        FirebaseDataManeger.shared.observerForGroupData(userUID) { [weak self] (result) in
 
             switch result {
                 
             case .success(let groupData):
                 
                 // 要判斷是新的群組，還是修改原有群組
-                if self?.groupData.count != 0 {
+                if self?.rawGroupData.count != 0 {
                     
-                    guard let groupDataCount = self?.groupData.count else { return }
+                    guard let groupDataCount = self?.rawGroupData.count else { return }
                     
                     for number in 0..<groupDataCount {
                         
-                        if groupData.groupID == self?.groupData[number].groupID {
+                        if groupData.groupID == self?.rawGroupData[number].groupID {
                             
-                            self?.groupData.remove(at: number)
+                            self?.rawGroupData.remove(at: number)
                             
-                            self?.groupData.insert(groupData, at: number)
+                            self?.rawGroupData.insert(groupData, at: number)
                             
                             return
                         } else {
@@ -131,8 +149,8 @@ class GroupListViewController: UIViewController {
                         }
                     }
                 }
-                
-                self?.groupData.insert(groupData, at: 0)
+                                
+                self?.rawGroupData.append(groupData)
                 
             case .failure:
                 
@@ -192,10 +210,15 @@ class GroupListViewController: UIViewController {
 
 extension GroupListViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return separatedGroupData.count
+    }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         
-        return groupData.count
+        return separatedGroupData[section].count
     }
     
     func tableView(_ tableView: UITableView,
@@ -204,14 +227,16 @@ extension GroupListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell",
                                                  for: indexPath)
         
-        guard
-            let groupListCell = cell as? GroupListCell
+        guard let groupListCell = cell as? GroupListCell else {
             
-        else { return cell }
+            return cell
+        }
         
-        groupListCell.groupNameLabel.text = self.groupData[indexPath.row].name
+        let groupData = separatedGroupData[indexPath.section][indexPath.row]
         
-        if groupData[indexPath.row].isFinished {
+        groupListCell.groupNameLabel.text = groupData.name
+        
+        if groupData.isFinished {
         
             groupListCell.statusLabel.text = "已完成"
             
@@ -224,7 +249,7 @@ extension GroupListViewController: UITableViewDataSource {
             groupListCell.statusLabel.textColor = .hexStringToUIColor()
         }
         
-        if let photoURLString = groupData[indexPath.row].photoURLString {
+        if let photoURLString = groupData.photoURLString {
             
             groupListCell.groupImage.setImage(urlString: photoURLString)
             
@@ -232,7 +257,7 @@ extension GroupListViewController: UITableViewDataSource {
             
             groupListCell.groupImage.image = UIImage(named: "UChu")
         }
-        
+                
         return groupListCell
     }
     
@@ -241,7 +266,9 @@ extension GroupListViewController: UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if groupData[indexPath.row].isFinished {
+        let groupData = separatedGroupData[indexPath.section][indexPath.row]
+        
+        if groupData.isFinished {
             // 如果有人完成騎乘，顯示結果頁面
             presentRidingResultViewController(indexPath)
             
@@ -262,7 +289,7 @@ extension GroupListViewController: UITableViewDataSource {
             
         else { return }
         
-        detailVC.groupData = self.groupData[indexPath.row]
+        detailVC.groupData = separatedGroupData[indexPath.section][indexPath.row]
 
         self.show(detailVC, sender: nil)
     }
@@ -278,7 +305,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         else { return }
         
-        resultVC.groupData = self.groupData[indexPath.row]
+        resultVC.groupData = separatedGroupData[indexPath.section][indexPath.row]
         
         resultVC.modalPresentationStyle = .fullScreen
 
@@ -293,7 +320,7 @@ extension GroupListViewController: UITableViewDelegate {
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         
-        let groupID = groupData[indexPath.row].groupID
+        let groupID = separatedGroupData[indexPath.section][indexPath.row].groupID
         
         if let userUID = FirebaseAccountManager.shared.userUID {
             
@@ -301,8 +328,8 @@ extension GroupListViewController: UITableViewDelegate {
                                                            userUID: userUID)
         }
 
-        groupData.remove(at: indexPath.row)
+        separatedGroupData[indexPath.section].remove(at: indexPath.row)
 
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+//        tableView.deleteRows(at: [indexPath], with: .left)
     }
 }

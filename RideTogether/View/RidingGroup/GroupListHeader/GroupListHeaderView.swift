@@ -10,12 +10,13 @@ import UIKit
 
 class GroupListHeaderView: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    @IBOutlet weak var createDateLabel: UILabel!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        self.contentView.backgroundColor = .white
+    }
+    
 }

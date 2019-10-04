@@ -11,6 +11,10 @@
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		951562122346FAAB00F05BD0 /* GroupListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */; };
+		951562142346FADC00F05BD0 /* GroupListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951562132346FADC00F05BD0 /* GroupListHeaderView.xib */; };
+		95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156215234714E500F05BD0 /* GroupSortingManager.swift */; };
+		95156218234724E800F05BD0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156217234724E800F05BD0 /* DateManager.swift */; };
 		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
 		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
@@ -101,6 +105,10 @@
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListHeaderView.swift; sourceTree = "<group>"; };
+		951562132346FADC00F05BD0 /* GroupListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListHeaderView.xib; sourceTree = "<group>"; };
+		95156215234714E500F05BD0 /* GroupSortingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortingManager.swift; sourceTree = "<group>"; };
+		95156217234724E800F05BD0 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
@@ -224,6 +232,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		951562102346FA3F00F05BD0 /* GroupListHeader */ = {
+			isa = PBXGroup;
+			children = (
+				951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */,
+				951562132346FADC00F05BD0 /* GroupListHeaderView.xib */,
+			);
+			path = GroupListHeader;
+			sourceTree = "<group>";
+		};
 		952806A1231E104A00EFD895 /* GroupListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +273,7 @@
 		953EA7052346394E00D2EC02 /* RidingGroup */ = {
 			isa = PBXGroup;
 			children = (
+				951562102346FA3F00F05BD0 /* GroupListHeader */,
 				952806A1231E104A00EFD895 /* GroupListCell */,
 				9589DD7323253405003A9A87 /* RidingResultHeader */,
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
@@ -494,6 +512,8 @@
 				952599272321187D009C7750 /* QRCodeMaker.swift */,
 				9513F510233CB0660076CC75 /* FadeOutTransition.swift */,
 				9563D66F2341CF0400072349 /* RouteIDData.swift */,
+				95156215234714E500F05BD0 /* GroupSortingManager.swift */,
+				95156217234724E800F05BD0 /* DateManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,6 +657,7 @@
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 				953EF9162331242800DD692B /* RouteCell.xib in Resources */,
 				9545678F2328F5FE009DA63B /* ProfileCell.xib in Resources */,
+				951562142346FADC00F05BD0 /* GroupListHeaderView.xib in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
 				953EF925233228A200DD692B /* RouteListCell.xib in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
@@ -731,13 +752,16 @@
 				953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
 				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
+				95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
+				95156218234724E800F05BD0 /* DateManager.swift in Sources */,
 				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */,
 				955AC8512332790A00388934 /* StravaProvider.swift in Sources */,
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
+				951562122346FAAB00F05BD0 /* GroupListHeaderView.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
 				95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */,
