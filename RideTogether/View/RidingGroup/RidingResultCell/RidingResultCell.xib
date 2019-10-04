@@ -2,14 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RidingResultCell" rowHeight="98" id="D1t-7t-VWx" customClass="RidingResultCell" customModule="RideTogether" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RidingResultCell" rowHeight="98" id="D1t-7t-VWx" customClass="RidingResultCell" customModule="ComBike" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D1t-7t-VWx" id="KZd-II-ejE">
@@ -69,7 +68,7 @@
                 <outlet property="memberImage" destination="x2f-ff-CXa" id="ZZl-jA-Z9d"/>
                 <outlet property="memberNameLabel" destination="cGV-2R-RVP" id="IYO-MB-9Il"/>
                 <outlet property="rankingLabel" destination="DHe-mL-pBw" id="AtX-8H-aR2"/>
-                <outlet property="spendTimeLebal" destination="l5L-DN-bye" id="bbI-Jb-hiw"/>
+                <outlet property="spendTimeLabel" destination="l5L-DN-bye" id="Otz-k2-xiZ"/>
             </connections>
             <point key="canvasLocation" x="51.449275362318843" y="137.94642857142856"/>
         </tableViewCell>

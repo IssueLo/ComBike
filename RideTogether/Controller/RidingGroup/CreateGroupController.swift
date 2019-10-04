@@ -75,7 +75,7 @@ class CreateGroupController: UIViewController {
             
         } else {
         
-            FirebaseDataManeger.shared.createGroup(groupName) { [weak self](message) in
+            FirebaseDataManager.shared.createGroup(groupName) { [weak self](message) in
                 
                 self?.showAlert(message, { (_) in
                     

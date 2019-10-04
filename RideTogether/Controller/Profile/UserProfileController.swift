@@ -224,9 +224,9 @@ extension UserProfileController: UITableViewDelegate {
             
             FirebaseAccountManager.shared.userPhotoURL = nil
             
-            if FirebaseDataManeger.groupObserverFor != nil {
+            if FirebaseDataManager.groupObserverFor != nil {
                 
-                FirebaseDataManeger.groupObserverFor.remove()
+                FirebaseDataManager.groupObserverFor.remove()
             }
             
         } catch let error as NSError {
@@ -285,7 +285,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
 
-                            FirebaseDataManeger.shared.updateUserPhoto(userUID,
+                            FirebaseDataManager.shared.updateUserPhoto(userUID,
                                                                        url.absoluteString)
                         }
                     }

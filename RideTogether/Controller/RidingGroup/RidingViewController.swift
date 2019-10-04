@@ -129,7 +129,7 @@ class RidingViewController: UIViewController {
     
     let screenWidth = UIScreen.main.bounds.width
     
-    var locatonTimer: Timer?
+    var locationTimer: Timer?
     
     @objc
     func stopRiding() {
@@ -138,7 +138,7 @@ class RidingViewController: UIViewController {
         
         if stopButton.titleLabel?.text == "停止" {
             
-            locatonTimer?.invalidate()
+            locationTimer?.invalidate()
             
             locationManager.stopUpdatingLocation()
             
@@ -161,9 +161,9 @@ class RidingViewController: UIViewController {
             
         } else {
             
-            locatonTimer = Timer.scheduledTimer(timeInterval: 1,
+            locationTimer = Timer.scheduledTimer(timeInterval: 1,
                                                 target: self,
-                                                selector: #selector(currentLocaton),
+                                                selector: #selector(currentLocation),
                                                 userInfo: nil,
                                                 repeats: true)
             
@@ -188,7 +188,7 @@ class RidingViewController: UIViewController {
     @objc
     func saveRidingData() {
         
-        locatonTimer?.invalidate()
+        locationTimer?.invalidate()
         
         locationManager.stopUpdatingLocation()
         
@@ -217,7 +217,7 @@ class RidingViewController: UIViewController {
         
         memberInfo.altitude = currentAltitude
         
-        FirebaseDataManeger.shared.uploadRidingData(groupData.groupID,
+        FirebaseDataManager.shared.uploadRidingData(groupData.groupID,
                                                     FirebaseAccountManager.shared.userUID!,
                                                     memberInfo)
         
@@ -238,13 +238,13 @@ class RidingViewController: UIViewController {
         // 開始計時
         timeManager.controlButton(timeLabel)
         
-        currentLocaton()
+        currentLocation()
         
         let mapButton = MKUserTrackingButton(mapView: mapView)
         
         setupMapViewButton(mapButton)
         // 功能：抓取同伴當前位置
-        FirebaseDataManeger
+        FirebaseDataManager
             .shared
             .observerOfMemberLocation(groupData.groupID) { [weak self] locationOfMember in
             
@@ -276,9 +276,9 @@ class RidingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        locatonTimer = Timer.scheduledTimer(timeInterval: 1,
+        locationTimer = Timer.scheduledTimer(timeInterval: 1,
                                             target: self,
-                                            selector: #selector(currentLocaton),
+                                            selector: #selector(currentLocation),
                                             userInfo: nil,
                                             repeats: true)
         // 1. 還沒有詢問過用戶以獲得權限
@@ -300,7 +300,7 @@ class RidingViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        locatonTimer?.invalidate()
+        locationTimer?.invalidate()
         
         locationManager.stopUpdatingLocation()
     }
@@ -327,13 +327,13 @@ class RidingViewController: UIViewController {
     }
     
     @objc
-    func currentLocaton() {
+    func currentLocation() {
         
         guard let location = locationManager.location else { return }
         
         if location.speed > 0 {
             // 上傳當前位置
-            FirebaseDataManeger.shared.uploadUserLocation(groupData.groupID,
+            FirebaseDataManager.shared.uploadUserLocation(groupData.groupID,
                                                           FirebaseAccountManager.shared.userUID!,
                                                           location.coordinate)
             

@@ -114,7 +114,7 @@ class RidingResultViewController: UIViewController {
                                            "00：00：00")
         }
         
-        FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
+        FirebaseDataManager.shared.observerOfResult(groupData.groupID) { [weak self](result) in
             
             self?.memberResultInfo = result
             
@@ -200,7 +200,7 @@ extension RidingResultViewController: UITableViewDataSource {
         
         ridingResultCell.rankingLabel.text = String(indexPath.row + 1)
         
-        ridingResultCell.spendTimeLebal.text = spendTime
+        ridingResultCell.spendTimeLabel.text = spendTime
         
         self.updateUserInfo(memberResultInfo[indexPath.row].name,
                             (indexPath.row + 1),
@@ -208,7 +208,7 @@ extension RidingResultViewController: UITableViewDataSource {
         
         let memberUID = memberResultInfo[indexPath.row].uid
         
-        FirebaseDataManeger.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
+        FirebaseDataManager.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
             
             switch result {
                 

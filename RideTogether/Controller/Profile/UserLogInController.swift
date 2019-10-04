@@ -112,7 +112,7 @@ extension UserLogInController: UserLogInViewDelegate {
                 UserDefaults.standard.setValue(userUID, forKey: "UserUID")
                 
                 // 登入成功後取得會員暱稱
-                FirebaseDataManeger.shared.getUserInfo(userUID)
+                FirebaseDataManager.shared.getUserInfo(userUID)
                 
                 FirebaseAccountManager.shared.userEmail = userEmail
             }
@@ -177,7 +177,7 @@ extension UserLogInController: UserSignUpViewDelegate {
                 
                 UserDefaults.standard.setValue(userUID, forKey: "UserUID")
                 
-                FirebaseDataManeger.shared.addUserInfo(userUID, userName!, userEmail!)
+                FirebaseDataManager.shared.addUserInfo(userUID, userName!, userEmail!)
                 
                 FirebaseAccountManager.shared.userName = userName
                                                             
@@ -239,7 +239,7 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
             if user.email == "" {
                 
                 // 舊會員，登入成功後取得會員暱稱
-                FirebaseDataManeger.shared.getUserInfo(user.id)
+                FirebaseDataManager.shared.getUserInfo(user.id)
                 
                 showAlert("登入成功", self.toNextVCHandler)
                 
@@ -250,7 +250,7 @@ extension UserLogInController: ASAuthorizationControllerDelegate {
                 
                 FirebaseAccountManager.shared.userEmail = user.email
                 
-                FirebaseDataManeger.shared.appleSignIn(user.id,
+                FirebaseDataManager.shared.appleSignIn(user.id,
                                                        user.firstName,
                                                        user.email)
                 

@@ -137,7 +137,7 @@ class GroupListViewController: UIViewController {
     
     private func createObserverOfGroup(userUID: String) {
         
-        FirebaseDataManeger.shared.observerForGroupData(userUID) { [weak self] (result) in
+        FirebaseDataManager.shared.observerForGroupData(userUID) { [weak self] (result) in
 
             switch result {
                 
@@ -391,18 +391,14 @@ extension GroupListViewController: UITableViewDelegate {
 
         if let userUID = FirebaseAccountManager.shared.userUID {
             
-            FirebaseDataManeger.shared.removeUserFromGroup(groupID: groupID,
+            FirebaseDataManager.shared.removeUserFromGroup(groupID: groupID,
                                                            userUID: userUID)
         }
         
-        for number in rawGroupData.indices {
+        for number in rawGroupData.indices
+            where groupID == rawGroupData[number].groupID {
 
-            if groupID == rawGroupData[number].groupID {
-                
-                rawGroupData.remove(at: number)
-                
-                break
-            }
+            rawGroupData.remove(at: number)
         }
     }
 }

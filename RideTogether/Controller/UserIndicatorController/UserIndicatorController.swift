@@ -105,16 +105,16 @@ extension UserIndicatorController: UIViewControllerTransitioningDelegate {
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        let trasnition = FadeOutTransition()
+        let transition = FadeOutTransition()
         
-        return trasnition
+        return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
        
-        let trasnition = FadeOutTransition()
+        let transition = FadeOutTransition()
         
-        return trasnition
+        return transition
     }
 }
 
@@ -125,9 +125,9 @@ extension UserIndicatorController: UIViewControllerTransitioningDelegate {
 //                              from fromVC: UIViewController,
 //                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //
-//        let trasnition = FadeOutTransition()
+//        let transition = FadeOutTransition()
 //
-//        return trasnition
+//        return transition
 //    }
 //}
 
@@ -137,8 +137,8 @@ extension UserIndicatorController: UIViewControllerTransitioningDelegate {
 //                          animationControllerForTransitionFrom fromVC: UIViewController,
 //                          to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //
-//        let trasnition = FadeOutTransition()
+//        let transition = FadeOutTransition()
 //
-//        return trasnition
+//        return transition
 //    }
 //}

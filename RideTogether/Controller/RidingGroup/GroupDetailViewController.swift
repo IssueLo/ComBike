@@ -56,7 +56,7 @@ class GroupDetailViewController: UIViewController {
         
         memberListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
         
-        creatObserverOfMember(groupID: groupData.groupID)
+        createObserverOfMember(groupID: groupData.groupID)
 
         setNavigationButton()
     }
@@ -70,12 +70,12 @@ class GroupDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        FirebaseDataManeger.memberObserverFor.remove()
+        FirebaseDataManager.memberObserverFor.remove()
     }
     
-    func creatObserverOfMember(groupID: String) {
+    func createObserverOfMember(groupID: String) {
         
-        FirebaseDataManeger.shared.observerForMemberData(groupID) { [weak self](result) in
+        FirebaseDataManager.shared.observerForMemberData(groupID) { [weak self](result) in
             
             switch result {
                 
@@ -268,7 +268,7 @@ extension GroupDetailViewController: UIImagePickerControllerDelegate, UINavigati
                                 let groupUID = self?.groupData.groupID
                             else { return }
                             
-                            FirebaseDataManeger.shared.updateGroupPhoto(groupUID,
+                            FirebaseDataManager.shared.updateGroupPhoto(groupUID,
                                                                         url.absoluteString)
                         }
                     }
@@ -286,9 +286,9 @@ extension GroupDetailViewController: UIViewControllerTransitioningDelegate {
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        let trasnition = StartFadeOutTransition()
+        let transition = StartFadeOutTransition()
         
-        trasnition.handler = {
+        transition.handler = {
                               
             self.navigationController?.navigationBar.isHidden = true
             
@@ -300,18 +300,18 @@ extension GroupDetailViewController: UIViewControllerTransitioningDelegate {
                                          height: UIScreen.main.bounds.height + 60)
         }
         
-        return trasnition
+        return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
        
-        let trasnition = StartFadeOutTransition()
+        let transition = StartFadeOutTransition()
         
-        trasnition.handler = {
+        transition.handler = {
                                         
             self.startBtn.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        return trasnition
+        return transition
     }
 }

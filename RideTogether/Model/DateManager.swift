@@ -12,13 +12,16 @@ class DateManager {
     
     static func secondToDate(seconds: Int) -> String {
         
-        //转换为时间
+        // 轉換為時間
         let timeInterval: TimeInterval = TimeInterval(seconds)
+        
         let date = Date(timeIntervalSince1970: timeInterval)
 
-        //格式话输出
+        // 輸出格式設定
         let dateformatter = DateFormatter()
+        
         dateformatter.dateFormat = "yyyy年MM月dd日"
+        
         return dateformatter.string(from: date)
     }
     
