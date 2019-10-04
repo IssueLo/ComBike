@@ -10,6 +10,17 @@ import UIKit
 
 class GroupListViewController: UIViewController {
     
+//    var sectionIsClosed = false
+//    
+//    var heightOfSection = [Bool]()
+    
+    var selectSection: Int? {
+        
+        didSet {
+            
+        }
+    }
+    
     var rawGroupData = [GroupData]() {
         
         didSet {
@@ -22,8 +33,6 @@ class GroupListViewController: UIViewController {
                 
                 remindBackView.alpha = 0
             }
-            
-//            sortedGroupData = GroupSortingManager.sortingByDate(groupData: rawGroupData)
             
             sortedGroupData = rawGroupData.sorted { $0.createTime.seconds > $1.createTime.seconds }
         }
@@ -320,7 +329,18 @@ extension GroupListViewController: UITableViewDataSource {
 
 extension GroupListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        if let selectSection = self.selectSection,
+//            indexPath.section == selectSection {
+//            return 0
+//        } else {
+//            return 68
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: "GroupListHeaderView"
@@ -329,6 +349,25 @@ extension GroupListViewController: UITableViewDelegate {
         let createTime = Int(separatedGroupData[section][0].createTime.seconds)
         
         headerView?.createDateLabel.text = DateManager.secondToDate(seconds: createTime)
+        
+//        headerView?.sectionControlHandler = {
+//
+//            self.sectionIsClosed = !self.sectionIsClosed
+//
+//            if self.sectionIsClosed {
+//
+//                tableView.rowHeight = 0
+//
+//            } else {
+//
+//                tableView.rowHeight = 68
+//            }
+//
+//            DispatchQueue.main.async {
+//
+//                self.groupListTableView.reloadData()
+//            }
+//        }
         
         return headerView
     }

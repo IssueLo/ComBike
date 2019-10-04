@@ -19,16 +19,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xr-D0-gcJ">
+                    <rect key="frame" x="319" y="13" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="hgl-BP-Ezh"/>
+                        <constraint firstAttribute="width" secondItem="7xr-D0-gcJ" secondAttribute="height" multiplier="1:1" id="xAa-wk-KKu"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="Icons_24px_Next"/>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Nw5-KB-SGZ" firstAttribute="leading" secondItem="fXD-hm-OTL" secondAttribute="leading" constant="24" id="23e-8Q-HCN"/>
                 <constraint firstItem="Nw5-KB-SGZ" firstAttribute="centerY" secondItem="fXD-hm-OTL" secondAttribute="centerY" id="QQo-wU-4hE"/>
+                <constraint firstItem="7xr-D0-gcJ" firstAttribute="centerY" secondItem="fXD-hm-OTL" secondAttribute="centerY" id="WRC-Ow-jIF"/>
+                <constraint firstAttribute="trailing" secondItem="7xr-D0-gcJ" secondAttribute="trailing" constant="24" id="hRI-ZF-a6e"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="lTR-eo-A14"/>
             <connections>
                 <outlet property="createDateLabel" destination="Nw5-KB-SGZ" id="WU0-hI-Yep"/>
+                <outlet property="sectionControlBtn" destination="7xr-D0-gcJ" id="25B-dn-HXw"/>
             </connections>
             <point key="canvasLocation" x="23.913043478260871" y="115.84821428571428"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="Icons_24px_Next" width="32" height="32"/>
+    </resources>
 </document>
