@@ -17,13 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let userIndicaterSB = UIStoryboard(name: "UserIndicaterStoryboard", bundle: nil)
+    let userIndicatorSB = StoryboardCategory.userIndicator.getStoryboard()
     
-    lazy var userIndicaterVC = userIndicaterSB.instantiateViewController(identifier: "UserIndicaterController")
+    lazy var userIndicatorVC = userIndicatorSB.instantiateViewController(
+        identifier: UserIndicatorController.identifier
+    )
     
-    let tabBarSB = UIStoryboard(name: "TabBarStoryboard", bundle: nil)
-    
-    lazy var tabBarVC = tabBarSB.instantiateViewController(identifier: "TabBarViewController")
+    let tabBarSB = StoryboardCategory.tabBar.getStoryboard()
+
+    lazy var tabBarVC = tabBarSB.instantiateViewController(
+        identifier: TabBarViewController.identifier
+    )
         
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -43,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UserDefaults.standard.value(forKey: "UserLogined") == nil {
             
-            self.window?.rootViewController = userIndicaterVC
+            self.window?.rootViewController = userIndicatorVC
             
         } else {
             

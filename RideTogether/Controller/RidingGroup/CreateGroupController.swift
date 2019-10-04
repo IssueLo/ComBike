@@ -21,7 +21,7 @@ class CreateGroupController: UIViewController {
         
         didSet {
             
-            groupImageView.addRound(radis: Double(groupImageView.bounds.width / 2),
+            groupImageView.addRound(radius: Double(groupImageView.bounds.width / 2),
                                     borderWidth: 0.8,
                                     borderColor: .black)
         }
@@ -39,7 +39,7 @@ class CreateGroupController: UIViewController {
         
         didSet {
 
-            createGroupBtn.addRound(radis: 16,
+            createGroupBtn.addRound(radius: 16,
                                     backgroundColor: .hexStringToUIColor())
             
             createGroupBtn.setTitleColor(.white, for: .normal)

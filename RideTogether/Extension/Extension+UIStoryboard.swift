@@ -12,7 +12,7 @@ enum StoryboardCategory: String {
     
     case tabBar = "TabBarStoryboard"
     
-    case userIndicater = "UserIndicaterStoryboard"
+    case userIndicator = "UserIndicatorStoryboard"
     
     case routeList = "RouteListStoryboard"
 
@@ -32,7 +32,7 @@ enum StoryboardCategory: String {
     
     case userLogin = "UserLogInStoryboard"
     
-    case uesrProfile = "UserProfileStoryboard"
+    case userProfile = "UserProfileStoryboard"
     
     case privacyWeb = "PrivacyWebStoryboard"
     

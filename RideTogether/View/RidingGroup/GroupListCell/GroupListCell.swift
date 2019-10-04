@@ -14,7 +14,7 @@ class GroupListCell: UITableViewCell {
         
         didSet {
             
-            groupImage.addRound(radis: Double(groupImage.bounds.width / 2),
+            groupImage.addRound(radius: Double(groupImage.bounds.width / 2),
                                 borderWidth: 0.7,
                                 borderColor: .black)
         }

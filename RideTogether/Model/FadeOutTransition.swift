@@ -18,7 +18,7 @@ class FadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromVC = transitionContext.viewController(forKey: .from) as? UserIndicaterController
+        let fromVC = transitionContext.viewController(forKey: .from) as? UserIndicatorController
         let fromView = fromVC?.view
         
         let toVC = transitionContext.viewController(forKey: .to)

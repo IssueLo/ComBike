@@ -31,7 +31,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            currentSpeedView.addRound(radis: Double(currentSpeedView.bounds.width / 2),
+            currentSpeedView.addRound(radius: Double(currentSpeedView.bounds.width / 2),
                                       borderWidth: 2)
         }
     }
@@ -40,7 +40,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            timeView.addRound(radis: Double(timeView.bounds.width / 2),
+            timeView.addRound(radius: Double(timeView.bounds.width / 2),
                               borderWidth: 1.5)
         }
     }
@@ -49,7 +49,7 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            distanceView.addRound(radis: Double(distanceView.bounds.width / 2),
+            distanceView.addRound(radius: Double(distanceView.bounds.width / 2),
                                   borderWidth: 1.5)
         }
     }
@@ -307,7 +307,7 @@ class RidingViewController: UIViewController {
     
     func setupMapViewButton(_ sender: MKUserTrackingButton) {
         
-        sender.addRound(radis: 5,
+        sender.addRound(radius: 5,
                         borderColor: .white,
                         backgroundColor: UIColor(white: 1, alpha: 0.8))
         

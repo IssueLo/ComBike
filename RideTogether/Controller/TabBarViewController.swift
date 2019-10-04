@@ -26,7 +26,7 @@ private enum Tab {
             
         case .ridingInfo: controller = StoryboardCategory.groupList.getStoryboard().instantiateInitialViewController()!
             
-        case .profile: controller = StoryboardCategory.uesrProfile.getStoryboard().instantiateInitialViewController()!
+        case .profile: controller = StoryboardCategory.userProfile.getStoryboard().instantiateInitialViewController()!
             
         }
         

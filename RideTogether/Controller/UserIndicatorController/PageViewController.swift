@@ -24,15 +24,15 @@ class PageViewController: UIPageViewController {
     
     var viewControllerList = [FirstPageController]()
     
-    let indicaterTitleLbl = ["推薦路線",
+    let indicatorTitleLbl = ["推薦路線",
                              "組隊約騎",
                              "紀錄活動"]
     
-    let indicaterImage = ["backView_guide_01",
+    let indicatorImage = ["backView_guide_01",
                           "backView_guide_02",
                           "backView_guide_03"]
    
-    let indicaterSubTitleLbl = ["提供台灣北中南東單車推薦路線",
+    let indicatorSubTitleLbl = ["提供台灣北中南東單車推薦路線",
                                 "三五好友大家一起騎",
                                 "紀錄騎乘距離、坡度、路線"]
     
@@ -43,14 +43,14 @@ class PageViewController: UIPageViewController {
 
         delegate = self
         
-        appendViewControllerList(count: indicaterTitleLbl.count)
+        appendViewControllerList(count: indicatorTitleLbl.count)
 
         self.setViewControllers([self.viewControllerList.first!],
                                 direction: UIPageViewController.NavigationDirection.forward,
                                 animated: true,
                                 completion: nil)
 
-        setIndicaterView()
+        setIndicatorView()
     }
     
     private func appendViewControllerList(count: Int) {
@@ -67,31 +67,31 @@ class PageViewController: UIPageViewController {
     
     private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
         
-        let userIndicaterSB = StoryboardCategory.userIndicater.getStoryboard()
+        let userIndicatorSB = StoryboardCategory.userIndicator.getStoryboard()
         
-        let pageController = userIndicaterSB.instantiateViewController(
+        let pageController = userIndicatorSB.instantiateViewController(
             identifier: storyboardID
             ) as! FirstPageController
         
         return pageController
     }
     
-    private func setIndicaterView() {
+    private func setIndicatorView() {
         
         for number in 0..<viewControllerList.count {
             
             if number == 0 {
                 
-                viewControllerList[number].indicaterImage.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                viewControllerList[number].indicatorImage.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             }
             
             viewControllerList[number].loadViewIfNeeded()
             
-            viewControllerList[number].indicaterImage.image = UIImage(named: indicaterImage[number])
+            viewControllerList[number].indicatorImage.image = UIImage(named: indicatorImage[number])
                         
-            viewControllerList[number].indicaterTitleLbl.text = indicaterTitleLbl[number]
+            viewControllerList[number].indicatorTitleLbl.text = indicatorTitleLbl[number]
             
-            viewControllerList[number].indicaterSubTitleLbl.text = indicaterSubTitleLbl[number]
+            viewControllerList[number].indicatorSubTitleLbl.text = indicatorSubTitleLbl[number]
         }
     }
 }

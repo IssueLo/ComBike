@@ -18,7 +18,7 @@ class QRCodeView: UIView {
         
         didSet {
             
-            qrCodeBackView.addRound(radis: 8)
+            qrCodeBackView.addRound(radius: 8)
         }
     }
     

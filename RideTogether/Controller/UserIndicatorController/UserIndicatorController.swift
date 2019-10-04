@@ -1,5 +1,5 @@
 //
-//  UserIndicaterController.swift
+//  UserIndicatorController.swift
 //  RideTogether
 //
 //  Created by 戴汝羽 on 2019/9/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserIndicaterController: UIViewController {
+class UserIndicatorController: UIViewController {
     
     let pageViewController = PageViewController.init(transitionStyle: .scroll,
                                                      navigationOrientation: .horizontal)
@@ -33,7 +33,7 @@ class UserIndicaterController: UIViewController {
             skipBtn.addRound(backgroundColor: .hexStringToUIColor())
                         
             skipBtn.addTarget(self,
-                              action: #selector(skipIndicaterVC),
+                              action: #selector(skipIndicatorVC),
                               for: .touchUpInside)
         }
     }
@@ -72,7 +72,7 @@ class UserIndicaterController: UIViewController {
     }
     
     @objc
-    func skipIndicaterVC() {
+    func skipIndicatorVC() {
 
         tabBarViewController.modalPresentationStyle = .fullScreen
         
@@ -86,7 +86,7 @@ class UserIndicaterController: UIViewController {
     }
 }
 
-extension UserIndicaterController: PageViewControllerDelegate {
+extension UserIndicatorController: PageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: PageViewController, didUpdateNumberOfPage numberOfPage: Int) {
 
@@ -99,7 +99,7 @@ extension UserIndicaterController: PageViewControllerDelegate {
     }
 }
 // 轉場效果
-extension UserIndicaterController: UIViewControllerTransitioningDelegate {
+extension UserIndicatorController: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
@@ -118,7 +118,7 @@ extension UserIndicaterController: UIViewControllerTransitioningDelegate {
     }
 }
 
-//extension UserIndicaterController: UINavigationControllerDelegate {
+//extension UserIndicatorController: UINavigationControllerDelegate {
 //
 //    func navigationController(_ navigationController: UINavigationController,
 //                              animationControllerFor operation: UINavigationController.Operation,
@@ -131,7 +131,7 @@ extension UserIndicaterController: UIViewControllerTransitioningDelegate {
 //    }
 //}
 
-//extension UserIndicaterController: UITabBarControllerDelegate {
+//extension UserIndicatorController: UITabBarControllerDelegate {
 //
 //    func tabBarController(_ tabBarController: UITabBarController,
 //                          animationControllerForTransitionFrom fromVC: UIViewController,

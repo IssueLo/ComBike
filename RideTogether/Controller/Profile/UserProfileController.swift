@@ -24,7 +24,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
             
-            userImage.addRound(radis: Double(userImage.bounds.width / 2),
+            userImage.addRound(radius: Double(userImage.bounds.width / 2),
                                backgroundColor: .white)
         }
     }
@@ -34,7 +34,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
-            uploadPhotoButton.addRound(radis: Double(uploadPhotoButton.bounds.height / 2),
+            uploadPhotoButton.addRound(radius: Double(uploadPhotoButton.bounds.height / 2),
                                        backgroundColor: .white)
         }
     }

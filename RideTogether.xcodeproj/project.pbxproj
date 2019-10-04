@@ -70,7 +70,7 @@
 		9545C993232C85ED00B74B03 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C992232C85ED00B74B03 /* GroupData.swift */; };
 		9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C994232C8C4C00B74B03 /* MemberData.swift */; };
 		95546E59233B1CD300A1D1F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95546E58233B1CD300A1D1F3 /* MapKit.framework */; };
-		95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */; };
+		95546E5B233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */; };
 		955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC84E23326F3B00388934 /* StravaAuthManager.swift */; };
 		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9563D669233E215800072349 /* RouteCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563D668233E215800072349 /* RouteCollectionViewLayout.swift */; };
@@ -94,7 +94,7 @@
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
 		95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C7233B7870006D4FAC /* FirstPageController.swift */; };
-		95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */; };
+		95EA35CE233B7A05006D4FAC /* UserIndicatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */; };
 		95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CF233B7A96006D4FAC /* PageViewController.swift */; };
 		9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */; };
 /* End PBXBuildFile section */
@@ -165,7 +165,7 @@
 		9545C992232C85ED00B74B03 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		9545C994232C8C4C00B74B03 /* MemberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
 		95546E58233B1CD300A1D1F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserIndicaterStoryboard.storyboard; sourceTree = "<group>"; };
+		95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserIndicatorStoryboard.storyboard; sourceTree = "<group>"; };
 		955AC84E23326F3B00388934 /* StravaAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthManager.swift; sourceTree = "<group>"; };
 		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9563D668233E215800072349 /* RouteCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D613D523155BF6008D885E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EA35C7233B7870006D4FAC /* FirstPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
-		95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicaterController.swift; sourceTree = "<group>"; };
+		95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicatorController.swift; sourceTree = "<group>"; };
 		95EA35CF233B7A96006D4FAC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B5F17ADEBFE156AD3509BD71 /* Pods-RideTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.debug.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.debug.xcconfig"; sourceTree = "<group>"; };
 		BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,7 +222,7 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
+				95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */,
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
 				95BE90A02337B27100F40ADD /* RouteList */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
@@ -534,7 +534,7 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95EA35C6233B7777006D4FAC /* UserIndicaterController */,
+				95EA35C6233B7777006D4FAC /* UserIndicatorController */,
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
 				95456780232746F6009DA63B /* RouteList */,
 				9545678123274705009DA63B /* RidingGroup */,
@@ -556,14 +556,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		95EA35C6233B7777006D4FAC /* UserIndicaterController */ = {
+		95EA35C6233B7777006D4FAC /* UserIndicatorController */ = {
 			isa = PBXGroup;
 			children = (
-				95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */,
+				95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */,
 				95EA35CF233B7A96006D4FAC /* PageViewController.swift */,
 				95EA35C7233B7870006D4FAC /* FirstPageController.swift */,
 			);
-			path = UserIndicaterController;
+			path = UserIndicatorController;
 			sourceTree = "<group>";
 		};
 		E2F7A3C4657FC71E1631E9EB /* Pods */ = {
@@ -637,7 +637,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */,
+				95546E5B233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard in Resources */,
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				9563D66E23409E8300072349 /* AreaRouteCell.xib in Resources */,
 				95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */,
@@ -751,7 +751,7 @@
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
 				953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
-				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
+				95EA35CE233B7A05006D4FAC /* UserIndicatorController.swift in Sources */,
 				95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
