@@ -210,10 +210,6 @@
                                     <constraint firstItem="GCx-T9-zMF" firstAttribute="centerX" secondItem="xgZ-Uz-8Dp" secondAttribute="centerX" id="yfe-UX-kj9"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XW9-qQ-oUq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFi-gL-xdb">
                                 <rect key="frame" x="331" y="12" width="28" height="28"/>
                                 <constraints>
@@ -225,6 +221,10 @@
                                     <action selector="backGroupDetailVC" destination="T99-ud-Lsf" eventType="touchUpInside" id="sTN-Ly-Uvo"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XW9-qQ-oUq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqZ-mp-46T">
                                 <rect key="frame" x="132" y="569" width="111" height="54"/>
                                 <constraints>

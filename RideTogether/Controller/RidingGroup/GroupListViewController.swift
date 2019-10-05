@@ -398,7 +398,9 @@ extension GroupListViewController: UITableViewDelegate {
         for number in rawGroupData.indices
             where groupID == rawGroupData[number].groupID {
 
-            rawGroupData.remove(at: number)
+                rawGroupData.remove(at: number)
+                
+                break
         }
     }
 }
