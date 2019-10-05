@@ -127,7 +127,7 @@ class GroupDetailViewController: UIViewController {
 
         imagePickerController.delegate = self
 
-        let imagePickerAlertController = imagePickerController.createPickerVC(self)
+        let imagePickerAlertController = imagePickerController.createAlertController(self)
 
         present(imagePickerAlertController, animated: true)
     }

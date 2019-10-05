@@ -17,7 +17,7 @@ class ImagePickerViewController: UIViewController {
     
     weak var delegate: ImagePickerViewControllerDelegate?
     
-    func createPickerVC(_ viewController: UIViewController) -> UIAlertController {
+    func createAlertController(_ viewController: UIViewController) -> UIAlertController {
     
         let imagePickerController = UIImagePickerController()
         // 委任代理
