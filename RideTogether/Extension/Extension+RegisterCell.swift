@@ -24,3 +24,13 @@ extension UITableView {
         register(nib, forHeaderFooterViewReuseIdentifier: nibName)
     }
 }
+
+extension UICollectionView {
+    
+    func registerCell(nibName: String) {
+        
+        let nib = UINib(nibName: nibName, bundle: nil)
+
+        register(nib, forCellWithReuseIdentifier: nibName)
+    }
+}

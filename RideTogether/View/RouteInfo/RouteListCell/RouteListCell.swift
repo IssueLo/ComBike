@@ -30,15 +30,14 @@ class RouteListCell: UITableViewCell {
             routeCollectionView.dataSource = self
             
             routeCollectionView.delegate = self
+            
+            routeCollectionView.registerCell(nibName: RouteCell.identifier)
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let nib = UINib(nibName: "RouteCell", bundle: nil)
-        
-        routeCollectionView.register(nib, forCellWithReuseIdentifier: "RouteCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

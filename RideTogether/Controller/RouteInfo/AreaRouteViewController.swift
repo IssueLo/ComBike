@@ -25,28 +25,26 @@ class AreaRouteViewController: UIViewController {
         
         didSet {
             
+            areaRouteCollectionView.dataSource = self
+            
+            areaRouteCollectionView.delegate = self
+            
+            areaRouteCollectionView.registerCell(nibName: AreaRouteCell.identifier)
+            
             let cellSpace: CGFloat = 8
             
             areaRouteCollectionView.contentInset = UIEdgeInsets(top: cellSpace,
                                                                 left: cellSpace,
                                                                 bottom: cellSpace,
                                                                 right: cellSpace)
-            
-            areaRouteCollectionView.dataSource = self
-            
-            areaRouteCollectionView.delegate = self
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nib = UINib(nibName: "AreaRouteCell", bundle: nil)
         
-        areaRouteCollectionView.register(nib, forCellWithReuseIdentifier: "AreaRouteCell")
-        
-        if let layout = areaRouteCollectionView.collectionViewLayout
-            as? CollectionViewLayout {
+        // for Waterfall Layout
+        if let layout = areaRouteCollectionView.collectionViewLayout as? CollectionViewLayout {
             
             layout.delegate = self
         }
@@ -63,12 +61,10 @@ extension AreaRouteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaRouteCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaRouteCell.identifier,
+                                                      for: indexPath)
         
-        guard
-            let areaRouteCell = cell as? AreaRouteCell
-            
-        else { return cell }
+        guard let areaRouteCell = cell as? AreaRouteCell else { return cell }
         
         let routeNameArray = areaRouteData[indexPath.row].name.components(separatedBy: "（")
         
