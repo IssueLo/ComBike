@@ -40,6 +40,10 @@ class RouteListController: UIViewController {
             
             routeListTableView.delegate = self
             
+            routeListTableView.registerCell(nibName: RouteListCell.identifier)
+            
+            routeListTableView.registerHeader(nibName: RouteHeaderView.identifier)
+
             routeListTableView.sectionFooterHeight = 0
             
             routeListTableView.contentInset.bottom = -20
@@ -52,15 +56,6 @@ class RouteListController: UIViewController {
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         
         getRouteData()
-        // cell註冊要改喔
-        let nib = UINib(nibName: "RouteListCell", bundle: nil)
-        
-        routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
-        
-        let headerNib = UINib(nibName: "RouteHeaderView", bundle: nil)
-
-        routeListTableView.register(headerNib,
-                                    forHeaderFooterViewReuseIdentifier: "RouteHeaderView")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,7 +92,8 @@ extension RouteListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RouteListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: RouteListCell.identifier,
+                                                 for: indexPath)
         
         guard
             let routeListCell = cell as? RouteListCell
@@ -133,7 +129,7 @@ extension RouteListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: "RouteHeaderView"
+            withIdentifier: RouteHeaderView.identifier
             ) as? RouteHeaderView
         
         headerView?.routeAreaLabel.text = headerTitle[section]

@@ -16,6 +16,16 @@ enum IconImage: String {
     case Icons_BicycleRider
     
     case Icons_Biker
+    
+    case Icons_CreateGroup
+    
+    case Icons_QRCodeScan
+    
+    case UChu
+    
+    case Icons_QRCode
+    
+    case Icons_Camera
     // swiftlint:enable identifier_name
 }
 

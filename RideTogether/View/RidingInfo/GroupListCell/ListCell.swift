@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupListCell: UITableViewCell {
+class ListCell: UITableViewCell {
     
     @IBOutlet weak var groupImage: UIImageView! {
         

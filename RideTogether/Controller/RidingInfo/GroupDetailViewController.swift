@@ -25,6 +25,10 @@ class GroupDetailViewController: UIViewController {
         
         didSet {
             
+            memberListTableView.dataSource = self
+            
+            memberListTableView.registerCell(nibName: ListCell.identifier)
+            
             memberListTableView.contentInset.bottom = 12
             
             memberListTableView.contentInset.top = 12
@@ -51,11 +55,7 @@ class GroupDetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
                 
         navigationItem.title = groupData.name
-        
-        let nib = UINib(nibName: "GroupListCell", bundle: nil)
-        
-        memberListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
-        
+                        
         createObserverOfMember(groupID: groupData.groupID)
 
         setNavigationButton()
@@ -85,19 +85,19 @@ class GroupDetailViewController: UIViewController {
                 
             case .failure:
                 
-                self?.showAlert("GroupDetailVC - 101")
+                return
             }
         }
     }
     
     func setNavigationButton() {
         
-        let qrCodeBtn = UIBarButtonItem(image: UIImage(named: "Icons_QRCode"),
+        let qrCodeBtn = UIBarButtonItem(image: UIImage.setIcon(.Icons_QRCode),
                                         style: .plain,
                                         target: self,
                                         action: #selector(showQRCodeVC))
         
-        let addGroupPhotoBtn = UIBarButtonItem(image: UIImage(named: "Icons_Camera"),
+        let addGroupPhotoBtn = UIBarButtonItem(image: UIImage.setIcon(.Icons_Camera),
                                                style: .plain,
                                                target: self,
                                                action: #selector(uploadPhotoAction))
@@ -198,10 +198,10 @@ extension GroupDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
         
         guard
-            let groupListCell = cell as? GroupListCell
+            let groupListCell = cell as? ListCell
             
         else { return cell }
         

@@ -8,18 +8,7 @@
 
 import UIKit
 
-class GroupListViewController: UIViewController {
-    
-//    var sectionIsClosed = false
-//    
-//    var heightOfSection = [Bool]()
-    
-    var selectSection: Int? {
-        
-        didSet {
-            
-        }
-    }
+class GroupListViewController: UIViewController, RemindBackViewDelegate {
     
     var rawGroupData = [GroupData]() {
         
@@ -34,13 +23,7 @@ class GroupListViewController: UIViewController {
                 remindBackView.alpha = 0
             }
             
-            sortedGroupData = rawGroupData.sorted { $0.createTime.seconds > $1.createTime.seconds }
-        }
-    }
-
-    var sortedGroupData = [GroupData]() {
-
-        didSet {
+            let sortedGroupData = rawGroupData.sorted { $0.createTime.seconds > $1.createTime.seconds }
             
             separatedGroupData = GroupSortingManager.separatedGroupData(sortedGroupData: sortedGroupData)
         }
@@ -56,29 +39,23 @@ class GroupListViewController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var remindLabel: UILabel!
-    
-    @IBOutlet weak var remindBackView: UIView!
-    
-    @IBOutlet weak var createGroupBtn: UIButton! {
+        
+    @IBOutlet weak var remindBackView: RemindBackView! {
         
         didSet {
             
-            createGroupBtn.addRound(backgroundColor: .hexStringToUIColor())
-            
-            createGroupBtn.setTitleColor(.white, for: .normal)
-                        
-            createGroupBtn.addTarget(self,
-                                     action: #selector(createGroup),
-                                     for: .touchUpInside)
+            remindBackView.delegate = self
         }
     }
 
     @IBOutlet weak var groupListTableView: UITableView! {
        
         didSet {
-
+            
+            groupListTableView.registerCell(nibName: ListCell.identifier)
+            
+            groupListTableView.registerHeader(nibName: GroupListHeaderView.identifier)
+            
             groupListTableView.contentInset.bottom = 12
             
             groupListTableView.contentInset.top = 12
@@ -87,15 +64,6 @@ class GroupListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib(nibName: "GroupListCell", bundle: nil)
-
-        groupListTableView.register(nib, forCellReuseIdentifier: "groupListCell")
-        
-        let headerNib = UINib(nibName: "GroupListHeaderView", bundle: nil)
-
-        groupListTableView.register(headerNib,
-                                    forHeaderFooterViewReuseIdentifier: "GroupListHeaderView")
         
         setNavigationItem()
     }
@@ -122,12 +90,12 @@ class GroupListViewController: UIViewController {
     
     private func setNavigationItem() {
         
-        let createGroupIcon = UIBarButtonItem(image: UIImage(named: "Icons_CreateGroup"),
+        let createGroupIcon = UIBarButtonItem(image: UIImage.setIcon(.Icons_CreateGroup),
                                              style: .done,
                                              target: self,
                                              action: #selector(createGroup))
         
-        let scanIcon = UIBarButtonItem(image: UIImage(named: "Icons_QRCodeScan"),
+        let scanIcon = UIBarButtonItem(image: UIImage.setIcon(.Icons_QRCodeScan),
                                        style: .done,
                                        target: self,
                                        action: #selector(scanQRCode))
@@ -168,7 +136,7 @@ class GroupListViewController: UIViewController {
                 
             case .failure:
                 
-                self?.showAlert("GroupDetailVC - 101")
+                return
             }
         }
 
@@ -178,35 +146,35 @@ class GroupListViewController: UIViewController {
     func createGroup() {
         // 由 Model 判斷
         if FirebaseAccountManager.shared.userUID == nil {
-            
+
             let storyboard = StoryboardCategory.userLogin.getStoryboard()
-            
+
             guard
                 let loginVC = storyboard.instantiateViewController(
                     withIdentifier: UserLogInController.identifier
                     ) as? UserLogInController
 
             else { return }
-            
+
             loginVC.toNextVCHandler = { (UIAlertAction) in
-                
+
                 self.dismiss(animated: true)
             }
-            
+
             loginVC.modalPresentationStyle = .fullScreen
 
             present(loginVC, animated: true)
-            
+
         } else {
-            
+
             let storyboard = StoryboardCategory.createGroup.getStoryboard()
-            
+
             let createGroupVC = storyboard.instantiateViewController(
                 withIdentifier: CreateGroupController.identifier
             )
-            
+
             createGroupVC.modalPresentationStyle = .overFullScreen
-            
+
             present(createGroupVC, animated: false)
         }
     }
@@ -238,10 +206,10 @@ extension GroupListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupListCell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier,
                                                  for: indexPath)
         
-        guard let groupListCell = cell as? GroupListCell else {
+        guard let groupListCell = cell as? ListCell else {
             
             return cell
         }
@@ -269,7 +237,7 @@ extension GroupListViewController: UITableViewDataSource {
             
         } else {
             
-            groupListCell.groupImage.image = UIImage(named: "UChu")
+            groupListCell.groupImage.image = UIImage.setIcon(.UChu)
         }
                 
         return groupListCell
@@ -329,21 +297,11 @@ extension GroupListViewController: UITableViewDataSource {
 
 extension GroupListViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        if let selectSection = self.selectSection,
-//            indexPath.section == selectSection {
-//            return 0
-//        } else {
-//            return 68
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: "GroupListHeaderView"
+            withIdentifier: GroupListHeaderView.identifier
             ) as? GroupListHeaderView
         
         if separatedGroupData.count == 0 {
@@ -354,25 +312,6 @@ extension GroupListViewController: UITableViewDelegate {
         let createTime = Int(separatedGroupData[section][0].createTime.seconds)
         
         headerView?.createDateLabel.text = DateManager.secondToDate(seconds: createTime)
-        
-//        headerView?.sectionControlHandler = {
-//
-//            self.sectionIsClosed = !self.sectionIsClosed
-//
-//            if self.sectionIsClosed {
-//
-//                tableView.rowHeight = 0
-//
-//            } else {
-//
-//                tableView.rowHeight = 68
-//            }
-//
-//            DispatchQueue.main.async {
-//
-//                self.groupListTableView.reloadData()
-//            }
-//        }
         
         return headerView
     }
