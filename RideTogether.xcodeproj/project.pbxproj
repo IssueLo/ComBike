@@ -24,7 +24,6 @@
 		9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519863B232D2EB200FFCE28 /* RidingInfoView.swift */; };
 		951D9257233371AA00275B78 /* RouteDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */; };
 		951D92592333735400275B78 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D92582333735400275B78 /* RouteDetailViewController.swift */; };
-		951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E735E232F5CA700D48B37 /* StorageOfCode.swift */; };
 		951E7361232F831A00D48B37 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7360232F831A00D48B37 /* Kingfisher.swift */; };
 		951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7362232FC5CE00D48B37 /* UserRankView.swift */; };
 		951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7364232FCD7100D48B37 /* PolylineCharts.swift */; };
@@ -119,7 +118,6 @@
 		9519863B232D2EB200FFCE28 /* RidingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingInfoView.swift; sourceTree = "<group>"; };
 		951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		951D92582333735400275B78 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
-		951E735E232F5CA700D48B37 /* StorageOfCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOfCode.swift; sourceTree = "<group>"; };
 		951E7360232F831A00D48B37 /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		951E7362232FC5CE00D48B37 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 		951E7364232FCD7100D48B37 /* PolylineCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineCharts.swift; sourceTree = "<group>"; };
@@ -219,6 +217,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		95144A3E23484B4B0066E9BD /* RidingInfo */ = {
+			isa = PBXGroup;
+			children = (
+				95156215234714E500F05BD0 /* GroupSortingManager.swift */,
+				95156217234724E800F05BD0 /* DateManager.swift */,
+				95CFD180231FE03B00329927 /* TimeManager.swift */,
+				952599272321187D009C7750 /* QRCodeMaker.swift */,
+			);
+			path = RidingInfo;
+			sourceTree = "<group>";
+		};
+		95144A3F23484B560066E9BD /* RouteInfo */ = {
+			isa = PBXGroup;
+			children = (
+				953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */,
+				9563D66F2341CF0400072349 /* RouteIDData.swift */,
+			);
+			path = RouteInfo;
+			sourceTree = "<group>";
+		};
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,14 +319,14 @@
 			path = RouteListCell;
 			sourceTree = "<group>";
 		};
-		954443AD2330D38800020F9E /* RestfulAPI */ = {
+		954443AD2330D38800020F9E /* StravaAPI */ = {
 			isa = PBXGroup;
 			children = (
 				955AC8502332790A00388934 /* StravaProvider.swift */,
 				955AC84E23326F3B00388934 /* StravaAuthManager.swift */,
 				954443AE2330D48F00020F9E /* StravaRequest.swift */,
 			);
-			path = RestfulAPI;
+			path = StravaAPI;
 			sourceTree = "<group>";
 		};
 		95456780232746F6009DA63B /* RouteInfo */ = {
@@ -493,7 +511,6 @@
 				95D613DE23155C36008D885E /* View */,
 				95D613D023155BF6008D885E /* Assets.xcassets */,
 				95D613D223155BF6008D885E /* LaunchScreen.storyboard */,
-				951E735E232F5CA700D48B37 /* StorageOfCode.swift */,
 				951554B32318D0570080BBB7 /* GoogleService-Info.plist */,
 				95D613D523155BF6008D885E /* Info.plist */,
 			);
@@ -503,17 +520,13 @@
 		95D613DB23155C0C008D885E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				954443AD2330D38800020F9E /* RestfulAPI */,
+				954443AD2330D38800020F9E /* StravaAPI */,
 				9545C98E232C84AF00B74B03 /* HTTP */,
 				954567872327E9BE009DA63B /* Firebase */,
-				953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */,
+				95144A3F23484B560066E9BD /* RouteInfo */,
+				95144A3E23484B4B0066E9BD /* RidingInfo */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
-				95CFD180231FE03B00329927 /* TimeManager.swift */,
-				952599272321187D009C7750 /* QRCodeMaker.swift */,
 				9513F510233CB0660076CC75 /* FadeOutTransition.swift */,
-				9563D66F2341CF0400072349 /* RouteIDData.swift */,
-				95156215234714E500F05BD0 /* GroupSortingManager.swift */,
-				95156217234724E800F05BD0 /* DateManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -756,7 +769,6 @@
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
 				95156218234724E800F05BD0 /* DateManager.swift in Sources */,
-				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */,
 				955AC8512332790A00388934 /* StravaProvider.swift in Sources */,
