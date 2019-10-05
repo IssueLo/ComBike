@@ -17,6 +17,7 @@
 		951562142346FADC00F05BD0 /* GroupListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951562132346FADC00F05BD0 /* GroupListHeaderView.xib */; };
 		95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156215234714E500F05BD0 /* GroupSortingManager.swift */; };
 		95156218234724E800F05BD0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156217234724E800F05BD0 /* DateManager.swift */; };
+		95164DC423488ABC00D51B81 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */; };
 		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
 		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
@@ -112,6 +113,7 @@
 		951562132346FADC00F05BD0 /* GroupListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListHeaderView.xib; sourceTree = "<group>"; };
 		95156215234714E500F05BD0 /* GroupSortingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortingManager.swift; sourceTree = "<group>"; };
 		95156217234724E800F05BD0 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
 				952806AE231E512700EFD895 /* CreateGroupController.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
+				95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
 			);
@@ -797,6 +800,7 @@
 				9594A06A232F2C71000A91C0 /* Extension+UIImage.swift in Sources */,
 				95CFD181231FE03B00329927 /* TimeManager.swift in Sources */,
 				951D92592333735400275B78 /* RouteDetailViewController.swift in Sources */,
+				95164DC423488ABC00D51B81 /* ImagePickerViewController.swift in Sources */,
 				9545C993232C85ED00B74B03 /* GroupData.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */,

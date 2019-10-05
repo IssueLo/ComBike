@@ -30,12 +30,6 @@ class ListCell: UITableViewCell {
                     
                     statusLabel.textColor = .hexStringToUIColor()
                 }
-                
-            } else {
-                
-                statusLabel.alpha = 0
-                
-                return
             }
             
             if let photoURLString = groupData?.photoURLString {
