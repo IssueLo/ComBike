@@ -224,8 +224,8 @@
 			children = (
 				95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */,
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
-				95BE90A02337B27100F40ADD /* RouteList */,
-				95AE91A0232E31D400AD00CF /* RidingGroup */,
+				95BE90A02337B27100F40ADD /* RouteInfo */,
+				95AE91A0232E31D400AD00CF /* RidingInfo */,
 				95AE91A1232E31E400AD00CF /* Profile */,
 				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
 			);
@@ -259,7 +259,7 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
-		953EA7042346393E00D2EC02 /* RouteList */ = {
+		953EA7042346393E00D2EC02 /* RouteInfo */ = {
 			isa = PBXGroup;
 			children = (
 				953EA706234639A700D2EC02 /* RouteHeaderView */,
@@ -267,10 +267,10 @@
 				9563D66A233F9E0A00072349 /* AreaRouteCell */,
 				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
 			);
-			path = RouteList;
+			path = RouteInfo;
 			sourceTree = "<group>";
 		};
-		953EA7052346394E00D2EC02 /* RidingGroup */ = {
+		953EA7052346394E00D2EC02 /* RidingInfo */ = {
 			isa = PBXGroup;
 			children = (
 				951562102346FA3F00F05BD0 /* GroupListHeader */,
@@ -279,7 +279,7 @@
 				952806B8231E6A6100EFD895 /* RidingResultCell */,
 				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
 			);
-			path = RidingGroup;
+			path = RidingInfo;
 			sourceTree = "<group>";
 		};
 		953EA706234639A700D2EC02 /* RouteHeaderView */ = {
@@ -311,17 +311,17 @@
 			path = RestfulAPI;
 			sourceTree = "<group>";
 		};
-		95456780232746F6009DA63B /* RouteList */ = {
+		95456780232746F6009DA63B /* RouteInfo */ = {
 			isa = PBXGroup;
 			children = (
 				9525992B23211914009C7750 /* RouteListController.swift */,
 				95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */,
 				951D92582333735400275B78 /* RouteDetailViewController.swift */,
 			);
-			path = RouteList;
+			path = RouteInfo;
 			sourceTree = "<group>";
 		};
-		9545678123274705009DA63B /* RidingGroup */ = {
+		9545678123274705009DA63B /* RidingInfo */ = {
 			isa = PBXGroup;
 			children = (
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
@@ -330,7 +330,7 @@
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
 				952806B2231E643900EFD895 /* RidingResultViewController.swift */,
 			);
-			path = RidingGroup;
+			path = RidingInfo;
 			sourceTree = "<group>";
 		};
 		954567822327472E009DA63B /* Profile */ = {
@@ -344,14 +344,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		954567852327E977009DA63B /* UserLogIn */ = {
+		954567852327E977009DA63B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				951554BB2318F1040080BBB7 /* UserSignUpView.swift */,
 				95456783232795B6009DA63B /* UserLogInView.swift */,
 				9545C98B232A71D700B74B03 /* ProfileCell */,
 			);
-			path = UserLogIn;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		954567872327E9BE009DA63B /* Firebase */ = {
@@ -421,7 +421,7 @@
 			path = RidingResultHeader;
 			sourceTree = "<group>";
 		};
-		95AE91A0232E31D400AD00CF /* RidingGroup */ = {
+		95AE91A0232E31D400AD00CF /* RidingInfo */ = {
 			isa = PBXGroup;
 			children = (
 				95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */,
@@ -430,7 +430,7 @@
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
 				952806B0231E5F9800EFD895 /* RidingResultStoryboard.storyboard */,
 			);
-			path = RidingGroup;
+			path = RidingInfo;
 			sourceTree = "<group>";
 		};
 		95AE91A1232E31E400AD00CF /* Profile */ = {
@@ -443,14 +443,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		95BE90A02337B27100F40ADD /* RouteList */ = {
+		95BE90A02337B27100F40ADD /* RouteInfo */ = {
 			isa = PBXGroup;
 			children = (
 				95259929232118DE009C7750 /* RouteListStoryboard.storyboard */,
 				95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */,
 				951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */,
 			);
-			path = RouteList;
+			path = RouteInfo;
 			sourceTree = "<group>";
 		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
@@ -487,10 +487,10 @@
 				95D613C923155BF5008D885E /* AppDelegate.swift */,
 				95CFD182231FEE9300329927 /* Third-Party */,
 				95D613DC23155C20008D885E /* Extension */,
-				951554B52318D5DC0080BBB7 /* Storyboard */,
 				95D613DB23155C0C008D885E /* Model */,
-				95D613DE23155C36008D885E /* View */,
 				95D613DD23155C2D008D885E /* Controller */,
+				951554B52318D5DC0080BBB7 /* Storyboard */,
+				95D613DE23155C36008D885E /* View */,
 				95D613D023155BF6008D885E /* Assets.xcassets */,
 				95D613D223155BF6008D885E /* LaunchScreen.storyboard */,
 				951E735E232F5CA700D48B37 /* StorageOfCode.swift */,
@@ -536,8 +536,8 @@
 			children = (
 				95EA35C6233B7777006D4FAC /* UserIndicatorController */,
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
-				95456780232746F6009DA63B /* RouteList */,
-				9545678123274705009DA63B /* RidingGroup */,
+				95456780232746F6009DA63B /* RouteInfo */,
+				9545678123274705009DA63B /* RidingInfo */,
 				954567822327472E009DA63B /* Profile */,
 				9589DD722323AFFA003A9A87 /* QRcode */,
 			);
@@ -547,9 +547,9 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				953EA7042346393E00D2EC02 /* RouteList */,
-				953EA7052346394E00D2EC02 /* RidingGroup */,
-				954567852327E977009DA63B /* UserLogIn */,
+				953EA7042346393E00D2EC02 /* RouteInfo */,
+				953EA7052346394E00D2EC02 /* RidingInfo */,
+				954567852327E977009DA63B /* Profile */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
 				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
