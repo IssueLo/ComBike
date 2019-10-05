@@ -11,6 +11,12 @@
 		951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 951554B32318D0570080BBB7 /* GoogleService-Info.plist */; };
 		951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BB2318F1040080BBB7 /* UserSignUpView.swift */; };
 		951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951554BD23193E910080BBB7 /* FirebaseDataManager.swift */; };
+		951562122346FAAB00F05BD0 /* GroupListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */; };
+		951562142346FADC00F05BD0 /* GroupListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951562132346FADC00F05BD0 /* GroupListHeaderView.xib */; };
+		95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156215234714E500F05BD0 /* GroupSortingManager.swift */; };
+		95156218234724E800F05BD0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156217234724E800F05BD0 /* DateManager.swift */; };
+		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
+		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
 		95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */; };
 		95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95195B7A233AF62900B81703 /* PrivacyWebStoryboard.storyboard */; };
@@ -23,14 +29,14 @@
 		951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7362232FC5CE00D48B37 /* UserRankView.swift */; };
 		951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E7364232FCD7100D48B37 /* PolylineCharts.swift */; };
 		952599282321187D009C7750 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952599272321187D009C7750 /* QRCodeMaker.swift */; };
-		9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* HomePageStoryboard.storyboard */; };
-		9525992C23211914009C7750 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* HomePageViewController.swift */; };
+		9525992A232118DE009C7750 /* RouteListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95259929232118DE009C7750 /* RouteListStoryboard.storyboard */; };
+		9525992C23211914009C7750 /* RouteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992B23211914009C7750 /* RouteListController.swift */; };
 		9525992E23211BF1009C7750 /* QRCodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525992D23211BF1009C7750 /* QRCodeScannerController.swift */; };
 		9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */; };
 		9525993223213FE0009C7750 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993123213FE0009C7750 /* QRCodeView.swift */; };
 		9525993423214199009C7750 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525993323214199009C7750 /* QRCodeViewController.swift */; };
 		95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */; };
-		95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */; };
+		95280695231D3FA700EFD895 /* GroupListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */; };
 		95280698231E065700EFD895 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95280697231E065700EFD895 /* GroupListCell.xib */; };
 		9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069B231E086200EFD895 /* GroupListViewController.swift */; };
 		9528069E231E098A00EFD895 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528069D231E098A00EFD895 /* GroupListCell.swift */; };
@@ -45,6 +51,8 @@
 		952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952806B4231E64D500EFD895 /* RidingResultCell.xib */; };
 		952806B7231E64EA00EFD895 /* RidingResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B6231E64EA00EFD895 /* RidingResultCell.swift */; };
 		952806BA231E98E900EFD895 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952806B9231E98E900EFD895 /* Extension+UIViewController.swift */; };
+		953EA7012345E60F00D2EC02 /* RouteInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */; };
+		953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EA702234634B300D2EC02 /* RouteDetailView.swift */; };
 		953EF9152331242800DD692B /* RouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF9132331242800DD692B /* RouteCell.swift */; };
 		953EF9162331242800DD692B /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953EF9142331242800DD692B /* RouteCell.xib */; };
 		953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953EF91D2332031C00DD692B /* RouteHeaderView.swift */; };
@@ -62,7 +70,7 @@
 		9545C993232C85ED00B74B03 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C992232C85ED00B74B03 /* GroupData.swift */; };
 		9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545C994232C8C4C00B74B03 /* MemberData.swift */; };
 		95546E59233B1CD300A1D1F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95546E58233B1CD300A1D1F3 /* MapKit.framework */; };
-		95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */; };
+		95546E5B233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */; };
 		955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC84E23326F3B00388934 /* StravaAuthManager.swift */; };
 		955AC8512332790A00388934 /* StravaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955AC8502332790A00388934 /* StravaProvider.swift */; };
 		9563D669233E215800072349 /* RouteCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563D668233E215800072349 /* RouteCollectionViewLayout.swift */; };
@@ -86,7 +94,7 @@
 		95D613D123155BF6008D885E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D023155BF6008D885E /* Assets.xcassets */; };
 		95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D613D223155BF6008D885E /* LaunchScreen.storyboard */; };
 		95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35C7233B7870006D4FAC /* FirstPageController.swift */; };
-		95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */; };
+		95EA35CE233B7A05006D4FAC /* UserIndicatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */; };
 		95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EA35CF233B7A96006D4FAC /* PageViewController.swift */; };
 		9B877113A4931FAC4834C100 /* Pods_RideTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +105,12 @@
 		951554B32318D0570080BBB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951554BB2318F1040080BBB7 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
 		951554BD23193E910080BBB7 /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListHeaderView.swift; sourceTree = "<group>"; };
+		951562132346FADC00F05BD0 /* GroupListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListHeaderView.xib; sourceTree = "<group>"; };
+		95156215234714E500F05BD0 /* GroupSortingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortingManager.swift; sourceTree = "<group>"; };
+		95156217234724E800F05BD0 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
+		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
 		95195B77233A408D00B81703 /* UserOfAppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfAppleSignIn.swift; sourceTree = "<group>"; };
 		95195B79233A4C9B00B81703 /* RideTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideTogether.entitlements; sourceTree = "<group>"; };
@@ -110,14 +124,14 @@
 		951E7362232FC5CE00D48B37 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 		951E7364232FCD7100D48B37 /* PolylineCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineCharts.swift; sourceTree = "<group>"; };
 		952599272321187D009C7750 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
-		95259929232118DE009C7750 /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
-		9525992B23211914009C7750 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		95259929232118DE009C7750 /* RouteListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteListStoryboard.storyboard; sourceTree = "<group>"; };
+		9525992B23211914009C7750 /* RouteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListController.swift; sourceTree = "<group>"; };
 		9525992D23211BF1009C7750 /* QRCodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerController.swift; sourceTree = "<group>"; };
 		9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCodeStoryboard.storyboard; sourceTree = "<group>"; };
 		9525993123213FE0009C7750 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		9525993323214199009C7750 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManager.swift; sourceTree = "<group>"; };
-		95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupStoryboard.storyboard; sourceTree = "<group>"; };
+		95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupListStoryboard.storyboard; sourceTree = "<group>"; };
 		95280697231E065700EFD895 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		9528069B231E086200EFD895 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		9528069D231E098A00EFD895 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
@@ -132,6 +146,8 @@
 		952806B4231E64D500EFD895 /* RidingResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RidingResultCell.xib; sourceTree = "<group>"; };
 		952806B6231E64EA00EFD895 /* RidingResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidingResultCell.swift; sourceTree = "<group>"; };
 		952806B9231E98E900EFD895 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteInfoManager.swift; sourceTree = "<group>"; };
+		953EA702234634B300D2EC02 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		953EF9132331242800DD692B /* RouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
 		953EF9142331242800DD692B /* RouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
 		953EF91D2332031C00DD692B /* RouteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHeaderView.swift; sourceTree = "<group>"; };
@@ -149,7 +165,7 @@
 		9545C992232C85ED00B74B03 /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		9545C994232C8C4C00B74B03 /* MemberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
 		95546E58233B1CD300A1D1F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserIndicaterStoryboard.storyboard; sourceTree = "<group>"; };
+		95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserIndicatorStoryboard.storyboard; sourceTree = "<group>"; };
 		955AC84E23326F3B00388934 /* StravaAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthManager.swift; sourceTree = "<group>"; };
 		955AC8502332790A00388934 /* StravaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaProvider.swift; sourceTree = "<group>"; };
 		9563D668233E215800072349 /* RouteCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -175,7 +191,7 @@
 		95D613D323155BF6008D885E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D613D523155BF6008D885E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EA35C7233B7870006D4FAC /* FirstPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageController.swift; sourceTree = "<group>"; };
-		95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicaterController.swift; sourceTree = "<group>"; };
+		95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIndicatorController.swift; sourceTree = "<group>"; };
 		95EA35CF233B7A96006D4FAC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B5F17ADEBFE156AD3509BD71 /* Pods-RideTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideTogether.debug.xcconfig"; path = "Target Support Files/Pods-RideTogether/Pods-RideTogether.debug.xcconfig"; sourceTree = "<group>"; };
 		BF539F5DC2025F4FCE39767C /* Pods_RideTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,14 +222,23 @@
 		951554B52318D5DC0080BBB7 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				95546E5A233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard */,
+				95546E5A233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard */,
 				95CFD178231F6C8700329927 /* TabBarStoryboard.storyboard */,
-				95BE90A02337B27100F40ADD /* RouteRecommend */,
+				95BE90A02337B27100F40ADD /* RouteList */,
 				95AE91A0232E31D400AD00CF /* RidingGroup */,
 				95AE91A1232E31E400AD00CF /* Profile */,
 				9525992F23213F37009C7750 /* QRCodeStoryboard.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		951562102346FA3F00F05BD0 /* GroupListHeader */ = {
+			isa = PBXGroup;
+			children = (
+				951562112346FAAB00F05BD0 /* GroupListHeaderView.swift */,
+				951562132346FADC00F05BD0 /* GroupListHeaderView.xib */,
+			);
+			path = GroupListHeader;
 			sourceTree = "<group>";
 		};
 		952806A1231E104A00EFD895 /* GroupListCell */ = {
@@ -234,16 +259,44 @@
 			path = RidingResultCell;
 			sourceTree = "<group>";
 		};
+		953EA7042346393E00D2EC02 /* RouteList */ = {
+			isa = PBXGroup;
+			children = (
+				953EA706234639A700D2EC02 /* RouteHeaderView */,
+				953EF912233123E200DD692B /* RouteListCell */,
+				9563D66A233F9E0A00072349 /* AreaRouteCell */,
+				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
+			);
+			path = RouteList;
+			sourceTree = "<group>";
+		};
+		953EA7052346394E00D2EC02 /* RidingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				951562102346FA3F00F05BD0 /* GroupListHeader */,
+				952806A1231E104A00EFD895 /* GroupListCell */,
+				9589DD7323253405003A9A87 /* RidingResultHeader */,
+				952806B8231E6A6100EFD895 /* RidingResultCell */,
+				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
+			);
+			path = RidingGroup;
+			sourceTree = "<group>";
+		};
+		953EA706234639A700D2EC02 /* RouteHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
+				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
+			);
+			path = RouteHeaderView;
+			sourceTree = "<group>";
+		};
 		953EF912233123E200DD692B /* RouteListCell */ = {
 			isa = PBXGroup;
 			children = (
 				953EF922233228A200DD692B /* RouteListCell.swift */,
 				953EF923233228A200DD692B /* RouteListCell.xib */,
 				95504744233378F600CFD58F /* RouteCell */,
-				9563D66A233F9E0A00072349 /* AreaRouteCell */,
-				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
-				953EF91D2332031C00DD692B /* RouteHeaderView.swift */,
-				953EF91E2332031C00DD692B /* RouteHeaderView.xib */,
 			);
 			path = RouteListCell;
 			sourceTree = "<group>";
@@ -258,15 +311,14 @@
 			path = RestfulAPI;
 			sourceTree = "<group>";
 		};
-		95456780232746F6009DA63B /* HomePage */ = {
+		95456780232746F6009DA63B /* RouteList */ = {
 			isa = PBXGroup;
 			children = (
-				9525992B23211914009C7750 /* HomePageViewController.swift */,
-				9563D66F2341CF0400072349 /* RouteIDData.swift */,
+				9525992B23211914009C7750 /* RouteListController.swift */,
 				95BE909E2337842C00F40ADD /* AreaRouteViewController.swift */,
 				951D92582333735400275B78 /* RouteDetailViewController.swift */,
 			);
-			path = HomePage;
+			path = RouteList;
 			sourceTree = "<group>";
 		};
 		9545678123274705009DA63B /* RidingGroup */ = {
@@ -327,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				9545C98F232C84CD00B74B03 /* HTTPClient.swift */,
+				951764F32343437B0080BC38 /* RouteData.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -343,6 +396,7 @@
 		9563D66A233F9E0A00072349 /* AreaRouteCell */ = {
 			isa = PBXGroup;
 			children = (
+				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
 				9563D66B23409E6E00072349 /* AreaRouteCell.swift */,
 				9563D66D23409E8300072349 /* AreaRouteCell.xib */,
 			);
@@ -370,7 +424,7 @@
 		95AE91A0232E31D400AD00CF /* RidingGroup */ = {
 			isa = PBXGroup;
 			children = (
-				95280694231D3FA700EFD895 /* GroupStoryboard.storyboard */,
+				95280694231D3FA700EFD895 /* GroupListStoryboard.storyboard */,
 				952806AA231E4E8200EFD895 /* CreateGroupStoryboard.storyboard */,
 				952806A8231E3C7300EFD895 /* GroupDetailStoryboard.storyboard */,
 				952806A6231E3B1000EFD895 /* RidingStoryboard.storyboard */,
@@ -389,14 +443,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		95BE90A02337B27100F40ADD /* RouteRecommend */ = {
+		95BE90A02337B27100F40ADD /* RouteList */ = {
 			isa = PBXGroup;
 			children = (
-				95259929232118DE009C7750 /* HomePageStoryboard.storyboard */,
+				95259929232118DE009C7750 /* RouteListStoryboard.storyboard */,
 				95BE909C233783A200F40ADD /* AreaRouteStoryboard.storyboard */,
 				951D9256233371AA00275B78 /* RouteDetailStoryboard.storyboard */,
 			);
-			path = RouteRecommend;
+			path = RouteList;
 			sourceTree = "<group>";
 		};
 		95CFD182231FEE9300329927 /* Third-Party */ = {
@@ -452,10 +506,14 @@
 				954443AD2330D38800020F9E /* RestfulAPI */,
 				9545C98E232C84AF00B74B03 /* HTTP */,
 				954567872327E9BE009DA63B /* Firebase */,
+				953EA7002345E60F00D2EC02 /* RouteInfoManager.swift */,
 				95CFD17A231F734600329927 /* KeyChainManager.swift */,
 				95CFD180231FE03B00329927 /* TimeManager.swift */,
 				952599272321187D009C7750 /* QRCodeMaker.swift */,
 				9513F510233CB0660076CC75 /* FadeOutTransition.swift */,
+				9563D66F2341CF0400072349 /* RouteIDData.swift */,
+				95156215234714E500F05BD0 /* GroupSortingManager.swift */,
+				95156217234724E800F05BD0 /* DateManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				952806B9231E98E900EFD895 /* Extension+UIViewController.swift */,
+				951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */,
 				9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */,
 				9545C98C232A876B00B74B03 /* Extension+UIView.swift */,
 				9594A069232F2C71000A91C0 /* Extension+UIImage.swift */,
@@ -475,9 +534,9 @@
 		95D613DD23155C2D008D885E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95EA35C6233B7777006D4FAC /* UserIndicaterController */,
+				95EA35C6233B7777006D4FAC /* UserIndicatorController */,
 				95CFD176231F677E00329927 /* TabBarViewController.swift */,
-				95456780232746F6009DA63B /* HomePage */,
+				95456780232746F6009DA63B /* RouteList */,
 				9545678123274705009DA63B /* RidingGroup */,
 				954567822327472E009DA63B /* Profile */,
 				9589DD722323AFFA003A9A87 /* QRcode */,
@@ -488,26 +547,23 @@
 		95D613DE23155C36008D885E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				953EF912233123E200DD692B /* RouteListCell */,
-				952806A1231E104A00EFD895 /* GroupListCell */,
-				9589DD7323253405003A9A87 /* RidingResultHeader */,
-				952806B8231E6A6100EFD895 /* RidingResultCell */,
+				953EA7042346393E00D2EC02 /* RouteList */,
+				953EA7052346394E00D2EC02 /* RidingGroup */,
 				954567852327E977009DA63B /* UserLogIn */,
 				9525993123213FE0009C7750 /* QRCodeView.swift */,
-				9519863B232D2EB200FFCE28 /* RidingInfoView.swift */,
 				951E7364232FCD7100D48B37 /* PolylineCharts.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		95EA35C6233B7777006D4FAC /* UserIndicaterController */ = {
+		95EA35C6233B7777006D4FAC /* UserIndicatorController */ = {
 			isa = PBXGroup;
 			children = (
-				95EA35CD233B7A05006D4FAC /* UserIndicaterController.swift */,
+				95EA35CD233B7A05006D4FAC /* UserIndicatorController.swift */,
 				95EA35CF233B7A96006D4FAC /* PageViewController.swift */,
 				95EA35C7233B7870006D4FAC /* FirstPageController.swift */,
 			);
-			path = UserIndicaterController;
+			path = UserIndicatorController;
 			sourceTree = "<group>";
 		};
 		E2F7A3C4657FC71E1631E9EB /* Pods */ = {
@@ -581,16 +637,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95546E5B233B753E00A1D1F3 /* UserIndicaterStoryboard.storyboard in Resources */,
+				95546E5B233B753E00A1D1F3 /* UserIndicatorStoryboard.storyboard in Resources */,
 				952806A9231E3C7300EFD895 /* GroupDetailStoryboard.storyboard in Resources */,
 				9563D66E23409E8300072349 /* AreaRouteCell.xib in Resources */,
 				95195B7B233AF62900B81703 /* PrivacyWebStoryboard.storyboard in Resources */,
-				95280695231D3FA700EFD895 /* GroupStoryboard.storyboard in Resources */,
+				95280695231D3FA700EFD895 /* GroupListStoryboard.storyboard in Resources */,
 				952806AB231E4E8200EFD895 /* CreateGroupStoryboard.storyboard in Resources */,
 				95280698231E065700EFD895 /* GroupListCell.xib in Resources */,
 				95D613D423155BF6008D885E /* LaunchScreen.storyboard in Resources */,
 				95BE909D233783A200F40ADD /* AreaRouteStoryboard.storyboard in Resources */,
-				9525992A232118DE009C7750 /* HomePageStoryboard.storyboard in Resources */,
+				9525992A232118DE009C7750 /* RouteListStoryboard.storyboard in Resources */,
 				951554B42318D0570080BBB7 /* GoogleService-Info.plist in Resources */,
 				952806B5231E64D500EFD895 /* RidingResultCell.xib in Resources */,
 				951D9257233371AA00275B78 /* RouteDetailStoryboard.storyboard in Resources */,
@@ -601,6 +657,7 @@
 				952806B1231E5F9800EFD895 /* RidingResultStoryboard.storyboard in Resources */,
 				953EF9162331242800DD692B /* RouteCell.xib in Resources */,
 				9545678F2328F5FE009DA63B /* ProfileCell.xib in Resources */,
+				951562142346FADC00F05BD0 /* GroupListHeaderView.xib in Resources */,
 				95CFD179231F6C8700329927 /* TabBarStoryboard.storyboard in Resources */,
 				953EF925233228A200DD692B /* RouteListCell.xib in Resources */,
 				9525993023213F37009C7750 /* QRCodeStoryboard.storyboard in Resources */,
@@ -692,15 +749,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				952806B3231E643900EFD895 /* RidingResultViewController.swift in Sources */,
+				953EA703234634B300D2EC02 /* RouteDetailView.swift in Sources */,
 				953EF9152331242800DD692B /* RouteCell.swift in Sources */,
-				95EA35CE233B7A05006D4FAC /* UserIndicaterController.swift in Sources */,
+				95EA35CE233B7A05006D4FAC /* UserIndicatorController.swift in Sources */,
+				95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */,
 				9528069C231E086200EFD895 /* GroupListViewController.swift in Sources */,
 				953EF91F2332031C00DD692B /* RouteHeaderView.swift in Sources */,
+				95156218234724E800F05BD0 /* DateManager.swift in Sources */,
 				951E735F232F5CA700D48B37 /* StorageOfCode.swift in Sources */,
 				952806A0231E101200EFD895 /* GroupDetailViewController.swift in Sources */,
 				951E7365232FCD7100D48B37 /* PolylineCharts.swift in Sources */,
 				955AC8512332790A00388934 /* StravaProvider.swift in Sources */,
 				9545C990232C84CD00B74B03 /* HTTPClient.swift in Sources */,
+				951562122346FAAB00F05BD0 /* GroupListHeaderView.swift in Sources */,
 				95D613CC23155BF5008D885E /* UserLogInController.swift in Sources */,
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
 				95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */,
@@ -708,7 +769,7 @@
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
 				95456784232795B6009DA63B /* UserLogInView.swift in Sources */,
-				9525992C23211914009C7750 /* HomePageViewController.swift in Sources */,
+				9525992C23211914009C7750 /* RouteListController.swift in Sources */,
 				9545C98D232A876B00B74B03 /* Extension+UIView.swift in Sources */,
 				95D613CA23155BF5008D885E /* AppDelegate.swift in Sources */,
 				95195B7D233AF6D000B81703 /* PrivacyWebController.swift in Sources */,
@@ -727,6 +788,7 @@
 				951554BE23193E910080BBB7 /* FirebaseDataManager.swift in Sources */,
 				9563D669233E215800072349 /* RouteCollectionViewLayout.swift in Sources */,
 				9563D6702341CF0400072349 /* RouteIDData.swift in Sources */,
+				953EA7012345E60F00D2EC02 /* RouteInfoManager.swift in Sources */,
 				9545678B2328A326009DA63B /* UserProfileController.swift in Sources */,
 				951554BC2318F1040080BBB7 /* UserSignUpView.swift in Sources */,
 				95195B78233A408D00B81703 /* UserOfAppleSignIn.swift in Sources */,
@@ -745,7 +807,9 @@
 				955AC84F23326F3B00388934 /* StravaAuthManager.swift in Sources */,
 				9545C995232C8C4C00B74B03 /* MemberData.swift in Sources */,
 				9519863C232D2EB200FFCE28 /* RidingInfoView.swift in Sources */,
+				951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */,
 				952599282321187D009C7750 /* QRCodeMaker.swift in Sources */,
+				951764F42343437B0080BC38 /* RouteData.swift in Sources */,
 				952806A5231E3AF200EFD895 /* RidingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

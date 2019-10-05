@@ -14,7 +14,7 @@ class RidingResultCell: UITableViewCell {
         
         didSet {
             
-            memberImage.addRound(radis: Double(memberImage.bounds.width / 2),
+            memberImage.addRound(radius: Double(memberImage.bounds.width / 2),
                                  borderWidth: 0.7,
                                  borderColor: .gray)
         }
@@ -24,6 +24,6 @@ class RidingResultCell: UITableViewCell {
     
     @IBOutlet weak var rankingLabel: UILabel!
     
-    @IBOutlet weak var spendTimeLebal: UILabel!
+    @IBOutlet weak var spendTimeLabel: UILabel!
     
 }

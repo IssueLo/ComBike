@@ -45,7 +45,9 @@ class AreaRouteViewController: UIViewController {
         
         areaRouteCollectionView.register(nib, forCellWithReuseIdentifier: "AreaRouteCell")
         
-        if let layout = areaRouteCollectionView.collectionViewLayout as? CollectionViewLayout {
+        if let layout = areaRouteCollectionView.collectionViewLayout
+            as? CollectionViewLayout {
+            
             layout.delegate = self
         }
     }
@@ -63,7 +65,10 @@ extension AreaRouteViewController: UICollectionViewDataSource {
             
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaRouteCell", for: indexPath)
         
-        guard let areaRouteCell = cell as? AreaRouteCell else { return cell }
+        guard
+            let areaRouteCell = cell as? AreaRouteCell
+            
+        else { return cell }
         
         let routeNameArray = areaRouteData[indexPath.row].name.components(separatedBy: "（")
         
@@ -79,11 +84,13 @@ extension AreaRouteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard(name: "RouteDetailStoryboard", bundle: nil)
-
+        let storyboard = StoryboardCategory.routeDetail.getStoryboard()
+                    
         guard
-            let routeDetailVC = storyboard.instantiateViewController(withIdentifier: "RouteDetailStoryboard")
-                as? RouteDetailViewController
+            let routeDetailVC = storyboard.instantiateViewController(
+                withIdentifier: RouteDetailViewController.identifier
+                ) as? RouteDetailViewController
+            
         else { return }
         
         routeDetailVC.routeData = self.areaRouteData[indexPath.row]
@@ -92,7 +99,6 @@ extension AreaRouteViewController: UICollectionViewDataSource {
         
         self.show(routeDetailVC, sender: nil)
     }
-    
 }
 
 extension AreaRouteViewController: UICollectionViewDelegate {
@@ -102,6 +108,24 @@ extension AreaRouteViewController: UICollectionViewDelegate {
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 
         return 0
+    }
+}
+
+extension AreaRouteViewController: CollectionViewLayoutDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        heightForViewAtIndexPath indexPath: IndexPath) -> CGFloat {
+
+        let number = indexPath.item % 4
+
+        switch number {
+        case 0: return 260
+        case 1: return 220
+        case 2: return 180
+        case 3: return 300
+        default:
+            return 100
+        }
     }
 }
 
@@ -141,30 +165,3 @@ extension AreaRouteViewController: UICollectionViewDelegate {
 //        return 0
 //    }
 //}
-
-extension AreaRouteViewController: CollectionViewLayoutDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        heightForViewAtIndexPath indexPath: IndexPath) -> CGFloat {
-        
-//        let number = String(format: "%.2f", areaRouteData[indexPath.item].elevationGain)
-            
-//        let aveAlope: Double = {
-//
-//            return (areaRouteData[indexPath.item].distance / 1000) / (areaRouteData[indexPath.item].elevationGain / 100)
-//        }()
-//
-//        return CGFloat(aveAlope * 100)
-        
-        let number = indexPath.item % 4
-
-        switch number {
-        case 0: return 260
-        case 1: return 220
-        case 2: return 180
-        case 3: return 300
-        default:
-            return 100
-        }
-    }
-}

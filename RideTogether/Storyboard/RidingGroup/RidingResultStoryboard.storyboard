@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,16 +10,16 @@
         <!--Riding Result View Controller-->
         <scene sceneID="yOq-lb-kdK">
             <objects>
-                <viewController storyboardIdentifier="RidingResultViewControllor" id="qZn-5m-RNP" customClass="RidingResultViewController" customModule="RideTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RidingResultViewController" id="qZn-5m-RNP" customClass="RidingResultViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxN-bj-pfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-OB-pBp" customClass="RidingResultHeaderView" customModule="RideTogether" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-OB-pBp" customClass="RidingResultHeaderView" customModule="ComBike" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykI-mg-OtW">
-                                        <rect key="frame" x="131" y="27" width="113" height="29"/>
+                                        <rect key="frame" x="131" y="7" width="113" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="Tbn-xN-BVf"/>
                                         </constraints>
@@ -29,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-Pj-rfr">
-                                        <rect key="frame" x="24" y="30.5" width="27.5" height="22"/>
+                                        <rect key="frame" x="24" y="10.5" width="27.5" height="22"/>
                                         <state key="normal" image="Icons_44px_white"/>
                                         <connections>
                                             <action selector="backToGroupList" destination="Z3K-OB-pBp" eventType="touchUpInside" id="IJT-49-Mhm"/>
@@ -38,26 +37,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="6c9-oQ-Ve5"/>
                                     <constraint firstItem="pkt-Pj-rfr" firstAttribute="centerY" secondItem="ykI-mg-OtW" secondAttribute="centerY" id="CYT-ag-tLh"/>
                                     <constraint firstItem="ykI-mg-OtW" firstAttribute="centerX" secondItem="Z3K-OB-pBp" secondAttribute="centerX" id="JGH-Zb-Jdb"/>
                                     <constraint firstItem="pkt-Pj-rfr" firstAttribute="leading" secondItem="Z3K-OB-pBp" secondAttribute="leading" constant="24" id="PHR-Ua-Xuc"/>
-                                    <constraint firstItem="ykI-mg-OtW" firstAttribute="top" secondItem="Z3K-OB-pBp" secondAttribute="top" constant="27" id="tXg-cj-lee"/>
+                                    <constraint firstAttribute="bottom" secondItem="ykI-mg-OtW" secondAttribute="bottom" constant="8" id="xIz-uX-Xkp"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="groupNameLabel" destination="ykI-mg-OtW" id="Olt-Ms-cK0"/>
                                 </connections>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpf-wO-T8b">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yk-dn-aXe">
-                                        <rect key="frame" x="0.0" y="0.0" width="750" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="750" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-1u-FH6">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-5m-dae" customClass="UserRankView" customModule="RideTogether" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-5m-dae" customClass="UserRankView" customModule="ComBike" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UChu" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-9M-FiJ">
@@ -116,7 +114,7 @@
                                                         </connections>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-St-NEy">
-                                                        <rect key="frame" x="0.0" y="102" width="375" height="501"/>
+                                                        <rect key="frame" x="0.0" y="102" width="375" height="521"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="qZn-5m-RNP" id="ikn-GB-Dno"/>
@@ -136,13 +134,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQf-J0-cwA">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="603"/>
+                                                <rect key="frame" x="375" y="0.0" width="375" height="623"/>
                                                 <subviews>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9qY-t6-cM0">
-                                                        <rect key="frame" x="0.0" y="54" width="375" height="259"/>
+                                                        <rect key="frame" x="0.0" y="54" width="375" height="279"/>
                                                     </mapView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gti-2O-jFy" customClass="UserPolylineView" customModule="RideTogether" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="363" width="327" height="200"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gti-2O-jFy" customClass="UserPolylineView" customModule="ComBike" customModuleProvider="target">
+                                                        <rect key="frame" x="24" y="383" width="327" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="VDH-jQ-VsV"/>
@@ -155,7 +153,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="坡度紀錄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5F-wT-UE8">
-                                                        <rect key="frame" x="24" y="337" width="61.5" height="18"/>
+                                                        <rect key="frame" x="24" y="357" width="61.5" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -192,7 +190,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.95294117649999999" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dpf-wO-T8b" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" id="1Eh-OP-GTa"/>
                             <constraint firstItem="XXR-1u-FH6" firstAttribute="width" secondItem="XxN-bj-pfE" secondAttribute="width" id="5nV-lo-cbd"/>
@@ -203,6 +201,7 @@
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="leading" secondItem="qRG-eK-FjC" secondAttribute="leading" id="JtR-cL-1Xn"/>
                             <constraint firstItem="Dpf-wO-T8b" firstAttribute="top" secondItem="Z3K-OB-pBp" secondAttribute="bottom" id="LF1-hT-psw"/>
                             <constraint firstItem="Z3K-OB-pBp" firstAttribute="top" secondItem="XxN-bj-pfE" secondAttribute="top" id="OHG-Vh-muf"/>
+                            <constraint firstItem="ykI-mg-OtW" firstAttribute="top" secondItem="qRG-eK-FjC" secondAttribute="top" constant="7" id="WwK-fb-xbZ"/>
                             <constraint firstItem="GQf-J0-cwA" firstAttribute="width" secondItem="XxN-bj-pfE" secondAttribute="width" id="XUp-fb-hYa"/>
                             <constraint firstItem="qRG-eK-FjC" firstAttribute="bottom" secondItem="Dpf-wO-T8b" secondAttribute="bottom" id="fdv-cY-Jb5"/>
                             <constraint firstItem="pa8-di-5gN" firstAttribute="centerX" secondItem="XxN-bj-pfE" secondAttribute="centerX" id="qvk-G7-gTh"/>

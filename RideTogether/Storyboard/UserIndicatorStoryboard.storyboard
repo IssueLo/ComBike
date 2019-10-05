@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Indicater Controller-->
+        <!--User Indicator Controller-->
         <scene sceneID="P4o-5v-mIb">
             <objects>
-                <viewController storyboardIdentifier="UserIndicaterController" id="04Q-5h-YCx" customClass="UserIndicaterController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserIndicatorController" id="04Q-5h-YCx" customClass="UserIndicatorController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M32-ui-cb2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,9 +138,9 @@
                         <viewLayoutGuide key="safeArea" id="JSu-Hh-KER"/>
                     </view>
                     <connections>
-                        <outlet property="indicaterImage" destination="ERQ-Dt-xim" id="g3q-HK-aXZ"/>
-                        <outlet property="indicaterSubTitleLbl" destination="vYY-bs-cLq" id="WFw-Bc-gR7"/>
-                        <outlet property="indicaterTitleLbl" destination="ZSK-Qz-EoL" id="lmF-9G-1e2"/>
+                        <outlet property="indicatorImage" destination="ERQ-Dt-xim" id="3Ti-UV-eYX"/>
+                        <outlet property="indicatorSubTitleLbl" destination="vYY-bs-cLq" id="0s2-lM-EHN"/>
+                        <outlet property="indicatorTitleLbl" destination="ZSK-Qz-EoL" id="vIg-ev-8qD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlY-Yn-0vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

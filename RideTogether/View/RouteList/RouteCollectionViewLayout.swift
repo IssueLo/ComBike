@@ -40,13 +40,10 @@ class CollectionViewLayout: UICollectionViewLayout {
     
     // 覆寫 prepare() 功能，控制 Layout
     override func prepare() {
-        //        super.prepare()
-        
+//        super.prepare()
         // 1 每次畫面滑動都會執行，需要 layoutAttributeCache.count == 0 來讓他停止
-        guard layoutAttributeCache.count == 0, let collectionView = collectionView else {
-            return
-        }
-        
+        guard layoutAttributeCache.count == 0,
+            let collectionView = collectionView else { return }
         // 2 下一個 Cell 的原點 (x, y)
         let columnWidth = contentWidth / CGFloat(numberOfColumns)  // column 寬度
         
@@ -62,7 +59,6 @@ class CollectionViewLayout: UICollectionViewLayout {
         }
         
         var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
-        
         // 3
         var currentColumn = 0
         
@@ -73,9 +69,9 @@ class CollectionViewLayout: UICollectionViewLayout {
             let indexPath = IndexPath(item: item, section: 0)
             
             guard let delegate = delegate else {return}
-            
             // 4 cell 高度跟位置是變數，view 高度需要 VC 透過 delegate 提供
-            let viewHeight: CGFloat = delegate.collectionView(collectionView, heightForViewAtIndexPath: indexPath)
+            let viewHeight: CGFloat = delegate.collectionView(collectionView,
+                                                              heightForViewAtIndexPath: indexPath)
             let cellHeight = cellSpace * 2 + viewHeight
             let frame = CGRect(x: xOffset[currentColumn],
                                y: yOffset[currentColumn],
@@ -83,13 +79,11 @@ class CollectionViewLayout: UICollectionViewLayout {
                                height: cellHeight)
             print("Frame: \(frame)")
             print(" ")
-            
             // 把 Cell frame 屬性存放到 Array cache
             let insetFrame = frame.insetBy(dx: cellSpace, dy: cellSpace)
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
             layoutAttributeCache.append(attributes)
-            
             // 計算 contentHeight
             print("currentContentHeight: \(contentHeight)")
             print("frame.maxY: \(frame.maxY)")

@@ -16,7 +16,7 @@ class UserRankView: UIView {
         
         didSet {
             
-            userImageView.addRound(radis: Double(userImageView.bounds.width / 2))
+            userImageView.addRound(radius: Double(userImageView.bounds.width / 2))
         }
     }
     

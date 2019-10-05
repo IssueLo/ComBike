@@ -18,15 +18,13 @@ class QRCodeView: UIView {
         
         didSet {
             
-            qrCodeBackView.addRound(radis: 8)
+            qrCodeBackView.addRound(radius: 8)
         }
     }
     
     @IBAction func backGroupDeteilVC() {
-        
-        guard let handler = handler else { return }
-        
-        handler()
+                
+        handler?()
     }
     
     func setQRcode(_ qrCodeImage: UIImage?) {

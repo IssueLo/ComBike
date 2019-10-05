@@ -47,7 +47,7 @@ completion(Result.success(groupDataArray))
  
  GroupListViewController
  
-FirebaseDataManeger.shared.observerForGroupData(uesrUID) { [weak self] (result) in
+FirebaseDataManager.shared.observerForGroupData(uesrUID) { [weak self] (result) in
     
     switch result {
         

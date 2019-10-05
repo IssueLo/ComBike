@@ -1,5 +1,5 @@
 //
-//  UserIndicaterController.swift
+//  UserIndicatorController.swift
 //  RideTogether
 //
 //  Created by 戴汝羽 on 2019/9/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserIndicaterController: UIViewController {
+class UserIndicatorController: UIViewController {
     
     let pageViewController = PageViewController.init(transitionStyle: .scroll,
                                                      navigationOrientation: .horizontal)
@@ -25,19 +25,15 @@ class UserIndicaterController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var containerView: UIView!
-    
+
     @IBOutlet weak var skipBtn: UIButton! {
         
         didSet {
             
             skipBtn.addRound(backgroundColor: .hexStringToUIColor())
-            
-            skipBtn.addShadow()
-            
+                        
             skipBtn.addTarget(self,
-                              action: #selector(skipIndicaterVC),
+                              action: #selector(skipIndicatorVC),
                               for: .touchUpInside)
         }
     }
@@ -54,41 +50,30 @@ class UserIndicaterController: UIViewController {
         }
     }
     
+    @IBOutlet weak var containerView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-                        
         // 手動 ContainerView
+        setContainerView()
+    }
+    
+    private func setContainerView() {
+        
         self.addChild(pageViewController)
-
+        
+        pageViewController.pageViewControllerDelegate = self
+        
         pageViewController.view.frame = containerView.frame
 
         containerView.addSubview(pageViewController.view)
 
         pageViewController.didMove(toParent: self)
-
-        pageViewController.pageViewControllerDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        skipIndicaterVC()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     @objc
-    func skipIndicaterVC() {
-        
-//        UIView.animate(withDuration: 0.8) {
-//
-//            self.view.alpha = 0
-//        }
-//
-//        dismiss(animated: false, completion: nil)
+    func skipIndicatorVC() {
+
         tabBarViewController.modalPresentationStyle = .fullScreen
         
         tabBarViewController.transitioningDelegate = self
@@ -101,11 +86,11 @@ class UserIndicaterController: UIViewController {
     }
 }
 
-extension UserIndicaterController: PageViewControllerDelegate {
+extension UserIndicatorController: PageViewControllerDelegate {
 
     func pageViewController(_ pageViewController: PageViewController, didUpdateNumberOfPage numberOfPage: Int) {
 
-//        pageControl.numberOfPages = numberOfPage
+        pageControl.numberOfPages = numberOfPage
     }
 
     func pageViewController(_ pageViewController: PageViewController, didUpdatePageIndex pageIndex: Int) {
@@ -113,48 +98,47 @@ extension UserIndicaterController: PageViewControllerDelegate {
         pageControl.currentPage = pageIndex
     }
 }
-
 // 轉場效果
-extension UserIndicaterController: UIViewControllerTransitioningDelegate {
+extension UserIndicatorController: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        let trasnition = FadeOutTransition()
+        let transition = FadeOutTransition()
         
-        return trasnition
+        return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
        
-        let trasnition = FadeOutTransition()
+        let transition = FadeOutTransition()
         
-        return trasnition
+        return transition
     }
 }
 
-//extension UserIndicaterController: UINavigationControllerDelegate {
+//extension UserIndicatorController: UINavigationControllerDelegate {
 //
 //    func navigationController(_ navigationController: UINavigationController,
 //                              animationControllerFor operation: UINavigationController.Operation,
 //                              from fromVC: UIViewController,
 //                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //
-//        let trasnition = FadeOutTransition()
+//        let transition = FadeOutTransition()
 //
-//        return trasnition
+//        return transition
 //    }
 //}
-//
-//extension UserIndicaterController: UITabBarControllerDelegate {
+
+//extension UserIndicatorController: UITabBarControllerDelegate {
 //
 //    func tabBarController(_ tabBarController: UITabBarController,
 //                          animationControllerForTransitionFrom fromVC: UIViewController,
 //                          to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //
-//        let trasnition = FadeOutTransition()
+//        let transition = FadeOutTransition()
 //
-//        return trasnition
+//        return transition
 //    }
 //}

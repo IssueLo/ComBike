@@ -24,7 +24,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
             
-            userImage.addRound(radis: Double(userImage.bounds.width / 2),
+            userImage.addRound(radius: Double(userImage.bounds.width / 2),
                                backgroundColor: .white)
         }
     }
@@ -34,7 +34,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var uploadPhotoButton: UIButton! {
         didSet {
             
-            uploadPhotoButton.addRound(radis: Double(uploadPhotoButton.bounds.height / 2),
+            uploadPhotoButton.addRound(radius: Double(uploadPhotoButton.bounds.height / 2),
                                        backgroundColor: .white)
         }
     }
@@ -224,9 +224,9 @@ extension UserProfileController: UITableViewDelegate {
             
             FirebaseAccountManager.shared.userPhotoURL = nil
             
-            if FirebaseDataManeger.groupObserverFor != nil {
+            if FirebaseDataManager.groupObserverFor != nil {
                 
-                FirebaseDataManeger.groupObserverFor.remove()
+                FirebaseDataManager.groupObserverFor.remove()
             }
             
         } catch let error as NSError {
@@ -285,7 +285,7 @@ extension UserProfileController: UIImagePickerControllerDelegate, UINavigationCo
                             
                             FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
 
-                            FirebaseDataManeger.shared.updateUserPhoto(userUID,
+                            FirebaseDataManager.shared.updateUserPhoto(userUID,
                                                                        url.absoluteString)
                         }
                     }

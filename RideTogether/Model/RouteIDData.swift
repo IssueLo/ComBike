@@ -6,7 +6,7 @@
 //  Copyright © 2019 KevinKLLo. All rights reserved.
 //
 
-class RouteIDData {
+struct RouteIDData {
         
     static let northern = ["10221097",
                         "10221464",

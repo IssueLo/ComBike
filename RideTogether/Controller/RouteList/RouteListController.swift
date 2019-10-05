@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class RouteListController: UIViewController {
     
     var jsonArray: NSMutableArray?
     
@@ -20,12 +20,15 @@ class HomePageViewController: UIViewController {
                 
                 self.routeListTableView.reloadData()
             }
+            
+            UIView.animate(withDuration: 1) {
+                
+                self.launchScreen.alpha = 0
+            }
         }
     }
     
-    var headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
-
-    var allRouteList = [[String]]()
+    let headerTitle = ["北部路線", "中部路線", "南部路線", "東部路線"]
 
     @IBOutlet weak var launchScreen: UIView!
     
@@ -46,70 +49,10 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let storyboard = UIStoryboard(name: "UserIndicaterStoryboard", bundle: nil)
-//
-//        let indicaterVC = storyboard.instantiateViewController(withIdentifier: "UserIndicaterController")
-//
-//        indicaterVC.modalPresentationStyle = .fullScreen
-                
-//        present(indicaterVC, animated: false, completion: nil)
-        
         self.tabBarController?.tabBar.tintColor = .hexStringToUIColor()
         
-        allRouteList = [RouteIDData.northern,
-                        RouteIDData.central,
-                        RouteIDData.southern,
-                        RouteIDData.eastern]
-        
-        let group = DispatchGroup()
-        
-        for area in allRouteList {
-            
-            var currentRouteData = [RouteData]()
-        
-            for routeID in area {
-                
-//                print("**enter: \(routeID)")
-                group.enter()
-                
-                StravaProvider.getRouteData(routeID) { (result) in
-                    
-                    switch result {
-                        
-                    case .success(var routeData):
-                        
-                        let array = routeData.name.components(separatedBy: "：")
-                        
-                        if array.count == 1 {
-                            
-                            routeData.name = array[0]
-                        } else {
-                            
-                            routeData.name = array[1]
-                        }
-                        
-                        currentRouteData.append(routeData)
-                        
-                        group.leave()
-                        
-                    case .failure(let error):
-                        
-                        print(error)
-                    }
-                }
-            }
-            
-            group.notify(queue: .main, execute: {
-                
-                self.routeDataArray.append(currentRouteData)
-                
-                UIView.animate(withDuration: 1) {
-                    
-                    self.launchScreen.alpha = 0
-                }
-            })
-        }
-        
+        getRouteData()
+        // cell註冊要改喔
         let nib = UINib(nibName: "RouteListCell", bundle: nil)
         
         routeListTableView.register(nib, forCellReuseIdentifier: "RouteListCell")
@@ -125,9 +68,22 @@ class HomePageViewController: UIViewController {
         
         navigationController?.isNavigationBarHidden = false
     }
+    
+    func getRouteData() {
+        
+        let allRouteList = [RouteIDData.northern,
+                            RouteIDData.central,
+                            RouteIDData.southern,
+                            RouteIDData.eastern]
+        
+        RouteInfoManager.getRouteInfo(routeIDList: allRouteList) { (allRouteData) in
+            
+            self.routeDataArray = allRouteData
+        }
+    }
 }
 
-extension HomePageViewController: UITableViewDataSource {
+extension RouteListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -143,17 +99,22 @@ extension HomePageViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteListCell", for: indexPath)
         
-        guard let routeListCell = cell as? RouteListCell else { return cell }
+        guard
+            let routeListCell = cell as? RouteListCell
+            
+        else { return cell }
         
         routeListCell.routeListData = self.routeDataArray[indexPath.section]
         
         routeListCell.handler = { (indexPath) in
             
-            let storyboard = UIStoryboard(name: "RouteDetailStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.routeDetail.getStoryboard()
             
             guard
-                let routeDetailVC = storyboard.instantiateViewController(withIdentifier: "RouteDetailStoryboard")
-                    as? RouteDetailViewController
+                let routeDetailVC = storyboard.instantiateViewController(
+                    withIdentifier: RouteDetailViewController.identifier
+                    )as? RouteDetailViewController
+                
                 else { return }
             
             routeDetailVC.routeData = routeListCell.routeListData[indexPath.row]
@@ -161,29 +122,31 @@ extension HomePageViewController: UITableViewDataSource {
             routeDetailVC.hidesBottomBarWhenPushed = true
             
             self.show(routeDetailVC, sender: nil)
-                        
         }
         
         return routeListCell
     }
-    
 }
 
-extension HomePageViewController: UITableViewDelegate {
+extension RouteListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RouteHeaderView")
-            as? RouteHeaderView
+        let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: "RouteHeaderView"
+            ) as? RouteHeaderView
         
         headerView?.routeAreaLabel.text = headerTitle[section]
         
         headerView?.handler = {
             
-            let storyboard = UIStoryboard(name: "AreaRouteStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.areaRoute.getStoryboard()
             
-            guard let areaRouteVC = storyboard.instantiateViewController(withIdentifier: "AreaRouteViewController")
-                as? AreaRouteViewController
+            guard
+                let areaRouteVC = storyboard.instantiateViewController(
+                    withIdentifier: AreaRouteViewController.identifier
+                    ) as? AreaRouteViewController
+                
             else { return }
             
             areaRouteVC.view.layoutIfNeeded()

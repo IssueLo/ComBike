@@ -10,7 +10,7 @@
         <!--單車路線推薦-->
         <scene sceneID="rYu-gS-Mnn">
             <objects>
-                <viewController id="wh7-Eb-Aua" customClass="HomePageViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wh7-Eb-Aua" customClass="RouteListController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G6s-6N-Qc6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

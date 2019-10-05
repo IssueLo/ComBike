@@ -17,9 +17,9 @@ typealias MemberDataHandler = (Result<MemberData>) -> Void
 // swiftlint:disable multiple_closures_with_trailing_closure
 // swiftlint:disable type_body_length
 // swiftlint:disable file_length
-class FirebaseDataManeger {
+class FirebaseDataManager {
     
-    static let shared = FirebaseDataManeger()
+    static let shared = FirebaseDataManager()
     
     private init() {}
     
@@ -29,14 +29,14 @@ class FirebaseDataManeger {
         
     let database = Firestore.firestore()
     
-    let userInfoDatebase = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
+    let userInfoDatabase = Firestore.firestore().collection(FirebaseKey.userInfo.rawValue)
     
-    let groupDatebase = Firestore.firestore().collection(FirebaseKey.group.rawValue)
+    let groupDatabase = Firestore.firestore().collection(FirebaseKey.group.rawValue)
     
     // MARK: deleteAllGroup
-    func deleteGorup(_ groupID: String) {
+    func deleteGroup(_ groupID: String) {
         
-        let groupOfUser = groupDatebase.document(groupID)
+        let groupOfUser = groupDatabase.document(groupID)
 
         groupOfUser.delete()
     }
@@ -45,10 +45,10 @@ class FirebaseDataManeger {
     // 監聽跟排序無法同時設置
     func observerForGroupData(_ userID: String, completion: @escaping (Result<GroupData>) -> Void) {
         
-        let groupOfUser = groupDatebase.whereField(GroupKey.member.rawValue, arrayContains: userID)
+        let groupOfUser = groupDatabase.whereField(GroupKey.member.rawValue, arrayContains: userID)
 //            .order(by: GroupKey.createTime.rawValue, descending: true)
         
-        FirebaseDataManeger.groupObserverFor = groupOfUser.addSnapshotListener { (querySnapshot, error) in
+        FirebaseDataManager.groupObserverFor = groupOfUser.addSnapshotListener { (querySnapshot, error) in
             
             guard let querySnapshot = querySnapshot else {
                 
@@ -69,7 +69,7 @@ class FirebaseDataManeger {
                     let groupID = documentChange.document.documentID
                     
                     let groupPhotoURL = documentChange.document.data()["photoURLString"] as? String
-//                    self.deleteGorup(groupID)
+
                     let groupData = GroupData(groupID: groupID,
                                               photoURLString: groupPhotoURL,
                                               name: name,
@@ -120,9 +120,9 @@ class FirebaseDataManeger {
     // MARK: Member 監聽
     func observerForMemberData(_ groupID: String, completion: @escaping (Result<[MemberData]>) -> Void) {
         
-        let memberOfGroup = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
+        let memberOfGroup = groupDatabase.document(groupID).collection(GroupKey.member.rawValue)
         
-        FirebaseDataManeger.memberObserverFor = memberOfGroup.addSnapshotListener { (querySnapshot, _) in
+        FirebaseDataManager.memberObserverFor = memberOfGroup.addSnapshotListener { (querySnapshot, _) in
             
             guard let documents = querySnapshot?.documents else {
                 
@@ -191,9 +191,9 @@ class FirebaseDataManeger {
     // MARK: 用 uid 搜尋 Photo
     func searchMemberPhoto(memberUID: String, completion: @escaping (Result<String?>) -> Void) {
         
-        let uesrInfoDocument = userInfoDatebase.document(memberUID)
+        let userInfoDocument = userInfoDatabase.document(memberUID)
         
-        uesrInfoDocument.getDocument { (querySnapshot, _) in
+        userInfoDocument.getDocument { (querySnapshot, _) in
             
             if let querySnapshot = querySnapshot {
                 
@@ -212,32 +212,32 @@ class FirebaseDataManeger {
         let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
                                            UserInfoKey.email.rawValue: userEmail]
         
-        userInfoDatebase.document(userUID).setData(userInfoData)
+        userInfoDatabase.document(userUID).setData(userInfoData)
     }
     
     // MARK: 更新 User 照片 - Done
     func updateUserPhoto(_ userUID: String,
-                         _ userPhothURL: String) {
+                         _ userPhotoURL: String) {
         
-        let userPhotoData: [String: Any] = [UserInfoKey.photoURL.rawValue: userPhothURL]
+        let userPhotoData: [String: Any] = [UserInfoKey.photoURL.rawValue: userPhotoURL]
         
-        userInfoDatebase.document(userUID).setData(userPhotoData, merge: true)
+        userInfoDatabase.document(userUID).setData(userPhotoData, merge: true)
     }
     
     // MARK: 更新 Group 照片 - Done
     func updateGroupPhoto(_ groupUID: String,
-                          _ groupPhothURL: String) {
+                          _ groupPhotoURL: String) {
         
-        let groupPhotoData: [String: Any] = [GroupKey.photoURLString.rawValue: groupPhothURL]
+        let groupPhotoData: [String: Any] = [GroupKey.photoURLString.rawValue: groupPhotoURL]
         
-        groupDatebase.document(groupUID).setData(groupPhotoData, merge: true)
+        groupDatabase.document(groupUID).setData(groupPhotoData, merge: true)
     }
     
     // MARK: 建立群組 - Done
     func createGroup(_ groupName: String, completion: @escaping (String) -> Void) {
         
         // 要打兩次 API，所以要知道 groupID
-        let groupID = groupDatebase.document().documentID
+        let groupID = groupDatabase.document().documentID
         
         guard
             let userUID = FirebaseAccountManager.shared.userUID,
@@ -248,12 +248,12 @@ class FirebaseDataManeger {
         
         print("createTime: \(createTime)")
         
-        groupDatebase.document(groupID).setData([GroupKey.name.rawValue: groupName,
+        groupDatabase.document(groupID).setData([GroupKey.name.rawValue: groupName,
                                                  GroupKey.member.rawValue: [userUID],
                                                  GroupKey.isFinished.rawValue: false,
                                                  GroupKey.createTime.rawValue: createTime])
         
-        groupDatebase.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
+        groupDatabase.document("\(groupID)/\(GroupKey.member.rawValue)/\(userUID)")
             .setData([GroupKey.name.rawValue: userName])
         
         completion("成功創建群組")
@@ -265,7 +265,7 @@ class FirebaseDataManeger {
                           userName: String,
                           completion: @escaping (String) -> Void) {
         
-        let groupDocument = groupDatebase.document(groupID)
+        let groupDocument = groupDatabase.document(groupID)
         
 //        groupDocument.getDocument { (querySnapshot, _) in
 //
@@ -358,7 +358,7 @@ class FirebaseDataManeger {
     func removeUserFromGroup(groupID: String,
                              userUID: String) {
         
-        let groupDocument = groupDatebase.document(groupID)
+        let groupDocument = groupDatabase.document(groupID)
         
         let memberDocument = groupDocument.collection(GroupKey.member.rawValue).document(userUID)
         
@@ -416,7 +416,7 @@ class FirebaseDataManeger {
     // MARK: 編輯群組 - 更改群組名稱(要修改)
     func modifyGroupName(_ groupID: String, _ groupName: String) {
         
-        let groupDocument = groupDatebase.document(groupID)
+        let groupDocument = groupDatabase.document(groupID)
         
         groupDocument.getDocument { (querySnapshot, _) in
             
@@ -432,11 +432,11 @@ class FirebaseDataManeger {
     }
     
     // MARK: 用 uid 搜尋會員 Name - Done
-    func searchUserInfo(_ userID: String) {
+    func getUserInfo(_ userID: String) {
         
-        let uesrInfoDocument = userInfoDatebase.document(userID)
+        let userInfoDocument = userInfoDatabase.document(userID)
         
-        uesrInfoDocument.getDocument { (querySnapshot, _) in
+        userInfoDocument.getDocument { (querySnapshot, _) in
                         
             if let querySnapshot = querySnapshot {
                 
@@ -451,11 +451,11 @@ class FirebaseDataManeger {
     }
     
     // MARK: 上傳使用者所在位置 - Done
-    func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLoction: CLLocationCoordinate2D) {
+    func uploadUserLocation(_ groupID: String, _ userUID: String, _ userLocation: CLLocationCoordinate2D) {
         
-        let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
+        let userInfo = groupDatabase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
         
-        let geoPoint = userLoction.transferToGeopoint()
+        let geoPoint = userLocation.transferToGeopoint()
         
         let locationData = ["name": FirebaseAccountManager.shared.userName!,
                             "location": geoPoint] as [String: Any]
@@ -466,7 +466,7 @@ class FirebaseDataManeger {
     // MARK: 監聽同伴所在位置 - Done
     func observerOfMemberLocation(_ groupID: String, completion: @escaping (LocationOfMember) -> Void) {
         
-        let memberLocationData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
+        let memberLocationData = groupDatabase.document(groupID).collection(GroupKey.member.rawValue)
         
         memberLocationData.addSnapshotListener { (querySnapshot, _) in
             
@@ -506,7 +506,7 @@ class FirebaseDataManeger {
     // MARK: 監聽結果 - Done
     func observerOfResult(_ groupID: String, completion: @escaping ([MemberData]) -> Void) {
         
-        let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
+        let ridingResultData = groupDatabase.document(groupID).collection(GroupKey.member.rawValue)
         
         ridingResultData.addSnapshotListener { (querySnapshot, _) in
             
@@ -530,7 +530,7 @@ class FirebaseDataManeger {
     // MARK: 更新結果 - Done
     private func updateRidingResult(_ groupID: String, completion: @escaping ([MemberData]) -> Void) {
         
-        let ridingResultData = groupDatebase.document(groupID).collection(GroupKey.member.rawValue)
+        let ridingResultData = groupDatabase.document(groupID).collection(GroupKey.member.rawValue)
             .order(by: "spendTime", descending: false)
         
         ridingResultData.getDocuments { (querySnapshot, _) in
@@ -605,7 +605,7 @@ class FirebaseDataManeger {
     // MARK: 上傳騎乘紀錄 要把 isFinish 改為 true
     func uploadRidingData(_ groupID: String, _ userUID: String, _ ridingData: MemberData) {
         
-        let userInfo = groupDatebase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
+        let userInfo = groupDatabase.document(groupID).collection(GroupKey.member.rawValue).document(userUID)
         
         let ridingData = [MemberInfoKey.name.rawValue: ridingData.name,
                           MemberInfoKey.spendTime.rawValue: ridingData.spendTime!,
@@ -623,7 +623,7 @@ class FirebaseDataManeger {
     // MARK: 將群組狀態改為已完成
     private func groupIsFinished(groupID: String) {
         
-        let groupDocument = groupDatebase.document(groupID)
+        let groupDocument = groupDatabase.document(groupID)
         
         groupDocument.setData(["isFinished": true], merge: true)
     }
@@ -636,7 +636,7 @@ class FirebaseDataManeger {
         let userInfoData: [String: Any] = [UserInfoKey.name.rawValue: userName,
                                            UserInfoKey.email.rawValue: userEmail]
         
-        userInfoDatebase.document(userUID).setData(userInfoData, merge: true)
+        userInfoDatabase.document(userUID).setData(userInfoData, merge: true)
     }
 }
 // swiftlint:enable multiple_closures_with_trailing_closure

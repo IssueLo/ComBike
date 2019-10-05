@@ -94,14 +94,8 @@ class RidingResultViewController: UIViewController {
         
         ridingResultHeaderView.handler = {
             
-//            self.dismiss(animated: true) {
-//
-//                self.backToRoot()
-//            }
-            
             self.backToRoot()
             
-//            self.tabBarController?.selectedIndex = 1
         }
         
         if FirebaseAccountManager.shared.userPhotoURL != nil {
@@ -120,7 +114,7 @@ class RidingResultViewController: UIViewController {
                                            "00：00：00")
         }
         
-        FirebaseDataManeger.shared.observerOfResult(groupData.groupID) { [weak self](result) in
+        FirebaseDataManager.shared.observerOfResult(groupData.groupID) { [weak self](result) in
             
             self?.memberResultInfo = result
             
@@ -136,13 +130,11 @@ class RidingResultViewController: UIViewController {
         
         for number in 0..<memberResultInfo.count
             where FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
-            
-//            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
                 
-                guard let altitudeData = memberResultInfo[number].altitude else { return }
+                if let altitudeData = memberResultInfo[number].altitude {
                 
-                self.userPolylineView.updateChartsData(altitudeData)
-//            }
+                    self.userPolylineView.updateChartsData(altitudeData)
+                }
         }
     }
     
@@ -150,9 +142,7 @@ class RidingResultViewController: UIViewController {
         
         for number in 0..<memberResultInfo.count
             where FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
-            
-//            if FirebaseAccountManager.shared.userName == memberResultInfo[number].name {
-                
+                            
                 guard let polylineData = memberResultInfo[number].route else { return }
                 
                 if polylineData.count == 0 {
@@ -172,7 +162,6 @@ class RidingResultViewController: UIViewController {
                 PolylineManager.shared.mapView = self.polylineMapView
                 
                 PolylineManager.shared.showPolyline(polylineCode: polylineCode)
-//            }
         }
 
     }
@@ -211,7 +200,7 @@ extension RidingResultViewController: UITableViewDataSource {
         
         ridingResultCell.rankingLabel.text = String(indexPath.row + 1)
         
-        ridingResultCell.spendTimeLebal.text = spendTime
+        ridingResultCell.spendTimeLabel.text = spendTime
         
         self.updateUserInfo(memberResultInfo[indexPath.row].name,
                             (indexPath.row + 1),
@@ -219,7 +208,7 @@ extension RidingResultViewController: UITableViewDataSource {
         
         let memberUID = memberResultInfo[indexPath.row].uid
         
-        FirebaseDataManeger.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
+        FirebaseDataManager.shared.searchMemberPhoto(memberUID: memberUID) { (result) in
             
             switch result {
                 
@@ -282,10 +271,6 @@ extension RidingResultViewController: UITableViewDataSource {
 
 extension RidingResultViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 70
-//    }
 }
 
 extension RidingResultViewController: MKMapViewDelegate {
@@ -300,6 +285,5 @@ extension RidingResultViewController: MKMapViewDelegate {
         renderer.lineWidth = 5.0
         
         return renderer
-        
     }
 }

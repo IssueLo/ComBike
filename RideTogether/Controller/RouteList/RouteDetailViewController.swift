@@ -13,8 +13,6 @@ class RouteDetailViewController: UIViewController {
     
     var routeData: RouteData!
     
-    @IBOutlet weak var routeImageView: UIImageView!
-    
     @IBOutlet weak var routeMapView: MKMapView! {
         
         didSet {
@@ -23,28 +21,19 @@ class RouteDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var mapBackView: UIView! {
+    @IBOutlet weak var routeDetailView: RouteDetailView! {
         
         didSet {
             
-            mapBackView.addRoundOnTop()
+            routeDetailView.addRoundOnTop()
             
-            mapBackView.addShadow(offset: CGSize(width: 3, height: -2), opacity: 0.4)
+            routeDetailView.addShadow(offset: CGSize(width: 3, height: -2), opacity: 0.4)
         }
     }
-    
-    @IBOutlet weak var distanceLabel: UILabel!
-    
-    @IBOutlet weak var elevationLabel: UILabel!
-    
-    @IBOutlet weak var locationLabel: UILabel!
-    
-    @IBOutlet weak var aveAlopeLabel: UILabel!
     
     @IBAction func backLastPage() {
         
         navigationController?.popViewController(animated: true)
-//        presentingViewController?.dismiss(animated: false, completion: nil)
         
         navigationController?.isNavigationBarHidden = false
     }
@@ -59,29 +48,14 @@ class RouteDetailViewController: UIViewController {
     
     func setupInform() {
         
+        routeDetailView.setView(routeData: routeData)
+        
         let polylineCode = routeData.map.polyline
         
         PolylineManager.shared.mapView = self.routeMapView
         
         PolylineManager.shared.showPolyline(polylineCode: polylineCode)
-        
-        let urlString = "https://bike100.tw/wp-content/uploads/\(routeData.routeID).jpg"
-        
-        locationLabel.text = routeData.name
-        
-        distanceLabel.text = String(format: "%.2f", (routeData.distance) * 2 / 1000) + " km"
-            
-        elevationLabel.text = String(format: "%.2f", routeData.elevationGain) + " m"
-        
-        let aveAlope: Double = {
-            
-            return (routeData.distance / 1000) / (routeData.elevationGain / 100)
-        }()
-        
-        aveAlopeLabel.text = String(format: "%.1f", aveAlope) + " %"
-        
-        routeImageView.setImage(urlString: urlString)
-    }
+     }
 }
 
 extension RouteDetailViewController: MKMapViewDelegate {

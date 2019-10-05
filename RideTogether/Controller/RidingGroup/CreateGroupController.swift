@@ -21,7 +21,7 @@ class CreateGroupController: UIViewController {
         
         didSet {
             
-            groupImageView.addRound(radis: Double(groupImageView.bounds.width / 2),
+            groupImageView.addRound(radius: Double(groupImageView.bounds.width / 2),
                                     borderWidth: 0.8,
                                     borderColor: .black)
         }
@@ -39,12 +39,14 @@ class CreateGroupController: UIViewController {
         
         didSet {
 
-            createGroupBtn.addRound(radis: 16,
+            createGroupBtn.addRound(radius: 16,
                                     backgroundColor: .hexStringToUIColor())
             
             createGroupBtn.setTitleColor(.white, for: .normal)
             
-            createGroupBtn.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
+            createGroupBtn.addTarget(self,
+                                     action: #selector(createGroup),
+                                     for: .touchUpInside)
         }
     }
     
@@ -73,11 +75,11 @@ class CreateGroupController: UIViewController {
             
         } else {
         
-            FirebaseDataManeger.shared.createGroup(groupName) { [weak self](message) in
+            FirebaseDataManager.shared.createGroup(groupName) { [weak self](message) in
                 
                 self?.showAlert(message, { (_) in
                     
-                    self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: false)
                 })
             }
         }
@@ -86,8 +88,7 @@ class CreateGroupController: UIViewController {
     @objc
     func backGroupVC() {
         
-        dismiss(animated: false, completion: nil)
-//        presentingViewController?.dismiss(animated: false, completion: nil)
+        dismiss(animated: false)
     }
     
     override func viewDidLoad() {

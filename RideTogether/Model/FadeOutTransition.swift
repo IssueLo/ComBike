@@ -18,7 +18,7 @@ class FadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromVC = transitionContext.viewController(forKey: .from) as? UserIndicaterController
+        let fromVC = transitionContext.viewController(forKey: .from) as? UserIndicatorController
         let fromView = fromVC?.view
         
         let toVC = transitionContext.viewController(forKey: .to)
@@ -44,11 +44,11 @@ class FadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
                                            width: UIScreen.main.bounds.width + 60,
                                            height: UIScreen.main.bounds.height + 60)
             
-        }, completion: { finished in
+        }, completion: { _ in // finished
             UIView.animate(withDuration: 0.8, animations: {
                 toView?.alpha = 1
                 
-            }, completion: { finished in
+            }, completion: { _ in // finished
                 
                 // 通知完成轉場
                 transitionContext.completeTransition(true)
@@ -85,11 +85,11 @@ class StartFadeOutTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             self.handler()
             
-        }, completion: { finished in
+        }, completion: { _ in // finished
             UIView.animate(withDuration: 0.8, animations: {
                 toView?.alpha = 1
                 
-            }, completion: { finished in
+            }, completion: { _ in // finished
                 
                 // 通知完成轉場
                 transitionContext.completeTransition(true)
