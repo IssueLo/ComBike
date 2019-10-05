@@ -19,7 +19,6 @@
 		95156218234724E800F05BD0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156217234724E800F05BD0 /* DateManager.swift */; };
 		95164DC423488ABC00D51B81 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */; };
 		95164DC62348A61B00D51B81 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC52348A61B00D51B81 /* FirebaseStorageManager.swift */; };
-		95164DC82348AECB00D51B81 /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC72348AECB00D51B81 /* GroupDetailView.swift */; };
 		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
 		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
@@ -117,7 +116,6 @@
 		95156217234724E800F05BD0 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		95164DC52348A61B00D51B81 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
-		95164DC72348AECB00D51B81 /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
@@ -355,7 +353,6 @@
 			children = (
 				9528069B231E086200EFD895 /* GroupListViewController.swift */,
 				952806AE231E512700EFD895 /* CreateGroupController.swift */,
-				95164DC72348AECB00D51B81 /* GroupDetailView.swift */,
 				9528069F231E101200EFD895 /* GroupDetailViewController.swift */,
 				95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */,
 				952806A4231E3AF200EFD895 /* RidingViewController.swift */,
@@ -793,7 +790,6 @@
 				9589DD77232537FC003A9A87 /* RidingResultHeaderView.swift in Sources */,
 				95EA35C8233B7870006D4FAC /* FirstPageController.swift in Sources */,
 				95CFD17D231F894400329927 /* FirebaseKey.swift in Sources */,
-				95164DC82348AECB00D51B81 /* GroupDetailView.swift in Sources */,
 				95CFD184231FEEBA00329927 /* Polyline.swift in Sources */,
 				95CFD177231F677E00329927 /* TabBarViewController.swift in Sources */,
 				95456784232795B6009DA63B /* UserLogInView.swift in Sources */,

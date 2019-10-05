@@ -20,10 +20,10 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            infoView.addRoundOnTop()
-            
-            infoView.addShadow(offset: CGSize(width: 3, height: -2),
-                               opacity: 0.4)
+//            infoView.addRoundOnTop()
+//
+//            infoView.addShadow(offset: CGSize(width: 3, height: -2),
+//                               opacity: 0.4)
         }
     }
     
@@ -31,8 +31,8 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            currentSpeedView.addRound(radius: Double(currentSpeedView.bounds.width / 2),
-                                      borderWidth: 2)
+//            currentSpeedView.addRound(radius: Double(currentSpeedView.bounds.width / 2),
+//                                      borderWidth: 2)
         }
     }
     
@@ -40,8 +40,8 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            timeView.addRound(radius: Double(timeView.bounds.width / 2),
-                              borderWidth: 1.5)
+//            timeView.addRound(radius: Double(timeView.bounds.width / 2),
+//                              borderWidth: 1.5)
         }
     }
 
@@ -49,8 +49,8 @@ class RidingViewController: UIViewController {
         
         didSet {
             
-            distanceView.addRound(radius: Double(distanceView.bounds.width / 2),
-                                  borderWidth: 1.5)
+//            distanceView.addRound(radius: Double(distanceView.bounds.width / 2),
+//                                  borderWidth: 1.5)
         }
     }
     
@@ -85,9 +85,7 @@ class RidingViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var currentSpeedLabel: UILabel!
-    
-//    @IBOutlet weak var maximumSpeedLabel: UILabel!
-    
+        
     @IBOutlet weak var distanceLabel: UILabel!
     
     @IBOutlet weak var coverView: UIView!

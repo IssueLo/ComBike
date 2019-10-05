@@ -104,23 +104,28 @@ extension RouteListController: UITableViewDataSource {
         
         routeListCell.handler = { (indexPath) in
             
-            let storyboard = StoryboardCategory.routeDetail.get
-            
-            guard
-                let routeDetailVC = storyboard.instantiateViewController(
-                    withIdentifier: RouteDetailViewController.identifier
-                    )as? RouteDetailViewController
-                
-                else { return }
-            
-            routeDetailVC.routeData = routeListCell.routeListData[indexPath.row]
-            
-            routeDetailVC.hidesBottomBarWhenPushed = true
-            
-            self.show(routeDetailVC, sender: nil)
+            self.showRouteDetailVC(indexPath: indexPath,
+                                   routeListCell: routeListCell)
         }
         
         return routeListCell
+    }
+    
+    func showRouteDetailVC(indexPath: IndexPath, routeListCell: RouteListCell) {
+                
+        guard
+            let routeDetailVC = StoryboardCategory.routeDetail.get
+                .instantiateViewController(
+                withIdentifier: RouteDetailViewController.identifier
+                )as? RouteDetailViewController
+            
+        else { return }
+        
+        routeDetailVC.routeData = routeListCell.routeListData[indexPath.row]
+        
+        routeDetailVC.hidesBottomBarWhenPushed = true
+        
+        self.show(routeDetailVC, sender: nil)
     }
 }
 
