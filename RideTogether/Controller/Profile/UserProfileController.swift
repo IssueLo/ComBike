@@ -12,7 +12,9 @@ import FirebaseAuth
 
 class UserProfileController: UIViewController {
     
-    var titleOfCell = ["隱私權政策", "登出"]
+    let imagePickerViewController = ImagePickerViewController()
+
+    let titleOfCell = ["隱私權政策", "登出"]
     
     @IBOutlet weak var uiView: UIView! {
         didSet {
@@ -47,11 +49,11 @@ class UserProfileController: UIViewController {
             
             profileTableView.delegate = self
             
+            profileTableView.registerCell(nibName: ProfileCell.identifier)
+            
             profileTableView.contentInset.top = 10
         }
     }
-    
-    let imagePickerViewController = ImagePickerViewController()
     
     @IBAction func uploadPhotoAction() {
         
@@ -64,10 +66,7 @@ class UserProfileController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib(nibName: "ProfileCell", bundle: nil)
-        
-        profileTableView.register(nib, forCellReuseIdentifier: "ProfileCell")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,21 +74,17 @@ class UserProfileController: UIViewController {
         
         navigationController?.isNavigationBarHidden = true
 
-        guard let userName = FirebaseAccountManager.shared.userName else {
+        if let userName = FirebaseAccountManager.shared.userName {
             
-            return
+            userNameLabel.text = userName
         }
         
-        userNameLabel.text = userName
-                
-        guard let photoURL = FirebaseAccountManager.shared.userPhotoURL else {
+        if let photoURL = FirebaseAccountManager.shared.userPhotoURL {
             
-            userImage.image = UIImage(named: "UChu")
-            
-            return
+            userImage.setImage(urlString: photoURL)
         }
         
-        userImage.setImage(urlString: photoURL)
+        userImage.image = UIImage.setIcon(.UChu)
     }
 }
 
@@ -107,7 +102,8 @@ extension UserProfileController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.identifier,
+                                                 for: indexPath)
         
         guard let profileCell = cell as? ProfileCell else { return cell }
         
@@ -154,10 +150,9 @@ extension UserProfileController: UITableViewDelegate {
     }
     
     func toPrivacyWebView() {
-        
-        let webViewStoryboard = UIStoryboard(name: "PrivacyWebStoryboard", bundle: nil)
-        
-        let webViewVC = webViewStoryboard.instantiateViewController(identifier: "PrivacyWebController")
+                
+        let webViewVC = StoryboardCategory.privacyWeb.get
+            .instantiateViewController(identifier: PrivacyWebController.identifier)
         
         present(webViewVC, animated: true, completion: nil)
     }
@@ -174,7 +169,6 @@ extension UserProfileController: UITableViewDelegate {
 
                 self.tabBarController?.selectedIndex = 1
             }
-            
             // User 資料記得清空啊
             FirebaseAccountManager.shared.userName = nil
             
