@@ -192,7 +192,7 @@ class RidingViewController: UIViewController {
         
         locationManager.stopUpdatingLocation()
         
-        let storyboard = StoryboardCategory.ridingResult.getStoryboard()
+        let storyboard = StoryboardCategory.ridingResult.get
         
         guard
             let ridingResultVC = storyboard.instantiateViewController(

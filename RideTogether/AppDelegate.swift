@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let userIndicatorSB = StoryboardCategory.userIndicator.getStoryboard()
+    let userIndicatorSB = StoryboardCategory.userIndicator.get
     
     lazy var userIndicatorVC = userIndicatorSB.instantiateViewController(
         identifier: UserIndicatorController.identifier
     )
     
-    let tabBarSB = StoryboardCategory.tabBar.getStoryboard()
+    let tabBarSB = StoryboardCategory.tabBar.get
 
     lazy var tabBarVC = tabBarSB.instantiateViewController(
         identifier: TabBarViewController.identifier

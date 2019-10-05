@@ -146,7 +146,7 @@ class GroupListViewController: UIViewController, RemindBackViewDelegate {
         // 由 Model 判斷
         if FirebaseAccountManager.shared.userUID == nil {
 
-            let storyboard = StoryboardCategory.userLogin.getStoryboard()
+            let storyboard = StoryboardCategory.userLogin.get
 
             guard
                 let loginVC = storyboard.instantiateViewController(
@@ -166,7 +166,7 @@ class GroupListViewController: UIViewController, RemindBackViewDelegate {
 
         } else {
 
-            let storyboard = StoryboardCategory.createGroup.getStoryboard()
+            let storyboard = StoryboardCategory.createGroup.get
 
             let createGroupVC = storyboard.instantiateViewController(
                 withIdentifier: CreateGroupController.identifier
@@ -239,7 +239,7 @@ extension GroupListViewController: UITableViewDataSource {
     
     private func showGroupDetailViewController(_ indexPath: IndexPath) {
         
-        let storyboard = StoryboardCategory.groupDetail.getStoryboard()
+        let storyboard = StoryboardCategory.groupDetail.get
         
         guard
             let detailVC = storyboard.instantiateViewController(
@@ -255,7 +255,7 @@ extension GroupListViewController: UITableViewDataSource {
     
     private func presentRidingResultViewController(_ indexPath: IndexPath) {
         
-        let storyboard = StoryboardCategory.ridingResult.getStoryboard()
+        let storyboard = StoryboardCategory.ridingResult.get
         
         guard
             let resultVC = storyboard.instantiateViewController(

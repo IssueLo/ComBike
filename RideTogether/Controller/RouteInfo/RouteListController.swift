@@ -104,7 +104,7 @@ extension RouteListController: UITableViewDataSource {
         
         routeListCell.handler = { (indexPath) in
             
-            let storyboard = StoryboardCategory.routeDetail.getStoryboard()
+            let storyboard = StoryboardCategory.routeDetail.get
             
             guard
                 let routeDetailVC = storyboard.instantiateViewController(
@@ -136,7 +136,7 @@ extension RouteListController: UITableViewDelegate {
         
         headerView?.handler = {
             
-            let storyboard = StoryboardCategory.areaRoute.getStoryboard()
+            let storyboard = StoryboardCategory.areaRoute.get
             
             guard
                 let areaRouteVC = storyboard.instantiateViewController(

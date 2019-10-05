@@ -38,7 +38,7 @@ enum StoryboardCategory: String {
     
     case qrCode = "QRCodeStoryboard"
     
-    func getStoryboard() -> UIStoryboard {
+    var get: UIStoryboard {
         
         return UIStoryboard(name: self.rawValue, bundle: nil)
     }

@@ -67,7 +67,7 @@ class PageViewController: UIPageViewController {
     
     private func getViewController(withStoryboardID storyboardID: String) -> FirstPageController {
         
-        let userIndicatorSB = StoryboardCategory.userIndicator.getStoryboard()
+        let userIndicatorSB = StoryboardCategory.userIndicator.get
         
         let pageController = userIndicatorSB.instantiateViewController(
             identifier: storyboardID

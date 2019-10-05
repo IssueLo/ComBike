@@ -80,7 +80,7 @@ extension AreaRouteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        let storyboard = StoryboardCategory.routeDetail.getStoryboard()
+        let storyboard = StoryboardCategory.routeDetail.get
                     
         guard
             let routeDetailVC = storyboard.instantiateViewController(

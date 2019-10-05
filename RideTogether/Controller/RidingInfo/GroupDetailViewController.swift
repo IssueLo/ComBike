@@ -107,9 +107,7 @@ class GroupDetailViewController: UIViewController {
     
     @objc func showQRCodeVC() {
         
-        let storyboard = StoryboardCategory.qrCode.getStoryboard()
-
-        guard let qrCodeVC = storyboard.instantiateViewController(
+        guard let qrCodeVC = StoryboardCategory.qrCode.get.instantiateViewController(
             withIdentifier: QRCodeViewController.identifier
             ) as? QRCodeViewController
             
@@ -121,7 +119,6 @@ class GroupDetailViewController: UIViewController {
         
         present(qrCodeVC, animated: false)
     }
-    // 相機搬出去
     
     let imagePickerController = ImagePickerViewController()
     
@@ -137,11 +134,9 @@ class GroupDetailViewController: UIViewController {
     
     @objc
     func startRiding() {
-            
-        let storyboard = StoryboardCategory.riding.getStoryboard()
 
         guard
-            let ridingVC = storyboard.instantiateViewController(
+            let ridingVC = StoryboardCategory.riding.get.instantiateViewController(
                 withIdentifier: RidingViewController.identifier
                 ) as? RidingViewController
             
@@ -190,10 +185,6 @@ extension GroupDetailViewController: UITableViewDataSource {
     }
 }
 
-extension GroupDetailViewController: UITableViewDelegate {
-    
-}
-
 extension GroupDetailViewController: ImagePickerViewControllerDelegate {
     
     func uploadImage(image: UIImage?) {
@@ -202,7 +193,7 @@ extension GroupDetailViewController: ImagePickerViewControllerDelegate {
             
             let groupUID = self.groupData.groupID
             
-            FirebaseStorageManager.uploadImage(selectedImage: selectedImage, groupUID: groupUID)
+            FirebaseStorageManager.uploadGroupImage(selectedImage: selectedImage, groupUID: groupUID)
         }
         
         dismiss(animated: true)
