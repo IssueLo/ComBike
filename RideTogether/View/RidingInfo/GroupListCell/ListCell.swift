@@ -10,6 +10,45 @@ import UIKit
 
 class ListCell: UITableViewCell {
     
+    var groupData: GroupData? {
+        
+        didSet {
+            
+            groupNameLabel.text = groupData?.name
+
+            if let isFinished = groupData?.isFinished {
+                
+                if isFinished {
+                    
+                    statusLabel.text = "已完成"
+                    
+                    statusLabel.textColor = .gray
+                    
+                } else {
+                    
+                    statusLabel.text = "進行中"
+                    
+                    statusLabel.textColor = .hexStringToUIColor()
+                }
+                
+            } else {
+                
+                statusLabel.alpha = 0
+                
+                return
+            }
+            
+            if let photoURLString = groupData?.photoURLString {
+                
+                groupImage.setImage(urlString: photoURLString)
+                
+            } else {
+                
+                groupImage.image = UIImage.setIcon(.UChu)
+            }
+        }
+    }
+    
     @IBOutlet weak var groupImage: UIImageView! {
         
         didSet {

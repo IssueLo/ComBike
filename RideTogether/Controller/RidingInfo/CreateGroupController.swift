@@ -54,14 +54,15 @@ class CreateGroupController: UIViewController {
         
         didSet {
             
-//            backGroupVCBtn.imageView?.contentMode = .scaleAspectFit
-//            
-//            backGroupVCBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            
             backGroupVCBtn.addTarget(self,
                                      action: #selector(backGroupVC),
                                      for: .touchUpInside)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
     }
     
     @objc
@@ -89,10 +90,5 @@ class CreateGroupController: UIViewController {
     func backGroupVC() {
         
         dismiss(animated: false)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
     }
 }

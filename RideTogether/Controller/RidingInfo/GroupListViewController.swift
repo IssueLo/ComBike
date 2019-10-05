@@ -139,7 +139,6 @@ class GroupListViewController: UIViewController, RemindBackViewDelegate {
                 return
             }
         }
-
     }
     
     @objc
@@ -216,29 +215,7 @@ extension GroupListViewController: UITableViewDataSource {
         
         let groupData = separatedGroupData[indexPath.section][indexPath.row]
         
-        groupListCell.groupNameLabel.text = groupData.name
-        
-        if groupData.isFinished {
-        
-            groupListCell.statusLabel.text = "已完成"
-            
-            groupListCell.statusLabel.textColor = .gray
-            
-        } else {
-            
-            groupListCell.statusLabel.text = "進行中"
-            
-            groupListCell.statusLabel.textColor = .hexStringToUIColor()
-        }
-        
-        if let photoURLString = groupData.photoURLString {
-            
-            groupListCell.groupImage.setImage(urlString: photoURLString)
-            
-        } else {
-            
-            groupListCell.groupImage.image = UIImage.setIcon(.UChu)
-        }
+        groupListCell.groupData = groupData
                 
         return groupListCell
     }
