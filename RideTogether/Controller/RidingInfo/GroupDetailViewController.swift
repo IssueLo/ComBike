@@ -166,7 +166,7 @@ extension GroupDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier, for: indexPath)
         
         guard
             let groupListCell = cell as? ListCell
@@ -183,7 +183,7 @@ extension GroupDetailViewController: UITableViewDataSource {
             
         } else {
             
-            groupListCell.groupImage.image = UIImage(named: "UChu")
+            groupListCell.groupImage.image = UIImage.setIcon(.UChu)
         }
         
         return groupListCell
@@ -200,38 +200,9 @@ extension GroupDetailViewController: ImagePickerViewControllerDelegate {
         
         if let selectedImage = image {
             
-            let storageRef = Storage.storage().reference().child("GroupPhoto").child("\(groupData.groupID).png")
+            let groupUID = self.groupData.groupID
             
-            if let uploadData = selectedImage.pngData() {
-                // 這行就是 FirebaseStorage 關鍵的存取方法。
-                storageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
-                    
-                    if error != nil {
-                        // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
-                        print("Error: \(error!.localizedDescription)")
-                        return
-                    }
-                    
-                    storageRef.downloadURL { [weak self](url, error) in
-                        
-                        if let error = error {
-                            
-                            print(error)
-                        } else {
-                            
-                            print(url as Any)
-                            
-                            guard
-                                let url = url,
-                                let groupUID = self?.groupData.groupID
-                            else { return }
-                            
-                            FirebaseDataManager.shared.updateGroupPhoto(groupUID,
-                                                                        url.absoluteString)
-                        }
-                    }
-                })
-            }
+            FirebaseStorageManager.uploadImage(selectedImage: selectedImage, groupUID: groupUID)
         }
         
         dismiss(animated: true)

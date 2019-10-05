@@ -18,6 +18,7 @@
 		95156216234714E500F05BD0 /* GroupSortingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156215234714E500F05BD0 /* GroupSortingManager.swift */; };
 		95156218234724E800F05BD0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95156217234724E800F05BD0 /* DateManager.swift */; };
 		95164DC423488ABC00D51B81 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */; };
+		95164DC62348A61B00D51B81 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95164DC52348A61B00D51B81 /* FirebaseStorageManager.swift */; };
 		951764F42343437B0080BC38 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F32343437B0080BC38 /* RouteData.swift */; };
 		951764F6234473A50080BC38 /* Extension+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */; };
 		9518CD9A232673CD00DB1C8B /* Extension+Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */; };
@@ -114,6 +115,7 @@
 		95156215234714E500F05BD0 /* GroupSortingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortingManager.swift; sourceTree = "<group>"; };
 		95156217234724E800F05BD0 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		95164DC323488ABC00D51B81 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		95164DC52348A61B00D51B81 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		951764F32343437B0080BC38 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		951764F5234473A50080BC38 /* Extension+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStoryboard.swift"; sourceTree = "<group>"; };
 		9518CD99232673CD00DB1C8B /* Extension+Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Coordinate.swift"; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				951554BD23193E910080BBB7 /* FirebaseDataManager.swift */,
+				95164DC52348A61B00D51B81 /* FirebaseStorageManager.swift */,
 				95280692231CE3A400EFD895 /* FirebaseAccountManager.swift */,
 				9545C992232C85ED00B74B03 /* GroupData.swift */,
 				9545C994232C8C4C00B74B03 /* MemberData.swift */,
@@ -804,6 +807,7 @@
 				9545C993232C85ED00B74B03 /* GroupData.swift in Sources */,
 				95CFD17B231F734600329927 /* KeyChainManager.swift in Sources */,
 				951E7363232FC5CE00D48B37 /* UserRankView.swift in Sources */,
+				95164DC62348A61B00D51B81 /* FirebaseStorageManager.swift in Sources */,
 				95280693231CE3A400EFD895 /* FirebaseAccountManager.swift in Sources */,
 				953EF924233228A200DD692B /* RouteListCell.swift in Sources */,
 				95EA35D0233B7A96006D4FAC /* PageViewController.swift in Sources */,
