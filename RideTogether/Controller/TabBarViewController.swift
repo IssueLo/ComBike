@@ -22,14 +22,11 @@ private enum Tab {
         
         switch self {
             
-        case .lobby: controller = UIStoryboard(name: "HomePageStoryboard",
-                                               bundle: nil).instantiateInitialViewController()!
+        case .lobby: controller = StoryboardCategory.routeList.get.instantiateInitialViewController()!
             
-        case .ridingInfo: controller = UIStoryboard(name: "GroupStoryboard",
-                                                    bundle: nil).instantiateInitialViewController()!
+        case .ridingInfo: controller = StoryboardCategory.groupList.get.instantiateInitialViewController()!
             
-        case .profile: controller = UIStoryboard(name: "UserProfileStoryboard",
-                                                 bundle: nil).instantiateInitialViewController()!
+        case .profile: controller = StoryboardCategory.userProfile.get.instantiateInitialViewController()!
             
         }
         
@@ -46,20 +43,20 @@ private enum Tab {
             
         case .lobby:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_Recommend"),
-                                selectedImage: UIImage(named: "Icons_Recommend")
+                                image: UIImage.setIcon(.Icons_Recommend),
+                                selectedImage: UIImage.setIcon(.Icons_Recommend)
             )
             
         case .ridingInfo:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_BicycleRider"),
-                                selectedImage: UIImage(named: "Icons_BicycleRider")
+                                image: UIImage.setIcon(.Icons_BicycleRider),
+                                selectedImage: UIImage.setIcon(.Icons_BicycleRider)
             )
         
         case .profile:
             return UITabBarItem(title: nil,
-                                image: UIImage(named: "Icons_Biker"),
-                                selectedImage: UIImage(named: "Icons_Biker")
+                                image: UIImage.setIcon(.Icons_Biker),
+                                selectedImage: UIImage.setIcon(.Icons_Biker)
             )
         }
     }
@@ -72,11 +69,10 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegate = self
         // 不支援暗黑模式
         overrideUserInterfaceStyle = .light
-        
-        delegate = self
-        
+        // 第一次使用顯示導覽頁面，之後不顯示
         UserDefaults.standard.setValue(true, forKey: "UserLogined")
                 
         viewControllers = tabs.map({ $0.callController() })
@@ -84,9 +80,10 @@ class TabBarViewController: UITabBarController {
 //            <#code#>
 //        })
         
-        guard let userUID = FirebaseAccountManager.shared.userUID else { return }
-        
-        FirebaseDataManeger.shared.searchUserInfo(userUID)
+        if let userUID = FirebaseAccountManager.shared.userUID {
+            
+            FirebaseDataManager.shared.getUserInfo(userUID)
+        }
     }
 }
 
@@ -98,30 +95,32 @@ extension TabBarViewController: UITabBarControllerDelegate {
         guard
             let navigationVC = viewController as? UINavigationController,
             navigationVC.viewControllers.first is UserProfileController
+            
         else { return true }
         
         // 確認是否有登入會員
         guard FirebaseAccountManager.shared.userUID != nil else {
 
-            let storyboard = UIStoryboard(name: "UserLogInStoryboard", bundle: nil)
+            let storyboard = StoryboardCategory.userLogin.get
             
-            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "UserLogInController")
-                as? UserLogInController
-            else {
-                return false
-            }
+            guard
+                let loginVC = storyboard.instantiateViewController(
+                    withIdentifier: UserLogInController.identifier
+                    ) as? UserLogInController
+
+            else { return false }
             
             loginVC.toNextVCHandler = { (UIAlertAction) in
                 
                 tabBarController.selectedIndex = 2
                 
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true)
             }
             
             loginVC.modalPresentationStyle = .fullScreen
 
-            present(loginVC, animated: true, completion: nil)
-            
+            present(loginVC, animated: true)
+             
             return false
         }
         

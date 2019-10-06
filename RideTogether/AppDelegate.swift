@@ -17,18 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let userIndicaterSB = UIStoryboard(name: "UserIndicaterStoryboard", bundle: nil)
+    let userIndicatorSB = StoryboardCategory.userIndicator.get
     
-    lazy var userIndicaterVC = userIndicaterSB.instantiateViewController(identifier: "UserIndicaterController")
+    lazy var userIndicatorVC = userIndicatorSB.instantiateViewController(
+        identifier: UserIndicatorController.identifier
+    )
     
-    let tabBarSB = UIStoryboard(name: "TabBarStoryboard", bundle: nil)
-    
-    lazy var tabBarVC = tabBarSB.instantiateViewController(identifier: "TabBarViewController")
+    let tabBarSB = StoryboardCategory.tabBar.get
+
+    lazy var tabBarVC = tabBarSB.instantiateViewController(
+        identifier: TabBarViewController.identifier
+    )
         
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+
         FirebaseApp.configure()
         
         Fabric.with([Crashlytics.self])
@@ -39,11 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         
+        // 正式 release 要取消
 //        UserDefaults.standard.removeObject(forKey: "UserLogined")
         
         if UserDefaults.standard.value(forKey: "UserLogined") == nil {
             
-            self.window?.rootViewController = userIndicaterVC
+            self.window?.rootViewController = userIndicatorVC
             
         } else {
             

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i0s-iM-Vpm">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--單車路線推薦-->
+        <scene sceneID="rYu-gS-Mnn">
+            <objects>
+                <viewController id="wh7-Eb-Aua" customClass="RouteListController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G6s-6N-Qc6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="52P-eW-Gfk">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmI-aK-cbO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backView_main" translatesAutoresizingMaskIntoConstraints="NO" id="Hlu-mK-mYb">
+                                        <rect key="frame" x="121" y="228.5" width="133" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Hlu-mK-mYb" secondAttribute="height" multiplier="2:3" id="3su-Yn-fPo"/>
+                                            <constraint firstAttribute="height" constant="200" id="SMp-HY-4ra"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's ride together !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-20-rCR">
+                                        <rect key="frame" x="83" y="418.5" width="209" height="31"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="22"/>
+                                        <color key="textColor" red="0.95294117649999999" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="GSm-20-rCR" firstAttribute="top" secondItem="Hlu-mK-mYb" secondAttribute="bottom" constant="-10" id="DSw-u6-gOJ"/>
+                                    <constraint firstItem="Hlu-mK-mYb" firstAttribute="centerX" secondItem="rmI-aK-cbO" secondAttribute="centerX" id="mL6-rc-MGi"/>
+                                    <constraint firstItem="GSm-20-rCR" firstAttribute="centerX" secondItem="Hlu-mK-mYb" secondAttribute="centerX" id="wbc-3Z-oOD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5I9-Y8-1yx" firstAttribute="trailing" secondItem="52P-eW-Gfk" secondAttribute="trailing" id="3Ky-Mz-bg7"/>
+                            <constraint firstItem="5I9-Y8-1yx" firstAttribute="bottom" secondItem="52P-eW-Gfk" secondAttribute="bottom" id="OlH-ra-8Cc"/>
+                            <constraint firstItem="rmI-aK-cbO" firstAttribute="top" secondItem="G6s-6N-Qc6" secondAttribute="top" id="RpO-x4-PA8"/>
+                            <constraint firstItem="52P-eW-Gfk" firstAttribute="top" secondItem="5I9-Y8-1yx" secondAttribute="top" id="U8F-wB-dY1"/>
+                            <constraint firstItem="Hlu-mK-mYb" firstAttribute="centerY" secondItem="5I9-Y8-1yx" secondAttribute="centerY" constant="-27" id="cdW-4d-bxO"/>
+                            <constraint firstItem="rmI-aK-cbO" firstAttribute="trailing" secondItem="5I9-Y8-1yx" secondAttribute="trailing" id="gYR-rd-wA6"/>
+                            <constraint firstItem="rmI-aK-cbO" firstAttribute="bottom" secondItem="5I9-Y8-1yx" secondAttribute="bottom" id="mJv-75-Mb3"/>
+                            <constraint firstItem="rmI-aK-cbO" firstAttribute="leading" secondItem="5I9-Y8-1yx" secondAttribute="leading" id="vBP-F9-Cs3"/>
+                            <constraint firstItem="52P-eW-Gfk" firstAttribute="leading" secondItem="5I9-Y8-1yx" secondAttribute="leading" id="wq8-4i-KXR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5I9-Y8-1yx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="單車路線推薦" id="M5Q-Gu-dNf">
+                        <barButtonItem key="backBarButtonItem" title=" " id="XEI-82-viV">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="launchScreen" destination="rmI-aK-cbO" id="y9j-OA-StQ"/>
+                        <outlet property="routeListTableView" destination="52P-eW-Gfk" id="OYK-eu-oUm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYB-RN-4C2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="120.98950524737631"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VPM-nh-u1H">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i0s-iM-Vpm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="56Q-ai-nlW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wh7-Eb-Aua" kind="relationship" relationship="rootViewController" id="bHT-G6-gQO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="woC-LS-NK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.19999999999999" y="120.98950524737631"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backView_main" width="152" height="231"/>
+    </resources>
+</document>

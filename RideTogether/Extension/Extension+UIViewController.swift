@@ -1,5 +1,5 @@
 //
-//  extansion.swift
+//  Extension+UIViewController.swift
 //  RideTogether
 //
 //  Created by 戴汝羽 on 2019/9/3.
@@ -9,6 +9,11 @@
 import UIKit
 
 extension UIViewController {
+    
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
     
     func showAlert(_ message: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
         
@@ -25,9 +30,9 @@ extension UIViewController {
         
         if self is UITabBarController {
 
-            let currnetVC = (self as? UITabBarController)?.selectedViewController
+            let currentVC = (self as? UITabBarController)?.selectedViewController
 
-            currnetVC?.backToRoot(completion: completion)
+            currentVC?.backToRoot(completion: completion)
 
             return
         }
@@ -40,7 +45,7 @@ extension UIViewController {
         
         if presentingViewController != nil {
             
-            if presentingViewController is UserIndicaterController {
+            if presentingViewController is UserIndicatorController {
                 
                 return
             }

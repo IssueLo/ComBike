@@ -1,5 +1,5 @@
 //
-//  Extansion+UIButton.swift
+//  Extension+UIButton.swift
 //  RideTogether
 //
 //  Created by 戴汝羽 on 2019/9/12.
@@ -10,12 +10,17 @@ import UIKit
 
 extension UIView {
     
-    func addRound(radis: Double = 27,
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+    
+    func addRound(radius: Double = 27,
                   borderWidth: Double = 0,
                   borderColor: UIColor = .lightGray,
                   backgroundColor: UIColor = .white) {
         
-        self.layer.cornerRadius = CGFloat(radis)
+        self.layer.cornerRadius = CGFloat(radius)
         
         self.layer.borderWidth = CGFloat(borderWidth)
         
@@ -24,12 +29,12 @@ extension UIView {
         self.backgroundColor = backgroundColor
     }
     
-    func addRoundOnTop(radis: Double = 15,
+    func addRoundOnTop(radius: Double = 15,
                        borderWidth: Double = 0,
                        borderColor: UIColor = .lightGray,
                        backgroundColor: UIColor = .white) {
         
-        self.layer.cornerRadius = CGFloat(radis)
+        self.layer.cornerRadius = CGFloat(radius)
         
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         

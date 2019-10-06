@@ -30,6 +30,6 @@ class QRCodeViewController: UIViewController {
     
     func makeQRCodeImage(_ groupID: String) -> UIImage? {
         
-        return QRCodeMaker.shared.generateQRCode(from: groupID) ?? nil
+        return QRCodeMaker.generateQRCode(from: groupID) ?? nil
     }
 }

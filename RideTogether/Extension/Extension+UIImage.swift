@@ -8,7 +8,33 @@
 
 import UIKit
 
+enum IconImage: String {
+    
+    // swiftlint:disable identifier_name
+    case Icons_Recommend
+    
+    case Icons_BicycleRider
+    
+    case Icons_Biker
+    
+    case Icons_CreateGroup
+    
+    case Icons_QRCodeScan
+    
+    case UChu
+    
+    case Icons_QRCode
+    
+    case Icons_Camera
+    // swiftlint:enable identifier_name
+}
+
 extension UIImage {
+    
+    static func setIcon(_ iconImage: IconImage) -> UIImage? {
+        
+        return UIImage(named: iconImage.rawValue)
+    }
 
     //等比率缩放
     func scaleImage(scaleSize: CGFloat) -> UIImage {

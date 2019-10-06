@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--GroupName-->
+        <scene sceneID="0dz-Gq-rKw">
+            <objects>
+                <viewController storyboardIdentifier="GroupDetailViewController" id="iuE-XP-EsE" customClass="GroupDetailViewController" customModule="ComBike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iNs-wx-fJM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NWX-fZ-KuN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-m2-htZ">
+                                <rect key="frame" x="132.5" y="569" width="110" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="8Wg-Gy-T70"/>
+                                    <constraint firstAttribute="width" constant="110" id="uVg-Yo-pLe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                                <state key="normal" title="開始">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startRiding" destination="iuE-XP-EsE" eventType="touchUpInside" id="oKm-an-aLi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="trailing" secondItem="NWX-fZ-KuN" secondAttribute="trailing" id="FfY-xt-kk3"/>
+                            <constraint firstItem="GOA-m2-htZ" firstAttribute="centerX" secondItem="iNs-wx-fJM" secondAttribute="centerX" id="FuQ-gY-suD"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="NWX-fZ-KuN" secondAttribute="bottom" constant="122" id="Ne8-15-cnA"/>
+                            <constraint firstItem="2lP-d5-5cN" firstAttribute="bottom" secondItem="GOA-m2-htZ" secondAttribute="bottom" constant="44" id="OQl-XA-eYY"/>
+                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="top" secondItem="2lP-d5-5cN" secondAttribute="top" id="Zg1-k3-sov"/>
+                            <constraint firstItem="NWX-fZ-KuN" firstAttribute="leading" secondItem="2lP-d5-5cN" secondAttribute="leading" id="vdf-GE-m3n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2lP-d5-5cN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="GroupName" id="IPO-IX-Rrz"/>
+                    <connections>
+                        <outlet property="memberListTableView" destination="NWX-fZ-KuN" id="Lq5-Ni-Yrw"/>
+                        <outlet property="startBtn" destination="GOA-m2-htZ" id="t0d-eF-cFa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXH-ak-n8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061.5999999999999" y="100.29985007496252"/>
+        </scene>
+    </scenes>
+</document>

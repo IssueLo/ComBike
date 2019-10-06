@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fXD-hm-OTL" customClass="GroupListHeaderView" customModule="ComBike" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-KB-SGZ">
+                    <rect key="frame" x="24" y="14.5" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xr-D0-gcJ">
+                    <rect key="frame" x="319" y="13" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="hgl-BP-Ezh"/>
+                        <constraint firstAttribute="width" secondItem="7xr-D0-gcJ" secondAttribute="height" multiplier="1:1" id="xAa-wk-KKu"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="Icons_24px_Next"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Nw5-KB-SGZ" firstAttribute="leading" secondItem="fXD-hm-OTL" secondAttribute="leading" constant="24" id="23e-8Q-HCN"/>
+                <constraint firstItem="Nw5-KB-SGZ" firstAttribute="centerY" secondItem="fXD-hm-OTL" secondAttribute="centerY" id="QQo-wU-4hE"/>
+                <constraint firstItem="7xr-D0-gcJ" firstAttribute="centerY" secondItem="fXD-hm-OTL" secondAttribute="centerY" id="WRC-Ow-jIF"/>
+                <constraint firstAttribute="trailing" secondItem="7xr-D0-gcJ" secondAttribute="trailing" constant="24" id="hRI-ZF-a6e"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="lTR-eo-A14"/>
+            <connections>
+                <outlet property="createDateLabel" destination="Nw5-KB-SGZ" id="WU0-hI-Yep"/>
+                <outlet property="sectionControlBtn" destination="7xr-D0-gcJ" id="25B-dn-HXw"/>
+            </connections>
+            <point key="canvasLocation" x="23.913043478260871" y="115.84821428571428"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="Icons_24px_Next" width="32" height="32"/>
+    </resources>
+</document>
