@@ -291,6 +291,7 @@
 				953EA706234639A700D2EC02 /* RouteHeaderView */,
 				953EF912233123E200DD692B /* RouteListCell */,
 				9563D66A233F9E0A00072349 /* AreaRouteCell */,
+				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
 				9563D668233E215800072349 /* RouteCollectionViewLayout.swift */,
 			);
 			path = RouteInfo;
@@ -425,7 +426,6 @@
 		9563D66A233F9E0A00072349 /* AreaRouteCell */ = {
 			isa = PBXGroup;
 			children = (
-				953EA702234634B300D2EC02 /* RouteDetailView.swift */,
 				9563D66B23409E6E00072349 /* AreaRouteCell.swift */,
 				9563D66D23409E8300072349 /* AreaRouteCell.xib */,
 			);

@@ -21,6 +21,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73I-4C-wGO" customClass="RouteDetailView" customModule="ComBike" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="321.5" width="375" height="385.5"/>
                                 <subviews>
+                                    <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BtY-SB-cA8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="385.5"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="V4U-nn-Rw0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="385.5"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M3-SI-64k">
                                         <rect key="frame" x="149.5" y="24" width="76" height="23"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
@@ -118,6 +126,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6M3-SI-64k" firstAttribute="centerX" secondItem="73I-4C-wGO" secondAttribute="centerX" id="0o2-Gb-4ND"/>
                                     <constraint firstItem="ciq-fC-COP" firstAttribute="leading" secondItem="qEl-9I-oew" secondAttribute="leading" id="2Dm-Uk-zbh"/>
@@ -125,6 +134,7 @@
                                     <constraint firstItem="zyr-p7-5RM" firstAttribute="leading" secondItem="qEl-9I-oew" secondAttribute="trailing" constant="1" id="6cw-gA-jgE"/>
                                     <constraint firstAttribute="bottom" secondItem="UUM-y0-rq7" secondAttribute="bottom" constant="76" id="7zj-uE-aoA"/>
                                     <constraint firstItem="ciq-fC-COP" firstAttribute="centerY" secondItem="eeq-Na-Slk" secondAttribute="centerY" constant="-2" id="Edb-nO-rIf"/>
+                                    <constraint firstAttribute="bottom" secondItem="BtY-SB-cA8" secondAttribute="bottom" id="GwE-P7-u43"/>
                                     <constraint firstItem="zWh-Ym-O7Z" firstAttribute="trailing" secondItem="RRa-tx-P5n" secondAttribute="trailing" id="HFL-c2-BPW"/>
                                     <constraint firstItem="RRa-tx-P5n" firstAttribute="leading" secondItem="Kzq-XO-3Wz" secondAttribute="leading" id="HhY-ep-ziP"/>
                                     <constraint firstItem="oPC-HQ-IMg" firstAttribute="centerY" secondItem="Fvp-Rl-vqa" secondAttribute="centerY" constant="-2" id="LOQ-xN-ZTW"/>
@@ -134,12 +144,15 @@
                                     <constraint firstAttribute="trailing" secondItem="Kzq-XO-3Wz" secondAttribute="trailing" constant="16" id="Xuh-uQ-hnQ"/>
                                     <constraint firstItem="qEl-9I-oew" firstAttribute="centerY" secondItem="zyr-p7-5RM" secondAttribute="centerY" constant="-2" id="Zyw-qM-LUf"/>
                                     <constraint firstItem="oPC-HQ-IMg" firstAttribute="leading" secondItem="qEl-9I-oew" secondAttribute="leading" id="cTK-s2-Ixf"/>
+                                    <constraint firstItem="BtY-SB-cA8" firstAttribute="leading" secondItem="73I-4C-wGO" secondAttribute="leading" id="dC1-ky-5S1"/>
+                                    <constraint firstAttribute="trailing" secondItem="BtY-SB-cA8" secondAttribute="trailing" id="ftw-Bf-G3X"/>
                                     <constraint firstItem="RRa-tx-P5n" firstAttribute="trailing" secondItem="Kzq-XO-3Wz" secondAttribute="trailing" id="nXa-wb-hqd"/>
                                     <constraint firstItem="8qj-ez-NIj" firstAttribute="leading" secondItem="UUM-y0-rq7" secondAttribute="trailing" constant="20" id="oqa-tL-03k"/>
                                     <constraint firstItem="RRa-tx-P5n" firstAttribute="top" secondItem="zyr-p7-5RM" secondAttribute="bottom" constant="9" id="pDB-Rs-FWY"/>
                                     <constraint firstItem="UUM-y0-rq7" firstAttribute="leading" secondItem="Kzq-XO-3Wz" secondAttribute="leading" constant="16" id="qaF-C7-Pkv"/>
                                     <constraint firstItem="8qj-ez-NIj" firstAttribute="centerY" secondItem="UUM-y0-rq7" secondAttribute="centerY" id="qlb-f2-OMo"/>
                                     <constraint firstItem="zWh-Ym-O7Z" firstAttribute="top" secondItem="Fvp-Rl-vqa" secondAttribute="bottom" constant="9" id="vu0-hQ-zHS"/>
+                                    <constraint firstItem="BtY-SB-cA8" firstAttribute="top" secondItem="73I-4C-wGO" secondAttribute="top" id="wy9-kL-ad0"/>
                                     <constraint firstItem="UUM-y0-rq7" firstAttribute="top" secondItem="Kzq-XO-3Wz" secondAttribute="bottom" constant="16" id="x0f-hF-Sh8"/>
                                 </constraints>
                                 <connections>
@@ -151,14 +164,14 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIQ-bE-0XQ">
-                                <rect key="frame" x="16" y="16" width="27.5" height="22"/>
+                                <rect key="frame" x="16" y="16" width="22" height="22"/>
                                 <state key="normal" image="Icons_44px_Back02"/>
                                 <connections>
                                     <action selector="backLastPage" destination="4Ur-JV-qUQ" eventType="touchUpInside" id="ARO-he-BIQ"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p7G-en-kQi" firstAttribute="trailing" secondItem="u2c-3G-mhH" secondAttribute="trailing" id="Fg2-hC-6IZ"/>
                             <constraint firstItem="VIQ-bE-0XQ" firstAttribute="leading" secondItem="u2c-3G-mhH" secondAttribute="leading" constant="16" id="L5v-gg-XW9"/>
@@ -184,6 +197,6 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Next_02" width="17" height="19"/>
-        <image name="Icons_44px_Back02" width="27.5" height="19"/>
+        <image name="Icons_44px_Back02" width="22" height="12"/>
     </resources>
 </document>

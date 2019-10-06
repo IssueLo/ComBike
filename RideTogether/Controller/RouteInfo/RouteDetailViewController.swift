@@ -24,7 +24,7 @@ class RouteDetailViewController: UIViewController {
     @IBOutlet weak var routeDetailView: RouteDetailView! {
         
         didSet {
-            
+                        
             routeDetailView.addRoundOnTop()
             
             routeDetailView.addShadow(offset: CGSize(width: 3, height: -2), opacity: 0.4)
