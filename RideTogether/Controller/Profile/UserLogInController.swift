@@ -38,7 +38,6 @@ class UserLogInController: UIViewController {
 
     @IBAction func backToLastVC() {
         
-//        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
@@ -55,9 +54,8 @@ class UserLogInController: UIViewController {
     @objc
     func toPrivacyWebView() {
         
-        let webViewStoryboard = UIStoryboard(name: "PrivacyWebStoryboard", bundle: nil)
-        
-        let webViewVC = webViewStoryboard.instantiateViewController(identifier: "PrivacyWebController")
+        let webViewVC = StoryboardCategory.privacyWeb.get
+        .instantiateViewController(identifier: PrivacyWebController.identifier)
         
         present(webViewVC, animated: true, completion: nil)
     }
@@ -171,9 +169,7 @@ extension UserLogInController: UserSignUpViewDelegate {
                 self?.showAlert("註冊成功，已登入", self?.toNextVCHandler)
                                                             
                 // 會員資料儲存到 Firebase
-                guard
-                    let userUID = Auth.auth().currentUser?.uid
-                else { return }
+                guard let userUID = Auth.auth().currentUser?.uid else { return }
                 
                 UserDefaults.standard.setValue(userUID, forKey: "UserUID")
                 

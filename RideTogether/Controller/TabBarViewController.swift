@@ -22,11 +22,11 @@ private enum Tab {
         
         switch self {
             
-        case .lobby: controller = StoryboardCategory.routeList.getStoryboard().instantiateInitialViewController()!
+        case .lobby: controller = StoryboardCategory.routeList.get.instantiateInitialViewController()!
             
-        case .ridingInfo: controller = StoryboardCategory.groupList.getStoryboard().instantiateInitialViewController()!
+        case .ridingInfo: controller = StoryboardCategory.groupList.get.instantiateInitialViewController()!
             
-        case .profile: controller = StoryboardCategory.userProfile.getStoryboard().instantiateInitialViewController()!
+        case .profile: controller = StoryboardCategory.userProfile.get.instantiateInitialViewController()!
             
         }
         
@@ -101,7 +101,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
         // 確認是否有登入會員
         guard FirebaseAccountManager.shared.userUID != nil else {
 
-            let storyboard = StoryboardCategory.userLogin.getStoryboard()
+            let storyboard = StoryboardCategory.userLogin.get
             
             guard
                 let loginVC = storyboard.instantiateViewController(

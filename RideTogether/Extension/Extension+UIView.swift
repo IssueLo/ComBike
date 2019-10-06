@@ -10,6 +10,11 @@ import UIKit
 
 extension UIView {
     
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+    
     func addRound(radius: Double = 27,
                   borderWidth: Double = 0,
                   borderColor: UIColor = .lightGray,
