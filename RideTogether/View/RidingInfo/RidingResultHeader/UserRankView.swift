@@ -32,6 +32,14 @@ class UserRankView: UIView {
                            _ userSubRank: String,
                            _ userSpendtime: String) {
         
+        userNameLabel.alpha = 0
+        
+        userRankLabel.alpha = 0
+        
+        userSubRankLabel.alpha = 0
+
+        userSpendTimeLabel.alpha = 0
+        
         userNameLabel.text = userName
         
         userImageView.setImage(urlString: userImage)
@@ -41,6 +49,17 @@ class UserRankView: UIView {
         userSubRankLabel.text = userSubRank
         
         userSpendTimeLabel.text = userSpendtime
+        
+        UIView.animate(withDuration: 1) {
+            
+            self.userNameLabel.alpha = 1
+            
+            self.userRankLabel.alpha = 1
+                   
+            self.userSubRankLabel.alpha = 1
+
+            self.userSpendTimeLabel.alpha = 1
+        }
     }
     
     func setupUserRankView(_ userName: String,

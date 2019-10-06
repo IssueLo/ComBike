@@ -32,6 +32,8 @@ class RidingResultViewController: UIViewController {
        
         didSet {
             
+            ridingResultTableView.registerCell(nibName: RidingResultCell.identifier)
+            
             ridingResultTableView.contentInset.bottom = 12
             
             ridingResultTableView.contentInset.top = 12
@@ -85,10 +87,6 @@ class RidingResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        let nib = UINib(nibName: "RidingResultCell", bundle: nil)
-        
-        ridingResultTableView.register(nib, forCellReuseIdentifier: "RidingResultCell")
         
         ridingResultHeaderView.setupHeaderView(groupData.name)
         
@@ -99,19 +97,19 @@ class RidingResultViewController: UIViewController {
         }
         
         if FirebaseAccountManager.shared.userPhotoURL != nil {
-            
+
             userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
                                            FirebaseAccountManager.shared.userPhotoURL!,
                                            0,
                                            "",
-                                           "00：00：00")
-            
+                                           "")
+
         } else {
-            
+
             userRankView.setupUserRankView(FirebaseAccountManager.shared.userName!,
                                            0,
                                            "",
-                                           "00：00：00")
+                                           "")
         }
         
         FirebaseDataManager.shared.observerOfResult(groupData.groupID) { [weak self](result) in
@@ -163,7 +161,6 @@ class RidingResultViewController: UIViewController {
                 
                 PolylineManager.shared.showPolyline(polylineCode: polylineCode)
         }
-
     }
 }
 
@@ -190,7 +187,7 @@ extension RidingResultViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = ridingResultTableView.dequeueReusableCell(withIdentifier: "RidingResultCell", for: indexPath)
+        let cell = ridingResultTableView.dequeueReusableCell(withIdentifier: RidingResultCell.identifier, for: indexPath)
         
         guard let ridingResultCell = cell as? RidingResultCell else { return cell }
         

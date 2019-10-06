@@ -192,9 +192,7 @@ extension UserProfileController: ImagePickerViewControllerDelegate {
        
         if let selectedImage = image {
             
-            guard
-                let userUID = FirebaseAccountManager.shared.userUID
-            else { return }
+            guard let userUID = FirebaseAccountManager.shared.userUID else { return }
                         
             FirebaseStorageManager.uploadUserImage(selectedImage: selectedImage,
                                                    userUID: userUID) { [weak self] (url) in

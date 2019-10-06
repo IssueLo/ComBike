@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Icons_44px_white.png",
+      "filename" : "Path 248 (2).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icons_44px_white-1.png",
+      "filename" : "Path 248@2x (2).png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icons_44px_white-2.png",
+      "filename" : "Path 248@3x (2).png",
       "scale" : "3x"
     }
   ],

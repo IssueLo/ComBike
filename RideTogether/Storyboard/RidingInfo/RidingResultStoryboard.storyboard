@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-Pj-rfr">
-                                        <rect key="frame" x="24" y="10.5" width="27.5" height="22"/>
+                                        <rect key="frame" x="24" y="10.5" width="22" height="22"/>
                                         <state key="normal" image="Icons_44px_white"/>
                                         <connections>
                                             <action selector="backToGroupList" destination="Z3K-OB-pBp" eventType="touchUpInside" id="IJT-49-Mhm"/>
@@ -66,7 +66,7 @@
                                                                     <constraint firstAttribute="height" constant="70" id="jh3-Qn-nOW"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-wQ-5T9">
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-wQ-5T9">
                                                                 <rect key="frame" x="64" y="19.5" width="21.5" height="38.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,7 +225,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icons_44px_white" width="27.5" height="19"/>
+        <image name="Icons_44px_white" width="22" height="12"/>
         <image name="UChu" width="89.5" height="89"/>
     </resources>
 </document>
