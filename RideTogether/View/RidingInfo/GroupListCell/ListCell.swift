@@ -48,8 +48,8 @@ class ListCell: UITableViewCell {
         didSet {
             
             groupImage.addRound(radius: Double(groupImage.bounds.width / 2),
-                                borderWidth: 0.7,
-                                borderColor: .black)
+                                borderWidth: 0.3,
+                                borderColor: .gray)
         }
     }
     

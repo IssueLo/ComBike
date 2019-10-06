@@ -15,7 +15,7 @@ class RidingResultCell: UITableViewCell {
         didSet {
             
             memberImage.addRound(radius: Double(memberImage.bounds.width / 2),
-                                 borderWidth: 0.7,
+                                 borderWidth: 0.3,
                                  borderColor: .gray)
         }
     }
