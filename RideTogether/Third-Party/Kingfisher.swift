@@ -12,7 +12,7 @@ import Kingfisher
 extension UIImageView {
     
     func setImage(urlString: String) {
-        
+                                        
         let url = URL(string: urlString)
         
         self.kf.setImage(with: url)

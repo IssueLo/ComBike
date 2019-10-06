@@ -199,7 +199,14 @@ extension UserProfileController: ImagePickerViewControllerDelegate {
             FirebaseStorageManager.uploadUserImage(selectedImage: selectedImage,
                                                    userUID: userUID) { [weak self] (url) in
                 
+                self?.userImage.alpha = 0
+        
                 self?.userImage.kf.setImage(with: url)
+
+                UIView.animate(withDuration: 1) {
+                    
+                    self?.userImage.alpha = 1
+                }
             }
         }
         

@@ -73,7 +73,6 @@ class FirebaseStorageManager {
                         guard let url = url else { return }
                         
                         handler(url)
-//                        self?.userImage.kf.setImage(with: url)
                         
                         FirebaseAccountManager.shared.userPhotoURL = url.absoluteString
 

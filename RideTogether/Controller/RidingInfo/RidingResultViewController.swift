@@ -221,7 +221,14 @@ extension RidingResultViewController: UITableViewDataSource {
                     return
                 }
                 
-                ridingResultCell.memberImage.setImage(urlString: photoURLString)
+                ridingResultCell.memberImage.alpha = 0
+                
+                UIView.animate(withDuration: 1) {
+                    
+                    ridingResultCell.memberImage.alpha = 1
+                    
+                    ridingResultCell.memberImage.setImage(urlString: photoURLString)
+                }
                 
                 return
                 

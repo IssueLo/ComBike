@@ -174,7 +174,14 @@ extension GroupDetailViewController: UITableViewDataSource {
         
         if let photoURLString = self.memberData[indexPath.row].photoURLString {
             
-            groupListCell.groupImage.setImage(urlString: photoURLString)
+            groupListCell.groupImage.alpha = 0
+            
+            UIView.animate(withDuration: 1) {
+                
+                groupListCell.groupImage.alpha = 1
+                
+                groupListCell.groupImage.setImage(urlString: photoURLString)
+            }
             
         } else {
             
