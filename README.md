@@ -148,7 +148,7 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 * 利用 `addSnapshotListener` 監聽群組裡完成路線的成員，依照完成時間排序名次
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-1.PNG" width="200">
-    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="150">
+    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="170">
         
 #### 路線、坡度紀錄
 
