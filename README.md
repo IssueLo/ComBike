@@ -13,14 +13,54 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 
 #### 路線推薦
 
-* 從 Strava API 取得路線資訊，使用 UICollectionViewLayout 實現瀑布流的排版顯示在 CollectionView 上
+* 先發 request 從 `Strava API` 取得 token 後，再使用 token 與路徑 id 取得路線資訊
+
+    ``` swift
+    class StravaAuthManager {
+    
+        static func getToken(completion: @escaping (Result<Token>) -> Void) {
+            
+            let urlRequest = StravaRequest.getToken.makeRequest()
+            
+            HTTPClient.shared.tokenRequest(urlRequest) { (result) in
+                
+                switch result {
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let decoder = JSONDecoder()
+                        
+                        let accessToken = try decoder.decode(Token.self, from: data)
+                                            
+                        completion(Result.success(accessToken))
+                    
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                    completion(Result.failure(error))
+                }
+            }
+        }
+    }
+    ```
+
+* 使用 `UICollectionViewLayout` 實現瀑布流的排版，並顯示在 `CollectionView` 上
       
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/1-1.png" width="200">
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/1-2.png" width="200">
+    
+    
 
 #### 路線詳情
 
-* 使用第三方套件 Polyline 將路線顯示在地圖上
+* 使用第三方套件 `Polyline` 將從 `Strava API` 取得的 `polyline String` encode 為 Polyline
+* 利用 `MKMapView.setRegion` 以路線中心點為地圖中心，將路線顯示在地圖上
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/2.png" width="200">
         
@@ -38,6 +78,23 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
                                             count: coordinates.count)
 
         self.mapView?.addOverlay(geodesic)
+
+        UIView.animate(withDuration: 1.5, animations: { () -> Void in
+            
+            guard let mkPolyline = polyline.mkPolyline else { return }
+            
+            var regionRect = mkPolyline.boundingMapRect
+            let wPadding = regionRect.size.width * 0.3
+            let hPadding = regionRect.size.height * 0.3
+            
+            regionRect.size.width += wPadding
+            regionRect.size.height += hPadding
+            
+            regionRect.origin.x -= wPadding / 2
+            regionRect.origin.y -= hPadding / 2
+            
+            self.mapView?.setRegion(MKCoordinateRegion(regionRect), animated: true)
+        })
     }
     ```
 #### 自行創建群組 or 掃 QR code 加入群組
@@ -49,22 +106,55 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 
 #### 即時更新騎乘資訊
 
-* 在騎乘過程中可隨時更新當前騎乘速度、總時間以及騎乘距離
-* 顯示騎乘路徑
-* 同步更新同伴位置
+* 在騎乘過程中可使用 `Core Location` 的 `CLLocationManager` 取得手機的定位，隨時更新當前騎乘速度，並計算騎乘距離
+* 使用 `Timer` 完成計時器功能
+* 存取 `Core Location` 中的 `CLLocationCoordinate2D`，使用 `Polyline` 將騎乘路徑顯示在 `MKMapView`
+* 利用 `Firebase` 的 `addSnapshotListener` 監聽群組成員位置，並將同伴當前位置製作成 `MKPointAnnotation` 顯示在地圖上
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/4.gif" width="200">
 
+    ``` swift
+    FirebaseDataManager
+            .shared
+            .observerOfMemberLocation(groupData.groupID) { [weak self] locationOfMember in
+            
+                guard let countOfMember = self?.locationOfMember.count else { return }
+                
+                if countOfMember == 0 {
+                
+                    self?.locationOfMember.append(locationOfMember)
+                
+                } else {
+                
+                    for number in 0..<countOfMember {
+                    
+                        if locationOfMember.name == self?.locationOfMember[number].name {
+                        
+                            self?.locationOfMember.remove(at: number)
+                        
+                            break
+                        }
+                    
+                        continue
+                    }
+                
+                    self?.locationOfMember.append(locationOfMember)
+                }
+    }
+    ```
+
 #### 成績排行
 
-* 依照完成時間排序名次
+* 利用 `addSnapshotListener` 監聽群組裡完成路線的成員，依照完成時間排序名次
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-1.PNG" width="200">
-    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="200">
+    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="180">
         
 #### 路線、坡度紀錄
 
-* 紀錄騎乘路徑在 Map 上，以及使用 Charts 顯示坡度紀錄
+* 從 `Firebase` fetch 個人騎乘資料
+* 將資料中 `CLLocationCoordinate2D` 的 array 使用 `Polyline` 轉換成騎乘路徑顯示在 Map
+* 將騎乘資料中儲存 `CoreLocation` 的 `CLLocationDistance`，使用 `Charts` 顯示坡度紀錄
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/6-1.PNG" width="200">
 
