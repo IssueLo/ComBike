@@ -13,7 +13,7 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 
 #### 路線推薦
 
-* 先發 request 從 `Strava API` 取得 token 後，再使用 token 與路徑 id 取得路線資訊
+* 發 `URLRequest` 從 `Strava API` 取得 token 後，再使用 token 與路徑 id 取得路線資訊
 
     ``` swift
     class StravaAuthManager {
@@ -50,7 +50,7 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
     }
     ```
 
-* 使用 `UICollectionViewLayout` 實現瀑布流的排版，並顯示在 `CollectionView` 上
+* 使用 `UICollectionViewLayout` 實現瀑布流的排版，並顯示將資訊在 `CollectionView` 上
       
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/1-1.png" width="200">
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/1-2.png" width="200">
@@ -148,7 +148,7 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 * 利用 `addSnapshotListener` 監聽群組裡完成路線的成員，依照完成時間排序名次
         
     <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-1.PNG" width="200">
-    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="180">
+    <img src="https://github.com/IssueLo/ComBike/blob/develop/ScreenShot/5-2.JPG" width="150">
         
 #### 路線、坡度紀錄
 
