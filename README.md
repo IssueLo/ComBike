@@ -7,7 +7,7 @@ ComBike 是一個為單車初學者而設計的一款 App，結合了 `Combine` 
 * 騎乘過程即時顯示騎乘資訊，如時速、花費時間、距離及騎乘路線
 * 活動結束後會依照完成時間進行群組內的排名，並紀錄個人騎乘路線與坡度表
 
-<a href="https://apps.apple.com/app/id1481074240"><img src="https://i.imgur.com/Pc1KdHw.png" width="100"></a>
+<a href="https://apps.apple.com/tw/app/id1481185096"><img src="https://i.imgur.com/Pc1KdHw.png" width="100"></a>
 
 ## Version History
 
