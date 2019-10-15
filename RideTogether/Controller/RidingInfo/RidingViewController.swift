@@ -16,43 +16,13 @@ class RidingViewController: UIViewController {
     
     var groupData: GroupData!
     
-    @IBOutlet weak var infoView: UIView! {
-        
-        didSet {
-            
-//            infoView.addRoundOnTop()
-//
-//            infoView.addShadow(offset: CGSize(width: 3, height: -2),
-//                               opacity: 0.4)
-        }
-    }
+    @IBOutlet weak var infoView: UIView!
     
-    @IBOutlet weak var currentSpeedView: UIView! {
-        
-        didSet {
-            
-//            currentSpeedView.addRound(radius: Double(currentSpeedView.bounds.width / 2),
-//                                      borderWidth: 2)
-        }
-    }
+    @IBOutlet weak var currentSpeedView: UIView!
     
-    @IBOutlet weak var timeView: UIView! {
-        
-        didSet {
-            
-//            timeView.addRound(radius: Double(timeView.bounds.width / 2),
-//                              borderWidth: 1.5)
-        }
-    }
+    @IBOutlet weak var timeView: UIView!
 
-    @IBOutlet weak var distanceView: UIView! {
-        
-        didSet {
-            
-//            distanceView.addRound(radius: Double(distanceView.bounds.width / 2),
-//                                  borderWidth: 1.5)
-        }
-    }
+    @IBOutlet weak var distanceView: UIView!
     
     @IBOutlet weak var stopButton: UIButton! {
         
